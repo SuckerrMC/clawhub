@@ -28,6 +28,7 @@ import {
   routeToBannedAccountPage,
 } from "../lib/authErrorMessage";
 import { gravatarUrl } from "../lib/gravatar";
+import { navigateWithManualPluginSearch } from "../lib/manualPluginSearch";
 import { PRIMARY_NAV_ITEMS, SECONDARY_NAV_ITEMS } from "../lib/nav-items";
 import { buildPublisherProfileHref, buildSkillDetailHref } from "../lib/ownerRoute";
 import { buildPluginDetailHref, displayPluginPackageName } from "../lib/pluginRoutes";
@@ -42,6 +43,7 @@ import {
   type UnifiedCreatorResult,
   type UnifiedPluginResult,
   type UnifiedSkillResult,
+  type ManualPluginSearch,
 } from "../lib/useUnifiedSearch";
 import { MarketplaceIcon } from "./MarketplaceIcon";
 import { OfficialBadge } from "./OfficialBadge";
@@ -141,6 +143,7 @@ export default function Header() {
     isAuthenticated && me ? {} : "skip",
   );
   const [navSearchQuery, setNavSearchQuery] = useState("");
+  const manualPluginSearchRef = useRef<ManualPluginSearch | null>(null);
   const [typeaheadOpen, setTypeaheadOpen] = useState(false);
   const [typeaheadActiveIndex, setTypeaheadActiveIndex] = useState(0);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
@@ -160,7 +163,10 @@ export default function Header() {
     pluginResults,
     creatorResults,
     isSearching: typeaheadSearching,
+    pluginSearchError,
   } = useUnifiedSearch(navSearchQuery, "all", {
+    manualPluginSearch: manualPluginSearchRef.current,
+    detectPluginHasMore: false,
     debounceMs: 180,
     enabled: typeaheadOpen && hasNavSearchQuery,
     limits: { skills: 4, plugins: 4, creators: 4 },
@@ -284,10 +290,12 @@ export default function Header() {
     e.preventDefault();
     const q = navSearchQuery.trim();
     if (!q) return;
-    void navigate({
-      to: "/search",
-      search: { q, type: undefined },
-    });
+    void navigateWithManualPluginSearch(manualPluginSearchRef.current, () =>
+      navigate({
+        to: "/search",
+        search: { q, type: undefined },
+      }),
+    );
     setNavSearchQuery("");
     setTypeaheadOpen(false);
     setMobileSearchOpen(false);
@@ -542,6 +550,10 @@ export default function Header() {
                   placeholder="Search skills, plugins, and creators"
                   value={navSearchQuery}
                   onChange={(e) => {
+                    manualPluginSearchRef.current = {
+                      query: e.target.value.trim(),
+                      consumed: false,
+                    };
                     setNavSearchQuery(e.target.value);
                     setTypeaheadOpen(true);
                   }}
@@ -560,6 +572,7 @@ export default function Header() {
                 <SearchTypeahead
                   activeIndex={typeaheadActiveIndex}
                   loading={typeaheadSearching}
+                  pluginSearchError={pluginSearchError}
                   onHoverItem={setTypeaheadActiveIndex}
                   onSelectItem={navigateToTypeaheadItem}
                   creatorItems={typeaheadCreatorItems}
@@ -741,6 +754,7 @@ export default function Header() {
                 placeholder="Search skills, plugins, and creators"
                 value={navSearchQuery}
                 onChange={(e) => {
+                  manualPluginSearchRef.current = { query: e.target.value.trim(), consumed: false };
                   setNavSearchQuery(e.target.value);
                   setTypeaheadOpen(true);
                 }}
@@ -773,6 +787,7 @@ export default function Header() {
               <SearchTypeahead
                 activeIndex={typeaheadActiveIndex}
                 loading={typeaheadSearching}
+                pluginSearchError={pluginSearchError}
                 onHoverItem={setTypeaheadActiveIndex}
                 onSelectItem={navigateToTypeaheadItem}
                 creatorItems={typeaheadCreatorItems}
@@ -829,6 +844,7 @@ function SearchTypeahead({
   activeIndex,
   creatorItems,
   loading,
+  pluginSearchError,
   onHoverItem,
   onSelectItem,
   pluginItems,
@@ -838,6 +854,7 @@ function SearchTypeahead({
   activeIndex: number;
   creatorItems: TypeaheadItem[];
   loading: boolean;
+  pluginSearchError?: boolean;
   onHoverItem: (index: number) => void;
   onSelectItem: (item: TypeaheadItem) => void;
   pluginItems: TypeaheadItem[];
@@ -871,7 +888,12 @@ function SearchTypeahead({
             <span>Searching…</span>
           </div>
         ) : null}
-        {hasQuery && !loading && !hasMatches ? (
+        {hasQuery && !loading && pluginSearchError ? (
+          <div role="alert" className="navbar-search-typeahead-status">
+            Unable to search plugins. Please try again later.
+          </div>
+        ) : null}
+        {hasQuery && !loading && !hasMatches && !pluginSearchError ? (
           <div className="navbar-search-typeahead-status">
             No skills, plugins, or creators found for "{query}"
           </div>

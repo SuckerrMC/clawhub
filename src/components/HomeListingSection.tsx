@@ -293,6 +293,7 @@ function createInitialListingCache(initialListing: HomeListingInitialData | null
 export function HomeListingSection({ initialListing = null }: HomeListingSectionProps = {}) {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchRequestRef = useRef(0);
+  const manualPluginQueryRef = useRef<string | null>(null);
   const listingCacheRef = useRef<Map<string, HomeListingCacheEntry> | null>(null);
   listingCacheRef.current ??= createInitialListingCache(initialListing);
   const listingCache = listingCacheRef.current;
@@ -481,6 +482,11 @@ export function HomeListingSection({ initialListing = null }: HomeListingSection
     }
 
     const handle = window.setTimeout(() => {
+      const searchSource =
+        kind === "plugins" && manualPluginQueryRef.current === trimmedSearch
+          ? ("clawhub-web" as const)
+          : undefined;
+      manualPluginQueryRef.current = null;
       const load =
         kind === "skills" && tab === "trending"
           ? searchHomeTrendingSkillListing(trimmedSearch, fetchLimit, controller.signal).then(
@@ -517,6 +523,7 @@ export function HomeListingSection({ initialListing = null }: HomeListingSection
                 })
             : fetchPluginCatalog({
                 q: trimmedSearch,
+                ...(searchSource ? { searchSource } : {}),
                 category: categorySlug,
                 featured: tab === "featured" ? true : undefined,
                 isOfficial: tab === "official" ? true : undefined,
@@ -660,7 +667,10 @@ export function HomeListingSection({ initialListing = null }: HomeListingSection
             label={kind === "skills" ? "Search skills" : "Search plugins"}
             placeholder={kind === "skills" ? "Search skills..." : "Search plugins..."}
             value={searchQuery}
-            onChange={setSearchQuery}
+            onChange={(next) => {
+              manualPluginQueryRef.current = kind === "plugins" ? next.trim() || null : null;
+              setSearchQuery(next);
+            }}
             onClear={searchDisclosure.closeSearch}
             closeLabel="Close search"
           />
