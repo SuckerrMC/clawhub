@@ -1195,7 +1195,7 @@ function compareCatalogItemsForSort(
   return compareCatalogItems(a, b);
 }
 
-function compareCatalogSearchEntries(a: CatalogSearchEntry, b: CatalogSearchEntry) {
+export function compareCatalogSearchEntries(a: CatalogSearchEntry, b: CatalogSearchEntry) {
   return (
     Number(
       isCuratedSearchResult({
