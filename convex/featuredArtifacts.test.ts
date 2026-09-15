@@ -19,6 +19,7 @@ it("uses the public version and current badge owner to require clean, unfeatured
       "featured",
       "hidden",
       "unpublished",
+      "github-missing-source",
     ] as const) {
       const skillId = await ctx.db.insert("skills", {
         slug: status,
@@ -28,6 +29,7 @@ it("uses the public version and current badge owner to require clean, unfeatured
         stats: { downloads: 0, stars: 0, versions: 1, comments: 0 },
         createdAt: 1,
         updatedAt: 1,
+        ...(status === "github-missing-source" ? { installKind: "github" as const } : {}),
         ...(status === "hidden" ? { moderationStatus: "hidden" as const } : {}),
       });
       const versionId = await ctx.db.insert("skillVersions", {

@@ -3,6 +3,7 @@ import type { QueryCtx } from "./_generated/server";
 import { internalQuery } from "./functions";
 import { getSkillBadgeMap, isSkillHighlighted, isSkillOfficial } from "./lib/badges";
 import { isPublicSkillDoc } from "./lib/globalStats";
+import { buildSkillInstallResolution } from "./lib/installResolver";
 import { isOfficialPublisher } from "./lib/officialPublishers";
 import {
   getPackageDownloadSecurityBlock,
@@ -112,7 +113,11 @@ async function readSkill(ctx: QueryCtx, id: string): Promise<SearchCurrentResult
     ) !== "clean"
   )
     eligibilityReasons.push("security-not-clean");
-  if (publicVersion && !publicVersion.files.length && skill.installKind !== "github")
+  if (skill.installKind === "github") {
+    const source = skill.githubSourceId ? await ctx.db.get(skill.githubSourceId) : null;
+    if (!buildSkillInstallResolution({ origin: "https://clawhub.ai", skill, source }).ok)
+      eligibilityReasons.push("not-installable");
+  } else if (publicVersion && !publicVersion.files.length)
     eligibilityReasons.push("not-installable");
   if (isFeatured) eligibilityReasons.push("already-featured");
   return {

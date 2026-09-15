@@ -392,6 +392,38 @@ describe("manual plugin search attribution", () => {
     expect(requests.filter((url) => url.searchParams.has("searchSource"))).toHaveLength(1);
   });
 
+  it("keeps a footer handoff consumed when full results resubmit the query", async () => {
+    Object.defineProperty(Element.prototype, "scrollIntoView", {
+      configurable: true,
+      value: vi.fn(),
+    });
+    pluginResults = makePluginResults(1);
+    const router = await openGlobalSearch();
+    fireEvent.change(await screen.findByRole("combobox"), { target: { value: "notion" } });
+    fireEvent.click(await screen.findByText('See plugin results for "notion"'));
+    const input = await screen.findByPlaceholderText("Search skills, plugins, and creators...");
+    await waitFor(() => expect(router.state.isLoading).toBe(false));
+    await waitFor(() => expect(requests).toHaveLength(2));
+    fireEvent.submit(input.closest("form")!);
+    await waitFor(() => expect(requests).toHaveLength(3));
+    expect(requests.filter((url) => url.searchParams.has("searchSource"))).toHaveLength(1);
+  });
+
+  it("does not label a failed skill catalog query as no matches", async () => {
+    await openGlobalSearch("/search?type=skills");
+    const responseFor = vi.mocked(fetch).getMockImplementation()!;
+    vi.mocked(fetch).mockImplementation((input, init) =>
+      new URL(input instanceof Request ? input.url : input).pathname === "/api/v1/search"
+        ? Promise.resolve(new Response("Unavailable", { status: 503 }))
+        : responseFor(input, init),
+    );
+    const input = screen.getByPlaceholderText("Search skills, plugins, and creators...");
+    fireEvent.change(input, { target: { value: "notion" } });
+    fireEvent.submit(input.closest("form")!);
+    expect(await screen.findByText("Unable to search skills")).toBeTruthy();
+    expect(screen.queryByText(/No matches for/)).toBeNull();
+  });
+
   it("excludes the hidden pagination probe and later pages from manual demand", async () => {
     pluginResults = makePluginResults(26);
     await openGlobalSearch();

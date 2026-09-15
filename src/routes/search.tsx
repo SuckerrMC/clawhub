@@ -294,8 +294,9 @@ function UnifiedSearchPage() {
           <p className="text-ink-soft">Enter a search term to find skills, plugins, and creators</p>
         </Card>
       ) : results.length === 0 &&
-        pluginSearchError &&
-        (activeType === "all" || activeType === "plugins") ? null : results.length === 0 ? (
+        ((pluginSearchError && (activeType === "all" || activeType === "plugins")) ||
+          (skillSearchError &&
+            (activeType === "all" || activeType === "skills"))) ? null : results.length === 0 ? (
         <SearchEmptyState
           activeType={activeType}
           hasOtherTypeMatches={hasOtherTypeMatches}

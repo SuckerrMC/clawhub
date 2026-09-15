@@ -298,16 +298,16 @@ export default function Header() {
     setTypeaheadOpen(true);
   };
 
+  const openSearchResults = (type?: TypeaheadSection) => {
+    void navigateWithManualCatalogSearch(manualCatalogSearchRef.current, () =>
+      navigate({ to: "/search", search: { q: trimmedNavSearchQuery, type } }),
+    );
+  };
+
   const handleNavSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    const q = navSearchQuery.trim();
-    if (!q) return;
-    void navigateWithManualCatalogSearch(manualCatalogSearchRef.current, () =>
-      navigate({
-        to: "/search",
-        search: { q, type: undefined },
-      }),
-    );
+    if (!trimmedNavSearchQuery) return;
+    openSearchResults();
     setNavSearchQuery("");
     setTypeaheadOpen(false);
     setMobileSearchOpen(false);
@@ -324,10 +324,7 @@ export default function Header() {
       }
       const resultOwnerHandle = item.result.ownerHandle?.trim();
       if (!resultOwnerHandle) {
-        void navigate({
-          to: "/search",
-          search: { q: trimmedNavSearchQuery, type: "skills" },
-        });
+        openSearchResults("skills");
         setNavSearchQuery("");
         setTypeaheadOpen(false);
         setMobileSearchOpen(false);
@@ -345,10 +342,7 @@ export default function Header() {
     } else if (item.kind === "creator") {
       const publisherHandle = item.result.creator.handle.trim();
       if (!publisherHandle) {
-        void navigate({
-          to: "/search",
-          search: { q: trimmedNavSearchQuery, type: "creators" },
-        });
+        openSearchResults("creators");
         setNavSearchQuery("");
         setTypeaheadOpen(false);
         setMobileSearchOpen(false);
@@ -358,10 +352,7 @@ export default function Header() {
         to: buildPublisherProfileHref(publisherHandle),
       });
     } else {
-      void navigate({
-        to: "/search",
-        search: { q: trimmedNavSearchQuery, type: item.section },
-      });
+      openSearchResults(item.section);
     }
     setNavSearchQuery("");
     setTypeaheadOpen(false);
