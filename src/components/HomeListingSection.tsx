@@ -20,6 +20,7 @@ import {
   type HomeSkillListingEntry as SkillPageEntry,
   type TrendingFeedState,
 } from "../lib/homeListingData";
+import { consumeManualCatalogSearch, type ManualCatalogSearch } from "../lib/manualCatalogSearch";
 import { formatCompactStat } from "../lib/numberFormat";
 import { fetchPluginCatalog, type PackageListItem } from "../lib/packageApi";
 import { buildPluginDetailHref } from "../lib/pluginRoutes";
@@ -293,7 +294,7 @@ function createInitialListingCache(initialListing: HomeListingInitialData | null
 export function HomeListingSection({ initialListing = null }: HomeListingSectionProps = {}) {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchRequestRef = useRef(0);
-  const manualPluginQueryRef = useRef<string | null>(null);
+  const manualSearchRef = useRef<ManualCatalogSearch | null>(null);
   const listingCacheRef = useRef<Map<string, HomeListingCacheEntry> | null>(null);
   listingCacheRef.current ??= createInitialListingCache(initialListing);
   const listingCache = listingCacheRef.current;
@@ -328,7 +329,10 @@ export function HomeListingSection({ initialListing = null }: HomeListingSection
   const [canonicalTrendingUnavailable, setCanonicalTrendingUnavailable] = useState(
     initialListing?.kind === "skills" && initialListing.trendingState === "unavailable",
   );
-  const clearSearch = useCallback(() => setSearchQuery(""), []);
+  const clearSearch = useCallback(() => {
+    manualSearchRef.current = null;
+    setSearchQuery("");
+  }, []);
   const searchDisclosure = useBrowseSearchDisclosure({
     value: searchQuery,
     onClear: clearSearch,
@@ -483,10 +487,15 @@ export function HomeListingSection({ initialListing = null }: HomeListingSection
 
     const handle = window.setTimeout(() => {
       const searchSource =
-        kind === "plugins" && manualPluginQueryRef.current === trimmedSearch
+        !(kind === "skills" && tab === "trending") &&
+        consumeManualCatalogSearch(
+          manualSearchRef.current,
+          kind === "skills" ? "skill" : "plugin",
+          trimmedSearch,
+        )
           ? ("clawhub-web" as const)
           : undefined;
-      manualPluginQueryRef.current = null;
+      manualSearchRef.current = null;
       const load =
         kind === "skills" && tab === "trending"
           ? searchHomeTrendingSkillListing(trimmedSearch, fetchLimit, controller.signal).then(
@@ -508,6 +517,7 @@ export function HomeListingSection({ initialListing = null }: HomeListingSection
             ? convexHttp
                 .action(api.search.searchNativeSkills, {
                   query: trimmedSearch,
+                  ...(searchSource ? { searchSource } : {}),
                   limit: fetchLimit,
                   ...(tab === "featured" ? { highlightedOnly: true } : {}),
                   ...(tab === "official" ? { officialOnly: true } : {}),
@@ -566,12 +576,14 @@ export function HomeListingSection({ initialListing = null }: HomeListingSection
   const visiblePlugins = (isSearchMode ? searchPlugins : plugins).slice(0, visibleCount);
 
   const handleSeeMore = () => {
+    manualSearchRef.current = null;
     setVisibleCount((count) => count + LISTING_PAGE_SIZE);
     setFetchLimit((limit) => limit + LISTING_PAGE_SIZE);
   };
 
   const handleKindChange = (nextKind: ListingKind) => {
     if (nextKind === kind) return;
+    manualSearchRef.current = null;
     setKind(nextKind);
     setCategorySlug(undefined);
     setTab(
@@ -586,6 +598,7 @@ export function HomeListingSection({ initialListing = null }: HomeListingSection
   };
 
   const handleTabChange = (nextTab: ListingTab) => {
+    manualSearchRef.current = null;
     if (nextTab === "trending") setCategorySlug(undefined);
     setTab(nextTab);
   };
@@ -656,7 +669,10 @@ export function HomeListingSection({ initialListing = null }: HomeListingSection
               <BrowseCategorySelect
                 categories={listingCategories}
                 value={categorySlug}
-                onChange={setCategorySlug}
+                onChange={(category) => {
+                  manualSearchRef.current = null;
+                  setCategorySlug(category);
+                }}
               />
             )}
           </div>
@@ -669,7 +685,14 @@ export function HomeListingSection({ initialListing = null }: HomeListingSection
             value={searchQuery}
             onChange={(next) => {
               if (next.trim() !== trimmedSearch) {
-                manualPluginQueryRef.current = kind === "plugins" ? next.trim() || null : null;
+                manualSearchRef.current =
+                  kind === "skills" && tab === "trending"
+                    ? null
+                    : {
+                        query: next.trim(),
+                        consumed: {},
+                        kinds: [kind === "skills" ? "skill" : "plugin"],
+                      };
               }
               setSearchQuery(next);
             }}

@@ -57,12 +57,21 @@ export async function recordCatalogSearchObservation(
 ) {
   if (request.signal.aborted) return;
   const source = parseCatalogSearchSource(new URL(request.url).searchParams.get("searchSource"));
-  const observation = buildCatalogSearchObservation({ ...facts, source });
+  await recordCatalogSearchFacts(ctx, { ...facts, source });
+}
+
+export async function recordCatalogSearchFacts(
+  ctx: ActionCtx,
+  facts: SearchFacts & { source: SearchSource | undefined },
+) {
+  const observation = buildCatalogSearchObservation(facts);
   if (!observation) return;
   try {
     await ctx.runMutation(internal.pluginSearchObservations.recordInternal, observation);
   } catch {
     // Analytics failure must neither fail search nor disclose a raw query in logs.
-    console.error("[catalog-search-observations] failed to record marked search", { source });
+    console.error("[catalog-search-observations] failed to record marked search", {
+      source: facts.source,
+    });
   }
 }
