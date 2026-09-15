@@ -1,0 +1,595 @@
+{
+  "status": "passed",
+  "mode": "comparison",
+  "baseline": "8298d86e4d",
+  "candidate": "31799f71acbf6e3ac99e6bebffaae3182ad18a99",
+  "routes": [
+    "/ \u2192 Plugins \u2192 Featured",
+    "/plugins?view=grid"
+  ],
+  "surface": "Real local ClawHub frontends, isolated Chromium, anonymous public catalog reads; no mocked pages or responses",
+  "urls": {
+    "baseline": "http://127.0.0.1:3108",
+    "candidate": "http://127.0.0.1:3107"
+  },
+  "lanes": [
+    {
+      "name": "baseline",
+      "steps": [
+        {
+          "name": "home-desktop",
+          "slug": "home-desktop",
+          "screenshot": "home-desktop.png",
+          "status": "passed"
+        },
+        {
+          "name": "browse-grid-desktop",
+          "slug": "browse-grid-desktop",
+          "screenshot": "browse-grid-desktop.png",
+          "status": "passed"
+        },
+        {
+          "name": "home-light",
+          "slug": "home-light",
+          "screenshot": "home-light.png",
+          "status": "passed"
+        },
+        {
+          "name": "home-mobile",
+          "slug": "home-mobile",
+          "screenshot": "home-mobile.png",
+          "status": "passed"
+        },
+        {
+          "name": "browse-grid-mobile",
+          "slug": "browse-grid-mobile",
+          "screenshot": "browse-grid-mobile.png",
+          "status": "passed"
+        },
+        {
+          "name": "home-tablet",
+          "slug": "home-tablet",
+          "screenshot": "home-tablet.png",
+          "status": "passed"
+        },
+        {
+          "name": "home-laptop",
+          "slug": "home-laptop",
+          "screenshot": "home-laptop.png",
+          "status": "passed"
+        }
+      ],
+      "colorAssertions": [
+        {
+          "name": "home-desktop",
+          "icons": [
+            {
+              "src": "/api/v1/skill-icons/4bd0fec4621352f351efbef374d5956e3c2f7c6c521de5d520710f0618ff5e48",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/79e24bf179e94e005912591a67ecdf30f04df50204ff5fa5fed06a8e8eb88532",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            }
+          ],
+          "pass": false
+        },
+        {
+          "name": "browse-grid-desktop",
+          "icons": [
+            {
+              "src": "/api/v1/skill-icons/69376333b305996c5195ed9ef8e000b78fafc76590afa5b2c77afcfbfa1862ad",
+              "filter": "grayscale(1) brightness(1.18)"
+            },
+            {
+              "src": "/api/v1/skill-icons/09fac3c16ff9c131bef3733dbb19f159be217bd86488837f1b02cbb3bb5f0f2f",
+              "filter": "grayscale(1) brightness(1.18)"
+            },
+            {
+              "src": "/api/v1/skill-icons/fd90915d8de506671035a73fc76a7207f1627ddfe683e7667489493fd6340d92",
+              "filter": "grayscale(1) brightness(1.18)"
+            },
+            {
+              "src": "/api/v1/skill-icons/8a2896223c147520628096cb8148e95880fe6cc8daf2ccdd0ef4ad980281de9b",
+              "filter": "grayscale(1) brightness(1.18)"
+            },
+            {
+              "src": "/api/v1/skill-icons/31d26020a04a7e247c030bd65f3855939c97fc321f5ea7643247b001c22442f1",
+              "filter": "grayscale(1) brightness(1.18)"
+            },
+            {
+              "src": "/api/v1/skill-icons/764b46f5fd0c3028272db341234c43a86f95667883fd6993c53cc46b186715d5",
+              "filter": "grayscale(1) brightness(1.18)"
+            }
+          ],
+          "pass": false
+        },
+        {
+          "name": "home-mobile",
+          "icons": [
+            {
+              "src": "/api/v1/skill-icons/4bd0fec4621352f351efbef374d5956e3c2f7c6c521de5d520710f0618ff5e48",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/79e24bf179e94e005912591a67ecdf30f04df50204ff5fa5fed06a8e8eb88532",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": false,
+              "visible": false
+            }
+          ],
+          "pass": true
+        },
+        {
+          "name": "browse-grid-mobile",
+          "icons": [
+            {
+              "src": "/api/v1/skill-icons/69376333b305996c5195ed9ef8e000b78fafc76590afa5b2c77afcfbfa1862ad",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/09fac3c16ff9c131bef3733dbb19f159be217bd86488837f1b02cbb3bb5f0f2f",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/fd90915d8de506671035a73fc76a7207f1627ddfe683e7667489493fd6340d92",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/8a2896223c147520628096cb8148e95880fe6cc8daf2ccdd0ef4ad980281de9b",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/31d26020a04a7e247c030bd65f3855939c97fc321f5ea7643247b001c22442f1",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/764b46f5fd0c3028272db341234c43a86f95667883fd6993c53cc46b186715d5",
+              "filter": "none"
+            }
+          ],
+          "pass": true
+        },
+        {
+          "name": "home-light",
+          "icons": [
+            {
+              "src": "/api/v1/skill-icons/4bd0fec4621352f351efbef374d5956e3c2f7c6c521de5d520710f0618ff5e48",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/79e24bf179e94e005912591a67ecdf30f04df50204ff5fa5fed06a8e8eb88532",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            }
+          ],
+          "pass": false
+        },
+        {
+          "name": "home-tablet",
+          "icons": [
+            {
+              "src": "/api/v1/skill-icons/4bd0fec4621352f351efbef374d5956e3c2f7c6c521de5d520710f0618ff5e48",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/79e24bf179e94e005912591a67ecdf30f04df50204ff5fa5fed06a8e8eb88532",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": false,
+              "visible": false
+            }
+          ],
+          "pass": true
+        },
+        {
+          "name": "home-laptop",
+          "icons": [
+            {
+              "src": "/api/v1/skill-icons/4bd0fec4621352f351efbef374d5956e3c2f7c6c521de5d520710f0618ff5e48",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/79e24bf179e94e005912591a67ecdf30f04df50204ff5fa5fed06a8e8eb88532",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "grayscale(1) brightness(1.18)",
+              "loaded": true,
+              "visible": true
+            }
+          ],
+          "pass": false
+        }
+      ]
+    },
+    {
+      "name": "candidate",
+      "steps": [
+        {
+          "name": "home-desktop",
+          "slug": "home-desktop",
+          "screenshot": "home-desktop.png",
+          "status": "passed"
+        },
+        {
+          "name": "browse-grid-desktop",
+          "slug": "browse-grid-desktop",
+          "screenshot": "browse-grid-desktop.png",
+          "status": "passed"
+        },
+        {
+          "name": "home-light",
+          "slug": "home-light",
+          "screenshot": "home-light.png",
+          "status": "passed"
+        },
+        {
+          "name": "home-mobile",
+          "slug": "home-mobile",
+          "screenshot": "home-mobile.png",
+          "status": "passed"
+        },
+        {
+          "name": "browse-grid-mobile",
+          "slug": "browse-grid-mobile",
+          "screenshot": "browse-grid-mobile.png",
+          "status": "passed"
+        },
+        {
+          "name": "home-tablet",
+          "slug": "home-tablet",
+          "screenshot": "home-tablet.png",
+          "status": "passed"
+        },
+        {
+          "name": "home-laptop",
+          "slug": "home-laptop",
+          "screenshot": "home-laptop.png",
+          "status": "passed"
+        }
+      ],
+      "colorAssertions": [
+        {
+          "name": "home-desktop",
+          "icons": [
+            {
+              "src": "/api/v1/skill-icons/4bd0fec4621352f351efbef374d5956e3c2f7c6c521de5d520710f0618ff5e48",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/79e24bf179e94e005912591a67ecdf30f04df50204ff5fa5fed06a8e8eb88532",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            }
+          ],
+          "pass": true
+        },
+        {
+          "name": "browse-grid-desktop",
+          "icons": [
+            {
+              "src": "/api/v1/skill-icons/69376333b305996c5195ed9ef8e000b78fafc76590afa5b2c77afcfbfa1862ad",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/09fac3c16ff9c131bef3733dbb19f159be217bd86488837f1b02cbb3bb5f0f2f",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/fd90915d8de506671035a73fc76a7207f1627ddfe683e7667489493fd6340d92",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/8a2896223c147520628096cb8148e95880fe6cc8daf2ccdd0ef4ad980281de9b",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/31d26020a04a7e247c030bd65f3855939c97fc321f5ea7643247b001c22442f1",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/764b46f5fd0c3028272db341234c43a86f95667883fd6993c53cc46b186715d5",
+              "filter": "none"
+            }
+          ],
+          "pass": true
+        },
+        {
+          "name": "home-mobile",
+          "icons": [
+            {
+              "src": "/api/v1/skill-icons/4bd0fec4621352f351efbef374d5956e3c2f7c6c521de5d520710f0618ff5e48",
+              "filter": "none",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/79e24bf179e94e005912591a67ecdf30f04df50204ff5fa5fed06a8e8eb88532",
+              "filter": "none",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": false,
+              "visible": false
+            }
+          ],
+          "pass": true
+        },
+        {
+          "name": "browse-grid-mobile",
+          "icons": [
+            {
+              "src": "/api/v1/skill-icons/69376333b305996c5195ed9ef8e000b78fafc76590afa5b2c77afcfbfa1862ad",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/09fac3c16ff9c131bef3733dbb19f159be217bd86488837f1b02cbb3bb5f0f2f",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/fd90915d8de506671035a73fc76a7207f1627ddfe683e7667489493fd6340d92",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/8a2896223c147520628096cb8148e95880fe6cc8daf2ccdd0ef4ad980281de9b",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/31d26020a04a7e247c030bd65f3855939c97fc321f5ea7643247b001c22442f1",
+              "filter": "none"
+            },
+            {
+              "src": "/api/v1/skill-icons/764b46f5fd0c3028272db341234c43a86f95667883fd6993c53cc46b186715d5",
+              "filter": "none"
+            }
+          ],
+          "pass": true
+        },
+        {
+          "name": "home-light",
+          "icons": [
+            {
+              "src": "/api/v1/skill-icons/4bd0fec4621352f351efbef374d5956e3c2f7c6c521de5d520710f0618ff5e48",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/79e24bf179e94e005912591a67ecdf30f04df50204ff5fa5fed06a8e8eb88532",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            }
+          ],
+          "pass": true
+        },
+        {
+          "name": "home-tablet",
+          "icons": [
+            {
+              "src": "/api/v1/skill-icons/4bd0fec4621352f351efbef374d5956e3c2f7c6c521de5d520710f0618ff5e48",
+              "filter": "none",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/79e24bf179e94e005912591a67ecdf30f04df50204ff5fa5fed06a8e8eb88532",
+              "filter": "none",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": false,
+              "visible": false
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": false,
+              "visible": false
+            }
+          ],
+          "pass": true
+        },
+        {
+          "name": "home-laptop",
+          "icons": [
+            {
+              "src": "/api/v1/skill-icons/4bd0fec4621352f351efbef374d5956e3c2f7c6c521de5d520710f0618ff5e48",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/79e24bf179e94e005912591a67ecdf30f04df50204ff5fa5fed06a8e8eb88532",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            },
+            {
+              "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+              "filter": "none",
+              "loaded": true,
+              "visible": true
+            }
+          ],
+          "pass": true
+        }
+      ]
+    }
+  ]
+}
