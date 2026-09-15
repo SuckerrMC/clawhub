@@ -3,7 +3,7 @@
   "mode": "feature",
   "scenario": "staff search and adoption recommendations, two catalogs",
   "provider": "isolated Playwright + real disposable Convex",
-  "candidate": "2347a082880667450c7f6558bba88713f4175b02",
+  "candidate": "a8e18d8023f410ac551ebcb084199345b985da65",
   "baselineEvidence": "Original search dashboard is included as baseline/dashboard.png. The old dashboard has no adoption recommendation view; local fixture counts differ and are not a numerical before/after benchmark.",
   "fixtureWarning": "LOCAL FIXTURE VALIDATION ONLY. These are not production recommendations. Real production dry run remains after deployment.",
   "lanes": [
@@ -161,5 +161,16 @@
         "identical": true
       }
     ]
+  },
+  "currentUiProof": "Fresh screenshot after homepage collection integration; the only recommendation UI difference from the original verified production-source comparison is accurate skill collection coverage copy.",
+  "unifiedValidation": {
+    "unitPassed": 6856,
+    "unitSkipped": 3,
+    "static": "passed",
+    "typesBuild": "passed",
+    "schemaTests": 456,
+    "cliTests": 20,
+    "adminTests": 110,
+    "artifactTests": 1
   }
 }
