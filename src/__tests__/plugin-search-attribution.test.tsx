@@ -14,6 +14,7 @@ import Header from "../components/Header";
 import { HomeListingSection } from "../components/HomeListingSection";
 import { Route as pluginsRoute } from "../routes/plugins/index";
 import { Route as searchRoute } from "../routes/search";
+import { Route as skillsRoute } from "../routes/skills/index";
 
 const { searchSkills } = vi.hoisted(() => ({ searchSkills: vi.fn(async () => []) }));
 vi.mock("@convex-dev/auth/react", () => ({
@@ -28,6 +29,7 @@ vi.mock("convex/react", async (importOriginal) => ({
 }));
 
 const requests: URL[] = [];
+const allRequests: URL[] = [];
 let pluginResults: Array<{
   score: number;
   package: {
@@ -74,6 +76,24 @@ async function openPlugins(url: string) {
   return router;
 }
 
+async function openSkills(url: string) {
+  const root = createRootRoute();
+  const route = skillsRoute.update({
+    id: "/skills/",
+    path: "/skills/",
+    getParentRoute: () => root,
+  } as never);
+  const router = createRouter({
+    routeTree: root.addChildren([route]),
+    history: createMemoryHistory({ initialEntries: [url] }),
+    defaultPendingMinMs: 0,
+  });
+  await router.load();
+  render(<RouterProvider router={router} />);
+  await screen.findByRole("heading", { name: "Skills" });
+  return router;
+}
+
 async function openGlobalSearch(url = "/search") {
   const root = createRootRoute({
     component: () => (
@@ -100,6 +120,7 @@ async function openGlobalSearch(url = "/search") {
 describe("manual plugin search attribution", () => {
   beforeEach(() => {
     requests.length = 0;
+    allRequests.length = 0;
     pluginResults = [];
     vi.stubGlobal("scrollTo", vi.fn());
     vi.spyOn(ConvexHttpClient.prototype, "action").mockResolvedValue([]);
@@ -108,10 +129,14 @@ describe("manual plugin search attribution", () => {
       "fetch",
       vi.fn(async (input: string) => {
         const url = new URL(input);
-        requests.push(url);
+        allRequests.push(url);
+        if (url.pathname !== "/api/v1/search") requests.push(url);
         return new Response(
           JSON.stringify({
-            results: pluginResults.slice(0, Number(url.searchParams.get("limit") ?? 100)),
+            results:
+              url.pathname === "/api/v1/search"
+                ? []
+                : pluginResults.slice(0, Number(url.searchParams.get("limit") ?? 100)),
             items: [],
             nextCursor: null,
           }),
@@ -125,6 +150,74 @@ describe("manual plugin search attribution", () => {
     vi.useRealTimers();
     vi.restoreAllMocks();
     vi.unstubAllGlobals();
+  });
+
+  it("marks a settled native Skills query once without intermediate, filter, or hydration observations", async () => {
+    const router = await openSkills("/skills?q=shared&category=development");
+    const input = screen.getByPlaceholderText("Search skills...");
+    expect(allRequests.filter((url) => url.pathname === "/api/v1/search")).toHaveLength(0);
+    fireEvent.change(input, { target: { value: "n" } });
+    fireEvent.change(input, { target: { value: "notion" } });
+    expect(allRequests.filter((url) => url.pathname === "/api/v1/search")).toHaveLength(0);
+    await waitFor(() =>
+      expect(allRequests.filter((url) => url.pathname === "/api/v1/search")).toHaveLength(1),
+    );
+    await waitFor(() => expect(router.state.isLoading).toBe(false));
+    const request = allRequests.find((url) => url.pathname === "/api/v1/search")!;
+    expect(Object.fromEntries(request.searchParams)).toEqual({
+      q: "notion",
+      limit: "25",
+      category: "development",
+      searchSource: "clawhub-web",
+    });
+    fireEvent.change(input, { target: { value: "notion " } });
+    await act(async () => {
+      await router.navigate({ to: "/skills", search: { q: "notion", category: "security" } });
+      await router.invalidate();
+    });
+    expect(
+      allRequests.filter(
+        (url) => url.pathname === "/api/v1/search" && url.searchParams.has("searchSource"),
+      ),
+    ).toHaveLength(1);
+    expect(router.state.location.searchStr).not.toContain("searchSource");
+  });
+
+  it("shows native skill search failures without turning them into empty demand", async () => {
+    await openSkills("/skills?q=shared");
+    vi.mocked(fetch).mockResolvedValue(new Response("Unavailable", { status: 503 }));
+    searchSkills.mockRejectedValueOnce(new Error("Unavailable"));
+    const input = screen.getByPlaceholderText("Search skills...");
+    fireEvent.change(input, { target: { value: "notion" } });
+    expect(await screen.findByText(/Unable to search skills/)).toBeTruthy();
+    expect(screen.queryByText("No skills found")).toBeNull();
+  });
+
+  it("records one independent skill and plugin intent across immediate header handoff", async () => {
+    const router = await openGlobalSearch();
+    const input = await screen.findByRole("combobox");
+    fireEvent.change(input, { target: { value: "n" } });
+    fireEvent.change(input, { target: { value: "notion" } });
+    fireEvent.submit(input.closest("form")!);
+    await waitFor(() =>
+      expect(
+        allRequests.filter(
+          (url) => url.pathname === "/api/v1/search" && url.searchParams.has("searchSource"),
+        ),
+      ).toHaveLength(1),
+    );
+    await waitFor(() => expect(router.state.isLoading).toBe(false));
+    const page = screen.getByPlaceholderText("Search skills, plugins, and creators...");
+    fireEvent.submit(page.closest("form")!);
+    await act(async () => {
+      await router.invalidate();
+    });
+    for (const path of ["/api/v1/search", "/api/v1/plugins/search"]) {
+      expect(
+        allRequests.filter((url) => url.pathname === path && url.searchParams.has("searchSource")),
+      ).toHaveLength(1);
+    }
+    expect(router.state.location.searchStr).not.toContain("searchSource");
   });
 
   it("marks only the settled manual search and keeps query URL loads unmarked", async () => {
@@ -408,14 +501,14 @@ describe("manual plugin search attribution", () => {
     const input = screen.getByPlaceholderText("Search skills, plugins, and creators...");
     fireEvent.change(input, { target: { value: "notion" } });
     fireEvent.submit(input.closest("form")!);
-    expect((await screen.findByRole("alert")).textContent).toContain("Unable to search plugins");
+    expect(await screen.findByText(/Unable to search plugins/)).toBeTruthy();
   });
 
   it("shows a failed typeahead plugin search without claiming there were no matches", async () => {
     await openGlobalSearch();
     vi.mocked(fetch).mockResolvedValue(new Response("Search unavailable", { status: 503 }));
     fireEvent.change(await screen.findByRole("combobox"), { target: { value: "notion" } });
-    expect((await screen.findByRole("alert")).textContent).toContain("Unable to search plugins");
+    expect(await screen.findByText(/Unable to search plugins/)).toBeTruthy();
     expect(screen.queryByText(/No skills, plugins, or creators found/)).toBeNull();
   });
 });

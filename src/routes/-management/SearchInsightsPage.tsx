@@ -12,6 +12,8 @@ function date(value: number | null) {
 
 export function SearchInsightsPage({ endDay }: { endDay?: number }) {
   const getReport = useAction(api.searchInsights.get);
+  const [artifactKind, setArtifactKind] = useState<"plugin" | "skill">("plugin");
+  const [scope, setScope] = useState<SearchInsightArgs["scope"]>();
   const [source, setSource] = useState<SearchInsightArgs["source"]>();
   const [window, setWindow] = useState<7 | 30>(7);
   const [view, setView] = useState("all");
@@ -26,6 +28,8 @@ export function SearchInsightsPage({ endDay }: { endDay?: number }) {
     setError(null);
     void getReport({
       endDay,
+      artifactKind,
+      scope,
       source,
       window,
       officialGap: view === "gaps" || view === "company",
@@ -43,7 +47,7 @@ export function SearchInsightsPage({ endDay }: { endDay?: number }) {
     return () => {
       active = false;
     };
-  }, [getReport, source, window, view, refresh, endDay]);
+  }, [getReport, artifactKind, scope, source, window, view, refresh, endDay]);
   const rows =
     view === "featured" ? report?.rows.filter((row) => row.featuredCandidate) : report?.rows;
   return (
@@ -52,7 +56,7 @@ export function SearchInsightsPage({ endDay }: { endDay?: number }) {
         <div>
           <h1>Search intelligence</h1>
           <p className="text-muted-foreground">
-            Manual plugin search demand, official gaps, and curation leads.
+            Manual plugin and skill search demand, official gaps, and curation leads.
           </p>
         </div>
         <Button
@@ -64,6 +68,36 @@ export function SearchInsightsPage({ endDay }: { endDay?: number }) {
         </Button>
       </header>
       <div className="search-insights-controls">
+        <label>
+          Catalog
+          <select
+            aria-label="Catalog"
+            value={artifactKind}
+            onChange={(event) => setArtifactKind(event.target.value as "plugin" | "skill")}
+          >
+            <option value="plugin">Plugins</option>
+            <option value="skill">Skills</option>
+          </select>
+        </label>
+        <label>
+          Search scope
+          <select
+            aria-label="Search scope"
+            value={scope ?? "all"}
+            onChange={(event) =>
+              setScope(
+                event.target.value === "all"
+                  ? undefined
+                  : (event.target.value as SearchInsightArgs["scope"]),
+              )
+            }
+          >
+            <option value="all">All scopes</option>
+            <option value="catalog">Whole catalog</option>
+            <option value="shelf">Filtered shelf</option>
+            <option value="legacy">Scope unknown</option>
+          </select>
+        </label>
         <label>
           Source
           <select
@@ -98,7 +132,7 @@ export function SearchInsightsPage({ endDay }: { endDay?: number }) {
           <select aria-label="View" value={view} onChange={(event) => setView(event.target.value)}>
             <option value="all">All demand</option>
             <option value="gaps">Official gaps</option>
-            <option value="company">Company plugin opportunities</option>
+            <option value="company">Company opportunities</option>
             <option value="featured">Featured candidates</option>
           </select>
         </label>
@@ -152,10 +186,17 @@ export function SearchInsightsPage({ endDay }: { endDay?: number }) {
               : null}
           </p>
           <p className="text-muted-foreground">
-            Official gaps count searches with no returned official package. Company intent is
+            Official gaps count searches with no returned official result within the recorded scope.
+            Only whole-catalog searches can identify company opportunities. Company intent is
             advisory (confidence ≥80%, at least 3 gap searches). Featured candidates require staff
             quality and security review. Trending is unchanged.
           </p>
+          {artifactKind === "skill" ? (
+            <p className="text-muted-foreground">
+              Skill collection covers manual global and Skills catalog searches on ClawHub web.
+              Homepage shelf searches and OpenClaw skill search are not collected yet.
+            </p>
+          ) : null}
           <div className="search-insights-table-wrap">
             <table className="search-insights-table">
               <thead>
@@ -171,9 +212,16 @@ export function SearchInsightsPage({ endDay }: { endDay?: number }) {
               </thead>
               <tbody>
                 {rows?.map((row) => (
-                  <tr key={row.query}>
+                  <tr key={`${row.artifactKind}:${row.scope}:${row.query}`}>
                     <td>
                       <a href={row.searchUrl}>{row.query}</a>
+                      <small>
+                        {row.scope === "legacy"
+                          ? "Scope unknown"
+                          : row.scope === "catalog"
+                            ? "Whole catalog"
+                            : "Filtered shelf"}
+                      </small>
                     </td>
                     <td>{row.searches7d}</td>
                     <td>
@@ -228,7 +276,7 @@ export function SearchInsightsPage({ endDay }: { endDay?: number }) {
             </p>
           ) : null}
           <p className="text-muted-foreground">
-            Current package metadata checked: {date(report.metadataCheckedAt)}. These are current
+            Current catalog metadata checked: {date(report.metadataCheckedAt)}. These are current
             catalog results, not historical result snapshots. Raw searches expire after 30 days;
             daily totals after 13 months.
           </p>

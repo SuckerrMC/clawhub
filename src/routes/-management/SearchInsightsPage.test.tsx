@@ -7,6 +7,8 @@ const { getReport } = vi.hoisted(() => ({ getReport: vi.fn() }));
 vi.mock("convex/react", () => ({ useAction: () => getReport }));
 
 const report: SearchInsightReport = {
+  artifactKind: "plugin",
+  scope: null,
   window: { endDay: 1_789_430_400_000, start7d: 0, startPrevious7d: 0, start30d: 0, days: 7 },
   source: null,
   generatedAt: 1_789_430_400_000,

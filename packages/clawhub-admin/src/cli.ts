@@ -1030,7 +1030,9 @@ function registerFeaturedCommands(command: Command, kind: "plugin" | "skill") {
 
 program
   .command("search-insights")
-  .description("Read staff-only plugin search demand and advisory opportunities")
+  .description("Read staff-only plugin and skill search demand and advisory opportunities")
+  .option("--artifact-kind <kind>", "plugin|skill (default: plugin)")
+  .option("--scope <scope>", "catalog|shelf|legacy (default: all scopes)")
   .option("--source <source>", "clawhub-web|openclaw-control-ui (default: both)")
   .option("--window <days>", "Rank by 7 or 30 completed UTC days")
   .option("--official-gap", "Only queries with zero-official-result searches")

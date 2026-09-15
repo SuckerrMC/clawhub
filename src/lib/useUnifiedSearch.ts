@@ -2,8 +2,10 @@ import { useAction } from "convex/react";
 import { useEffect, useRef, useState } from "react";
 import { api } from "../../convex/_generated/api";
 import { convexHttp } from "../convex/client";
+import { consumeManualCatalogSearch, type ManualCatalogSearch } from "./manualCatalogSearch";
 import { fetchPluginCatalog, type PackageListItem } from "./packageApi";
 import type { PublicPublisher, PublicPublisherListItem } from "./publicUser";
+import { fetchSkillSearch } from "./skillSearchApi";
 import {
   toSkillsShSearchResult,
   type CanonicalSkillSearchResult,
@@ -11,7 +13,7 @@ import {
 } from "./skillsShCatalog";
 
 export type UnifiedSearchType = "all" | "skills" | "plugins" | "creators";
-export type ManualPluginSearch = { query: string; consumed: boolean };
+
 const MAX_UNIFIED_SEARCH_LIMIT = 100;
 const MAX_CREATOR_SEARCH_LIMIT = 50;
 
@@ -81,7 +83,7 @@ export type UnifiedSearchInitialData = {
 };
 
 type UnifiedSearchOptions = {
-  manualPluginSearch?: ManualPluginSearch | null;
+  manualCatalogSearch?: ManualCatalogSearch | null;
   detectPluginHasMore?: boolean;
   debounceMs?: number;
   enabled?: boolean;
@@ -144,7 +146,7 @@ export function useUnifiedSearch(
   const requestRef = useRef(0);
   const debounceMs = options.debounceMs ?? 300;
   const enabled = options.enabled ?? true;
-  const manualPluginSearch = options.manualPluginSearch;
+  const manualCatalogSearch = options.manualCatalogSearch;
   const detectPluginHasMore = options.detectPluginHasMore ?? true;
   const initialData = options.initialData ?? null;
   const skillLimit = Math.max(0, Math.min(options.limits?.skills ?? 25, MAX_UNIFIED_SEARCH_LIMIT));
@@ -203,6 +205,7 @@ export function useUnifiedSearch(
   const [isSearching, setIsSearching] = useState(
     () => enabled && trimmedQuery.length > 0 && !matchedInitialData,
   );
+  const [skillSearchError, setSkillSearchError] = useState(false);
   const [pluginSearchError, setPluginSearchError] = useState(false);
 
   useEffect(() => {
@@ -242,6 +245,7 @@ export function useUnifiedSearch(
       setCreatorHasMore(false);
       setIsSearching(false);
       setPluginSearchError(false);
+      setSkillSearchError(false);
       return () => {};
     }
 
@@ -261,6 +265,7 @@ export function useUnifiedSearch(
     const controller = new AbortController();
     setIsSearching(true);
     setPluginSearchError(false);
+    setSkillSearchError(false);
 
     const handle = window.setTimeout(() => {
       void (async () => {
@@ -271,21 +276,30 @@ export function useUnifiedSearch(
             Promise<{ page: PublicPublisherListItem[]; isDone?: boolean }> | null,
           ] = [null, null, null];
           let isManualPluginSearch = false;
+          let isManualSkillSearch = false;
 
-          if (shouldFetchSkills) {
-            promises[0] = searchSkills({
-              query: trimmedQuery,
-              limit: skillLimit + 1,
-            });
+          if (shouldFetchSkills && skillLimit > 0) {
+            isManualSkillSearch = consumeManualCatalogSearch(
+              manualCatalogSearch,
+              "skill",
+              trimmedQuery,
+            );
+            promises[0] = isManualSkillSearch
+              ? fetchSkillSearch({
+                  query: trimmedQuery,
+                  limit: skillLimit,
+                  searchSource: "clawhub-web",
+                  signal: controller.signal,
+                })
+              : searchSkills({ query: trimmedQuery, limit: skillLimit + 1 });
           }
 
-          if (shouldFetchPlugins) {
-            isManualPluginSearch = Boolean(
-              manualPluginSearch &&
-              !manualPluginSearch.consumed &&
-              manualPluginSearch.query === trimmedQuery,
+          if (shouldFetchPlugins && pluginLimit > 0) {
+            isManualPluginSearch = consumeManualCatalogSearch(
+              manualCatalogSearch,
+              "plugin",
+              trimmedQuery,
             );
-            if (isManualPluginSearch && manualPluginSearch) manualPluginSearch.consumed = true;
             promises[1] = fetchPluginCatalog({
               q: trimmedQuery,
               limit: isManualPluginSearch ? pluginLimit : pluginLimit + 1,
@@ -305,6 +319,7 @@ export function useUnifiedSearch(
 
           if (requestId !== requestRef.current) return;
           setPluginSearchError(shouldFetchPlugins && settled[1].status === "rejected");
+          setSkillSearchError(shouldFetchSkills && settled[0].status === "rejected");
 
           const skillsRaw = settled[0].status === "fulfilled" ? settled[0].value : null;
           const pluginsRaw = settled[1].status === "fulfilled" ? settled[1].value : null;
@@ -357,6 +372,14 @@ export function useUnifiedSearch(
               nextCreatorResults,
             ),
           );
+          if (isManualSkillSearch && detectPluginHasMore && skillMatches.length === skillLimit) {
+            void searchSkills({ query: trimmedQuery, limit: skillLimit + 1 }).then(
+              (probe) => {
+                if (requestId === requestRef.current) setSkillHasMore(probe.length > skillLimit);
+              },
+              () => {},
+            );
+          }
           if (isManualPluginSearch && detectPluginHasMore && pluginMatches.length === pluginLimit) {
             // The unmarked probe only updates pagination after visible rows are ready.
             // A slow, failed, or stale probe must not hold or replace those rows.
@@ -411,7 +434,7 @@ export function useUnifiedSearch(
     creatorLimit,
     creatorRequestLimit,
     matchedInitialData,
-    manualPluginSearch,
+    manualCatalogSearch,
     detectPluginHasMore,
   ]);
 
@@ -428,5 +451,6 @@ export function useUnifiedSearch(
     creatorHasMore,
     isSearching,
     pluginSearchError,
+    skillSearchError,
   };
 }

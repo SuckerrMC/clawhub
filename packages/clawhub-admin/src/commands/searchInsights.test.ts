@@ -9,6 +9,8 @@ import { expect, it } from "vitest";
 
 it("parses real admin CLI filters and emits the canonical JSON plus readable demand facts", async () => {
   const fixture = {
+    artifactKind: "skill",
+    scope: "catalog",
     window: {
       endDay: 1788825600000,
       start7d: 1788220800000,
@@ -44,6 +46,8 @@ it("parses real admin CLI filters and emits the canonical JSON plus readable dem
     rows: [
       {
         query: "notion",
+        artifactKind: "skill",
+        scope: "catalog",
         searches7d: 5,
         searchesPrevious7d: 2,
         searches30d: 11,
@@ -84,6 +88,10 @@ it("parses real admin CLI filters and emits the canonical JSON plus readable dem
       "--registry",
       `http://127.0.0.1:${address.port}`,
       "search-insights",
+      "--artifact-kind",
+      "skill",
+      "--scope",
+      "catalog",
       "--source",
       "clawhub-web",
       "--window",
@@ -104,7 +112,7 @@ it("parses real admin CLI filters and emits the canonical JSON plus readable dem
     expect(human.stdout).toContain("capped shortlist");
     expect(human.stdout).toContain("Collection started: 2026-09-01T00:00:00.000Z");
     expect(new URL(requests[0], "http://fixture").searchParams.toString()).toBe(
-      "source=clawhub-web&window=7&officialGap=true&intentKind=company_product",
+      "artifactKind=skill&scope=catalog&source=clawhub-web&window=7&officialGap=true&intentKind=company_product",
     );
   } finally {
     await new Promise<void>((done) => server.close(() => done()));

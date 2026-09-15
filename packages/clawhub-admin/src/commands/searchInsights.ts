@@ -8,6 +8,8 @@ import { SearchInsightsReportSchema } from "../../../clawhub/src/schema/searchIn
 export async function cmdSearchInsights(
   opts: GlobalOpts,
   options: {
+    artifactKind?: string;
+    scope?: string;
     source?: string;
     window?: string;
     officialGap?: boolean;
@@ -18,6 +20,16 @@ export async function cmdSearchInsights(
   },
 ) {
   const params = new URLSearchParams();
+  if (options.artifactKind) {
+    if (!["plugin", "skill"].includes(options.artifactKind))
+      fail("artifact-kind must be plugin or skill");
+    params.set("artifactKind", options.artifactKind);
+  }
+  if (options.scope) {
+    if (!["catalog", "shelf", "legacy"].includes(options.scope))
+      fail("scope must be catalog, shelf, or legacy");
+    params.set("scope", options.scope);
+  }
   if (options.source) {
     if (!["clawhub-web", "openclaw-control-ui"].includes(options.source))
       fail("source must be clawhub-web or openclaw-control-ui");
@@ -60,7 +72,7 @@ export async function cmdSearchInsights(
     return report;
   }
   console.log(
-    `Search demand · completed UTC days before ${new Date(report.window.endDay).toISOString()} · ${report.source ?? "both sources"}`,
+    `Search demand · ${report.artifactKind} · ${report.scope ?? "all scopes"} · completed UTC days before ${new Date(report.window.endDay).toISOString()} · ${report.source ?? "both sources"}`,
   );
   console.log(
     `Classification: ${report.classificationStatus}. Featured candidates are advisory; Trending is unchanged.`,
@@ -86,7 +98,7 @@ export async function cmdSearchInsights(
   for (const row of report.rows) {
     const count = report.window.days === 7 ? row.searches7d : row.searches30d;
     console.log(
-      `${row.query}  ${count} searches (${report.window.days}d)  ${row.change7d >= 0 ? "+" : ""}${row.change7d} vs previous 7d  ${row.searches30d} in 30d  ${row.officialGaps7d} official gaps (7d)`,
+      `${row.query} [${row.scope}]  ${count} searches (${report.window.days}d)  ${row.change7d >= 0 ? "+" : ""}${row.change7d} vs previous 7d  ${row.searches30d} in 30d  ${row.officialGaps7d} official gaps (7d)`,
     );
     if (row.classification)
       console.log(
