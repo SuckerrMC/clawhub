@@ -1,0 +1,1364 @@
+{
+  "status": "passed",
+  "mode": "before-after",
+  "scenario": "weekly-producer-persistent-ledger-upgrade-and-replay",
+  "provider": "real-local-convex-no-provider-or-delivery-credentials",
+  "baseline": "cdf4be4b735bd24980fa8874e756b2c51e87820b",
+  "candidate": "27d1a247b64f0a633678881c4895e0746382cf6b",
+  "observedAt": "2026-09-15 (UTC); exact per-request wall times not recorded",
+  "runtime": {
+    "convexCli": "1.44.0",
+    "bun": "1.4.0",
+    "platform": "macOS",
+    "persistentStore": "one disposable anonymous local Convex deployment",
+    "externalDeliveryCalls": 0
+  },
+  "lanes": [],
+  "proofBoundary": {
+    "actual": "Real production deliverInternal before and after deployment, actual fenced claim/save/finish mutations, persistent-store restart/readback. Production modules unmodified.",
+    "fixtures": "Synthetic observations; deterministic available classifier rows through real fenced save mutation; retry eligibility adjusted locally.",
+    "notClaimed": "Live successful LLM classification, Discord permissions/create/readback/ambiguous-send recovery, production dry-run recommendations.",
+    "redaction": "No credentials included. Host paths omitted. All stored observation/classification/user records are synthetic local fixtures."
+  },
+  "checks": {
+    "bothOriginalV1WeeksUnchangedAcrossDeployment": true,
+    "allFourFrozenPayloadsUnchangedAfterRestart": true,
+    "legacyClassificationRowsUnchanged": true,
+    "bothCatalogClassificationRowsUnchangedAfterRestart": true,
+    "unrelatedUserPreserved": true,
+    "credentialFlagsAbsentAllSnapshots": true
+  },
+  "sourceBlobs": {
+    "cdf4be4b735bd24980fa8874e756b2c51e87820b": {
+      "convex/searchWeeklyDigest.ts": "4cb8483967d61f74295d6aaca79a06db1af5f594",
+      "convex/lib/searchDigestDelivery.ts": "dc24c20f5e6a240a1e7e9d8616f2cc25982bab6d",
+      "convex/lib/searchDigestContract.ts": "346eda50a501691b7cc90517c3dfad09534e00de",
+      "convex/lib/searchIntentClassifier.ts": "f427a69bca76cc68578ec7444b975cdf46ac3fa1",
+      "convex/schema.ts": "22129866c1ad1925cb90e5a7615dc68281c0ab60",
+      "convex/searchInsights.ts": "e56baf159a315ff0464a6a7e9d7552f289c126b6"
+    },
+    "27d1a247b64f0a633678881c4895e0746382cf6b": {
+      "convex/searchWeeklyDigest.ts": "ce838bdeae707d7ec907ded42b818bba49b2e06a",
+      "convex/lib/searchEvidenceDigest.ts": "cc0797c961932cba41235e370e8fd6d2bb086311",
+      "convex/lib/searchDigestDelivery.ts": "dac5947170aff2eab0c77ab46688c765938851dd",
+      "convex/lib/searchDigestContract.ts": "52ebeb9fa34cefa95edecc2d2507145e69031cdd",
+      "convex/lib/searchIntentClassifier.ts": "2dd27b7d42c469dc6e4a6083cd42b9b98fd47afa",
+      "convex/schema.ts": "7e54515992a5a1b3364ac97c14fa951f07fff15e",
+      "convex/searchInsights.ts": "1acc7fb976c4faccc3adb7d72e5d2abe191bdeb2",
+      "convex/featuredIntelligence.ts": "fb286f3af224457f0d43f455f180319f6cd060cd",
+      "convex/lib/featuredIntelligence.ts": "8f49c54ad1848bbd6d52a8a55724122ae0b617dc"
+    }
+  },
+  "transcript": [
+    {
+      "event": "backend-started",
+      "deploymentName": "anonymous-agent",
+      "cloud": "http://127.0.0.1:39570",
+      "site": "http://127.0.0.1:39571"
+    },
+    {
+      "event": "original-real-action",
+      "commit": "cdf4be4b735bd24980fa8874e756b2c51e87820b",
+      "result": {
+        "delivered": false
+      },
+      "kind": "plugin_search_weekly",
+      "searches": 4,
+      "failureCode": "missing_hermit_configuration"
+    },
+    {
+      "event": "original-populated-legacy-frozen-replay",
+      "result": {
+        "delivered": false
+      },
+      "status": "failed",
+      "attempts": 2,
+      "payloadHash": "c0aa1fffea38bcf218dc8308c30c12603284beebc85068e02192d3a421f7f472",
+      "failureCode": "missing_hermit_configuration"
+    },
+    {
+      "event": "candidate-legacy-frozen-replay",
+      "result": {
+        "delivered": false
+      },
+      "status": "failed",
+      "attempts": 3,
+      "payloadHash": "c0aa1fffea38bcf218dc8308c30c12603284beebc85068e02192d3a421f7f472",
+      "failureCode": "missing_hermit_configuration"
+    },
+    {
+      "event": "candidate-real-fresh-action",
+      "commit": "27d1a247b64f0a633678881c4895e0746382cf6b",
+      "result": {
+        "delivered": false
+      },
+      "kind": "search_intelligence_weekly_v2",
+      "catalogCounts": {
+        "plugins": 4,
+        "skills": 4
+      },
+      "classificationRuns": [
+        {
+          "artifactKind": "plugin",
+          "status": "unavailable",
+          "expectedQualified": 1,
+          "failureCode": "missing_provider_configuration"
+        },
+        {
+          "artifactKind": "skill",
+          "status": "unavailable",
+          "expectedQualified": 1,
+          "failureCode": "missing_provider_configuration"
+        }
+      ],
+      "failureCode": "missing_hermit_configuration"
+    },
+    {
+      "event": "candidate-deterministic-classification-fixture-replay",
+      "result": {
+        "delivered": false
+      },
+      "status": "failed",
+      "attempts": 2,
+      "payloadHash": "a989897796463a36cd3c1061d7cee08647c2d5c5cf3b008910fd6d8cc51eec81",
+      "failureCode": "missing_hermit_configuration"
+    },
+    {
+      "event": "candidate-fenced-available-classifications",
+      "result": {
+        "applied": true
+      },
+      "rows": [
+        {
+          "query": "claw893 ledger fixture",
+          "artifactKind": "plugin",
+          "scope": "catalog",
+          "intentKind": "company_product"
+        },
+        {
+          "query": "claw893 ledger fixture",
+          "artifactKind": "skill",
+          "scope": "catalog",
+          "intentKind": "company_product"
+        }
+      ]
+    },
+    {
+      "event": "backend-started",
+      "deploymentName": "anonymous-agent",
+      "cloud": "http://127.0.0.1:39570",
+      "site": "http://127.0.0.1:39571"
+    },
+    {
+      "event": "restarted-legacy-replay",
+      "result": {
+        "delivered": false
+      },
+      "status": "failed",
+      "attempts": 4,
+      "payloadHash": "c0aa1fffea38bcf218dc8308c30c12603284beebc85068e02192d3a421f7f472",
+      "failureCode": "missing_hermit_configuration"
+    },
+    {
+      "event": "restarted-v2-replay",
+      "result": {
+        "delivered": false
+      },
+      "status": "failed",
+      "attempts": 2,
+      "payloadHash": "5d755ee6a9977e2a9eabc7cb65192685bb154963f30bbe9ab13a328c4ffa7e01",
+      "failureCode": "missing_hermit_configuration"
+    },
+    {
+      "event": "proof-passed",
+      "legacyHash": "c0aa1fffea38bcf218dc8308c30c12603284beebc85068e02192d3a421f7f472",
+      "freshHash": "5d755ee6a9977e2a9eabc7cb65192685bb154963f30bbe9ab13a328c4ffa7e01",
+      "unchangedLegacyClassificationHash": "01e5d06a8151663c0f4a79f0c083e369b2475155bd98cc4561f26ae3bd9c35ea",
+      "unchangedBothCatalogClassificationHash": "c2926a740d6cbb11ff4d8697d6699aef7252b61a93b7aacd8d66337fa84902da",
+      "unchangedSentinelHash": "945979071f3f097cc98ffc3e902a32fb35a931c44f1a40b61b85d97e14b240b3",
+      "credentialsPresent": {
+        "hermit": false,
+        "provider": false
+      },
+      "deliveryTransport": "No transport invoked: missing_hermit_configuration is returned before fetch",
+      "classifier": "Actual action unavailable without credentials; available rows use deterministic local fixtures through the real save mutation"
+    }
+  ],
+  "stateSnapshots": {
+    "before-upgrade": {
+      "classificationRuns": [
+        {
+          "_creationTime": 1789504604457.388,
+          "_id": "ts7268p9eyx9apfy6mq5y3grnd8ee6aa",
+          "classifiedCount": 0,
+          "expectedQualified": 1,
+          "expirationTime": 1822262400000,
+          "failureCode": "missing_provider_configuration",
+          "model": "gpt-5.4-nano-2026-03-17",
+          "modelVersion": "search-intent-v1",
+          "processedAt": 1789504604457,
+          "status": "unavailable",
+          "truncated": false,
+          "weekEnd": 1788134400000,
+          "weekStart": 1787529600000
+        },
+        {
+          "_creationTime": 1789504605044.8271,
+          "_id": "ts75shr439s2r12v7a052gya5d8efq3s",
+          "classifiedCount": 1,
+          "expectedQualified": 1,
+          "expirationTime": 1822867200000,
+          "model": "local-deterministic-fixture",
+          "modelVersion": "fixture-v1",
+          "processedAt": 1789504605044,
+          "status": "available",
+          "truncated": false,
+          "weekEnd": 1788739200000,
+          "weekStart": 1788134400000
+        }
+      ],
+      "classifications": [
+        {
+          "_creationTime": 1789504605044.827,
+          "_id": "v173afy4340y0n5ynf8a9tm6nn8efq8p",
+          "companyProductName": "Local Ledger Fixture",
+          "confidence": 0.95,
+          "expirationTime": 1822867200000,
+          "intentKind": "company_product",
+          "model": "local-deterministic-fixture",
+          "modelVersion": "fixture-v1",
+          "processedAt": 1789504605044,
+          "query": "claw893 ledger fixture",
+          "weekEnd": 1788739200000,
+          "weekStart": 1788134400000
+        }
+      ],
+      "credentialsPresent": {
+        "hermit": false,
+        "provider": false
+      },
+      "digests": [
+        {
+          "_creationTime": 1789504603863.558,
+          "_id": "v57d770fg3fzknz2je9md1f9hn8een21",
+          "attempts": 1,
+          "claimedUntil": 0,
+          "expirationTime": 1822262400000,
+          "failureCode": "missing_hermit_configuration",
+          "nextAttemptAt": 1789508204760,
+          "payload": {
+            "classificationStatus": "unavailable",
+            "companyOpportunities": [],
+            "coverage": {
+              "collectionStartedAt": 1788048000000,
+              "dataThrough": 1789504603972,
+              "gapEnd": null,
+              "gapStart": null
+            },
+            "currentMetadataStatus": "available",
+            "dashboardUrl": "http://127.0.0.1:39571/management?view=search-insights&endDay=1788134400000",
+            "featuredCandidates": [],
+            "kind": "plugin_search_weekly",
+            "minimumSearches": 3,
+            "movers": [
+              {
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "officialGaps": [
+              {
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "sourceCounts": {
+              "clawhubWeb": 4,
+              "openclawControlUi": 0
+            },
+            "totalSearches": 4,
+            "truncated": false,
+            "weekEnd": 1788134400000,
+            "weekStart": 1787529600000
+          },
+          "status": "failed",
+          "weekEnd": 1788134400000
+        },
+        {
+          "_creationTime": 1789504604951.389,
+          "_id": "v5740fy3jhkfescy67793pa5bs8ef85p",
+          "attempts": 2,
+          "claimedUntil": 0,
+          "expirationTime": 1822867200000,
+          "failureCode": "missing_hermit_configuration",
+          "nextAttemptAt": 1789508205675,
+          "payload": {
+            "classificationStatus": "available",
+            "companyOpportunities": [
+              {
+                "companyProductName": "Local Ledger Fixture",
+                "confidence": 0.95,
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "coverage": {
+              "collectionStartedAt": 1788048000000,
+              "dataThrough": 1789504603972,
+              "gapEnd": null,
+              "gapStart": null
+            },
+            "currentMetadataStatus": "available",
+            "dashboardUrl": "http://127.0.0.1:39571/management?view=search-insights&endDay=1788739200000",
+            "featuredCandidates": [],
+            "kind": "plugin_search_weekly",
+            "minimumSearches": 3,
+            "movers": [
+              {
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "officialGaps": [
+              {
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "sourceCounts": {
+              "clawhubWeb": 4,
+              "openclawControlUi": 0
+            },
+            "totalSearches": 4,
+            "truncated": false,
+            "weekEnd": 1788739200000,
+            "weekStart": 1788134400000
+          },
+          "status": "failed",
+          "weekEnd": 1788739200000
+        }
+      ],
+      "sentinel": {
+        "displayName": "Unrelated local continuity fixture",
+        "id": "gn7srt188da6fkggrpchejf3yn8efaa1"
+      }
+    },
+    "after-upgrade": {
+      "classificationRuns": [
+        {
+          "_creationTime": 1789504604457.388,
+          "_id": "ts7268p9eyx9apfy6mq5y3grnd8ee6aa",
+          "classifiedCount": 0,
+          "expectedQualified": 1,
+          "expirationTime": 1822262400000,
+          "failureCode": "missing_provider_configuration",
+          "model": "gpt-5.4-nano-2026-03-17",
+          "modelVersion": "search-intent-v1",
+          "processedAt": 1789504604457,
+          "status": "unavailable",
+          "truncated": false,
+          "weekEnd": 1788134400000,
+          "weekStart": 1787529600000
+        },
+        {
+          "_creationTime": 1789504605044.8271,
+          "_id": "ts75shr439s2r12v7a052gya5d8efq3s",
+          "classifiedCount": 1,
+          "expectedQualified": 1,
+          "expirationTime": 1822867200000,
+          "model": "local-deterministic-fixture",
+          "modelVersion": "fixture-v1",
+          "processedAt": 1789504605044,
+          "status": "available",
+          "truncated": false,
+          "weekEnd": 1788739200000,
+          "weekStart": 1788134400000
+        },
+        {
+          "_creationTime": 1789504614674.526,
+          "_id": "ts76pyjcnt58mnmaf85frvnww98efeqb",
+          "artifactKind": "plugin",
+          "classifiedCount": 0,
+          "expectedQualified": 1,
+          "expirationTime": 1823472000000,
+          "failureCode": "missing_provider_configuration",
+          "model": "gpt-5.4-nano-2026-03-17",
+          "modelVersion": "search-intent-v2",
+          "processedAt": 1789504614674,
+          "status": "unavailable",
+          "truncated": false,
+          "weekEnd": 1789344000000,
+          "weekStart": 1788739200000
+        },
+        {
+          "_creationTime": 1789504614674.5261,
+          "_id": "ts733n00vpdmea8yee5twsamd98eedbf",
+          "artifactKind": "skill",
+          "classifiedCount": 0,
+          "expectedQualified": 1,
+          "expirationTime": 1823472000000,
+          "failureCode": "missing_provider_configuration",
+          "model": "gpt-5.4-nano-2026-03-17",
+          "modelVersion": "search-intent-v2",
+          "processedAt": 1789504614674,
+          "status": "unavailable",
+          "truncated": false,
+          "weekEnd": 1789344000000,
+          "weekStart": 1788739200000
+        },
+        {
+          "_creationTime": 1789504615668.9272,
+          "_id": "ts73kwqbbaqgam1d84r8f61z458efv74",
+          "artifactKind": "plugin",
+          "classifiedCount": 1,
+          "expectedQualified": 1,
+          "expirationTime": 1821744000000,
+          "model": "local-deterministic-fixture",
+          "modelVersion": "fixture-v1",
+          "processedAt": 1789504615668,
+          "status": "available",
+          "truncated": false,
+          "weekEnd": 1787529600000,
+          "weekStart": 1786924800000
+        },
+        {
+          "_creationTime": 1789504615668.9277,
+          "_id": "ts74jrv730c2h5eypbzt5z6xxx8een7j",
+          "artifactKind": "skill",
+          "classifiedCount": 1,
+          "expectedQualified": 1,
+          "expirationTime": 1821744000000,
+          "model": "local-deterministic-fixture",
+          "modelVersion": "fixture-v1",
+          "processedAt": 1789504615668,
+          "status": "available",
+          "truncated": false,
+          "weekEnd": 1787529600000,
+          "weekStart": 1786924800000
+        }
+      ],
+      "classifications": [
+        {
+          "_creationTime": 1789504605044.827,
+          "_id": "v173afy4340y0n5ynf8a9tm6nn8efq8p",
+          "companyProductName": "Local Ledger Fixture",
+          "confidence": 0.95,
+          "expirationTime": 1822867200000,
+          "intentKind": "company_product",
+          "model": "local-deterministic-fixture",
+          "modelVersion": "fixture-v1",
+          "processedAt": 1789504605044,
+          "query": "claw893 ledger fixture",
+          "weekEnd": 1788739200000,
+          "weekStart": 1788134400000
+        },
+        {
+          "_creationTime": 1789504615668.927,
+          "_id": "v177e44ybcyw8t3xy3945s1gs58ef94y",
+          "artifactKind": "plugin",
+          "companyProductName": "Local Ledger Fixture",
+          "confidence": 0.95,
+          "expirationTime": 1821744000000,
+          "intentKind": "company_product",
+          "model": "local-deterministic-fixture",
+          "modelVersion": "fixture-v1",
+          "processedAt": 1789504615668,
+          "query": "claw893 ledger fixture",
+          "scope": "catalog",
+          "weekEnd": 1787529600000,
+          "weekStart": 1786924800000
+        },
+        {
+          "_creationTime": 1789504615668.9275,
+          "_id": "v17bcb3a5yen963t07axygyafs8ee6t0",
+          "artifactKind": "skill",
+          "companyProductName": "Local Ledger Fixture",
+          "confidence": 0.95,
+          "expirationTime": 1821744000000,
+          "intentKind": "company_product",
+          "model": "local-deterministic-fixture",
+          "modelVersion": "fixture-v1",
+          "processedAt": 1789504615668,
+          "query": "claw893 ledger fixture",
+          "scope": "catalog",
+          "weekEnd": 1787529600000,
+          "weekStart": 1786924800000
+        }
+      ],
+      "credentialsPresent": {
+        "hermit": false,
+        "provider": false
+      },
+      "digests": [
+        {
+          "_creationTime": 1789504603863.558,
+          "_id": "v57d770fg3fzknz2je9md1f9hn8een21",
+          "attempts": 1,
+          "claimedUntil": 0,
+          "expirationTime": 1822262400000,
+          "failureCode": "missing_hermit_configuration",
+          "nextAttemptAt": 1789508204760,
+          "payload": {
+            "classificationStatus": "unavailable",
+            "companyOpportunities": [],
+            "coverage": {
+              "collectionStartedAt": 1788048000000,
+              "dataThrough": 1789504603972,
+              "gapEnd": null,
+              "gapStart": null
+            },
+            "currentMetadataStatus": "available",
+            "dashboardUrl": "http://127.0.0.1:39571/management?view=search-insights&endDay=1788134400000",
+            "featuredCandidates": [],
+            "kind": "plugin_search_weekly",
+            "minimumSearches": 3,
+            "movers": [
+              {
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "officialGaps": [
+              {
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "sourceCounts": {
+              "clawhubWeb": 4,
+              "openclawControlUi": 0
+            },
+            "totalSearches": 4,
+            "truncated": false,
+            "weekEnd": 1788134400000,
+            "weekStart": 1787529600000
+          },
+          "status": "failed",
+          "weekEnd": 1788134400000
+        },
+        {
+          "_creationTime": 1789504604951.389,
+          "_id": "v5740fy3jhkfescy67793pa5bs8ef85p",
+          "attempts": 3,
+          "claimedUntil": 0,
+          "expirationTime": 1822867200000,
+          "failureCode": "missing_hermit_configuration",
+          "nextAttemptAt": 1789508213248,
+          "payload": {
+            "classificationStatus": "available",
+            "companyOpportunities": [
+              {
+                "companyProductName": "Local Ledger Fixture",
+                "confidence": 0.95,
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "coverage": {
+              "collectionStartedAt": 1788048000000,
+              "dataThrough": 1789504603972,
+              "gapEnd": null,
+              "gapStart": null
+            },
+            "currentMetadataStatus": "available",
+            "dashboardUrl": "http://127.0.0.1:39571/management?view=search-insights&endDay=1788739200000",
+            "featuredCandidates": [],
+            "kind": "plugin_search_weekly",
+            "minimumSearches": 3,
+            "movers": [
+              {
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "officialGaps": [
+              {
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "sourceCounts": {
+              "clawhubWeb": 4,
+              "openclawControlUi": 0
+            },
+            "totalSearches": 4,
+            "truncated": false,
+            "weekEnd": 1788739200000,
+            "weekStart": 1788134400000
+          },
+          "status": "failed",
+          "weekEnd": 1788739200000
+        },
+        {
+          "_creationTime": 1789504613660.58,
+          "_id": "v573g8a5sec66x5vhd2mhpy8rd8eevwj",
+          "attempts": 1,
+          "claimedUntil": 0,
+          "expirationTime": 1823472000000,
+          "failureCode": "missing_hermit_configuration",
+          "nextAttemptAt": 1789508215058,
+          "payload": {
+            "catalogs": {
+              "plugins": {
+                "adoption": {
+                  "generatedAt": null,
+                  "inspectedItems": 0,
+                  "periodEnd": null,
+                  "periodStart": null,
+                  "rankingVersion": null,
+                  "snapshotId": null,
+                  "status": "unavailable",
+                  "totalItems": 0,
+                  "truncated": false
+                },
+                "classificationStatus": "unavailable",
+                "companyOpportunities": [],
+                "coverage": {
+                  "collectionStartedAt": 1788048000000,
+                  "dataThrough": 1789504613772,
+                  "gapEnd": null,
+                  "gapStart": null
+                },
+                "currentMetadataStatus": "available",
+                "movers": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "officialGaps": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "recommendations": [],
+                "sourceCounts": {
+                  "clawhubWeb": 4,
+                  "openclawControlUi": 0
+                },
+                "totalSearches": 4
+              },
+              "skills": {
+                "adoption": {
+                  "generatedAt": null,
+                  "inspectedItems": 0,
+                  "periodEnd": null,
+                  "periodStart": null,
+                  "rankingVersion": null,
+                  "snapshotId": null,
+                  "status": "unavailable",
+                  "totalItems": 0,
+                  "truncated": false
+                },
+                "classificationStatus": "unavailable",
+                "companyOpportunities": [],
+                "coverage": {
+                  "collectionStartedAt": 1789257600000,
+                  "dataThrough": 1789504613772,
+                  "gapEnd": null,
+                  "gapStart": null
+                },
+                "currentMetadataStatus": "available",
+                "movers": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/skills?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "officialGaps": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/skills?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "recommendations": [],
+                "sourceCounts": {
+                  "clawhubWeb": 4,
+                  "openclawControlUi": 0
+                },
+                "totalSearches": 4
+              }
+            },
+            "dashboardUrl": "http://127.0.0.1:39571/management?view=search-insights&endDay=1789344000000",
+            "kind": "search_intelligence_weekly_v2",
+            "minimumSearches": 3,
+            "truncated": false,
+            "weekEnd": 1789344000000,
+            "weekStart": 1788739200000
+          },
+          "status": "failed",
+          "weekEnd": 1789344000000
+        },
+        {
+          "_creationTime": 1789504615429.435,
+          "_id": "v577tahdj6933wq07gr8nz9zad8efqd9",
+          "attempts": 2,
+          "claimedUntil": 0,
+          "expirationTime": 1821744000000,
+          "failureCode": "missing_hermit_configuration",
+          "nextAttemptAt": 1789508216649,
+          "payload": {
+            "catalogs": {
+              "plugins": {
+                "adoption": {
+                  "generatedAt": null,
+                  "inspectedItems": 0,
+                  "periodEnd": null,
+                  "periodStart": null,
+                  "rankingVersion": null,
+                  "snapshotId": null,
+                  "status": "unavailable",
+                  "totalItems": 0,
+                  "truncated": false
+                },
+                "classificationStatus": "available",
+                "companyOpportunities": [],
+                "coverage": {
+                  "collectionStartedAt": 1788048000000,
+                  "dataThrough": 1789504613772,
+                  "gapEnd": null,
+                  "gapStart": null
+                },
+                "currentMetadataStatus": "available",
+                "movers": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "officialGaps": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "recommendations": [],
+                "sourceCounts": {
+                  "clawhubWeb": 4,
+                  "openclawControlUi": 0
+                },
+                "totalSearches": 4
+              },
+              "skills": {
+                "adoption": {
+                  "generatedAt": null,
+                  "inspectedItems": 0,
+                  "periodEnd": null,
+                  "periodStart": null,
+                  "rankingVersion": null,
+                  "snapshotId": null,
+                  "status": "unavailable",
+                  "totalItems": 0,
+                  "truncated": false
+                },
+                "classificationStatus": "available",
+                "companyOpportunities": [],
+                "coverage": {
+                  "collectionStartedAt": 1789257600000,
+                  "dataThrough": 1789504613772,
+                  "gapEnd": null,
+                  "gapStart": null
+                },
+                "currentMetadataStatus": "available",
+                "movers": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/skills?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "officialGaps": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/skills?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "recommendations": [],
+                "sourceCounts": {
+                  "clawhubWeb": 4,
+                  "openclawControlUi": 0
+                },
+                "totalSearches": 4
+              }
+            },
+            "dashboardUrl": "http://127.0.0.1:39571/management?view=search-insights&endDay=1787529600000",
+            "kind": "search_intelligence_weekly_v2",
+            "minimumSearches": 3,
+            "truncated": false,
+            "weekEnd": 1787529600000,
+            "weekStart": 1786924800000
+          },
+          "status": "failed",
+          "weekEnd": 1787529600000
+        }
+      ],
+      "sentinel": {
+        "displayName": "Unrelated local continuity fixture",
+        "id": "gn7srt188da6fkggrpchejf3yn8efaa1"
+      }
+    },
+    "after-restart": {
+      "classificationRuns": [
+        {
+          "_creationTime": 1789504604457.388,
+          "_id": "ts7268p9eyx9apfy6mq5y3grnd8ee6aa",
+          "classifiedCount": 0,
+          "expectedQualified": 1,
+          "expirationTime": 1822262400000,
+          "failureCode": "missing_provider_configuration",
+          "model": "gpt-5.4-nano-2026-03-17",
+          "modelVersion": "search-intent-v1",
+          "processedAt": 1789504604457,
+          "status": "unavailable",
+          "truncated": false,
+          "weekEnd": 1788134400000,
+          "weekStart": 1787529600000
+        },
+        {
+          "_creationTime": 1789504605044.8271,
+          "_id": "ts75shr439s2r12v7a052gya5d8efq3s",
+          "classifiedCount": 1,
+          "expectedQualified": 1,
+          "expirationTime": 1822867200000,
+          "model": "local-deterministic-fixture",
+          "modelVersion": "fixture-v1",
+          "processedAt": 1789504605044,
+          "status": "available",
+          "truncated": false,
+          "weekEnd": 1788739200000,
+          "weekStart": 1788134400000
+        },
+        {
+          "_creationTime": 1789504614674.526,
+          "_id": "ts76pyjcnt58mnmaf85frvnww98efeqb",
+          "artifactKind": "plugin",
+          "classifiedCount": 0,
+          "expectedQualified": 1,
+          "expirationTime": 1823472000000,
+          "failureCode": "missing_provider_configuration",
+          "model": "gpt-5.4-nano-2026-03-17",
+          "modelVersion": "search-intent-v2",
+          "processedAt": 1789504614674,
+          "status": "unavailable",
+          "truncated": false,
+          "weekEnd": 1789344000000,
+          "weekStart": 1788739200000
+        },
+        {
+          "_creationTime": 1789504614674.5261,
+          "_id": "ts733n00vpdmea8yee5twsamd98eedbf",
+          "artifactKind": "skill",
+          "classifiedCount": 0,
+          "expectedQualified": 1,
+          "expirationTime": 1823472000000,
+          "failureCode": "missing_provider_configuration",
+          "model": "gpt-5.4-nano-2026-03-17",
+          "modelVersion": "search-intent-v2",
+          "processedAt": 1789504614674,
+          "status": "unavailable",
+          "truncated": false,
+          "weekEnd": 1789344000000,
+          "weekStart": 1788739200000
+        },
+        {
+          "_creationTime": 1789504615668.9272,
+          "_id": "ts73kwqbbaqgam1d84r8f61z458efv74",
+          "artifactKind": "plugin",
+          "classifiedCount": 1,
+          "expectedQualified": 1,
+          "expirationTime": 1821744000000,
+          "model": "local-deterministic-fixture",
+          "modelVersion": "fixture-v1",
+          "processedAt": 1789504615668,
+          "status": "available",
+          "truncated": false,
+          "weekEnd": 1787529600000,
+          "weekStart": 1786924800000
+        },
+        {
+          "_creationTime": 1789504615668.9277,
+          "_id": "ts74jrv730c2h5eypbzt5z6xxx8een7j",
+          "artifactKind": "skill",
+          "classifiedCount": 1,
+          "expectedQualified": 1,
+          "expirationTime": 1821744000000,
+          "model": "local-deterministic-fixture",
+          "modelVersion": "fixture-v1",
+          "processedAt": 1789504615668,
+          "status": "available",
+          "truncated": false,
+          "weekEnd": 1787529600000,
+          "weekStart": 1786924800000
+        }
+      ],
+      "classifications": [
+        {
+          "_creationTime": 1789504605044.827,
+          "_id": "v173afy4340y0n5ynf8a9tm6nn8efq8p",
+          "companyProductName": "Local Ledger Fixture",
+          "confidence": 0.95,
+          "expirationTime": 1822867200000,
+          "intentKind": "company_product",
+          "model": "local-deterministic-fixture",
+          "modelVersion": "fixture-v1",
+          "processedAt": 1789504605044,
+          "query": "claw893 ledger fixture",
+          "weekEnd": 1788739200000,
+          "weekStart": 1788134400000
+        },
+        {
+          "_creationTime": 1789504615668.927,
+          "_id": "v177e44ybcyw8t3xy3945s1gs58ef94y",
+          "artifactKind": "plugin",
+          "companyProductName": "Local Ledger Fixture",
+          "confidence": 0.95,
+          "expirationTime": 1821744000000,
+          "intentKind": "company_product",
+          "model": "local-deterministic-fixture",
+          "modelVersion": "fixture-v1",
+          "processedAt": 1789504615668,
+          "query": "claw893 ledger fixture",
+          "scope": "catalog",
+          "weekEnd": 1787529600000,
+          "weekStart": 1786924800000
+        },
+        {
+          "_creationTime": 1789504615668.9275,
+          "_id": "v17bcb3a5yen963t07axygyafs8ee6t0",
+          "artifactKind": "skill",
+          "companyProductName": "Local Ledger Fixture",
+          "confidence": 0.95,
+          "expirationTime": 1821744000000,
+          "intentKind": "company_product",
+          "model": "local-deterministic-fixture",
+          "modelVersion": "fixture-v1",
+          "processedAt": 1789504615668,
+          "query": "claw893 ledger fixture",
+          "scope": "catalog",
+          "weekEnd": 1787529600000,
+          "weekStart": 1786924800000
+        }
+      ],
+      "credentialsPresent": {
+        "hermit": false,
+        "provider": false
+      },
+      "digests": [
+        {
+          "_creationTime": 1789504603863.558,
+          "_id": "v57d770fg3fzknz2je9md1f9hn8een21",
+          "attempts": 1,
+          "claimedUntil": 0,
+          "expirationTime": 1822262400000,
+          "failureCode": "missing_hermit_configuration",
+          "nextAttemptAt": 1789508204760,
+          "payload": {
+            "classificationStatus": "unavailable",
+            "companyOpportunities": [],
+            "coverage": {
+              "collectionStartedAt": 1788048000000,
+              "dataThrough": 1789504603972,
+              "gapEnd": null,
+              "gapStart": null
+            },
+            "currentMetadataStatus": "available",
+            "dashboardUrl": "http://127.0.0.1:39571/management?view=search-insights&endDay=1788134400000",
+            "featuredCandidates": [],
+            "kind": "plugin_search_weekly",
+            "minimumSearches": 3,
+            "movers": [
+              {
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "officialGaps": [
+              {
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "sourceCounts": {
+              "clawhubWeb": 4,
+              "openclawControlUi": 0
+            },
+            "totalSearches": 4,
+            "truncated": false,
+            "weekEnd": 1788134400000,
+            "weekStart": 1787529600000
+          },
+          "status": "failed",
+          "weekEnd": 1788134400000
+        },
+        {
+          "_creationTime": 1789504604951.389,
+          "_id": "v5740fy3jhkfescy67793pa5bs8ef85p",
+          "attempts": 4,
+          "claimedUntil": 0,
+          "expirationTime": 1822867200000,
+          "failureCode": "missing_hermit_configuration",
+          "nextAttemptAt": 1789508220187,
+          "payload": {
+            "classificationStatus": "available",
+            "companyOpportunities": [
+              {
+                "companyProductName": "Local Ledger Fixture",
+                "confidence": 0.95,
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "coverage": {
+              "collectionStartedAt": 1788048000000,
+              "dataThrough": 1789504603972,
+              "gapEnd": null,
+              "gapStart": null
+            },
+            "currentMetadataStatus": "available",
+            "dashboardUrl": "http://127.0.0.1:39571/management?view=search-insights&endDay=1788739200000",
+            "featuredCandidates": [],
+            "kind": "plugin_search_weekly",
+            "minimumSearches": 3,
+            "movers": [
+              {
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "officialGaps": [
+              {
+                "officialGaps": 4,
+                "previousSearches": 0,
+                "query": "claw893 ledger fixture",
+                "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                "searches": 4
+              }
+            ],
+            "sourceCounts": {
+              "clawhubWeb": 4,
+              "openclawControlUi": 0
+            },
+            "totalSearches": 4,
+            "truncated": false,
+            "weekEnd": 1788739200000,
+            "weekStart": 1788134400000
+          },
+          "status": "failed",
+          "weekEnd": 1788739200000
+        },
+        {
+          "_creationTime": 1789504613660.58,
+          "_id": "v573g8a5sec66x5vhd2mhpy8rd8eevwj",
+          "attempts": 2,
+          "claimedUntil": 0,
+          "expirationTime": 1823472000000,
+          "failureCode": "missing_hermit_configuration",
+          "nextAttemptAt": 1789508220826,
+          "payload": {
+            "catalogs": {
+              "plugins": {
+                "adoption": {
+                  "generatedAt": null,
+                  "inspectedItems": 0,
+                  "periodEnd": null,
+                  "periodStart": null,
+                  "rankingVersion": null,
+                  "snapshotId": null,
+                  "status": "unavailable",
+                  "totalItems": 0,
+                  "truncated": false
+                },
+                "classificationStatus": "unavailable",
+                "companyOpportunities": [],
+                "coverage": {
+                  "collectionStartedAt": 1788048000000,
+                  "dataThrough": 1789504613772,
+                  "gapEnd": null,
+                  "gapStart": null
+                },
+                "currentMetadataStatus": "available",
+                "movers": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "officialGaps": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "recommendations": [],
+                "sourceCounts": {
+                  "clawhubWeb": 4,
+                  "openclawControlUi": 0
+                },
+                "totalSearches": 4
+              },
+              "skills": {
+                "adoption": {
+                  "generatedAt": null,
+                  "inspectedItems": 0,
+                  "periodEnd": null,
+                  "periodStart": null,
+                  "rankingVersion": null,
+                  "snapshotId": null,
+                  "status": "unavailable",
+                  "totalItems": 0,
+                  "truncated": false
+                },
+                "classificationStatus": "unavailable",
+                "companyOpportunities": [],
+                "coverage": {
+                  "collectionStartedAt": 1789257600000,
+                  "dataThrough": 1789504613772,
+                  "gapEnd": null,
+                  "gapStart": null
+                },
+                "currentMetadataStatus": "available",
+                "movers": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/skills?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "officialGaps": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/skills?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "recommendations": [],
+                "sourceCounts": {
+                  "clawhubWeb": 4,
+                  "openclawControlUi": 0
+                },
+                "totalSearches": 4
+              }
+            },
+            "dashboardUrl": "http://127.0.0.1:39571/management?view=search-insights&endDay=1789344000000",
+            "kind": "search_intelligence_weekly_v2",
+            "minimumSearches": 3,
+            "truncated": false,
+            "weekEnd": 1789344000000,
+            "weekStart": 1788739200000
+          },
+          "status": "failed",
+          "weekEnd": 1789344000000
+        },
+        {
+          "_creationTime": 1789504615429.435,
+          "_id": "v577tahdj6933wq07gr8nz9zad8efqd9",
+          "attempts": 2,
+          "claimedUntil": 0,
+          "expirationTime": 1821744000000,
+          "failureCode": "missing_hermit_configuration",
+          "nextAttemptAt": 1789508216649,
+          "payload": {
+            "catalogs": {
+              "plugins": {
+                "adoption": {
+                  "generatedAt": null,
+                  "inspectedItems": 0,
+                  "periodEnd": null,
+                  "periodStart": null,
+                  "rankingVersion": null,
+                  "snapshotId": null,
+                  "status": "unavailable",
+                  "totalItems": 0,
+                  "truncated": false
+                },
+                "classificationStatus": "available",
+                "companyOpportunities": [],
+                "coverage": {
+                  "collectionStartedAt": 1788048000000,
+                  "dataThrough": 1789504613772,
+                  "gapEnd": null,
+                  "gapStart": null
+                },
+                "currentMetadataStatus": "available",
+                "movers": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "officialGaps": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/plugins?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "recommendations": [],
+                "sourceCounts": {
+                  "clawhubWeb": 4,
+                  "openclawControlUi": 0
+                },
+                "totalSearches": 4
+              },
+              "skills": {
+                "adoption": {
+                  "generatedAt": null,
+                  "inspectedItems": 0,
+                  "periodEnd": null,
+                  "periodStart": null,
+                  "rankingVersion": null,
+                  "snapshotId": null,
+                  "status": "unavailable",
+                  "totalItems": 0,
+                  "truncated": false
+                },
+                "classificationStatus": "available",
+                "companyOpportunities": [],
+                "coverage": {
+                  "collectionStartedAt": 1789257600000,
+                  "dataThrough": 1789504613772,
+                  "gapEnd": null,
+                  "gapStart": null
+                },
+                "currentMetadataStatus": "available",
+                "movers": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/skills?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "officialGaps": [
+                  {
+                    "officialGaps": 4,
+                    "previousSearches": 0,
+                    "query": "claw893 ledger fixture",
+                    "scope": "catalog",
+                    "searchUrl": "http://127.0.0.1:39571/skills?q=claw893%20ledger%20fixture",
+                    "searches": 4
+                  }
+                ],
+                "recommendations": [],
+                "sourceCounts": {
+                  "clawhubWeb": 4,
+                  "openclawControlUi": 0
+                },
+                "totalSearches": 4
+              }
+            },
+            "dashboardUrl": "http://127.0.0.1:39571/management?view=search-insights&endDay=1787529600000",
+            "kind": "search_intelligence_weekly_v2",
+            "minimumSearches": 3,
+            "truncated": false,
+            "weekEnd": 1787529600000,
+            "weekStart": 1786924800000
+          },
+          "status": "failed",
+          "weekEnd": 1787529600000
+        }
+      ],
+      "sentinel": {
+        "displayName": "Unrelated local continuity fixture",
+        "id": "gn7srt188da6fkggrpchejf3yn8efaa1"
+      }
+    }
+  }
+}
