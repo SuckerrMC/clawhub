@@ -270,6 +270,7 @@ export function useUnifiedSearch(
             Promise<{ items: PackageListItem[] }> | null,
             Promise<{ page: PublicPublisherListItem[]; isDone?: boolean }> | null,
           ] = [null, null, null];
+          let isManualPluginSearch = false;
 
           if (shouldFetchSkills) {
             promises[0] = searchSkills({
@@ -279,39 +280,17 @@ export function useUnifiedSearch(
           }
 
           if (shouldFetchPlugins) {
-            const isManual = Boolean(
+            isManualPluginSearch = Boolean(
               manualPluginSearch &&
               !manualPluginSearch.consumed &&
               manualPluginSearch.query === trimmedQuery,
             );
-            if (isManual && manualPluginSearch) manualPluginSearch.consumed = true;
+            if (isManualPluginSearch && manualPluginSearch) manualPluginSearch.consumed = true;
             promises[1] = fetchPluginCatalog({
               q: trimmedQuery,
-              limit: isManual ? pluginLimit : pluginLimit + 1,
-              ...(isManual ? { searchSource: "clawhub-web" as const } : {}),
+              limit: isManualPluginSearch ? pluginLimit : pluginLimit + 1,
+              ...(isManualPluginSearch ? { searchSource: "clawhub-web" as const } : {}),
               signal: controller.signal,
-            }).then(async (response) => {
-              if (!isManual) return response;
-              // Count only the visible response. A supporting has-more request
-              // never carries attribution and never replaces the visible rows.
-              let hasMore = false;
-              if (
-                detectPluginHasMore &&
-                response.items.length === pluginLimit &&
-                !controller.signal.aborted
-              ) {
-                try {
-                  const probe = await fetchPluginCatalog({
-                    q: trimmedQuery,
-                    limit: pluginLimit + 1,
-                    signal: controller.signal,
-                  });
-                  hasMore = probe.items.length > pluginLimit;
-                } catch {
-                  // A failed pagination probe does not discard a successful search.
-                }
-              }
-              return { ...response, hasMore };
             });
           }
 
@@ -360,10 +339,7 @@ export function useUnifiedSearch(
           setSkillHasMore(
             matchedInitialData ? matchedInitialData.skillHasMore : skillMatches.length > skillLimit,
           );
-          setPluginHasMore(
-            (pluginsRaw as { hasMore?: boolean } | null)?.hasMore ??
-              pluginMatches.length > pluginLimit,
-          );
+          setPluginHasMore(pluginMatches.length > pluginLimit);
           setCreatorHasMore(
             creatorLimit < MAX_CREATOR_SEARCH_LIMIT &&
               (creatorMatches.length > creatorLimit ||
@@ -381,6 +357,22 @@ export function useUnifiedSearch(
               nextCreatorResults,
             ),
           );
+          if (isManualPluginSearch && detectPluginHasMore && pluginMatches.length === pluginLimit) {
+            // The unmarked probe only updates pagination after visible rows are ready.
+            // A slow, failed, or stale probe must not hold or replace those rows.
+            void fetchPluginCatalog({
+              q: trimmedQuery,
+              limit: pluginLimit + 1,
+              signal: controller.signal,
+            }).then(
+              (probe) => {
+                if (requestId === requestRef.current) {
+                  setPluginHasMore(probe.items.length > pluginLimit);
+                }
+              },
+              () => {},
+            );
+          }
         } catch (error) {
           console.error("Unified search failed:", error);
           if (requestId === requestRef.current) {

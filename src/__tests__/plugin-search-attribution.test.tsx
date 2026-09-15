@@ -41,6 +41,21 @@ let pluginResults: Array<{
   };
 }> = [];
 
+function makePluginResults(count: number): typeof pluginResults {
+  return Array.from({ length: count }, (_, index) => ({
+    score: count - index,
+    package: {
+      name: `plugin-${index + 1}`,
+      displayName: `Plugin ${index + 1}`,
+      family: "code-plugin",
+      channel: "community",
+      isOfficial: index === 25,
+      createdAt: 1,
+      updatedAt: 1,
+    },
+  }));
+}
+
 async function openPlugins(url: string) {
   const root = createRootRoute();
   const route = pluginsRoute.update({
@@ -222,6 +237,24 @@ describe("manual plugin search attribution", () => {
     expect(request.searchParams.get("limit")).toBe("4");
   });
 
+  it.each([false, true])(
+    "does not recount whitespace-only header edits (mobile: %s)",
+    async (mobile) => {
+      await openGlobalSearch();
+      if (mobile) fireEvent.click(screen.getByRole("button", { name: /^Search$/ }));
+      const input = screen.getAllByRole("combobox").at(-1)!;
+      fireEvent.change(input, { target: { value: "notion" } });
+      await waitFor(() => expect(requests).toHaveLength(1));
+
+      vi.useFakeTimers();
+      fireEvent.change(input, { target: { value: "notion " } });
+      await act(async () => {
+        await vi.advanceTimersByTimeAsync(300);
+      });
+      expect(requests.filter((url) => url.searchParams.has("searchSource"))).toHaveLength(1);
+    },
+  );
+
   it("carries an immediate header submit into full results as one manual search", async () => {
     const router = await openGlobalSearch();
     const input = await screen.findByRole("combobox");
@@ -252,19 +285,22 @@ describe("manual plugin search attribution", () => {
     expect(requests[2].searchParams.has("searchSource")).toBe(false);
   });
 
+  it("keeps a header handoff consumed when the mounted page resubmits the same query", async () => {
+    const router = await openGlobalSearch();
+    const headerInput = await screen.findByRole("combobox");
+    fireEvent.change(headerInput, { target: { value: "notion" } });
+    fireEvent.submit(headerInput.closest("form")!);
+    await waitFor(() => expect(requests).toHaveLength(1));
+    await waitFor(() => expect(router.state.isLoading).toBe(false));
+
+    const pageInput = screen.getByPlaceholderText("Search skills, plugins, and creators...");
+    fireEvent.submit(pageInput.closest("form")!);
+    await waitFor(() => expect(requests).toHaveLength(2));
+    expect(requests.filter((url) => url.searchParams.has("searchSource"))).toHaveLength(1);
+  });
+
   it("excludes the hidden pagination probe and later pages from manual demand", async () => {
-    pluginResults = Array.from({ length: 26 }, (_, index) => ({
-      score: 26 - index,
-      package: {
-        name: `plugin-${index + 1}`,
-        displayName: `Plugin ${index + 1}`,
-        family: "code-plugin",
-        channel: "community",
-        isOfficial: index === 25,
-        createdAt: 1,
-        updatedAt: 1,
-      },
-    }));
+    pluginResults = makePluginResults(26);
     await openGlobalSearch();
     const input = screen.getByPlaceholderText("Search skills, plugins, and creators...");
     fireEvent.change(input, { target: { value: "notion" } });
@@ -284,6 +320,57 @@ describe("manual plugin search attribution", () => {
     expect(requests.at(-1)?.searchParams.has("searchSource")).toBe(false);
     expect(requests.filter((url) => url.searchParams.has("searchSource"))).toHaveLength(1);
   });
+
+  it.each(["fulfilled", "rejected", "stale"])(
+    "renders completed results before the pagination probe settles (%s)",
+    async (outcome) => {
+      pluginResults = makePluginResults(26);
+      const responseFor = vi.mocked(fetch).getMockImplementation()!;
+      let resolveProbe!: (response: Response) => void;
+      let rejectProbe!: (error: Error) => void;
+      const probe = new Promise<Response>((resolve, reject) => {
+        resolveProbe = resolve;
+        rejectProbe = reject;
+      });
+      vi.mocked(fetch).mockImplementation((input, init) => {
+        const url = new URL(input instanceof Request ? input.url : input);
+        if (url.searchParams.get("limit") !== "26") return responseFor(input, init);
+        requests.push(url);
+        return probe;
+      });
+      await openGlobalSearch();
+      const input = screen.getByPlaceholderText("Search skills, plugins, and creators...");
+      fireEvent.change(input, { target: { value: "notion" } });
+      fireEvent.submit(input.closest("form")!);
+
+      try {
+        await screen.findByText("Plugin 1");
+        expect(document.querySelectorAll(".skill-list-item")).toHaveLength(25);
+        expect(screen.queryByRole("button", { name: "Load more" })).toBeNull();
+        if (outcome === "stale") {
+          pluginResults = makePluginResults(1);
+          fireEvent.change(input, { target: { value: "calendar" } });
+          fireEvent.submit(input.closest("form")!);
+          await waitFor(() =>
+            expect(document.querySelectorAll(".skill-list-item")).toHaveLength(1),
+          );
+        }
+      } finally {
+        await act(async () => {
+          if (outcome === "rejected") rejectProbe(new Error("Pagination unavailable"));
+          else resolveProbe(new Response(JSON.stringify({ results: makePluginResults(26) })));
+        });
+      }
+      if (outcome === "fulfilled") await screen.findByRole("button", { name: "Load more" });
+      else {
+        expect(screen.queryByRole("button", { name: "Load more" })).toBeNull();
+        expect(screen.getByText("Plugin 1")).toBeTruthy();
+      }
+      expect(requests.filter((url) => url.searchParams.has("searchSource"))).toHaveLength(
+        outcome === "stale" ? 2 : 1,
+      );
+    },
+  );
 
   it("does not dispatch emptied or canceled input before the debounce completes", async () => {
     await openPlugins("/plugins");

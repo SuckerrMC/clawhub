@@ -93,6 +93,11 @@ function UnifiedSearchPage() {
   const [resultLimit, setResultLimit] = useState(SEARCH_PAGE_SIZE);
 
   useEffect(() => {
+    // Query navigation keeps this page mounted; retain the header's consumed intent.
+    if (manualPluginSearch) lastManualSearchRef.current = manualPluginSearch;
+  }, [manualPluginSearch]);
+
+  useEffect(() => {
     setQuery(search.q ?? "");
   }, [search.q]);
 

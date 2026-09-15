@@ -286,6 +286,15 @@ export default function Header() {
     setMode(next);
   };
 
+  const handleNavSearchChange = (value: string) => {
+    const query = value.trim();
+    if (query !== trimmedNavSearchQuery) {
+      manualPluginSearchRef.current = { query, consumed: false };
+    }
+    setNavSearchQuery(value);
+    setTypeaheadOpen(true);
+  };
+
   const handleNavSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const q = navSearchQuery.trim();
@@ -549,14 +558,7 @@ export default function Header() {
                   role="combobox"
                   placeholder="Search skills, plugins, and creators"
                   value={navSearchQuery}
-                  onChange={(e) => {
-                    manualPluginSearchRef.current = {
-                      query: e.target.value.trim(),
-                      consumed: false,
-                    };
-                    setNavSearchQuery(e.target.value);
-                    setTypeaheadOpen(true);
-                  }}
+                  onChange={(e) => handleNavSearchChange(e.target.value)}
                   onFocus={() => setTypeaheadOpen(true)}
                   onKeyDown={handleSearchKeyDown}
                   aria-label="Search"
@@ -753,11 +755,7 @@ export default function Header() {
                 role="combobox"
                 placeholder="Search skills, plugins, and creators"
                 value={navSearchQuery}
-                onChange={(e) => {
-                  manualPluginSearchRef.current = { query: e.target.value.trim(), consumed: false };
-                  setNavSearchQuery(e.target.value);
-                  setTypeaheadOpen(true);
-                }}
+                onChange={(e) => handleNavSearchChange(e.target.value)}
                 onFocus={() => setTypeaheadOpen(true)}
                 onKeyDown={handleSearchKeyDown}
                 aria-label="Search"
