@@ -188,6 +188,18 @@
           "screenshot": "laptop.png",
           "slug": "laptop",
           "status": "passed"
+        },
+        {
+          "name": "desktop: Featured empty state (disposable local backend)",
+          "screenshot": "empty-desktop.png",
+          "slug": "empty-desktop",
+          "status": "passed"
+        },
+        {
+          "name": "mobile: Featured empty state (disposable local backend)",
+          "screenshot": "empty-mobile.png",
+          "slug": "empty-mobile",
+          "status": "passed"
         }
       ]
     }

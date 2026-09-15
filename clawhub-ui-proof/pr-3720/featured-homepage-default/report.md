@@ -1,26 +1,13 @@
-# Featured homepage default — local preparation only
+# Featured homepage default — held draft PR 3720
 
-Candidate f2cfb90c1f9aa97e267b87f3fca77ba234bbda79; baseline 4877d6fe473d68e2052175d6eb515d37f04a0ded. No push, PR, deployment or Featured mutation. Landing waits for pipeline deployment and Patrick's initial-selection review.
+Baseline: `4877d6fe473d68e2052175d6eb515d37f04a0ded`. Candidate: `639dded6740cf8a5fa7f183bb327ec9300403b84`, based on homepage collection PR3716. Production code +4/−13; tests +26/−12.
 
-The SSR homepage listing, client fallback and return-to-Skills default now select Featured. Explicit Trending/Official/New buttons remain usable. Existing plugin tab choices and /skills?tab={trending,featured,official,new} direct navigation remain intact. Homepage tabs were local state before and remain so; no new URL contract.
+The server-rendered homepage, client fallback, and return-to-Skills view select Featured. Explicit Trending, Official and New navigation and `/skills?tab=` links remain usable. No selections, ranking algorithm, configuration or backend state changed. Merge/deployment are held until the intelligence pipeline is deployed and Patrick has reviewed its first real production selection.
 
-Production 4 added / 13 removed (net−9); tests 26 added / 12 removed (net+14). Existing finite Featured feed and editorial ordering reused. No added options, schemas or backend code.
+Real isolated Playwright browsers exercised the local frontend at127.0.0.1:3561 using the public read-only production catalog. The baseline selects Trending with20rows; candidate selects Featured with6existing rows. Those existing public selections are not the pipeline’s new recommendations. No search was submitted or marked. Baseline capture preceded the collection rebase, whose search-intent additions do not change this visible baseline.
 
-Proof uses real local ClawHub/Vite at http://127.0.0.1:3561 with documented public read backend wry-manatee-359 and clawhub.ai. Before/after use the same public data, anonymous browser, route, theme and viewport; no search submissions. Before selects Trending with20rows; after selects Featured with6existing rows. Existing selections are examples of current public catalog, NOT the new pipeline's recommendations or an approved shortlist.
+Paired baseline/candidate screenshots cover desktop1440×900, mobile390×844, tablet768×1024 and laptop1366×768. Root personally inspected all eight. Full navigation evidence is in summary.json:22 tab/direct-link outcomes; returning to Skills selects Featured. Two candidate empty-state images under candidate/empty-{desktop,mobile}.png use the separate disposable backend at3520/3521 through frontend3560; both were personally inspected. That backend’s unavailable Trending feed cannot prove the default transition, so the paired public-data captures own that comparison.
 
-Paired before/after-{desktop,mobile,tablet,laptop}.png cover1440x900,390x844,768x1024,1366x768. Every image personally opened and inspected. Default Featured reveals existing category controls; all viewports remain usable. before.json/after.json bind visible tabs and rows. navigation.json records22 real tab/direct-link outcomes. Empty-state images use same candidate localfrontend3560 plus disposablebackend3520/3521 without adding fixtures. Existing Trending feed is unavailable there, so it cannot prove the default change; it proves Featured's empty state remains useful. Loading/client fallback covered by focused rendered test; no loading/error/card style changed, so extra screenshot variants not material. Heavy/typical content covered by20baseline Trendingrows/6Featuredrows. No new security/auth/disabled UI states.
+Loading/client fallback is covered by rendered tests. Existing error/card styling, permission states and controls are unchanged; extra variants do not exercise this default-only change. Typical/content-heavy paths use6Featured/20Trending rows. The in-app browser was unavailable; isolated Playwright was used without controlling the user’s Chrome.
 
-Validation:
-- Three changed default assertions fail against original production code: /tmp/claw-895-red.log.
-- Five focused files54tests pass: /tmp/claw-895-green.log.
-- Required ci:static exit0: /tmp/claw-895-static.log.
-- Required ci:types-build (root/schema/CLI/admin TS and productionbuild) exit0: /tmp/claw-895-types-build.log.
-- Required ci:unit rerun exit0,6733passed/3skipped across507passed/1skipped files, coverage86.25% statements78.02% branches88.33% functions88.84% lines: /tmp/claw-895-unit2.log. Initial run passed alltests but had one transient Node socket setTypeOfService EINVAL in existing bootstrap descendant cleanup; retained /tmp/claw-895-unit.log; clean rerun without code/config changes passed.
-- Real browser navigation passed22 tab/direct navigation checks plus2empty states: /tmp/claw-895-navigation-final.log.
-- First ephemeral navigation attempt used5second expectation bound although public plugin pagination takes longer; final30second bound reached results normally. Harness exact Skills heading/tab assumptions corrected to observed 'Skills83.2K' heading and radio semantics; product source unchanged.
-- Native in-app preview open/connection retried but iab unavailable; isolated Playwright used, user's Chrome never controlled.
-
-Preview processes: local3560 session69390; publicread3561 session98892. Stop only owned frontend processes after review. Public data is read-only; shared disposable backend belongs to root.
-
-
-Rebased candidate639dded6740cf8a5fa7f183bb327ec9300403b84 includes homepage capture3716. Fresh four-viewport captures and all22navigation/twoempty-state checks pass.47focusedtests,6,849unit/3skip,static/audit0andtypes/buildpass. Root personally inspected all publishedbaseline/candidateimages. Baseline was captured before this rebase; capture additions do not alter the visible baseline. No production Featured writes or marked searches occurred.
+At the candidate SHA:47focusedtests,6,849unit tests(3skipped), static/audit0, TypeScript and productionbuild pass. Fresh browser validation after rebase passes all22navigationchecks and both empty states. No source/config/assertion/timeout changes were made to obtain these results. Previous true-before regression evidence is retained locally in /tmp/claw-895-red.log; the three changed default assertions fail against original production code.
