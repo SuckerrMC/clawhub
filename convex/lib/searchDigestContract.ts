@@ -12,6 +12,7 @@ export const digestClassificationValidator = v.object({
   rows: v.array(
     v.object({
       query: v.string(),
+      scope: v.optional(v.union(v.literal("catalog"), v.literal("shelf"), v.literal("legacy"))),
       intentKind: v.union(
         v.literal("company_product"),
         v.literal("generic_capability"),

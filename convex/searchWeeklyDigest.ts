@@ -239,6 +239,7 @@ export const deliverInternal = internalAction({
           readReport(ctx, {
             endDay: weekEnd,
             limit: 100,
+            scope: "catalog",
             order: "official-gaps",
             officialGap: true,
           }),
@@ -254,7 +255,9 @@ export const deliverInternal = internalAction({
           {},
         );
         if (before?.revision !== after?.revision) throw new Error("snapshot_changed");
-        const qualified = gaps.rows.filter((row) => row.officialGaps7d >= 3);
+        const qualified = gaps.rows.filter(
+          (row) => row.scope === "catalog" && row.officialGaps7d >= 3,
+        );
         const classification = await classifySearchIntent(
           qualified.map((row) => ({
             query: row.query,
@@ -270,8 +273,13 @@ export const deliverInternal = internalAction({
         );
         const intentByQuery = new Map(classification.rows.map((row) => [row.query, row]));
         const rows = [
-          ...new Map([...demand.rows, ...gaps.rows].map((row) => [row.query, row])).values(),
-        ].map((row) => ({ ...row, classification: intentByQuery.get(row.query) ?? null }));
+          ...new Map(
+            [...demand.rows, ...gaps.rows].map((row) => [`${row.scope}\0${row.query}`, row]),
+          ).values(),
+        ].map((row) => ({
+          ...row,
+          classification: row.scope === "catalog" ? (intentByQuery.get(row.query) ?? null) : null,
+        }));
         payload = buildSearchDigest({
           weekEnd,
           siteUrl: process.env.SITE_URL?.trim() || "https://clawhub.ai",
@@ -296,6 +304,7 @@ export const deliverInternal = internalAction({
           payload,
           classification: {
             ...classification,
+            rows: classification.rows.map((row) => ({ ...row, scope: "catalog" as const })),
             expectedQualified: qualified.length,
             truncated: gaps.truncated,
           },
