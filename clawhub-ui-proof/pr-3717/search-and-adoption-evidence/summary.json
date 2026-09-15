@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "mode": "feature",
+  "scenario": "staff search and adoption recommendations, two catalogs",
+  "provider": "isolated Playwright + real disposable Convex",
+  "candidate": "2347a082880667450c7f6558bba88713f4175b02",
+  "baselineEvidence": "Original search dashboard is included as baseline/dashboard.png. The old dashboard has no adoption recommendation view; local fixture counts differ and are not a numerical before/after benchmark.",
+  "fixtureWarning": "LOCAL FIXTURE VALIDATION ONLY. These are not production recommendations. Real production dry run remains after deployment.",
+  "lanes": [
+    {
+      "name": "baseline",
+      "steps": [
+        {
+          "name": "Existing search-demand dashboard (local fixture baseline)",
+          "screenshot": "dashboard.png",
+          "slug": "dashboard",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "name": "candidate",
+      "steps": [
+        {
+          "name": "Plugin Featured evidence (local fixture)",
+          "screenshot": "plugins.png",
+          "slug": "plugins",
+          "status": "passed"
+        },
+        {
+          "name": "Skill Featured evidence (local fixture)",
+          "screenshot": "skills.png",
+          "slug": "skills",
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}
