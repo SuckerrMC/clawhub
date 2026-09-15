@@ -305,7 +305,7 @@ export const deliverInternal = internalAction({
       const result = await deliverSearchDigest(
         payload,
         process.env.HERMIT_CONTENT_RIGHTS_BASE_URL?.trim() || "https://forms.openclaw.ai",
-        process.env.CLAWHUB_HERMIT_TOKEN || process.env.CLAWHUB_BAN_APPEALS_TOKEN,
+        process.env.CLAWHUB_HERMIT_TOKEN?.trim() || process.env.CLAWHUB_BAN_APPEALS_TOKEN?.trim(),
       );
       await ctx.runMutation(internal.searchWeeklyDigest.finishInternal, {
         weekEnd,

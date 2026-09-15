@@ -13,6 +13,29 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 
+it.each([
+  [" service-fixture ", "different-fallback"],
+  ["", " service-fixture "],
+  [" \t ", " service-fixture "],
+])(
+  "authenticates weekly delivery using trimmed primary or fallback credentials",
+  async (primary, fallback) => {
+    vi.spyOn(Date, "now").mockReturnValue(weekEnd + 17 * 3_600_000);
+    vi.stubEnv("OPENAI_API_KEY", "");
+    vi.stubEnv("CLAWHUB_HERMIT_TOKEN", primary);
+    vi.stubEnv("CLAWHUB_BAN_APPEALS_TOKEN", fallback);
+    vi.stubGlobal("fetch", async (_url: unknown, init?: RequestInit) =>
+      new Headers(init?.headers).get("Authorization") === "Bearer service-fixture"
+        ? Response.json({ ok: true, delivered: true, weekEnd })
+        : new Response("Unauthorized", { status: 401 }),
+    );
+    const t = convexTest(schema, modules);
+    expect(await t.action(internal.searchWeeklyDigest.deliverInternal, { weekEnd })).toEqual({
+      delivered: true,
+    });
+  },
+);
+
 it("ships deterministic gaps when classification is unavailable, freezing one payload across retries", async () => {
   let now = weekEnd + 17 * 3_600_000;
   vi.spyOn(Date, "now").mockImplementation(() => now);
