@@ -1,0 +1,104 @@
+{
+  "status": "passed",
+  "mode": "feature",
+  "candidate": "0b6767d3bdd3702ad3156d95d3e344859f31e465",
+  "target": "frontend",
+  "productionRun": "https://github.com/openclaw/clawhub/actions/runs/35002768769",
+  "testRun": "https://github.com/openclaw/clawhub/actions/runs/35001880724",
+  "observations": [
+    {
+      "route": "https://clawhub.ai/",
+      "icons": [
+        {
+          "src": "https://wry-manatee-359.convex.cloud/api/storage/3e43f657-7132-47c6-b050-e7216f495f18",
+          "filter": "none",
+          "loaded": true
+        },
+        {
+          "src": "/api/v1/skill-icons/4bd0fec4621352f351efbef374d5956e3c2f7c6c521de5d520710f0618ff5e48",
+          "filter": "none",
+          "loaded": true
+        },
+        {
+          "src": "https://avatars.githubusercontent.com/u/889601?v=4",
+          "filter": "none",
+          "loaded": true
+        },
+        {
+          "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+          "filter": "none",
+          "loaded": true
+        },
+        {
+          "src": "/api/v1/skill-icons/79e24bf179e94e005912591a67ecdf30f04df50204ff5fa5fed06a8e8eb88532",
+          "filter": "none",
+          "loaded": true
+        },
+        {
+          "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+          "filter": "none",
+          "loaded": true
+        },
+        {
+          "src": "/api/v1/skill-icons/3552cd6d0fbc6febfc6f9ca2ce657a4cb8399b5e794b0803c3c650de091ae45c",
+          "filter": "none",
+          "loaded": true
+        }
+      ]
+    },
+    {
+      "route": "https://clawhub.ai/plugins?view=grid",
+      "icons": [
+        {
+          "src": "/api/v1/skill-icons/69376333b305996c5195ed9ef8e000b78fafc76590afa5b2c77afcfbfa1862ad",
+          "filter": "none",
+          "loaded": true
+        },
+        {
+          "src": "/api/v1/skill-icons/09fac3c16ff9c131bef3733dbb19f159be217bd86488837f1b02cbb3bb5f0f2f",
+          "filter": "none",
+          "loaded": true
+        },
+        {
+          "src": "/api/v1/skill-icons/fd90915d8de506671035a73fc76a7207f1627ddfe683e7667489493fd6340d92",
+          "filter": "none",
+          "loaded": true
+        },
+        {
+          "src": "/api/v1/skill-icons/8a2896223c147520628096cb8148e95880fe6cc8daf2ccdd0ef4ad980281de9b",
+          "filter": "none",
+          "loaded": true
+        },
+        {
+          "src": "/api/v1/skill-icons/31d26020a04a7e247c030bd65f3855939c97fc321f5ea7643247b001c22442f1",
+          "filter": "none",
+          "loaded": true
+        },
+        {
+          "src": "/api/v1/skill-icons/764b46f5fd0c3028272db341234c43a86f95667883fd6993c53cc46b186715d5",
+          "filter": "none",
+          "loaded": true
+        }
+      ]
+    }
+  ],
+  "lanes": [
+    {
+      "name": "production",
+      "steps": [
+        {
+          "name": "Live homepage \u2014 Plugins / Featured",
+          "slug": "home",
+          "screenshot": "home.png",
+          "status": "passed"
+        },
+        {
+          "name": "Live plugin catalog grid",
+          "slug": "grid",
+          "screenshot": "grid.png",
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}
