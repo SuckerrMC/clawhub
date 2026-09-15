@@ -22,6 +22,7 @@ export function SearchInsightsPage({ endDay }: { endDay?: number }) {
   useEffect(() => {
     let active = true;
     setLoading(true);
+    setReport(null);
     setError(null);
     void getReport({
       endDay,
