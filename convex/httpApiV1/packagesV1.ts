@@ -558,6 +558,7 @@ type ReleaseLike = {
   sha256hash?: string;
   vtAnalysis?: Doc<"packageReleases">["vtAnalysis"];
   skillSpectorAnalysis?: Doc<"packageReleases">["skillSpectorAnalysis"];
+  endorAnalysis?: Doc<"packageReleases">["endorAnalysis"];
   llmAnalysis?: Doc<"packageReleases">["llmAnalysis"];
   staticScan?: Doc<"packageReleases">["staticScan"];
   manualModeration?: Doc<"packageReleases">["manualModeration"];
@@ -723,6 +724,7 @@ function toPackageReleaseSecurityResponse(params: {
       ...(params.release.npmShasum ? { npmShasum: params.release.npmShasum } : {}),
       ...(params.release.npmTarballName ? { npmTarballName: params.release.npmTarballName } : {}),
       createdAt: params.release.createdAt,
+      ...(params.release.endorAnalysis ? { endorAnalysis: params.release.endorAnalysis } : {}),
     },
     trust: {
       scanStatus,
@@ -4638,6 +4640,7 @@ export async function packagesGetRouterV1Handler(ctx: ActionCtx, request: Reques
           sha256hash: result.version.sha256hash ?? null,
           vtAnalysis: result.version.vtAnalysis ?? null,
           skillSpectorAnalysis: result.version.skillSpectorAnalysis ?? null,
+          ...(result.version.endorAnalysis ? { endorAnalysis: result.version.endorAnalysis } : {}),
           llmAnalysis: result.version.llmAnalysis ?? null,
           staticScan: result.version.staticScan ?? null,
         },

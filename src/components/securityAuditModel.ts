@@ -1,3 +1,4 @@
+import type { EndorAnalysis } from "../../convex/lib/endorAnalysis";
 import {
   type AigAnalysis,
   getClawScanDisplayStatus,
@@ -15,6 +16,7 @@ type SecurityAuditSignals = {
   aigAnalysis?: AigAnalysis | null;
   llmAnalysis?: LlmAnalysis | null;
   skillSpectorAnalysis?: SkillSpectorAnalysis | null;
+  endorAnalysis?: EndorAnalysis | null;
   staticScan?: {
     status?: string | null;
     summary?: string | null;
@@ -77,6 +79,7 @@ export function getLatestAuditCheckedAt(signals: SecurityAuditSignals) {
     signals.aigAnalysis?.checkedAt,
     signals.llmAnalysis?.checkedAt,
     signals.skillSpectorAnalysis?.checkedAt,
+    signals.endorAnalysis?.checkedAt,
     signals.staticScan?.checkedAt,
   ].filter((value): value is number => typeof value === "number" && Number.isFinite(value));
   return values.length ? Math.max(...values) : null;
