@@ -1,16 +1,12 @@
 import { getPage, type IndexKey } from "convex-helpers/server/pagination";
 import { paginationOptsValidator, type FunctionReturnType } from "convex/server";
 import { v } from "convex/values";
-import { internal } from "./_generated/api";
+import { api, internal } from "./_generated/api";
 import type { Doc } from "./_generated/dataModel";
 import type { ActionCtx } from "./_generated/server";
 import { action, internalAction, internalQuery, internalMutation } from "./functions";
 import { compareCatalogSearchEntries } from "./httpApiV1/packagesV1";
 import { assertModerator, requireUserFromAction } from "./lib/access";
-import {
-  getPackageDownloadSecurityBlock,
-  resolvePackageReleaseScanStatus,
-} from "./lib/packageSecurity";
 import { RETENTION_STANDARD_BATCH_SIZE } from "./lib/retentionPolicy";
 import {
   SEARCH_DAY_MS,
@@ -19,6 +15,9 @@ import {
   searchIntentKind,
   searchInsightArgs,
   searchInsightSource,
+  searchArtifactKind,
+  searchScope,
+  type SearchArtifactKind,
   type SearchInsightArgs,
   type SearchInsightReport,
   type SearchInsightRow,
@@ -40,6 +39,7 @@ export const getInternal = internalAction({
 });
 export const listDailyInternal = internalQuery({
   args: {
+    artifactKind: v.optional(searchArtifactKind),
     start: v.number(),
     end: v.number(),
     source: v.optional(searchInsightSource),
@@ -49,11 +49,18 @@ export const listDailyInternal = internalQuery({
     const rows = ctx.db.query("searchDailyAggregates");
     return await (
       args.source
-        ? rows.withIndex("by_source_and_dayStart", (q) =>
-            q.eq("source", args.source!).gte("dayStart", args.start).lt("dayStart", args.end),
+        ? rows.withIndex("by_artifact_source_day", (q) =>
+            q
+              .eq("artifactKind", args.artifactKind ?? "plugin")
+              .eq("source", args.source!)
+              .gte("dayStart", args.start)
+              .lt("dayStart", args.end),
           )
-        : rows.withIndex("by_dayStart_and_source_and_query_and_category_and_intent", (q) =>
-            q.gte("dayStart", args.start).lt("dayStart", args.end),
+        : rows.withIndex("by_artifact_day", (q) =>
+            q
+              .eq("artifactKind", args.artifactKind ?? "plugin")
+              .gte("dayStart", args.start)
+              .lt("dayStart", args.end),
           )
     ).paginate(args.paginationOpts);
   },
@@ -62,6 +69,7 @@ export async function readReport(
   ctx: ActionCtx,
   args: SearchInsightArgs,
 ): Promise<SearchInsightReport> {
+  const artifactKind = args.artifactKind ?? "plugin";
   const coverageState: Doc<"searchAggregateStates"> | null = await ctx.runQuery(
     internal.searchInsights.getAggregateStateInternal,
     {},
@@ -87,6 +95,7 @@ export async function readReport(
       throw new Error("Search aggregate scan budget exceeded; narrow the source filter");
     const page: { page: Doc<"searchDailyAggregates">[]; isDone: boolean; continueCursor: string } =
       await ctx.runQuery(internal.searchInsights.listDailyInternal, {
+        artifactKind,
         start: window.start30d,
         end: endDay,
         source: args.source,
@@ -98,7 +107,12 @@ export async function readReport(
         },
       });
     for (const daily of page.page) {
-      const row = facts.get(daily.query) ?? {
+      const scope = daily.scope ?? "legacy";
+      if (args.scope && args.scope !== scope) continue;
+      const key = JSON.stringify([scope, daily.query]);
+      const row = facts.get(key) ?? {
+        artifactKind,
+        scope,
         query: daily.query,
         searches7d: 0,
         searchesPrevious7d: 0,
@@ -113,7 +127,7 @@ export async function readReport(
         companyOpportunity: false,
         currentResults: [],
         featuredCandidate: null,
-        searchUrl: `/plugins?q=${encodeURIComponent(daily.query)}`,
+        searchUrl: `/${artifactKind === "skill" ? "skills" : "plugins"}?q=${encodeURIComponent(daily.query)}`,
       };
       row.searches30d += daily.searches;
       row.officialGaps30d += daily.officialGaps;
@@ -123,7 +137,7 @@ export async function readReport(
         row.zeroResults7d += daily.zeroResults;
         row.sources7d[daily.source] += daily.searches;
       } else if (daily.dayStart >= window.startPrevious7d) row.searchesPrevious7d += daily.searches;
-      facts.set(daily.query, row);
+      facts.set(key, row);
     }
     if (page.isDone) break;
     cursor = page.continueCursor;
@@ -135,23 +149,25 @@ export async function readReport(
   );
   const classificationRun: Doc<"searchClassificationRuns"> | null = await ctx.runQuery(
     internal.searchInsights.getClassificationRunInternal,
-    { endDay },
+    { endDay, artifactKind },
   );
   const classifications = new Map<string, Doc<"searchWeeklyClassifications">>();
   if (classificationRun?.status === "available") {
     const batch: Doc<"searchWeeklyClassifications">[] = await ctx.runQuery(
       internal.searchInsights.getClassificationsInternal,
-      { weekEnd: classificationRun.weekEnd },
+      { weekEnd: classificationRun.weekEnd, artifactKind },
     );
-    for (const entry of batch) classifications.set(entry.query, entry);
+    for (const entry of batch)
+      classifications.set(JSON.stringify([entry.scope ?? "legacy", entry.query]), entry);
   }
   for (const row of rows) {
-    const entry = classifications.get(row.query);
+    const entry = classifications.get(JSON.stringify([row.scope, row.query]));
     if (entry) {
       const { _id, _creationTime, expirationTime: _expirationTime, ...classification } = entry;
       row.classification = classification;
     }
     row.companyOpportunity =
+      row.scope === "catalog" &&
       (days === 7 ? row.officialGaps7d : row.officialGaps30d) >= 3 &&
       row.classification?.intentKind === "company_product" &&
       row.classification.confidence >= SEARCH_INTENT_CONFIDENCE;
@@ -210,7 +226,10 @@ export async function readReport(
   let metadataCheckedAt: number | null = null;
   if (args.includeCurrentResults !== false && selected.length) {
     try {
-      const current = await readCurrentResults(ctx, { queries: selected.map((row) => row.query) });
+      const current = await readCurrentResults(ctx, {
+        artifactKind,
+        queries: [...new Set(selected.map((row) => row.query))],
+      });
       metadataCheckedAt = current.metadataCheckedAt;
       for (const row of selected) {
         row.currentResults = current.rows.find((entry) => entry.query === row.query)?.results ?? [];
@@ -229,11 +248,16 @@ export async function readReport(
     throw new Error("Search aggregates changed during report; refresh to retry");
   const coverage = {
     dataThrough: coverageState?.processedThrough ?? null,
-    collectionStartedAt: coverageState?.coverageStart ?? null,
+    collectionStartedAt:
+      (artifactKind === "skill"
+        ? coverageState?.skillCoverageStart
+        : coverageState?.coverageStart) ?? null,
     gapStart: coverageState?.coverageGapStart ?? null,
     gapEnd: coverageState?.coverageGapEnd ?? null,
   };
   return {
+    artifactKind,
+    scope: args.scope ?? null,
     coverage,
     metadataCheckedAt,
     currentMetadataStatus: metadataCheckedAt === null ? "unavailable" : "available",
@@ -252,6 +276,7 @@ export async function readReport(
 
 export const storeClassificationsInternal = internalMutation({
   args: {
+    artifactKind: v.optional(searchArtifactKind),
     weekStart: v.number(),
     weekEnd: v.number(),
     processedAt: v.number(),
@@ -264,6 +289,7 @@ export const storeClassificationsInternal = internalMutation({
     rows: v.array(
       v.object({
         query: v.string(),
+        scope: v.optional(searchScope),
         intentKind: searchIntentKind,
         companyProductName: v.optional(v.string()),
         confidence: v.number(),
@@ -296,31 +322,29 @@ export const storeClassificationsInternal = internalMutation({
     const previous = await ctx.db
       .query("searchWeeklyClassifications")
       .withIndex("by_weekEnd", (q) => q.eq("weekEnd", args.weekEnd))
-      .take(101);
-    if (previous.length > 100) throw new Error("Classification week exceeds bounded batch");
-    for (const row of previous) await ctx.db.delete(row._id);
+      .take(201);
+    if (previous.length > 200) throw new Error("Classification week exceeds bounded batch");
+    for (const row of previous) {
+      if ((row.artifactKind ?? "plugin") === (args.artifactKind ?? "plugin"))
+        await ctx.db.delete(row._id);
+    }
     const queries = new Set<string>();
     for (const row of args.rows) {
       if (
         !row.query ||
         row.query.length > 256 ||
         row.query !== row.query.trim().toLowerCase().replace(/\s+/g, " ") ||
-        queries.has(row.query) ||
+        queries.has(JSON.stringify([row.scope ?? "legacy", row.query])) ||
         !Number.isFinite(row.confidence) ||
         row.confidence < 0 ||
         row.confidence > 1 ||
         (row.companyProductName?.length ?? 0) > 120
       )
         throw new Error("Invalid classification row");
-      queries.add(row.query);
-      const existing = await ctx.db
-        .query("searchWeeklyClassifications")
-        .withIndex("by_query_and_weekEnd", (q) =>
-          q.eq("query", row.query).eq("weekEnd", args.weekEnd),
-        )
-        .unique();
+      queries.add(JSON.stringify([row.scope ?? "legacy", row.query]));
       const doc = {
         ...row,
+        artifactKind: args.artifactKind ?? "plugin",
         weekStart: args.weekStart,
         weekEnd: args.weekEnd,
         processedAt: args.processedAt,
@@ -328,14 +352,17 @@ export const storeClassificationsInternal = internalMutation({
         modelVersion: args.modelVersion,
         expirationTime,
       };
-      if (existing) await ctx.db.replace(existing._id, doc);
-      else await ctx.db.insert("searchWeeklyClassifications", doc);
+      await ctx.db.insert("searchWeeklyClassifications", doc);
     }
     const existing = await ctx.db
       .query("searchClassificationRuns")
       .withIndex("by_weekEnd", (q) => q.eq("weekEnd", args.weekEnd))
-      .unique();
+      .take(3);
+    const previousRun = existing.find(
+      (row) => (row.artifactKind ?? "plugin") === (args.artifactKind ?? "plugin"),
+    );
     const run = {
+      artifactKind: args.artifactKind ?? "plugin",
       weekStart: args.weekStart,
       weekEnd: args.weekEnd,
       processedAt: args.processedAt,
@@ -348,29 +375,36 @@ export const storeClassificationsInternal = internalMutation({
       expirationTime,
       ...(args.failureCode ? { failureCode: args.failureCode } : {}),
     };
-    if (existing) await ctx.db.replace(existing._id, run);
+    if (previousRun) await ctx.db.replace(previousRun._id, run);
     else await ctx.db.insert("searchClassificationRuns", run);
     return { status, classifiedCount: args.rows.length };
   },
 });
 export const getClassificationRunInternal = internalQuery({
-  args: { endDay: v.number() },
-  handler: async (ctx, args) =>
-    await ctx.db
+  args: { endDay: v.number(), artifactKind: v.optional(searchArtifactKind) },
+  handler: async (ctx, args) => {
+    const runs = await ctx.db
       .query("searchClassificationRuns")
       .withIndex("by_weekEnd", (q) =>
         q.gt("weekEnd", args.endDay - 7 * SEARCH_DAY_MS).lte("weekEnd", args.endDay),
       )
       .order("desc")
-      .first(),
+      .take(21);
+    return (
+      runs.find((run) => (run.artifactKind ?? "plugin") === (args.artifactKind ?? "plugin")) ?? null
+    );
+  },
 });
 export const getClassificationsInternal = internalQuery({
-  args: { weekEnd: v.number() },
-  handler: async (ctx, args) =>
-    await ctx.db
+  args: { weekEnd: v.number(), artifactKind: v.optional(searchArtifactKind) },
+  handler: async (ctx, args) => {
+    const rows = await ctx.db
       .query("searchWeeklyClassifications")
       .withIndex("by_weekEnd", (q) => q.eq("weekEnd", args.weekEnd))
-      .take(100),
+      .take(201);
+    if (rows.length > 200) throw new Error("Classification week exceeds bounded batch");
+    return rows.filter((row) => (row.artifactKind ?? "plugin") === (args.artifactKind ?? "plugin"));
+  },
 });
 
 export const aggregateInternal = internalMutation({
@@ -394,8 +428,10 @@ export const aggregateInternal = internalMutation({
       const intent = raw.topic ?? "";
       const existing = await ctx.db
         .query("searchDailyAggregates")
-        .withIndex("by_dayStart_and_source_and_query_and_category_and_intent", (q) =>
+        .withIndex("by_bucket", (q) =>
           q
+            .eq("artifactKind", raw.artifactKind)
+            .eq("scope", raw.scope)
             .eq("dayStart", dayStart)
             .eq("source", raw.source)
             .eq("query", raw.normalizedQuery)
@@ -416,7 +452,8 @@ export const aggregateInternal = internalMutation({
           query: raw.normalizedQuery,
           category,
           intent,
-          artifactKind: "plugin",
+          artifactKind: raw.artifactKind,
+          scope: raw.scope,
           ...counts,
           expirationTime: searchAggregateExpiration(dayStart),
         });
@@ -437,6 +474,9 @@ export const aggregateInternal = internalMutation({
         : (state?.processedThrough ?? page.page[0]?.observedAt ?? now),
       revision: (state?.revision ?? 0) + 1,
       coverageStart: state?.coverageStart ?? page.page[0]?.observedAt ?? now,
+      skillCoverageStart:
+        state?.skillCoverageStart ??
+        page.page.find((row) => row.artifactKind === "skill")?.observedAt,
       ...coverageGap,
     };
     if (state) await ctx.db.patch(state._id, next);
@@ -471,58 +511,42 @@ export const pruneExpiredInternal = internalMutation({
 });
 
 export const readCurrentResultsInternal = internalAction({
-  args: { queries: v.array(v.string()) },
+  args: { queries: v.array(v.string()), artifactKind: v.optional(searchArtifactKind) },
   handler: readCurrentResults,
 });
 async function readCurrentResults(
   ctx: ActionCtx,
-  args: { queries: string[] },
+  args: { queries: string[]; artifactKind?: SearchArtifactKind },
 ): Promise<SearchCurrentResults> {
   if (args.queries.length > 100 || args.queries.some((query) => !query || query.length > 256))
     throw new Error("Maximum 100 bounded queries");
   const rows: SearchCurrentResults["rows"] = [];
   for (const query of args.queries) {
     // Current public metadata is separate from historical visible-result facts. No attribution marker.
-    const groups: FunctionReturnType<typeof internal.packages.searchForViewerInternal>[] =
-      await Promise.all(
-        (["code-plugin", "bundle-plugin"] as const).map((family) =>
-          ctx.runQuery(internal.packages.searchForViewerInternal, {
-            query,
-            family,
-            limit: 3,
-          }),
-        ),
-      );
-    const candidates = groups.flat().sort(compareCatalogSearchEntries).slice(0, 3);
-    const results: SearchCurrentResult[] = [];
-    for (const { package: pkg } of candidates) {
-      if (pkg.channel === "private") continue;
-      const detail: FunctionReturnType<typeof internal.packages.getVersionByNameForViewerInternal> =
-        pkg.latestVersion
-          ? await ctx.runQuery(internal.packages.getVersionByNameForViewerInternal, {
-              name: pkg.name,
-              version: pkg.latestVersion,
-            })
-          : null;
-      const release = detail?.version;
-      const installableAndClean = Boolean(
-        release &&
-        resolvePackageReleaseScanStatus(release) === "clean" &&
-        !getPackageDownloadSecurityBlock(release) &&
-        (release.files.length || release.clawpackStorageId),
-      );
-      const isFeatured = pkg.featuredAt !== undefined;
-      results.push({
-        name: pkg.name,
-        displayName: pkg.displayName.slice(0, 120),
-        summary: pkg.summary?.slice(0, 500) ?? null,
-        version: pkg.latestVersion,
-        url: `/plugins/${encodeURIComponent(pkg.name)}`,
-        isOfficial: pkg.isOfficial === true,
-        isFeatured,
-        eligibleForFeatured: installableAndClean && !isFeatured,
+    let identities: string[];
+    if (args.artifactKind === "skill") {
+      const matches: Array<{ id: string }> = await ctx.runAction(api.search.searchSkills, {
+        query,
+        limit: 3,
       });
+      identities = matches.map((entry) => entry.id);
+    } else {
+      const groups: FunctionReturnType<typeof internal.packages.searchForViewerInternal>[] =
+        await Promise.all(
+          (["code-plugin", "bundle-plugin"] as const).map((family) =>
+            ctx.runQuery(internal.packages.searchForViewerInternal, { query, family, limit: 3 }),
+          ),
+        );
+      identities = groups
+        .flat()
+        .sort(compareCatalogSearchEntries)
+        .slice(0, 3)
+        .map((entry) => `plugin:${entry.package.name}`);
     }
+    const results: SearchCurrentResult[] = await ctx.runQuery(
+      internal.featuredArtifacts.readInternal,
+      { identities },
+    );
     rows.push({ query, results });
   }
   return { metadataCheckedAt: Date.now(), rows };

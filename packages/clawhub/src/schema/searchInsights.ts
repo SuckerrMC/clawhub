@@ -1,8 +1,12 @@
 import { type } from "arktype";
 
+const artifactKind = '"plugin" | "skill"';
+const scope = '"catalog" | "shelf" | "legacy"';
 const sourceCounts = type({ "clawhub-web": "number", "openclaw-control-ui": "number" });
 const intentKind = '"company_product" | "generic_capability" | "ambiguous"';
 const classification = type({
+  "artifactKind?": artifactKind,
+  "scope?": scope,
   weekStart: "number",
   weekEnd: "number",
   query: "string",
@@ -14,6 +18,11 @@ const classification = type({
   processedAt: "number",
 });
 const currentResult = type({
+  id: "string",
+  artifactKind,
+  "nativeSkillId?": "string",
+  "category?": "string",
+  eligibilityReasons: "string[]",
   name: "string",
   displayName: "string",
   summary: "string | null",
@@ -24,6 +33,8 @@ const currentResult = type({
   eligibleForFeatured: "boolean",
 });
 export const SearchInsightsReportSchema = type({
+  artifactKind,
+  scope: `${scope} | null`,
   window: {
     endDay: "number",
     start7d: "number",
@@ -58,6 +69,8 @@ export const SearchInsightsReportSchema = type({
     gapEnd: "number | null",
   },
   rows: type({
+    artifactKind,
+    scope,
     query: "string",
     searches7d: "number",
     searchesPrevious7d: "number",

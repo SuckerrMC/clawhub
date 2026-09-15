@@ -2627,6 +2627,47 @@ describe("httpApiV1 handlers", () => {
     });
   });
 
+  it.each([
+    ["", "catalog"],
+    ["&category=tools&topic=automation", "shelf"],
+    ["&highlightedOnly=true", "shelf"],
+  ])("records final canonical skill counts with scope %s", async (filters, scope) => {
+    const observationWrites: Record<string, unknown>[] = [];
+    const runAction = vi.fn().mockResolvedValue([
+      { source: "clawhub", id: "native:first", official: true },
+      { source: "clawhub", id: "native:second", official: false, publisher: { official: true } },
+      { source: "skills-sh", id: "external:third", official: false },
+    ]);
+    const response = await __handlers.searchSkillsV1Handler(
+      makeCtx({
+        runAction,
+        runMutation: (_mutation: unknown, args: Record<string, unknown>) => {
+          if (isRateLimitArgs(args)) return okRate();
+          observationWrites.push(args);
+          return null;
+        },
+      }),
+      new Request(
+        `https://example.com/api/v1/search?q=%20Weather%20%20API%20&searchSource=clawhub-web${filters}`,
+      ),
+    );
+    expect(response.status).toBe(200);
+    const body = await response.json();
+    expect(body.results).toHaveLength(3);
+    expect(observationWrites).toEqual([
+      {
+        source: "clawhub-web",
+        artifactKind: "skill",
+        scope,
+        normalizedQuery: "weather api",
+        category: filters.includes("category=") ? "tools" : undefined,
+        topic: filters.includes("topic=") ? "automation" : undefined,
+        resultCount: 3,
+        officialResultCount: 1,
+      },
+    ]);
+  });
+
   it("search includes public owner metadata without publisher bio", async () => {
     const runAction = vi.fn().mockResolvedValue([
       {
@@ -12728,6 +12769,7 @@ describe("httpApiV1 handlers", () => {
         {
           source,
           artifactKind: "plugin",
+          scope: "shelf",
           normalizedQuery: "weather api",
           category: "tools",
           topic: "automation",
@@ -12860,7 +12902,7 @@ describe("httpApiV1 handlers", () => {
 
     expect(response.status).toBe(200);
     expect(log).toHaveBeenCalledWith(
-      "[plugin-search-observations] failed to record marked search",
+      "[catalog-search-observations] failed to record marked search",
       { source: "openclaw-control-ui" },
     );
     expect(JSON.stringify(log.mock.calls)).not.toContain("private-query");

@@ -46,6 +46,7 @@ import type { ActionCtx } from "../_generated/server";
 import { buildDownloadMetricArgs, getDownloadIdentity } from "../downloadMetrics";
 import { getOptionalActiveAuthUserIdFromAction } from "../lib/access";
 import { getOptionalApiTokenUserId, requireApiTokenUser } from "../lib/apiTokenAuth";
+import { recordCatalogSearchObservation } from "../lib/catalogSearchObservations";
 import { parseClawPack, sha256Base64, sha256Hex } from "../lib/clawpack";
 import { experimentalClawsEnabled } from "../lib/experimentalClaws";
 import {
@@ -63,10 +64,6 @@ import {
   getPackageTrustReasons,
   resolvePackageReleaseScanStatus,
 } from "../lib/packageSecurity";
-import {
-  buildPluginSearchObservation,
-  parsePluginSearchSource,
-} from "../lib/pluginSearchObservations";
 import type { PublicPublisher } from "../lib/public";
 import {
   getClawPackSizeError,
@@ -198,9 +195,6 @@ const internalRefs = internal as unknown as {
     requestPackageRescanForUserInternal: unknown;
     enqueueBulkPackageRescanBatchForAdminInternal: unknown;
     getBulkPackageRescanBatchStatusForAdminInternal: unknown;
-  };
-  pluginSearchObservations: {
-    recordInternal: unknown;
   };
   publishAttempts: {
     getPackagePublishAttemptStatusInternal: unknown;
@@ -4154,27 +4148,20 @@ async function searchPackages(
     !request.signal.aborted &&
     (!family || family === "code-plugin" || family === "bundle-plugin")
   ) {
-    const observation = buildPluginSearchObservation({
-      source: parsePluginSearchSource(url.searchParams.get("searchSource")),
+    await recordCatalogSearchObservation(ctx, request, {
+      artifactKind: "plugin",
       query: queryText,
       category,
       topic,
-      results: publicResults,
+      filtered: Boolean(
+        category ||
+        topic ||
+        highlightedOnly ||
+        isOfficial.value !== undefined ||
+        createdAfter !== undefined,
+      ),
+      officialResults: publicResults.map((entry) => entry.package.isOfficial === true),
     });
-    if (observation) {
-      try {
-        await runMutationRef(
-          ctx,
-          internalRefs.pluginSearchObservations.recordInternal,
-          observation,
-        );
-      } catch {
-        // Search demand is optional product analytics. Never expose or log the raw query on failure.
-        console.error("[plugin-search-observations] failed to record marked search", {
-          source: observation.source,
-        });
-      }
-    }
   }
   return json({ results: publicResults }, 200, rate.headers);
 }

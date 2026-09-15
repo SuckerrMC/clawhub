@@ -68,6 +68,29 @@ describe("plugin search observations", () => {
     );
   });
 
+  it("adds scoped skill facts without changing legacy plugin observations", async () => {
+    const t = convexTest(schema, modules);
+    const legacyId = await t.run((ctx) =>
+      ctx.db.insert("pluginSearchObservations", { ...observation, observedAt: 1 }),
+    );
+    const legacy = await t.run((ctx) => ctx.db.get(legacyId));
+    await t.mutation(internal.pluginSearchObservations.recordInternal, {
+      ...observation,
+      artifactKind: "skill",
+      scope: "catalog",
+    } as never);
+    const rows = await t.run((ctx) => ctx.db.query("pluginSearchObservations").collect());
+    expect(rows).toHaveLength(2);
+    expect(rows.find((row) => row._id === legacyId)).toEqual(legacy);
+    expect(rows.find((row) => row._id !== legacyId)).toMatchObject({
+      artifactKind: "skill",
+      scope: "catalog",
+      normalizedQuery: "weather api",
+      resultCount: 3,
+      officialResultCount: 1,
+    });
+  });
+
   it("prunes observations at the 30-day cutoff and keeps newer rows", async () => {
     const cutoff = Date.UTC(2026, 7, 9, 22);
     const t = convexTest(schema, modules);

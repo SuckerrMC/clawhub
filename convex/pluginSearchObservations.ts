@@ -2,9 +2,9 @@ import { v } from "convex/values";
 import { internal } from "./_generated/api";
 import { internalMutation } from "./functions";
 import {
-  isBoundedPluginSearchText,
-  normalizePluginSearchQuery,
-} from "./lib/pluginSearchObservations";
+  isBoundedCatalogSearchText,
+  normalizeCatalogSearchQuery,
+} from "./lib/catalogSearchObservations";
 import { RETENTION_STANDARD_BATCH_SIZE } from "./lib/retentionPolicy";
 
 const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1_000;
@@ -21,7 +21,8 @@ function normalizeBatchSize(value: number | undefined) {
 export const recordInternal = internalMutation({
   args: {
     source: v.union(v.literal("clawhub-web"), v.literal("openclaw-control-ui")),
-    artifactKind: v.literal("plugin"),
+    artifactKind: v.union(v.literal("plugin"), v.literal("skill")),
+    scope: v.optional(v.union(v.literal("catalog"), v.literal("shelf"))),
     normalizedQuery: v.string(),
     category: v.optional(v.string()),
     topic: v.optional(v.string()),
@@ -30,8 +31,8 @@ export const recordInternal = internalMutation({
   },
   handler: async (ctx, args) => {
     if (
-      !isBoundedPluginSearchText(args.normalizedQuery, args.category, args.topic) ||
-      normalizePluginSearchQuery(args.normalizedQuery) !== args.normalizedQuery ||
+      !isBoundedCatalogSearchText(args.normalizedQuery, args.category, args.topic) ||
+      normalizeCatalogSearchQuery(args.normalizedQuery) !== args.normalizedQuery ||
       !Number.isSafeInteger(args.resultCount) ||
       args.resultCount < 0 ||
       args.resultCount > 100 ||

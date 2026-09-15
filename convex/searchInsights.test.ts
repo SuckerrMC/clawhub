@@ -16,6 +16,162 @@ afterEach(() => {
 });
 
 describe("staff search intelligence report", () => {
+  it("preserves legacy buckets and cursor while separating skill, plugin, and scoped demand", async () => {
+    const t = convexTest(schema, modules);
+    vi.useFakeTimers();
+    vi.setSystemTime(END);
+    await t.run(async (ctx) => {
+      await ctx.db.insert("pluginSearchObservations", {
+        normalizedQuery: "notion",
+        observedAt: END - DAY,
+        source: "clawhub-web",
+        artifactKind: "plugin",
+        resultCount: 0,
+        officialResultCount: 0,
+      });
+    });
+    await t.mutation(internal.searchInsights.aggregateInternal, {});
+    const before = await t.run(async (ctx) => ({
+      buckets: await ctx.db.query("searchDailyAggregates").collect(),
+      state: await ctx.db.query("searchAggregateStates").unique(),
+    }));
+    await t.run(async (ctx) => {
+      for (const artifactKind of ["plugin", "skill"] as const) {
+        for (const scope of ["catalog", "shelf"] as const) {
+          await ctx.db.insert("pluginSearchObservations", {
+            normalizedQuery: "notion",
+            observedAt: END - DAY,
+            source: "clawhub-web",
+            artifactKind,
+            scope,
+            resultCount: 0,
+            officialResultCount: 0,
+          });
+        }
+      }
+    });
+    await t.mutation(internal.searchInsights.aggregateInternal, {});
+    await t.mutation(internal.searchInsights.aggregateInternal, {});
+    const after = await t.run(async (ctx) => ({
+      buckets: await ctx.db.query("searchDailyAggregates").collect(),
+      state: await ctx.db.query("searchAggregateStates").unique(),
+    }));
+    expect(after.buckets).toHaveLength(5);
+    expect(after.buckets.find((row) => row._id === before.buckets[0]._id)).toEqual(
+      before.buckets[0],
+    );
+    expect(after.state?._id).toBe(before.state?._id);
+    expect(after.state?.cursor).not.toBe(before.state?.cursor);
+    const plugin = await t.action(internal.searchInsights.getInternal, {
+      endDay: END,
+      includeCurrentResults: false,
+    });
+    const skill = await t.action(internal.searchInsights.getInternal, {
+      artifactKind: "skill",
+      endDay: END,
+      includeCurrentResults: false,
+    });
+    expect(
+      plugin.rows
+        .map((row) => [row.scope, row.searches7d])
+        .sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b))),
+    ).toEqual([
+      ["catalog", 1],
+      ["legacy", 1],
+      ["shelf", 1],
+    ]);
+    expect(
+      skill.rows
+        .map((row) => [row.artifactKind, row.scope, row.searches7d])
+        .sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b))),
+    ).toEqual([
+      ["skill", "catalog", 1],
+      ["skill", "shelf", 1],
+    ]);
+    expect(skill.coverage.collectionStartedAt).toBe(END - DAY);
+    const catalog = await t.action(internal.searchInsights.getInternal, {
+      artifactKind: "skill",
+      scope: "catalog",
+      endDay: END,
+      includeCurrentResults: false,
+    });
+    expect(catalog.totalSearches7d).toBe(1);
+  });
+
+  it("partitions classification replacement by artifact and scope without promoting unknown history", async () => {
+    const t = convexTest(schema, modules);
+    const base = {
+      weekStart: END - 7 * DAY,
+      weekEnd: END,
+      processedAt: END,
+      model: "fixture",
+      modelVersion: "v1",
+    };
+    await t.mutation(internal.searchInsights.storeClassificationsInternal, {
+      ...base,
+      rows: [{ query: "notion", intentKind: "company_product", confidence: 0.99 }],
+    });
+    await t.mutation(internal.searchInsights.storeClassificationsInternal, {
+      ...base,
+      artifactKind: "skill",
+      rows: [
+        { query: "notion", scope: "catalog", intentKind: "company_product", confidence: 0.99 },
+        { query: "notion", scope: "shelf", intentKind: "company_product", confidence: 0.99 },
+      ],
+    });
+    await t.run(async (ctx) => {
+      for (const [artifactKind, scope] of [
+        ["plugin", undefined],
+        ["skill", "catalog"],
+        ["skill", "shelf"],
+      ] as const) {
+        await ctx.db.insert("searchDailyAggregates", {
+          dayStart: END - DAY,
+          query: "notion",
+          artifactKind,
+          scope,
+          source: "clawhub-web",
+          category: "",
+          intent: "",
+          searches: 4,
+          officialGaps: 4,
+          zeroResults: 4,
+          expirationTime: END + DAY,
+        });
+      }
+    });
+    const plugin = await t.action(internal.searchInsights.getInternal, {
+      endDay: END,
+      includeCurrentResults: false,
+    });
+    const skill = await t.action(internal.searchInsights.getInternal, {
+      artifactKind: "skill",
+      endDay: END,
+      includeCurrentResults: false,
+    });
+    expect(plugin.rows[0]).toMatchObject({
+      scope: "legacy",
+      companyOpportunity: false,
+      classification: { intentKind: "company_product" },
+    });
+    expect(skill.rows.find((row) => row.scope === "catalog")?.companyOpportunity).toBe(true);
+    expect(skill.rows.find((row) => row.scope === "shelf")?.companyOpportunity).toBe(false);
+    await t.mutation(internal.searchInsights.storeClassificationsInternal, {
+      ...base,
+      artifactKind: "skill",
+      status: "unavailable",
+      rows: [],
+    });
+    expect(
+      (
+        await t.action(internal.searchInsights.getInternal, {
+          endDay: END,
+          includeCurrentResults: false,
+        })
+      ).classificationStatus,
+    ).toBe("available");
+  });
+
   it("serves deterministic 7-day, previous-week and 30-day aggregate facts without raw rows", async () => {
     const t = convexTest(schema, modules);
     const staffId = await t.run(async (ctx) => {
@@ -83,6 +239,7 @@ describe("staff search intelligence report", () => {
           query,
           source: "clawhub-web",
           artifactKind: "plugin",
+          scope: "catalog",
           category: "",
           intent: "",
           searches: 5,
@@ -103,12 +260,13 @@ describe("staff search intelligence report", () => {
       rows: [
         {
           query: "notion",
+          scope: "catalog",
           intentKind: "company_product",
           companyProductName: "Notion",
           confidence: 0.95,
         },
-        { query: "memory", intentKind: "generic_capability", confidence: 0.99 },
-        { query: "uncertain", intentKind: "company_product", confidence: 0.5 },
+        { query: "memory", scope: "catalog", intentKind: "generic_capability", confidence: 0.99 },
+        { query: "uncertain", scope: "catalog", intentKind: "company_product", confidence: 0.5 },
       ],
     });
     const staff = t.withIdentity({ subject: id });

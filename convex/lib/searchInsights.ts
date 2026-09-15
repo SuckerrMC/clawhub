@@ -1,5 +1,9 @@
 import { v, type Infer } from "convex/values";
 
+export const searchArtifactKind = v.union(v.literal("plugin"), v.literal("skill"));
+export const searchScope = v.union(v.literal("catalog"), v.literal("shelf"), v.literal("legacy"));
+export type SearchArtifactKind = Infer<typeof searchArtifactKind>;
+export type SearchScope = Infer<typeof searchScope>;
 export const SEARCH_DAY_MS = 86_400_000;
 export const SEARCH_INTENT_CONFIDENCE = 0.8;
 export const searchInsightSource = v.union(
@@ -12,6 +16,8 @@ export const searchIntentKind = v.union(
   v.literal("ambiguous"),
 );
 export const searchInsightArgs = {
+  artifactKind: v.optional(searchArtifactKind),
+  scope: v.optional(searchScope),
   endDay: v.optional(v.number()),
   includeCurrentResults: v.optional(v.boolean()),
   order: v.optional(
@@ -24,6 +30,8 @@ export const searchInsightArgs = {
   limit: v.optional(v.number()),
 };
 export const searchClassification = v.object({
+  artifactKind: v.optional(searchArtifactKind),
+  scope: v.optional(searchScope),
   weekStart: v.number(),
   weekEnd: v.number(),
   query: v.string(),
@@ -41,6 +49,8 @@ function argsValidator() {
   return v.object(searchInsightArgs);
 }
 export type SearchInsightRow = {
+  artifactKind: SearchArtifactKind;
+  scope: SearchScope;
   query: string;
   searches7d: number;
   searchesPrevious7d: number;
@@ -58,6 +68,8 @@ export type SearchInsightRow = {
   searchUrl: string;
 };
 export type SearchInsightReport = {
+  artifactKind: SearchArtifactKind;
+  scope: SearchScope | null;
   window: {
     endDay: number;
     start7d: number;
@@ -105,6 +117,11 @@ export function searchAggregateExpiration(day: number) {
   return target.getTime();
 }
 export type SearchCurrentResult = {
+  id: string;
+  artifactKind: SearchArtifactKind;
+  nativeSkillId?: string;
+  category?: string;
+  eligibilityReasons: string[];
   name: string;
   displayName: string;
   summary: string | null;

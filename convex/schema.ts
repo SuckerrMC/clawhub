@@ -9,7 +9,12 @@ import {
 import { EMBEDDING_DIMENSIONS } from "./lib/embeddings";
 import { pluginCategoryClassificationValidator } from "./lib/pluginCategoryClassification";
 import { searchDigestValidator } from "./lib/searchDigestContract";
-import { searchClassification, searchInsightSource } from "./lib/searchInsights";
+import {
+  searchArtifactKind,
+  searchClassification,
+  searchInsightSource,
+  searchScope,
+} from "./lib/searchInsights";
 
 const PLATFORM_SKILL_LICENSE = "MIT-0" as const;
 
@@ -2329,7 +2334,8 @@ const pluginSearchObservations = defineTable({
   normalizedQuery: v.string(),
   observedAt: v.number(),
   source: v.union(v.literal("clawhub-web"), v.literal("openclaw-control-ui")),
-  artifactKind: v.literal("plugin"),
+  artifactKind: v.union(v.literal("plugin"), v.literal("skill")),
+  scope: v.optional(v.union(v.literal("catalog"), v.literal("shelf"))),
   category: v.optional(v.string()),
   topic: v.optional(v.string()),
   resultCount: v.number(),
@@ -4529,6 +4535,7 @@ const searchAggregateStates = defineTable({
   processedThrough: v.number(),
   revision: v.number(),
   coverageStart: v.number(),
+  skillCoverageStart: v.optional(v.number()),
   coverageGapStart: v.optional(v.number()),
   coverageGapEnd: v.optional(v.number()),
 }).index("by_key", ["key"]);
@@ -4536,7 +4543,8 @@ const searchDailyAggregates = defineTable({
   dayStart: v.number(),
   query: v.string(),
   source: searchInsightSource,
-  artifactKind: v.literal("plugin"),
+  artifactKind: searchArtifactKind,
+  scope: v.optional(searchScope),
   category: v.string(),
   intent: v.string(),
   searches: v.number(),
@@ -4551,9 +4559,20 @@ const searchDailyAggregates = defineTable({
     "category",
     "intent",
   ])
-  .index("by_source_and_dayStart", ["source", "dayStart"])
+  .index("by_artifact_day", ["artifactKind", "dayStart"])
+  .index("by_artifact_source_day", ["artifactKind", "source", "dayStart"])
+  .index("by_bucket", [
+    "artifactKind",
+    "scope",
+    "dayStart",
+    "source",
+    "query",
+    "category",
+    "intent",
+  ])
   .index("by_expirationTime", ["expirationTime"]);
 const searchClassificationRuns = defineTable({
+  artifactKind: v.optional(searchArtifactKind),
   weekStart: v.number(),
   weekEnd: v.number(),
   processedAt: v.number(),

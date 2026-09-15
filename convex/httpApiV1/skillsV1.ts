@@ -31,6 +31,7 @@ import {
   type SkillExportArchiveManifest,
 } from "../lib/archiveManifest";
 import { serializeCanonicalSkillSearchResults } from "../lib/canonicalSkillSearchResponse";
+import { recordCatalogSearchObservation } from "../lib/catalogSearchObservations";
 import {
   ARCHIVE_REQUEST_IDENTITY_HEADER,
   expectedVercelEnvironmentForConvexSite,
@@ -1367,6 +1368,8 @@ export async function searchSkillsV1Handler(ctx: ActionCtx, request: Request) {
   const url = new URL(request.url);
   const query = url.searchParams.get("q")?.trim() ?? "";
   const limit = toOptionalNumber(url.searchParams.get("limit"));
+  const category = url.searchParams.get("category")?.trim() || undefined;
+  const topic = url.searchParams.get("topic")?.trim() || undefined;
   const rawMode = url.searchParams.get("mode")?.trim().toLowerCase();
   const highlightedOnly = parseBooleanQueryParam(url.searchParams.get("highlightedOnly"));
   const nonSuspiciousOnly = resolveBooleanQueryParam(
@@ -1385,11 +1388,24 @@ export async function searchSkillsV1Handler(ctx: ActionCtx, request: Request) {
     ...(rawMode ? { mode: "exact" as const } : {}),
     highlightedOnly: highlightedOnly || undefined,
     nonSuspiciousOnly: nonSuspiciousOnly || undefined,
+    ...(category ? { categorySlug: category } : {}),
+    ...(topic ? { topic } : {}),
   })) as unknown[];
 
   // The action owns the canonical shape and ordering for every consumer.
   // This HTTP surface must serialize it without projecting or re-sorting.
-  return json({ results: serializeCanonicalSkillSearchResults(results) }, 200, rate.headers);
+  const publicResults = serializeCanonicalSkillSearchResults(results);
+  await recordCatalogSearchObservation(ctx, request, {
+    artifactKind: "skill",
+    query,
+    category,
+    topic,
+    filtered: Boolean(category || topic || highlightedOnly),
+    officialResults: publicResults.map(
+      (result) => "official" in result && result.official === true,
+    ),
+  });
+  return json({ results: publicResults }, 200, rate.headers);
 }
 
 export async function resolveSkillVersionV1Handler(ctx: ActionCtx, request: Request) {

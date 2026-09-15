@@ -3279,28 +3279,33 @@ export const getByNameForViewerInternal = internalQuery({
     name: v.string(),
     viewerUserId: v.optional(v.id("users")),
   },
-  handler: async (ctx, args) => {
-    const pkg = await getReadablePackageByName(ctx, args.name, args.viewerUserId);
-    if (!pkg) return null;
-    const latestRelease = pkg.latestReleaseId ? await ctx.db.get(pkg.latestReleaseId) : null;
-    const publicPackage = toPublicPackage(pkg, latestRelease);
-    if (!publicPackage) return null;
-    const owner = await toPublicPublisherWithOfficial(
-      ctx,
-      await getOwnerPublisher(ctx, {
-        ownerPublisherId: pkg.ownerPublisherId,
-        ownerUserId: pkg.ownerUserId,
-      }),
-    );
-    return {
-      package: publicPackage,
-      latestRelease: isPublishedPackageRelease(latestRelease)
-        ? toPublicPackageRelease(latestRelease, pkg.family)
-        : null,
-      owner,
-    };
-  },
+  handler: readPackageForViewer,
 });
+
+export async function readPackageForViewer(
+  ctx: QueryCtx,
+  args: { name: string; viewerUserId?: Id<"users"> },
+) {
+  const pkg = await getReadablePackageByName(ctx, args.name, args.viewerUserId);
+  if (!pkg) return null;
+  const latestRelease = pkg.latestReleaseId ? await ctx.db.get(pkg.latestReleaseId) : null;
+  const publicPackage = toPublicPackage(pkg, latestRelease);
+  if (!publicPackage) return null;
+  const owner = await toPublicPublisherWithOfficial(
+    ctx,
+    await getOwnerPublisher(ctx, {
+      ownerPublisherId: pkg.ownerPublisherId,
+      ownerUserId: pkg.ownerUserId,
+    }),
+  );
+  return {
+    package: publicPackage,
+    latestRelease: isPublishedPackageRelease(latestRelease)
+      ? toPublicPackageRelease(latestRelease, pkg.family)
+      : null,
+    owner,
+  };
+}
 
 export const listVersions = query({
   args: {
@@ -3419,34 +3424,37 @@ export const getVersionByNameForViewerInternal = internalQuery({
     version: v.string(),
     viewerUserId: v.optional(v.id("users")),
   },
-  handler: async (ctx, args) => {
-    const pkg = await getReadablePackageByName(ctx, args.name, args.viewerUserId);
-    if (!pkg) return null;
-    const release = await ctx.db
-      .query("packageReleases")
-      .withIndex("by_package_version", (q) =>
-        q.eq("packageId", pkg._id).eq("version", args.version),
-      )
-      .unique();
-    if (!isPublishedPackageRelease(release)) return null;
-    const latestRelease =
-      pkg.latestReleaseId === release._id
-        ? release
-        : pkg.latestReleaseId
-          ? await ctx.db.get(pkg.latestReleaseId)
-          : null;
-    const publicPackage = toPublicPackage(pkg, latestRelease);
-    if (!publicPackage) return null;
-    return {
-      package: publicPackage,
-      version: {
-        ...toPublicPackageRelease(release, pkg.family),
-        // Internal HTTP handlers need the opaque storage id to stream exact ClawPack bytes.
-        ...(release.clawpackStorageId ? { clawpackStorageId: release.clawpackStorageId } : {}),
-      },
-    };
-  },
+  handler: readPackageVersionForViewer,
 });
+
+export async function readPackageVersionForViewer(
+  ctx: QueryCtx,
+  args: { name: string; version: string; viewerUserId?: Id<"users"> },
+) {
+  const pkg = await getReadablePackageByName(ctx, args.name, args.viewerUserId);
+  if (!pkg) return null;
+  const release = await ctx.db
+    .query("packageReleases")
+    .withIndex("by_package_version", (q) => q.eq("packageId", pkg._id).eq("version", args.version))
+    .unique();
+  if (!isPublishedPackageRelease(release)) return null;
+  const latestRelease =
+    pkg.latestReleaseId === release._id
+      ? release
+      : pkg.latestReleaseId
+        ? await ctx.db.get(pkg.latestReleaseId)
+        : null;
+  const publicPackage = toPublicPackage(pkg, latestRelease);
+  if (!publicPackage) return null;
+  return {
+    package: publicPackage,
+    version: {
+      ...toPublicPackageRelease(release, pkg.family),
+      // Internal HTTP handlers need the opaque storage id to stream exact ClawPack bytes.
+      ...(release.clawpackStorageId ? { clawpackStorageId: release.clawpackStorageId } : {}),
+    },
+  };
+}
 
 export const resolveVersionCategoriesBatchInternal = internalQuery({
   args: {

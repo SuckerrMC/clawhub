@@ -1,39 +1,38 @@
 import { describe, expect, it } from "vitest";
 import {
-  buildPluginSearchObservation,
-  normalizePluginSearchQuery,
-  parsePluginSearchSource,
-} from "./pluginSearchObservations";
+  buildCatalogSearchObservation,
+  normalizeCatalogSearchQuery,
+  parseCatalogSearchSource,
+} from "./catalogSearchObservations";
 
 describe("plugin search observation contract", () => {
   it("accepts only the closed source enum", () => {
-    expect(parsePluginSearchSource("clawhub-web")).toBe("clawhub-web");
-    expect(parsePluginSearchSource("openclaw-control-ui")).toBe("openclaw-control-ui");
-    expect(parsePluginSearchSource("crawler")).toBeUndefined();
-    expect(parsePluginSearchSource(null)).toBeUndefined();
+    expect(parseCatalogSearchSource("clawhub-web")).toBe("clawhub-web");
+    expect(parseCatalogSearchSource("openclaw-control-ui")).toBe("openclaw-control-ui");
+    expect(parseCatalogSearchSource("crawler")).toBeUndefined();
+    expect(parseCatalogSearchSource(null)).toBeUndefined();
   });
 
   it("normalizes only casing and whitespace", () => {
-    expect(normalizePluginSearchQuery("  Weather\t API  ")).toBe("weather api");
-    expect(normalizePluginSearchQuery("weather-api")).toBe("weather-api");
+    expect(normalizeCatalogSearchQuery("  Weather\t API  ")).toBe("weather api");
+    expect(normalizeCatalogSearchQuery("weather-api")).toBe("weather-api");
   });
 
   it("derives exact visible and official counts without identity metadata", () => {
     expect(
-      buildPluginSearchObservation({
+      buildCatalogSearchObservation({
         source: "clawhub-web",
+        artifactKind: "plugin",
+        filtered: true,
         query: "  Weather  API ",
         category: "tools",
         topic: "automation",
-        results: [
-          { package: { isOfficial: true } },
-          { package: { isOfficial: false } },
-          { package: { isOfficial: false } },
-        ],
+        officialResults: [true, false, false],
       }),
     ).toEqual({
       source: "clawhub-web",
       artifactKind: "plugin",
+      scope: "shelf",
       normalizedQuery: "weather api",
       category: "tools",
       topic: "automation",
@@ -44,10 +43,12 @@ describe("plugin search observation contract", () => {
 
   it("builds no observation for unmarked traffic", () => {
     expect(
-      buildPluginSearchObservation({
+      buildCatalogSearchObservation({
         source: undefined,
+        artifactKind: "plugin",
+        filtered: false,
         query: "weather",
-        results: [{ package: { isOfficial: false } }],
+        officialResults: [false],
       }),
     ).toBeNull();
   });

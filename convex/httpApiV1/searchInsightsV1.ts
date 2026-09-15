@@ -11,6 +11,18 @@ export async function searchInsightsV1Handler(ctx: ActionCtx, request: Request) 
   if (!staff.ok) return staff.response;
   const params = new URL(request.url).searchParams;
   const args: SearchInsightArgs = {};
+  const artifactKind = params.get("artifactKind");
+  if (artifactKind !== null) {
+    if (artifactKind !== "plugin" && artifactKind !== "skill")
+      return text("Invalid artifactKind", 400, headers);
+    args.artifactKind = artifactKind;
+  }
+  const scope = params.get("scope");
+  if (scope !== null) {
+    if (scope !== "catalog" && scope !== "shelf" && scope !== "legacy")
+      return text("Invalid scope", 400, headers);
+    args.scope = scope;
+  }
   const source = params.get("source");
   if (source !== null) {
     if (source !== "clawhub-web" && source !== "openclaw-control-ui")
