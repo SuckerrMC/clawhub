@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 1,
+  "baseline": "50726e9bec5d7a7355256605eebebb6b8bf03872",
+  "candidate": "04fe22d59e3d55efcec0992b442903c1be6ac6ae",
+  "scope": "Real anonymous browser request through local ClawHub Nitro proxy to native Convex HTTP handler and storage",
+  "browser": "isolated Playwright Chromium",
+  "mocked": false,
+  "runtimeSourceChanges": false,
+  "temporaryFixture": "nativeVisibilityProof.ts seeds real disposable local documents and blobs; removed after run",
+  "allScreenshotsInspected": true,
+  "publishedControlBytesAndImagesIdentical": true,
+  "screenshots": [
+    {
+      "scenario": "pending",
+      "file": "baseline-browser-files-pending-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "url": "http://127.0.0.1:3912/api/v1/skills/visibility-contract/file?path=SKILL.md&version=2.0.0&preview=1",
+      "status": 200,
+      "bodySha256": "1a2a6f28a5e468c8a824618daf70a7bc9e3896d6ab04d6979fd5bbb13897d3e1",
+      "renderedText": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 SKILL.md\n",
+      "fixture": {
+        "slug": "visibility-contract",
+        "version": "2.0.0",
+        "publicationStatus": "pending"
+      },
+      "browserVersion": "153.0.8010.12",
+      "publicAnonymous": true,
+      "ref": "50726e9bec5d7a7355256605eebebb6b8bf03872",
+      "imageSha256": "c11df45edc4ca68978f68d5598d4a8c7c94c638f41733498c57578f78643d760",
+      "inspected": true
+    },
+    {
+      "scenario": "published-control",
+      "file": "baseline-browser-files-published-control-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "url": "http://127.0.0.1:3912/api/v1/skills/visibility-contract/file?path=SKILL.md&version=1.0.0&preview=1",
+      "status": 200,
+      "bodySha256": "79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58",
+      "renderedText": "---\nname: visibility-proof\ndescription: contract published content\n---\n# contract published 1.0.0 SKILL.md\n",
+      "fixture": {
+        "slug": "visibility-contract",
+        "version": "1.0.0",
+        "publicationStatus": "published"
+      },
+      "browserVersion": "153.0.8010.12",
+      "publicAnonymous": true,
+      "ref": "50726e9bec5d7a7355256605eebebb6b8bf03872",
+      "imageSha256": "e31a6f0ab1383a692a1bd81d69a24e538689f2bececa1ccb0df1f7d2986464c1",
+      "inspected": true
+    },
+    {
+      "scenario": "pending",
+      "file": "baseline-browser-files-pending-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "url": "http://127.0.0.1:3912/api/v1/skills/visibility-contract/file?path=SKILL.md&version=2.0.0&preview=1",
+      "status": 200,
+      "bodySha256": "1a2a6f28a5e468c8a824618daf70a7bc9e3896d6ab04d6979fd5bbb13897d3e1",
+      "renderedText": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 SKILL.md\n",
+      "fixture": {
+        "slug": "visibility-contract",
+        "version": "2.0.0",
+        "publicationStatus": "pending"
+      },
+      "browserVersion": "153.0.8010.12",
+      "publicAnonymous": true,
+      "ref": "50726e9bec5d7a7355256605eebebb6b8bf03872",
+      "imageSha256": "c4031799e75215bccc63e0197486414b1310f8a7fd1606a93a806b99f5b0edea",
+      "inspected": true
+    },
+    {
+      "scenario": "published-control",
+      "file": "baseline-browser-files-published-control-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "url": "http://127.0.0.1:3912/api/v1/skills/visibility-contract/file?path=SKILL.md&version=1.0.0&preview=1",
+      "status": 200,
+      "bodySha256": "79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58",
+      "renderedText": "---\nname: visibility-proof\ndescription: contract published content\n---\n# contract published 1.0.0 SKILL.md\n",
+      "fixture": {
+        "slug": "visibility-contract",
+        "version": "1.0.0",
+        "publicationStatus": "published"
+      },
+      "browserVersion": "153.0.8010.12",
+      "publicAnonymous": true,
+      "ref": "50726e9bec5d7a7355256605eebebb6b8bf03872",
+      "imageSha256": "bf2cae4b66a2b601cb680823cefe598b33164c174acbb87123bc14c88e5fc9b0",
+      "inspected": true
+    },
+    {
+      "scenario": "pending",
+      "file": "final-browser-files-pending-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "url": "http://127.0.0.1:3912/api/v1/skills/visibility-contract/file?path=SKILL.md&version=2.0.0&preview=1",
+      "status": 404,
+      "bodySha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "renderedText": "Version not found",
+      "fixture": {
+        "slug": "visibility-contract",
+        "version": "2.0.0",
+        "publicationStatus": "pending"
+      },
+      "browserVersion": "153.0.8010.12",
+      "publicAnonymous": true,
+      "ref": "04fe22d59e3d55efcec0992b442903c1be6ac6ae",
+      "imageSha256": "6c32c5801e8b9dea48450b2ff6c145154e0e017158c3d27bb5468e3282a56177",
+      "inspected": true
+    },
+    {
+      "scenario": "published-control",
+      "file": "final-browser-files-published-control-desktop.png",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "url": "http://127.0.0.1:3912/api/v1/skills/visibility-contract/file?path=SKILL.md&version=1.0.0&preview=1",
+      "status": 200,
+      "bodySha256": "79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58",
+      "renderedText": "---\nname: visibility-proof\ndescription: contract published content\n---\n# contract published 1.0.0 SKILL.md\n",
+      "fixture": {
+        "slug": "visibility-contract",
+        "version": "1.0.0",
+        "publicationStatus": "published"
+      },
+      "browserVersion": "153.0.8010.12",
+      "publicAnonymous": true,
+      "ref": "04fe22d59e3d55efcec0992b442903c1be6ac6ae",
+      "imageSha256": "e31a6f0ab1383a692a1bd81d69a24e538689f2bececa1ccb0df1f7d2986464c1",
+      "inspected": true
+    },
+    {
+      "scenario": "pending",
+      "file": "final-browser-files-pending-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "url": "http://127.0.0.1:3912/api/v1/skills/visibility-contract/file?path=SKILL.md&version=2.0.0&preview=1",
+      "status": 404,
+      "bodySha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "renderedText": "Version not found",
+      "fixture": {
+        "slug": "visibility-contract",
+        "version": "2.0.0",
+        "publicationStatus": "pending"
+      },
+      "browserVersion": "153.0.8010.12",
+      "publicAnonymous": true,
+      "ref": "04fe22d59e3d55efcec0992b442903c1be6ac6ae",
+      "imageSha256": "af2b1385b638903c20181f3d37568f0ffd55bec86970b097733ffb9c0dc5cf41",
+      "inspected": true
+    },
+    {
+      "scenario": "published-control",
+      "file": "final-browser-files-published-control-mobile.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "url": "http://127.0.0.1:3912/api/v1/skills/visibility-contract/file?path=SKILL.md&version=1.0.0&preview=1",
+      "status": 200,
+      "bodySha256": "79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58",
+      "renderedText": "---\nname: visibility-proof\ndescription: contract published content\n---\n# contract published 1.0.0 SKILL.md\n",
+      "fixture": {
+        "slug": "visibility-contract",
+        "version": "1.0.0",
+        "publicationStatus": "published"
+      },
+      "browserVersion": "153.0.8010.12",
+      "publicAnonymous": true,
+      "ref": "04fe22d59e3d55efcec0992b442903c1be6ac6ae",
+      "imageSha256": "bf2cae4b66a2b601cb680823cefe598b33164c174acbb87123bc14c88e5fc9b0",
+      "inspected": true
+    }
+  ],
+  "cleanup": {
+    "complete": true,
+    "portsFree": [
+      3910,
+      3911,
+      3912
+    ],
+    "worktreeClean": true,
+    "temporaryFixtureAndEnvAndBackendStateRemoved": true
+  },
+  "excludedStates": {
+    "loading": "Immediate static HTTP text responses, no loading UI",
+    "empty": "No empty collection UI on this raw file preview route",
+    "contentHeavy": "File publication visibility is independent of layout or file size; full native/API matrix covers other content states",
+    "video": "No time-dependent interaction; stable before/after captures"
+  },
+  "initialProbe": "Pending version metadata already returned404 on baseline, consistent with native baseline JSON. The initial failed harness expectation was preserved; the successful comparison targets the affected file preview endpoint."
+}
