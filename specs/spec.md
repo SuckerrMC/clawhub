@@ -114,6 +114,16 @@ From SKILL.md frontmatter + AgentSkills + Clawdis extensions:
 - Stored in the legacy `stars` table and exposed through compatibility API
   routes named `stars`; user-facing product language is Bookmark.
 
+### Retired skill-comment compatibility
+
+- Skill comments remain retired: current clients expose no comments UI, and no
+  comment read/write data path is supported.
+- Keep the public `comments:listBySkill` query as a read-only compatibility
+  tombstone for stale clients. It accepts the historical `skillId` and optional
+  `limit` arguments and returns an empty list without reading legacy data.
+- Do not restore the retired `comments:add`, `comments:remove`, or
+  `comments:report` mutations or the removed comment tables.
+
 ### AuditLog
 
 - `actorUserId`
