@@ -1,0 +1,16 @@
+{
+  "files": [
+    {
+      "path": "baseline.json",
+      "sha256": "f847e369262a005a9ca5d7e91c502d2d48934c818a31652d25554b61c02340f6"
+    },
+    {
+      "path": "foundation.json",
+      "sha256": "dfebab0e501584615a87d91bed465d7d7ec3376a2a45c978a0b9203deb96aebe"
+    },
+    {
+      "path": "report.md",
+      "sha256": "12ac7b7475473351bab14b688e740ae4e258a39df085c5523380f36471548215"
+    }
+  ]
+}
