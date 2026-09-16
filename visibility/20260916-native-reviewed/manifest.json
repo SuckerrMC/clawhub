@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "path": "final-review.json",
+      "sha256": "a7e0bb58e1e5b1c7bcc10a1c0260b4d1abd24aa6a815507916d7f6909c0df552"
+    },
+    {
+      "path": "foundation-extended.json",
+      "sha256": "b51a6451d069835431fa69b02f93ba5aa10314bb7ea17148f48a628796a78b98"
+    },
+    {
+      "path": "report.md",
+      "sha256": "11cd687c9baa5eb722781c567c1d200b4c05d1dd323d63afd3db4d6eb7dac207"
+    },
+    {
+      "path": "runtime-equivalence.json",
+      "sha256": "f01f5e5dceaa547d0f3c754666a37c6b600fc83fad26b8374da4934e97c3364c"
+    }
+  ]
+}
