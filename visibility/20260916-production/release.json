@@ -1,0 +1,127 @@
+{
+  "gitSha": "2c901bdf46ef9a75a1702616e6c0f3c5b9361be3",
+  "target": "backend",
+  "test": {
+    "id": 35149974374,
+    "html_url": "https://github.com/openclaw/clawhub/actions/runs/35149974374",
+    "head_sha": "2c901bdf46ef9a75a1702616e6c0f3c5b9361be3",
+    "status": "completed",
+    "conclusion": "success",
+    "updated_at": "2026-09-16T21:04:05Z"
+  },
+  "production": {
+    "verifiedAt": "2026-09-16T21:33:34.673288+00:00",
+    "workflow": "https://github.com/openclaw/clawhub/actions/runs/35150332560",
+    "runId": 35150332560,
+    "headSha": "2c901bdf46ef9a75a1702616e6c0f3c5b9361be3",
+    "conclusion": "success",
+    "target": "backend",
+    "jobId": 104985181490,
+    "jobStartedAt": "2026-09-16T21:31:32Z",
+    "jobCompletedAt": "2026-09-16T21:32:34Z",
+    "requiredSteps": [
+      {
+        "name": "Check deploy configuration",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-09-16T21:31:34Z",
+        "completed_at": "2026-09-16T21:31:34Z"
+      },
+      {
+        "name": "Inspect external skill rollout modes",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-09-16T21:31:42Z",
+        "completed_at": "2026-09-16T21:31:47Z"
+      },
+      {
+        "name": "Pause external skill rollouts",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-09-16T21:31:47Z",
+        "completed_at": "2026-09-16T21:31:48Z"
+      },
+      {
+        "name": "Deploy Convex",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-09-16T21:31:51Z",
+        "completed_at": "2026-09-16T21:32:17Z"
+      },
+      {
+        "name": "Verify Convex contract",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-09-16T21:32:18Z",
+        "completed_at": "2026-09-16T21:32:22Z"
+      },
+      {
+        "name": "Verify dark rollout capabilities",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-09-16T21:32:22Z",
+        "completed_at": "2026-09-16T21:32:22Z"
+      },
+      {
+        "name": "Restore external skill rollouts",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-09-16T21:32:22Z",
+        "completed_at": "2026-09-16T21:32:23Z"
+      },
+      {
+        "name": "Verify restored external skill rollouts",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-09-16T21:32:23Z",
+        "completed_at": "2026-09-16T21:32:24Z"
+      },
+      {
+        "name": "Smoke test production HTTP",
+        "status": "completed",
+        "conclusion": "success",
+        "started_at": "2026-09-16T21:32:24Z",
+        "completed_at": "2026-09-16T21:32:31Z"
+      }
+    ],
+    "frontendDeploymentWait": "skipped",
+    "evidence": [
+      "deploy-production-success.json",
+      "deploy-production-final-jobs.json",
+      "deploy-production-verified-lines.txt"
+    ]
+  },
+  "live": {
+    "requests": 45,
+    "assertions": 180,
+    "passed": true,
+    "startedAt": "2026-09-16T21:33:32.213115+00:00",
+    "completedAt": "2026-09-16T21:34:35.456066+00:00",
+    "backendBefore": {
+      "observedAt": "2026-09-16T21:33:33.067798+00:00",
+      "method": "POST /api/query appMeta:getDeploymentInfo({}); public read-only query",
+      "endpoint": "https://wry-manatee-359.convex.cloud",
+      "endpointEvidence": {
+        "hostedPage": "https://clawhub.ai",
+        "entryAsset": "/assets/index-CylYQN_0.js",
+        "runtimeConfigAsset": "/assets/runtimeEnv-CP6vzT8A.js"
+      },
+      "status": 200,
+      "appBuildSha": "2c901bdf46ef9a75a1702616e6c0f3c5b9361be3",
+      "deployedAt": "2026-09-16T21:31:50Z"
+    },
+    "backendAfter": {
+      "observedAt": "2026-09-16T21:34:35.455992+00:00",
+      "method": "POST /api/query appMeta:getDeploymentInfo({}); public read-only query",
+      "endpoint": "https://wry-manatee-359.convex.cloud",
+      "endpointEvidence": {
+        "hostedPage": "https://clawhub.ai",
+        "entryAsset": "/assets/index-CylYQN_0.js",
+        "runtimeConfigAsset": "/assets/runtimeEnv-CP6vzT8A.js"
+      },
+      "status": 200,
+      "appBuildSha": "2c901bdf46ef9a75a1702616e6c0f3c5b9361be3",
+      "deployedAt": "2026-09-16T21:31:50Z"
+    }
+  }
+}

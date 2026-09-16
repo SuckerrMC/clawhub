@@ -1,0 +1,2507 @@
+{
+  "schemaVersion": 1,
+  "label": "after",
+  "startedAt": "2026-09-16T21:33:32.213115+00:00",
+  "baseUrl": "https://clawhub.ai",
+  "releaseShaLabel": null,
+  "shaBinding": "Public appMeta query before/after binds actual backend appBuildSha; --expected-sha enforces the exact production deployment. Workflow receipts independently establish release success.",
+  "method": "Unauthenticated HTTP GET plus public read-only POST /api/query appMeta:getDeploymentInfo({}); ZIP bytes inspected in memory, never extracted or executed.",
+  "pins": [
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "version": "1.0.1",
+      "tags": {
+        "latest": "1.0.1"
+      }
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "version": "0.5.1",
+      "tags": {
+        "latest": "0.5.1"
+      }
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "version": "2.0.5",
+      "tags": {
+        "latest": "2.0.5",
+        "productivity": "1.1.0",
+        "video": "1.1.0"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "metadata",
+      "requestPath": "/api/v1/skills/sku-profit-check-free?ownerHandle=chenqg618",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 13006,
+      "sha256": "5c8b55fd69a90ef61e16c8891dac8ed07619c958672e7c706e5bf7a2567b3a03",
+      "durationMs": 1570,
+      "transportError": null,
+      "content": {
+        "slug": "sku-profit-check-free",
+        "ownerHandle": "chenqg618",
+        "version": null,
+        "releaseVersion": null,
+        "latestVersion": "1.0.2",
+        "tags": {
+          "latest": "1.0.2"
+        },
+        "files": [],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": null,
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    },
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "version",
+      "requestPath": "/api/v1/skills/sku-profit-check-free/versions/1.0.1?ownerHandle=chenqg618",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 4427,
+      "sha256": "0e691f1be2563edd1f301fb8ef3364e6a4b801047fd39f4e2e06080f70aa067b",
+      "durationMs": 1120,
+      "transportError": null,
+      "content": {
+        "slug": "sku-profit-check-free",
+        "ownerHandle": null,
+        "version": "1.0.1",
+        "releaseVersion": null,
+        "latestVersion": null,
+        "tags": null,
+        "files": [
+          {
+            "path": "SKILL.md",
+            "size": 11065,
+            "sha256": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a",
+            "contentType": "text/markdown"
+          },
+          {
+            "path": "scripts/engine/sku-profit-check.js",
+            "size": 22766,
+            "sha256": "bb5f45dc709beb0631714b3696773ad2712e997c480c443e84c65a642d5a1039",
+            "contentType": "text/javascript"
+          },
+          {
+            "path": "scripts/run.mjs",
+            "size": 8360,
+            "sha256": "155011e63bfcbb3c74030f59c1f14b86117a7c9a16754be395d93fd1ce33441e",
+            "contentType": "text/javascript"
+          },
+          {
+            "path": "templates/sample.json",
+            "size": 459,
+            "sha256": "42d55dd464a035a3fcc8cf02ef522e63cb62b464fd136f18261cda31f44011a7",
+            "contentType": "application/json"
+          }
+        ],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": null,
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    },
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "file",
+      "requestPath": "/api/v1/skills/sku-profit-check-free/file?ownerHandle=chenqg618&path=SKILL.md&version=1.0.1",
+      "status": 200,
+      "contentType": "text/markdown",
+      "bytes": 11065,
+      "sha256": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a",
+      "durationMs": 747,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "verify",
+      "requestPath": "/api/v1/skills/sku-profit-check-free/verify?ownerHandle=chenqg618&version=1.0.1",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 27092,
+      "sha256": "8459ea6d09c13fd614a37a759f72d42389a7a616aa527a59756ff7a378ba67e9",
+      "durationMs": 1933,
+      "transportError": null,
+      "content": {
+        "slug": "sku-profit-check-free",
+        "ownerHandle": null,
+        "version": "1.0.1",
+        "releaseVersion": null,
+        "latestVersion": null,
+        "tags": null,
+        "files": [],
+        "sourceFingerprint": "6dc78f5c739ef8c55d68a74979b5cf8a6a1fa72693013a1934e4db19d96d0978",
+        "bundleFingerprints": [],
+        "verifyVersion": "1.0.1",
+        "verifyOk": false,
+        "verifyDecision": "fail",
+        "match": null,
+        "cardAvailable": false,
+        "cardPath": "skill-card.md"
+      }
+    },
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "hash",
+      "requestPath": "/api/v1/resolve?ownerHandle=chenqg618&slug=sku-profit-check-free&hash=6dc78f5c739ef8c55d68a74979b5cf8a6a1fa72693013a1934e4db19d96d0978",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 96,
+      "sha256": "9436663243012fd4ef8af42205ab351cbbc4daf596d03f7cac0eda7311a670d2",
+      "durationMs": 1161,
+      "transportError": null,
+      "content": {
+        "slug": "sku-profit-check-free",
+        "ownerHandle": null,
+        "version": null,
+        "releaseVersion": null,
+        "latestVersion": "1.0.2",
+        "tags": null,
+        "files": [],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": {
+          "version": "1.0.1"
+        },
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    },
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "tag-file",
+      "requestPath": "/api/v1/skills/sku-profit-check-free/file?ownerHandle=chenqg618&path=SKILL.md&tag=latest",
+      "status": 200,
+      "contentType": "text/markdown",
+      "bytes": 11564,
+      "sha256": "406396acd75bbc3b906cdac73e716f3ec36ad7b6918458b1d1cdbc6299dee90b",
+      "durationMs": 1292,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "zip",
+      "requestPath": "/api/v1/download?ownerHandle=chenqg618&slug=sku-profit-check-free&version=1.0.1",
+      "status": 200,
+      "contentType": "application/zip",
+      "bytes": 18407,
+      "sha256": "ab4a4b0679640735fd1cddc3b22017dcf9fd39600c58224edca20d4b90847ad1",
+      "durationMs": 1306,
+      "transportError": null,
+      "members": [
+        {
+          "path": "SKILL.md",
+          "bytes": 11065,
+          "sha256": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a"
+        },
+        {
+          "path": "_meta.json",
+          "bytes": 140,
+          "sha256": "d45a3f7c5cf6bceff434bcfbd9ce0e4babeaf27dc601a958b8369e79e5998770"
+        },
+        {
+          "path": "scripts/engine/sku-profit-check.js",
+          "bytes": 22766,
+          "sha256": "bb5f45dc709beb0631714b3696773ad2712e997c480c443e84c65a642d5a1039"
+        },
+        {
+          "path": "scripts/run.mjs",
+          "bytes": 8360,
+          "sha256": "155011e63bfcbb3c74030f59c1f14b86117a7c9a16754be395d93fd1ce33441e"
+        },
+        {
+          "path": "templates/sample.json",
+          "bytes": 459,
+          "sha256": "42d55dd464a035a3fcc8cf02ef522e63cb62b464fd136f18261cda31f44011a7"
+        }
+      ]
+    },
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "alias-version",
+      "requestPath": "/api/v1/packages/sku-profit-check-free/versions/1.0.1?ownerHandle=chenqg618",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 932,
+      "sha256": "d112ef4e73da21d639a2d4540c5fe7ff03361522216c935986059f1be5211b3f",
+      "durationMs": 1259,
+      "transportError": null,
+      "content": {
+        "slug": null,
+        "ownerHandle": null,
+        "version": "1.0.1",
+        "releaseVersion": null,
+        "latestVersion": null,
+        "tags": null,
+        "files": [
+          {
+            "path": "SKILL.md",
+            "size": 11065,
+            "sha256": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a",
+            "contentType": "text/markdown"
+          },
+          {
+            "path": "scripts/engine/sku-profit-check.js",
+            "size": 22766,
+            "sha256": "bb5f45dc709beb0631714b3696773ad2712e997c480c443e84c65a642d5a1039",
+            "contentType": "text/javascript"
+          },
+          {
+            "path": "scripts/run.mjs",
+            "size": 8360,
+            "sha256": "155011e63bfcbb3c74030f59c1f14b86117a7c9a16754be395d93fd1ce33441e",
+            "contentType": "text/javascript"
+          },
+          {
+            "path": "templates/sample.json",
+            "size": 459,
+            "sha256": "42d55dd464a035a3fcc8cf02ef522e63cb62b464fd136f18261cda31f44011a7",
+            "contentType": "application/json"
+          }
+        ],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": null,
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    },
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "alias-file",
+      "requestPath": "/api/v1/packages/sku-profit-check-free/file?ownerHandle=chenqg618&path=SKILL.md&version=1.0.1",
+      "status": 200,
+      "contentType": "text/markdown",
+      "bytes": 11065,
+      "sha256": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a",
+      "durationMs": 856,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "missing-version",
+      "requestPath": "/api/v1/skills/sku-profit-check-free/versions/0.0.0-visibility-proof-missing-20260916?ownerHandle=chenqg618",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 1119,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "missing-file-version",
+      "requestPath": "/api/v1/skills/sku-profit-check-free/file?ownerHandle=chenqg618&path=SKILL.md&version=0.0.0-visibility-proof-missing-20260916",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 957,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "missing-verify-version",
+      "requestPath": "/api/v1/skills/sku-profit-check-free/verify?ownerHandle=chenqg618&version=0.0.0-visibility-proof-missing-20260916",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 779,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "missing-tag",
+      "requestPath": "/api/v1/skills/sku-profit-check-free/file?ownerHandle=chenqg618&path=SKILL.md&tag=visibility-proof-missing-20260916",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 1104,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "missing-zip-version",
+      "requestPath": "/api/v1/download?ownerHandle=chenqg618&slug=sku-profit-check-free&version=0.0.0-visibility-proof-missing-20260916",
+      "status": 404,
+      "contentType": "text/plain;charset=UTF-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 1087,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "chenqg618",
+      "slug": "sku-profit-check-free",
+      "pinnedVersion": "1.0.1",
+      "surface": "missing-hash",
+      "requestPath": "/api/v1/resolve?ownerHandle=chenqg618&slug=sku-profit-check-free&hash=916b8824fa65658fbb0652fa73a3aca4514a5a222f886afa2a2f56f4a3695e86",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 81,
+      "sha256": "d4d0e3a9b418980d2089fdef95ff50dc11d0cf0c8c30bf1b19bd97d8aeaf2cae",
+      "durationMs": 1204,
+      "transportError": null,
+      "content": {
+        "slug": "sku-profit-check-free",
+        "ownerHandle": null,
+        "version": null,
+        "releaseVersion": null,
+        "latestVersion": "1.0.2",
+        "tags": null,
+        "files": [],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": null,
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "metadata",
+      "requestPath": "/api/v1/skills/aamio?ownerHandle=aisenseapi",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 17382,
+      "sha256": "3e40f18f9b74343167fc8d2875e4a366943a7ee811bbcc567b9437827fc573cb",
+      "durationMs": 2016,
+      "transportError": null,
+      "content": {
+        "slug": "aamio",
+        "ownerHandle": "aisenseapi",
+        "version": null,
+        "releaseVersion": null,
+        "latestVersion": "0.5.1",
+        "tags": {
+          "latest": "0.5.1"
+        },
+        "files": [],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": null,
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "version",
+      "requestPath": "/api/v1/skills/aamio/versions/0.5.1?ownerHandle=aisenseapi",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 3739,
+      "sha256": "06eb963d8bcb4f5aeb077ba3f7a8f589c3b528e9e8b16b83405e9d47f75b7487",
+      "durationMs": 1073,
+      "transportError": null,
+      "content": {
+        "slug": "aamio",
+        "ownerHandle": null,
+        "version": "0.5.1",
+        "releaseVersion": null,
+        "latestVersion": null,
+        "tags": null,
+        "files": [
+          {
+            "path": "client-commands.json",
+            "size": 4298,
+            "sha256": "b6d5936202961a387e43cab4937d8bf3d4727e983b2f217003effeb569b535e8",
+            "contentType": "application/json"
+          },
+          {
+            "path": "SKILL.md",
+            "size": 16062,
+            "sha256": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f",
+            "contentType": "text/markdown"
+          }
+        ],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": null,
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "file",
+      "requestPath": "/api/v1/skills/aamio/file?ownerHandle=aisenseapi&path=SKILL.md&version=0.5.1",
+      "status": 200,
+      "contentType": "text/markdown",
+      "bytes": 16062,
+      "sha256": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f",
+      "durationMs": 724,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "verify",
+      "requestPath": "/api/v1/skills/aamio/verify?ownerHandle=aisenseapi&version=0.5.1",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 17009,
+      "sha256": "ab489fa9079367874341a5df7353373d293df2154d16e20d561aea1978b1a445",
+      "durationMs": 1731,
+      "transportError": null,
+      "content": {
+        "slug": "aamio",
+        "ownerHandle": null,
+        "version": "0.5.1",
+        "releaseVersion": null,
+        "latestVersion": null,
+        "tags": null,
+        "files": [],
+        "sourceFingerprint": "87d1ce8ff3525af365eaeec307358f1db4b1d2677235a548f30b60323a03e804",
+        "bundleFingerprints": [],
+        "verifyVersion": "0.5.1",
+        "verifyOk": false,
+        "verifyDecision": "fail",
+        "match": null,
+        "cardAvailable": false,
+        "cardPath": "skill-card.md"
+      }
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "hash",
+      "requestPath": "/api/v1/resolve?ownerHandle=aisenseapi&slug=aamio&hash=87d1ce8ff3525af365eaeec307358f1db4b1d2677235a548f30b60323a03e804",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 80,
+      "sha256": "a4de8cca4d9f562ecf1d7464ddbbc9db1ef9539bddd658e5d0ef7fa2845e215a",
+      "durationMs": 1560,
+      "transportError": null,
+      "content": {
+        "slug": "aamio",
+        "ownerHandle": null,
+        "version": null,
+        "releaseVersion": null,
+        "latestVersion": "0.5.1",
+        "tags": null,
+        "files": [],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": {
+          "version": "0.5.1"
+        },
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "tag-file",
+      "requestPath": "/api/v1/skills/aamio/file?ownerHandle=aisenseapi&path=SKILL.md&tag=latest",
+      "status": 200,
+      "contentType": "text/markdown",
+      "bytes": 16062,
+      "sha256": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f",
+      "durationMs": 1777,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "zip",
+      "requestPath": "/api/v1/download?ownerHandle=aisenseapi&slug=aamio&version=0.5.1",
+      "status": 200,
+      "contentType": "application/zip",
+      "bytes": 8298,
+      "sha256": "d9347980b88cf848d47d5e0c3bc235cc293d4d1d3c2766f013b1e3ec22b419f7",
+      "durationMs": 833,
+      "transportError": null,
+      "members": [
+        {
+          "path": "SKILL.md",
+          "bytes": 16062,
+          "sha256": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f"
+        },
+        {
+          "path": "_meta.json",
+          "bytes": 124,
+          "sha256": "9d102be0a097766d4f419a270959bd9c5472730e98301bf9a979d2b0154e0bff"
+        },
+        {
+          "path": "client-commands.json",
+          "bytes": 4298,
+          "sha256": "b6d5936202961a387e43cab4937d8bf3d4727e983b2f217003effeb569b535e8"
+        }
+      ]
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "alias-version",
+      "requestPath": "/api/v1/packages/aamio/versions/0.5.1?ownerHandle=aisenseapi",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 559,
+      "sha256": "083e168f7fd066d925106628f5fcf697a74d676f60f7bc5b9380bd5f13fd448d",
+      "durationMs": 1089,
+      "transportError": null,
+      "content": {
+        "slug": null,
+        "ownerHandle": null,
+        "version": "0.5.1",
+        "releaseVersion": null,
+        "latestVersion": null,
+        "tags": null,
+        "files": [
+          {
+            "path": "client-commands.json",
+            "size": 4298,
+            "sha256": "b6d5936202961a387e43cab4937d8bf3d4727e983b2f217003effeb569b535e8",
+            "contentType": "application/json"
+          },
+          {
+            "path": "SKILL.md",
+            "size": 16062,
+            "sha256": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f",
+            "contentType": "text/markdown"
+          }
+        ],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": null,
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "alias-file",
+      "requestPath": "/api/v1/packages/aamio/file?ownerHandle=aisenseapi&path=SKILL.md&version=0.5.1",
+      "status": 200,
+      "contentType": "text/markdown",
+      "bytes": 16062,
+      "sha256": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f",
+      "durationMs": 824,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "missing-version",
+      "requestPath": "/api/v1/skills/aamio/versions/0.0.0-visibility-proof-missing-20260916?ownerHandle=aisenseapi",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 1723,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "missing-file-version",
+      "requestPath": "/api/v1/skills/aamio/file?ownerHandle=aisenseapi&path=SKILL.md&version=0.0.0-visibility-proof-missing-20260916",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 677,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "missing-verify-version",
+      "requestPath": "/api/v1/skills/aamio/verify?ownerHandle=aisenseapi&version=0.0.0-visibility-proof-missing-20260916",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 793,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "missing-tag",
+      "requestPath": "/api/v1/skills/aamio/file?ownerHandle=aisenseapi&path=SKILL.md&tag=visibility-proof-missing-20260916",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 1052,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "missing-zip-version",
+      "requestPath": "/api/v1/download?ownerHandle=aisenseapi&slug=aamio&version=0.0.0-visibility-proof-missing-20260916",
+      "status": 404,
+      "contentType": "text/plain;charset=UTF-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 733,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "aisenseapi",
+      "slug": "aamio",
+      "pinnedVersion": "0.5.1",
+      "surface": "missing-hash",
+      "requestPath": "/api/v1/resolve?ownerHandle=aisenseapi&slug=aamio&hash=916b8824fa65658fbb0652fa73a3aca4514a5a222f886afa2a2f56f4a3695e86",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 65,
+      "sha256": "989d00e005c6cb668bb1db0d33b3ffc36a8665d8b90531f05db77ec549611453",
+      "durationMs": 1500,
+      "transportError": null,
+      "content": {
+        "slug": "aamio",
+        "ownerHandle": null,
+        "version": null,
+        "releaseVersion": null,
+        "latestVersion": "0.5.1",
+        "tags": null,
+        "files": [],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": null,
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "metadata",
+      "requestPath": "/api/v1/skills/video-digest?ownerHandle=bonniegeng-max",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 9649,
+      "sha256": "3b50123f350a714137f6886058ed4edcec6252f5a4ce5fa2d87ae2e69b62593f",
+      "durationMs": 2055,
+      "transportError": null,
+      "content": {
+        "slug": "video-digest",
+        "ownerHandle": "bonniegeng-max",
+        "version": null,
+        "releaseVersion": null,
+        "latestVersion": "2.0.5",
+        "tags": {
+          "latest": "2.0.5",
+          "productivity": "1.1.0",
+          "video": "1.1.0"
+        },
+        "files": [],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": null,
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "version",
+      "requestPath": "/api/v1/skills/video-digest/versions/2.0.5?ownerHandle=bonniegeng-max",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 4091,
+      "sha256": "864f38dda10291b78c9da94124b760f2374e33881d6f21ee398c3ee94aaf6079",
+      "durationMs": 1852,
+      "transportError": null,
+      "content": {
+        "slug": "video-digest",
+        "ownerHandle": null,
+        "version": "2.0.5",
+        "releaseVersion": null,
+        "latestVersion": null,
+        "tags": null,
+        "files": [
+          {
+            "path": "LICENSE",
+            "size": 1085,
+            "sha256": "2b4cd945c0b429d90fac7ef06e44041d0b50811a95d0f2a160407750b4777ebe",
+            "contentType": "application/octet-stream"
+          },
+          {
+            "path": "README.md",
+            "size": 3218,
+            "sha256": "639447ce27fadb2a3c9b2cd74943bd790ea0d91fd9edc490f2ab23b13fc7c105",
+            "contentType": "text/markdown"
+          },
+          {
+            "path": "SKILL.md",
+            "size": 8196,
+            "sha256": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb",
+            "contentType": "text/markdown"
+          },
+          {
+            "path": "references/output-modes.md",
+            "size": 1265,
+            "sha256": "1ecdc2f95b5fa0d11c7c7a13f2b838a7727b4dca7c1f31f2b8b15752a36d964f",
+            "contentType": "text/markdown"
+          },
+          {
+            "path": "requirements.lock",
+            "size": 97,
+            "sha256": "0e0bec5be8f24be75e7b2864f5954468e947fd8368a89b8b5ed3016d54d1b9ea",
+            "contentType": "application/octet-stream"
+          },
+          {
+            "path": "scripts/fetch_video.py",
+            "size": 18822,
+            "sha256": "354ff5a4ccce69883f1b6ab09ac713497d10c10098641f8be38315972d695b00",
+            "contentType": "application/octet-stream"
+          }
+        ],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": null,
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "file",
+      "requestPath": "/api/v1/skills/video-digest/file?ownerHandle=bonniegeng-max&path=SKILL.md&version=2.0.5",
+      "status": 200,
+      "contentType": "text/markdown",
+      "bytes": 8196,
+      "sha256": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb",
+      "durationMs": 848,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "verify",
+      "requestPath": "/api/v1/skills/video-digest/verify?ownerHandle=bonniegeng-max&version=2.0.5",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 18417,
+      "sha256": "b278ae0136440e190756b5a1959db3807a06e196ec9de9a34210ae6793537d0e",
+      "durationMs": 1675,
+      "transportError": null,
+      "content": {
+        "slug": "video-digest",
+        "ownerHandle": null,
+        "version": "2.0.5",
+        "releaseVersion": null,
+        "latestVersion": null,
+        "tags": null,
+        "files": [],
+        "sourceFingerprint": "03dfb3a28d895eff1daed7320c6e89f2626ab4ecc99623721dc052eb94566f5c",
+        "bundleFingerprints": [],
+        "verifyVersion": "2.0.5",
+        "verifyOk": false,
+        "verifyDecision": "fail",
+        "match": null,
+        "cardAvailable": false,
+        "cardPath": "skill-card.md"
+      }
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "hash",
+      "requestPath": "/api/v1/resolve?ownerHandle=bonniegeng-max&slug=video-digest&hash=03dfb3a28d895eff1daed7320c6e89f2626ab4ecc99623721dc052eb94566f5c",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 87,
+      "sha256": "6f70610653e83fa362b00a8d5b31c0b1d93704cb04008940f3b5dd611a7887b7",
+      "durationMs": 1278,
+      "transportError": null,
+      "content": {
+        "slug": "video-digest",
+        "ownerHandle": null,
+        "version": null,
+        "releaseVersion": null,
+        "latestVersion": "2.0.5",
+        "tags": null,
+        "files": [],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": {
+          "version": "2.0.5"
+        },
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "tag-file",
+      "requestPath": "/api/v1/skills/video-digest/file?ownerHandle=bonniegeng-max&path=SKILL.md&tag=latest",
+      "status": 200,
+      "contentType": "text/markdown",
+      "bytes": 8196,
+      "sha256": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb",
+      "durationMs": 1230,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "zip",
+      "requestPath": "/api/v1/download?ownerHandle=bonniegeng-max&slug=video-digest&version=2.0.5",
+      "status": 200,
+      "contentType": "application/zip",
+      "bytes": 13441,
+      "sha256": "df344d5b21a4cb1e1f6a5ea475571b9a91ef626175f73c778d03c9cc3f7c8ca8",
+      "durationMs": 1455,
+      "transportError": null,
+      "members": [
+        {
+          "path": "LICENSE",
+          "bytes": 1085,
+          "sha256": "2b4cd945c0b429d90fac7ef06e44041d0b50811a95d0f2a160407750b4777ebe"
+        },
+        {
+          "path": "README.md",
+          "bytes": 3218,
+          "sha256": "639447ce27fadb2a3c9b2cd74943bd790ea0d91fd9edc490f2ab23b13fc7c105"
+        },
+        {
+          "path": "SKILL.md",
+          "bytes": 8196,
+          "sha256": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb"
+        },
+        {
+          "path": "_meta.json",
+          "bytes": 131,
+          "sha256": "bde61e4ee5d675157968ee3eaec3d1093c48ec496a44296bd9456308e55423e3"
+        },
+        {
+          "path": "references/output-modes.md",
+          "bytes": 1265,
+          "sha256": "1ecdc2f95b5fa0d11c7c7a13f2b838a7727b4dca7c1f31f2b8b15752a36d964f"
+        },
+        {
+          "path": "requirements.lock",
+          "bytes": 97,
+          "sha256": "0e0bec5be8f24be75e7b2864f5954468e947fd8368a89b8b5ed3016d54d1b9ea"
+        },
+        {
+          "path": "scripts/fetch_video.py",
+          "bytes": 18822,
+          "sha256": "354ff5a4ccce69883f1b6ab09ac713497d10c10098641f8be38315972d695b00"
+        }
+      ]
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "alias-version",
+      "requestPath": "/api/v1/packages/video-digest/versions/2.0.5?ownerHandle=bonniegeng-max",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 1397,
+      "sha256": "a98219697462db4b46b4ab53a8ccfb5ddf1f44a8a3d25bb402c7bf41a197cabb",
+      "durationMs": 1091,
+      "transportError": null,
+      "content": {
+        "slug": null,
+        "ownerHandle": null,
+        "version": "2.0.5",
+        "releaseVersion": null,
+        "latestVersion": null,
+        "tags": null,
+        "files": [
+          {
+            "path": "LICENSE",
+            "size": 1085,
+            "sha256": "2b4cd945c0b429d90fac7ef06e44041d0b50811a95d0f2a160407750b4777ebe",
+            "contentType": "application/octet-stream"
+          },
+          {
+            "path": "README.md",
+            "size": 3218,
+            "sha256": "639447ce27fadb2a3c9b2cd74943bd790ea0d91fd9edc490f2ab23b13fc7c105",
+            "contentType": "text/markdown"
+          },
+          {
+            "path": "SKILL.md",
+            "size": 8196,
+            "sha256": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb",
+            "contentType": "text/markdown"
+          },
+          {
+            "path": "references/output-modes.md",
+            "size": 1265,
+            "sha256": "1ecdc2f95b5fa0d11c7c7a13f2b838a7727b4dca7c1f31f2b8b15752a36d964f",
+            "contentType": "text/markdown"
+          },
+          {
+            "path": "requirements.lock",
+            "size": 97,
+            "sha256": "0e0bec5be8f24be75e7b2864f5954468e947fd8368a89b8b5ed3016d54d1b9ea",
+            "contentType": "application/octet-stream"
+          },
+          {
+            "path": "scripts/fetch_video.py",
+            "size": 18822,
+            "sha256": "354ff5a4ccce69883f1b6ab09ac713497d10c10098641f8be38315972d695b00",
+            "contentType": "application/octet-stream"
+          }
+        ],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": null,
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "alias-file",
+      "requestPath": "/api/v1/packages/video-digest/file?ownerHandle=bonniegeng-max&path=SKILL.md&version=2.0.5",
+      "status": 200,
+      "contentType": "text/markdown",
+      "bytes": 8196,
+      "sha256": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb",
+      "durationMs": 854,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "missing-version",
+      "requestPath": "/api/v1/skills/video-digest/versions/0.0.0-visibility-proof-missing-20260916?ownerHandle=bonniegeng-max",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 1165,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "missing-file-version",
+      "requestPath": "/api/v1/skills/video-digest/file?ownerHandle=bonniegeng-max&path=SKILL.md&version=0.0.0-visibility-proof-missing-20260916",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 858,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "missing-verify-version",
+      "requestPath": "/api/v1/skills/video-digest/verify?ownerHandle=bonniegeng-max&version=0.0.0-visibility-proof-missing-20260916",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 1365,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "missing-tag",
+      "requestPath": "/api/v1/skills/video-digest/file?ownerHandle=bonniegeng-max&path=SKILL.md&tag=visibility-proof-missing-20260916",
+      "status": 404,
+      "contentType": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 1279,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "missing-zip-version",
+      "requestPath": "/api/v1/download?ownerHandle=bonniegeng-max&slug=video-digest&version=0.0.0-visibility-proof-missing-20260916",
+      "status": 404,
+      "contentType": "text/plain;charset=UTF-8",
+      "bytes": 17,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "durationMs": 872,
+      "transportError": null
+    },
+    {
+      "ownerHandle": "bonniegeng-max",
+      "slug": "video-digest",
+      "pinnedVersion": "2.0.5",
+      "surface": "missing-hash",
+      "requestPath": "/api/v1/resolve?ownerHandle=bonniegeng-max&slug=video-digest&hash=916b8824fa65658fbb0652fa73a3aca4514a5a222f886afa2a2f56f4a3695e86",
+      "status": 200,
+      "contentType": "application/json",
+      "bytes": 72,
+      "sha256": "7e6e8ab4c55650a8e3eae680e37b637a21ba1cd91337a0440221b76366ba4222",
+      "durationMs": 1115,
+      "transportError": null,
+      "content": {
+        "slug": "video-digest",
+        "ownerHandle": null,
+        "version": null,
+        "releaseVersion": null,
+        "latestVersion": "2.0.5",
+        "tags": null,
+        "files": [],
+        "sourceFingerprint": null,
+        "bundleFingerprints": null,
+        "verifyVersion": null,
+        "verifyOk": null,
+        "verifyDecision": null,
+        "match": null,
+        "cardAvailable": null,
+        "cardPath": null
+      }
+    }
+  ],
+  "assertions": [
+    {
+      "name": "Public backend appBuildSha is present",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "Exact deployed backend SHA before checks",
+      "passed": true,
+      "actual": "2c901bdf46ef9a75a1702616e6c0f3c5b9361be3",
+      "expected": "2c901bdf46ef9a75a1702616e6c0f3c5b9361be3"
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free metadata status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free metadata slug",
+      "passed": true,
+      "actual": "sku-profit-check-free",
+      "expected": "sku-profit-check-free"
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free metadata owner",
+      "passed": true,
+      "actual": "chenqg618",
+      "expected": "chenqg618"
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free pinned version status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free pinned version",
+      "passed": true,
+      "actual": "1.0.1",
+      "expected": "1.0.1"
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free metadata declares SKILL.md",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free pinned file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free pinned file matches declared digest",
+      "passed": true,
+      "actual": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a",
+      "expected": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a"
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free pinned file matches declared size",
+      "passed": true,
+      "actual": 11065,
+      "expected": 11065
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free verify status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free verify pinned version",
+      "passed": true,
+      "actual": "1.0.1",
+      "expected": "1.0.1"
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free verification provides fingerprint",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free hash status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free hash resolves pinned version",
+      "passed": true,
+      "actual": "1.0.1",
+      "expected": "1.0.1"
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free latest tag file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free hosted ZIP status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free ZIP readable",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free ZIP contains SKILL.md",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free ZIP digest SKILL.md",
+      "passed": true,
+      "actual": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a",
+      "expected": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a"
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free ZIP contains scripts/engine/sku-profit-check.js",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free ZIP digest scripts/engine/sku-profit-check.js",
+      "passed": true,
+      "actual": "bb5f45dc709beb0631714b3696773ad2712e997c480c443e84c65a642d5a1039",
+      "expected": "bb5f45dc709beb0631714b3696773ad2712e997c480c443e84c65a642d5a1039"
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free ZIP contains scripts/run.mjs",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free ZIP digest scripts/run.mjs",
+      "passed": true,
+      "actual": "155011e63bfcbb3c74030f59c1f14b86117a7c9a16754be395d93fd1ce33441e",
+      "expected": "155011e63bfcbb3c74030f59c1f14b86117a7c9a16754be395d93fd1ce33441e"
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free ZIP contains templates/sample.json",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free ZIP digest templates/sample.json",
+      "passed": true,
+      "actual": "42d55dd464a035a3fcc8cf02ef522e63cb62b464fd136f18261cda31f44011a7",
+      "expected": "42d55dd464a035a3fcc8cf02ef522e63cb62b464fd136f18261cda31f44011a7"
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free alias version status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free alias selects pinned version",
+      "passed": true,
+      "actual": "1.0.1",
+      "expected": "1.0.1"
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free alias file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free alias file digest",
+      "passed": true,
+      "actual": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a",
+      "expected": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a"
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free missing-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free missing-file-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free missing-verify-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free missing-tag status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free missing-zip-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free missing hash status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "chenqg618/sku-profit-check-free missing hash does not match",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "aisenseapi/aamio metadata status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aisenseapi/aamio metadata slug",
+      "passed": true,
+      "actual": "aamio",
+      "expected": "aamio"
+    },
+    {
+      "name": "aisenseapi/aamio metadata owner",
+      "passed": true,
+      "actual": "aisenseapi",
+      "expected": "aisenseapi"
+    },
+    {
+      "name": "aisenseapi/aamio pinned version status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aisenseapi/aamio pinned version",
+      "passed": true,
+      "actual": "0.5.1",
+      "expected": "0.5.1"
+    },
+    {
+      "name": "aisenseapi/aamio metadata declares SKILL.md",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "aisenseapi/aamio pinned file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aisenseapi/aamio pinned file matches declared digest",
+      "passed": true,
+      "actual": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f",
+      "expected": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f"
+    },
+    {
+      "name": "aisenseapi/aamio pinned file matches declared size",
+      "passed": true,
+      "actual": 16062,
+      "expected": 16062
+    },
+    {
+      "name": "aisenseapi/aamio verify status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aisenseapi/aamio verify pinned version",
+      "passed": true,
+      "actual": "0.5.1",
+      "expected": "0.5.1"
+    },
+    {
+      "name": "aisenseapi/aamio verification provides fingerprint",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "aisenseapi/aamio hash status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aisenseapi/aamio hash resolves pinned version",
+      "passed": true,
+      "actual": "0.5.1",
+      "expected": "0.5.1"
+    },
+    {
+      "name": "aisenseapi/aamio latest tag file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aisenseapi/aamio latest tag matches pinned file",
+      "passed": true,
+      "actual": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f",
+      "expected": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f"
+    },
+    {
+      "name": "aisenseapi/aamio hosted ZIP status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aisenseapi/aamio ZIP readable",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "aisenseapi/aamio ZIP contains client-commands.json",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "aisenseapi/aamio ZIP digest client-commands.json",
+      "passed": true,
+      "actual": "b6d5936202961a387e43cab4937d8bf3d4727e983b2f217003effeb569b535e8",
+      "expected": "b6d5936202961a387e43cab4937d8bf3d4727e983b2f217003effeb569b535e8"
+    },
+    {
+      "name": "aisenseapi/aamio ZIP contains SKILL.md",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "aisenseapi/aamio ZIP digest SKILL.md",
+      "passed": true,
+      "actual": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f",
+      "expected": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f"
+    },
+    {
+      "name": "aisenseapi/aamio alias version status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aisenseapi/aamio alias selects pinned version",
+      "passed": true,
+      "actual": "0.5.1",
+      "expected": "0.5.1"
+    },
+    {
+      "name": "aisenseapi/aamio alias file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aisenseapi/aamio alias file digest",
+      "passed": true,
+      "actual": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f",
+      "expected": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f"
+    },
+    {
+      "name": "aisenseapi/aamio missing-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "aisenseapi/aamio missing-file-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "aisenseapi/aamio missing-verify-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "aisenseapi/aamio missing-tag status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "aisenseapi/aamio missing-zip-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "aisenseapi/aamio missing hash status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aisenseapi/aamio missing hash does not match",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "bonniegeng-max/video-digest metadata status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "bonniegeng-max/video-digest metadata slug",
+      "passed": true,
+      "actual": "video-digest",
+      "expected": "video-digest"
+    },
+    {
+      "name": "bonniegeng-max/video-digest metadata owner",
+      "passed": true,
+      "actual": "bonniegeng-max",
+      "expected": "bonniegeng-max"
+    },
+    {
+      "name": "bonniegeng-max/video-digest pinned version status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "bonniegeng-max/video-digest pinned version",
+      "passed": true,
+      "actual": "2.0.5",
+      "expected": "2.0.5"
+    },
+    {
+      "name": "bonniegeng-max/video-digest metadata declares SKILL.md",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "bonniegeng-max/video-digest pinned file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "bonniegeng-max/video-digest pinned file matches declared digest",
+      "passed": true,
+      "actual": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb",
+      "expected": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb"
+    },
+    {
+      "name": "bonniegeng-max/video-digest pinned file matches declared size",
+      "passed": true,
+      "actual": 8196,
+      "expected": 8196
+    },
+    {
+      "name": "bonniegeng-max/video-digest verify status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "bonniegeng-max/video-digest verify pinned version",
+      "passed": true,
+      "actual": "2.0.5",
+      "expected": "2.0.5"
+    },
+    {
+      "name": "bonniegeng-max/video-digest verification provides fingerprint",
+      "passed": true,
+      "actual": true,
+      "expected": true
+    },
+    {
+      "name": "bonniegeng-max/video-digest hash status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "bonniegeng-max/video-digest hash resolves pinned version",
+      "passed": true,
+      "actual": "2.0.5",
+      "expected": "2.0.5"
+    },
+    {
+      "name": "bonniegeng-max/video-digest latest tag file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "bonniegeng-max/video-digest latest tag matches pinned file",
+      "passed": true,
+      "actual": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb",
+      "expected": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb"
+    },
+    {
+      "name": "bonniegeng-max/video-digest hosted ZIP status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "bonniegeng-max/video-digest ZIP readable",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "bonniegeng-max/video-digest ZIP contains LICENSE",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "bonniegeng-max/video-digest ZIP digest LICENSE",
+      "passed": true,
+      "actual": "2b4cd945c0b429d90fac7ef06e44041d0b50811a95d0f2a160407750b4777ebe",
+      "expected": "2b4cd945c0b429d90fac7ef06e44041d0b50811a95d0f2a160407750b4777ebe"
+    },
+    {
+      "name": "bonniegeng-max/video-digest ZIP contains README.md",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "bonniegeng-max/video-digest ZIP digest README.md",
+      "passed": true,
+      "actual": "639447ce27fadb2a3c9b2cd74943bd790ea0d91fd9edc490f2ab23b13fc7c105",
+      "expected": "639447ce27fadb2a3c9b2cd74943bd790ea0d91fd9edc490f2ab23b13fc7c105"
+    },
+    {
+      "name": "bonniegeng-max/video-digest ZIP contains SKILL.md",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "bonniegeng-max/video-digest ZIP digest SKILL.md",
+      "passed": true,
+      "actual": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb",
+      "expected": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb"
+    },
+    {
+      "name": "bonniegeng-max/video-digest ZIP contains references/output-modes.md",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "bonniegeng-max/video-digest ZIP digest references/output-modes.md",
+      "passed": true,
+      "actual": "1ecdc2f95b5fa0d11c7c7a13f2b838a7727b4dca7c1f31f2b8b15752a36d964f",
+      "expected": "1ecdc2f95b5fa0d11c7c7a13f2b838a7727b4dca7c1f31f2b8b15752a36d964f"
+    },
+    {
+      "name": "bonniegeng-max/video-digest ZIP contains requirements.lock",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "bonniegeng-max/video-digest ZIP digest requirements.lock",
+      "passed": true,
+      "actual": "0e0bec5be8f24be75e7b2864f5954468e947fd8368a89b8b5ed3016d54d1b9ea",
+      "expected": "0e0bec5be8f24be75e7b2864f5954468e947fd8368a89b8b5ed3016d54d1b9ea"
+    },
+    {
+      "name": "bonniegeng-max/video-digest ZIP contains scripts/fetch_video.py",
+      "passed": true,
+      "actual": 1,
+      "expected": 1
+    },
+    {
+      "name": "bonniegeng-max/video-digest ZIP digest scripts/fetch_video.py",
+      "passed": true,
+      "actual": "354ff5a4ccce69883f1b6ab09ac713497d10c10098641f8be38315972d695b00",
+      "expected": "354ff5a4ccce69883f1b6ab09ac713497d10c10098641f8be38315972d695b00"
+    },
+    {
+      "name": "bonniegeng-max/video-digest alias version status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "bonniegeng-max/video-digest alias selects pinned version",
+      "passed": true,
+      "actual": "2.0.5",
+      "expected": "2.0.5"
+    },
+    {
+      "name": "bonniegeng-max/video-digest alias file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "bonniegeng-max/video-digest alias file digest",
+      "passed": true,
+      "actual": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb",
+      "expected": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb"
+    },
+    {
+      "name": "bonniegeng-max/video-digest missing-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "bonniegeng-max/video-digest missing-file-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "bonniegeng-max/video-digest missing-verify-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "bonniegeng-max/video-digest missing-tag status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "bonniegeng-max/video-digest missing-zip-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "bonniegeng-max/video-digest missing hash status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "bonniegeng-max/video-digest missing hash does not match",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "sku-profit-check-free paired metadata status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "sku-profit-check-free paired version status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "sku-profit-check-free paired file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "sku-profit-check-free paired file bytes",
+      "passed": true,
+      "actual": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a",
+      "expected": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a"
+    },
+    {
+      "name": "sku-profit-check-free paired verify status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "sku-profit-check-free paired verify verifyOk",
+      "passed": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "sku-profit-check-free paired verify verifyDecision",
+      "passed": true,
+      "actual": "fail",
+      "expected": "fail"
+    },
+    {
+      "name": "sku-profit-check-free paired verify verifyVersion",
+      "passed": true,
+      "actual": "1.0.1",
+      "expected": "1.0.1"
+    },
+    {
+      "name": "sku-profit-check-free paired hash status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "sku-profit-check-free paired hash resolution",
+      "passed": true,
+      "actual": {
+        "version": "1.0.1"
+      },
+      "expected": {
+        "version": "1.0.1"
+      }
+    },
+    {
+      "name": "sku-profit-check-free paired tag-file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "sku-profit-check-free paired zip status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "sku-profit-check-free paired ZIP members",
+      "passed": true,
+      "actual": [
+        {
+          "path": "SKILL.md",
+          "bytes": 11065,
+          "sha256": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a"
+        },
+        {
+          "path": "_meta.json",
+          "bytes": 140,
+          "sha256": "d45a3f7c5cf6bceff434bcfbd9ce0e4babeaf27dc601a958b8369e79e5998770"
+        },
+        {
+          "path": "scripts/engine/sku-profit-check.js",
+          "bytes": 22766,
+          "sha256": "bb5f45dc709beb0631714b3696773ad2712e997c480c443e84c65a642d5a1039"
+        },
+        {
+          "path": "scripts/run.mjs",
+          "bytes": 8360,
+          "sha256": "155011e63bfcbb3c74030f59c1f14b86117a7c9a16754be395d93fd1ce33441e"
+        },
+        {
+          "path": "templates/sample.json",
+          "bytes": 459,
+          "sha256": "42d55dd464a035a3fcc8cf02ef522e63cb62b464fd136f18261cda31f44011a7"
+        }
+      ],
+      "expected": [
+        {
+          "path": "SKILL.md",
+          "bytes": 11065,
+          "sha256": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a"
+        },
+        {
+          "path": "_meta.json",
+          "bytes": 140,
+          "sha256": "d45a3f7c5cf6bceff434bcfbd9ce0e4babeaf27dc601a958b8369e79e5998770"
+        },
+        {
+          "path": "scripts/engine/sku-profit-check.js",
+          "bytes": 22766,
+          "sha256": "bb5f45dc709beb0631714b3696773ad2712e997c480c443e84c65a642d5a1039"
+        },
+        {
+          "path": "scripts/run.mjs",
+          "bytes": 8360,
+          "sha256": "155011e63bfcbb3c74030f59c1f14b86117a7c9a16754be395d93fd1ce33441e"
+        },
+        {
+          "path": "templates/sample.json",
+          "bytes": 459,
+          "sha256": "42d55dd464a035a3fcc8cf02ef522e63cb62b464fd136f18261cda31f44011a7"
+        }
+      ]
+    },
+    {
+      "name": "sku-profit-check-free paired alias-version status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "sku-profit-check-free paired alias-file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "sku-profit-check-free paired alias-file bytes",
+      "passed": true,
+      "actual": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a",
+      "expected": "a016c6444737e089d631bb8e6ac6f27e03ef1d89bd89211211311e475047803a"
+    },
+    {
+      "name": "sku-profit-check-free paired missing-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "sku-profit-check-free paired missing-file-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "sku-profit-check-free paired missing-verify-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "sku-profit-check-free paired missing-zip-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "sku-profit-check-free paired missing-hash status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "sku-profit-check-free paired missing-hash resolution",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "aamio paired metadata status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aamio paired version status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aamio paired file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aamio paired file bytes",
+      "passed": true,
+      "actual": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f",
+      "expected": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f"
+    },
+    {
+      "name": "aamio paired verify status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aamio paired verify verifyOk",
+      "passed": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "aamio paired verify verifyDecision",
+      "passed": true,
+      "actual": "fail",
+      "expected": "fail"
+    },
+    {
+      "name": "aamio paired verify verifyVersion",
+      "passed": true,
+      "actual": "0.5.1",
+      "expected": "0.5.1"
+    },
+    {
+      "name": "aamio paired hash status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aamio paired hash resolution",
+      "passed": true,
+      "actual": {
+        "version": "0.5.1"
+      },
+      "expected": {
+        "version": "0.5.1"
+      }
+    },
+    {
+      "name": "aamio paired tag-file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aamio paired zip status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aamio paired ZIP members",
+      "passed": true,
+      "actual": [
+        {
+          "path": "SKILL.md",
+          "bytes": 16062,
+          "sha256": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f"
+        },
+        {
+          "path": "_meta.json",
+          "bytes": 124,
+          "sha256": "9d102be0a097766d4f419a270959bd9c5472730e98301bf9a979d2b0154e0bff"
+        },
+        {
+          "path": "client-commands.json",
+          "bytes": 4298,
+          "sha256": "b6d5936202961a387e43cab4937d8bf3d4727e983b2f217003effeb569b535e8"
+        }
+      ],
+      "expected": [
+        {
+          "path": "SKILL.md",
+          "bytes": 16062,
+          "sha256": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f"
+        },
+        {
+          "path": "_meta.json",
+          "bytes": 124,
+          "sha256": "9d102be0a097766d4f419a270959bd9c5472730e98301bf9a979d2b0154e0bff"
+        },
+        {
+          "path": "client-commands.json",
+          "bytes": 4298,
+          "sha256": "b6d5936202961a387e43cab4937d8bf3d4727e983b2f217003effeb569b535e8"
+        }
+      ]
+    },
+    {
+      "name": "aamio paired alias-version status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aamio paired alias-file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aamio paired alias-file bytes",
+      "passed": true,
+      "actual": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f",
+      "expected": "5ac749ed25e45e4317199b4a105a37f2296a435e70760a4a933516ac0c71101f"
+    },
+    {
+      "name": "aamio paired missing-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "aamio paired missing-file-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "aamio paired missing-verify-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "aamio paired missing-zip-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "aamio paired missing-hash status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "aamio paired missing-hash resolution",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "video-digest paired metadata status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "video-digest paired version status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "video-digest paired file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "video-digest paired file bytes",
+      "passed": true,
+      "actual": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb",
+      "expected": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb"
+    },
+    {
+      "name": "video-digest paired verify status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "video-digest paired verify verifyOk",
+      "passed": true,
+      "actual": false,
+      "expected": false
+    },
+    {
+      "name": "video-digest paired verify verifyDecision",
+      "passed": true,
+      "actual": "fail",
+      "expected": "fail"
+    },
+    {
+      "name": "video-digest paired verify verifyVersion",
+      "passed": true,
+      "actual": "2.0.5",
+      "expected": "2.0.5"
+    },
+    {
+      "name": "video-digest paired hash status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "video-digest paired hash resolution",
+      "passed": true,
+      "actual": {
+        "version": "2.0.5"
+      },
+      "expected": {
+        "version": "2.0.5"
+      }
+    },
+    {
+      "name": "video-digest paired tag-file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "video-digest paired zip status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "video-digest paired ZIP members",
+      "passed": true,
+      "actual": [
+        {
+          "path": "LICENSE",
+          "bytes": 1085,
+          "sha256": "2b4cd945c0b429d90fac7ef06e44041d0b50811a95d0f2a160407750b4777ebe"
+        },
+        {
+          "path": "README.md",
+          "bytes": 3218,
+          "sha256": "639447ce27fadb2a3c9b2cd74943bd790ea0d91fd9edc490f2ab23b13fc7c105"
+        },
+        {
+          "path": "SKILL.md",
+          "bytes": 8196,
+          "sha256": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb"
+        },
+        {
+          "path": "_meta.json",
+          "bytes": 131,
+          "sha256": "bde61e4ee5d675157968ee3eaec3d1093c48ec496a44296bd9456308e55423e3"
+        },
+        {
+          "path": "references/output-modes.md",
+          "bytes": 1265,
+          "sha256": "1ecdc2f95b5fa0d11c7c7a13f2b838a7727b4dca7c1f31f2b8b15752a36d964f"
+        },
+        {
+          "path": "requirements.lock",
+          "bytes": 97,
+          "sha256": "0e0bec5be8f24be75e7b2864f5954468e947fd8368a89b8b5ed3016d54d1b9ea"
+        },
+        {
+          "path": "scripts/fetch_video.py",
+          "bytes": 18822,
+          "sha256": "354ff5a4ccce69883f1b6ab09ac713497d10c10098641f8be38315972d695b00"
+        }
+      ],
+      "expected": [
+        {
+          "path": "LICENSE",
+          "bytes": 1085,
+          "sha256": "2b4cd945c0b429d90fac7ef06e44041d0b50811a95d0f2a160407750b4777ebe"
+        },
+        {
+          "path": "README.md",
+          "bytes": 3218,
+          "sha256": "639447ce27fadb2a3c9b2cd74943bd790ea0d91fd9edc490f2ab23b13fc7c105"
+        },
+        {
+          "path": "SKILL.md",
+          "bytes": 8196,
+          "sha256": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb"
+        },
+        {
+          "path": "_meta.json",
+          "bytes": 131,
+          "sha256": "bde61e4ee5d675157968ee3eaec3d1093c48ec496a44296bd9456308e55423e3"
+        },
+        {
+          "path": "references/output-modes.md",
+          "bytes": 1265,
+          "sha256": "1ecdc2f95b5fa0d11c7c7a13f2b838a7727b4dca7c1f31f2b8b15752a36d964f"
+        },
+        {
+          "path": "requirements.lock",
+          "bytes": 97,
+          "sha256": "0e0bec5be8f24be75e7b2864f5954468e947fd8368a89b8b5ed3016d54d1b9ea"
+        },
+        {
+          "path": "scripts/fetch_video.py",
+          "bytes": 18822,
+          "sha256": "354ff5a4ccce69883f1b6ab09ac713497d10c10098641f8be38315972d695b00"
+        }
+      ]
+    },
+    {
+      "name": "video-digest paired alias-version status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "video-digest paired alias-file status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "video-digest paired alias-file bytes",
+      "passed": true,
+      "actual": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb",
+      "expected": "e7b58ab0c705d70af9842e0f0f74235d28579ad5c71fad6c2d8523f83ae86ccb"
+    },
+    {
+      "name": "video-digest paired missing-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "video-digest paired missing-file-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "video-digest paired missing-verify-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "video-digest paired missing-zip-version status",
+      "passed": true,
+      "actual": 404,
+      "expected": 404
+    },
+    {
+      "name": "video-digest paired missing-hash status",
+      "passed": true,
+      "actual": 200,
+      "expected": 200
+    },
+    {
+      "name": "video-digest paired missing-hash resolution",
+      "passed": true,
+      "actual": null,
+      "expected": null
+    },
+    {
+      "name": "Backend SHA stable throughout checks",
+      "passed": true,
+      "actual": "2c901bdf46ef9a75a1702616e6c0f3c5b9361be3",
+      "expected": "2c901bdf46ef9a75a1702616e6c0f3c5b9361be3"
+    },
+    {
+      "name": "Exact deployed backend SHA after checks",
+      "passed": true,
+      "actual": "2c901bdf46ef9a75a1702616e6c0f3c5b9361be3",
+      "expected": "2c901bdf46ef9a75a1702616e6c0f3c5b9361be3"
+    }
+  ],
+  "changes": [
+    {
+      "kind": "live-tag-drift",
+      "skill": "chenqg618/sku-profit-check-free",
+      "tag": "latest",
+      "pinnedVersion": "1.0.1",
+      "observedVersion": "1.0.2"
+    },
+    {
+      "kind": "live-tag-drift",
+      "skill": "sku-profit-check-free",
+      "before": {
+        "latest": "1.0.1"
+      },
+      "after": {
+        "latest": "1.0.2"
+      }
+    },
+    {
+      "kind": "expected-denial-restored",
+      "skill": "sku-profit-check-free",
+      "surface": "missing-tag",
+      "before": 200,
+      "after": 404
+    },
+    {
+      "kind": "expected-denial-restored",
+      "skill": "aamio",
+      "surface": "missing-tag",
+      "before": 200,
+      "after": 404
+    },
+    {
+      "kind": "expected-denial-restored",
+      "skill": "video-digest",
+      "surface": "missing-tag",
+      "before": 200,
+      "after": 404
+    }
+  ],
+  "limitations": [
+    "Published controls and missing selectors do not prove absence of real unpublished versions. Native fixtures provide that negative coverage.",
+    "Latest/tag mappings and moderation may change independently of deployment; post-run reports observed drift.",
+    "GET download paths can record normal service download telemetry. No application data mutation endpoint is invoked.",
+    "chenqg618/sku-profit-check-free: no available stored Skill Card; card positive control omitted.",
+    "aisenseapi/aamio: no available stored Skill Card; card positive control omitted.",
+    "bonniegeng-max/video-digest: no available stored Skill Card; card positive control omitted."
+  ],
+  "backendBefore": {
+    "observedAt": "2026-09-16T21:33:33.067798+00:00",
+    "method": "POST /api/query appMeta:getDeploymentInfo({}); public read-only query",
+    "endpoint": "https://wry-manatee-359.convex.cloud",
+    "endpointEvidence": {
+      "hostedPage": "https://clawhub.ai",
+      "entryAsset": "/assets/index-CylYQN_0.js",
+      "runtimeConfigAsset": "/assets/runtimeEnv-CP6vzT8A.js"
+    },
+    "status": 200,
+    "appBuildSha": "2c901bdf46ef9a75a1702616e6c0f3c5b9361be3",
+    "deployedAt": "2026-09-16T21:31:50Z"
+  },
+  "backendAfter": {
+    "observedAt": "2026-09-16T21:34:35.455992+00:00",
+    "method": "POST /api/query appMeta:getDeploymentInfo({}); public read-only query",
+    "endpoint": "https://wry-manatee-359.convex.cloud",
+    "endpointEvidence": {
+      "hostedPage": "https://clawhub.ai",
+      "entryAsset": "/assets/index-CylYQN_0.js",
+      "runtimeConfigAsset": "/assets/runtimeEnv-CP6vzT8A.js"
+    },
+    "status": 200,
+    "appBuildSha": "2c901bdf46ef9a75a1702616e6c0f3c5b9361be3",
+    "deployedAt": "2026-09-16T21:31:50Z"
+  },
+  "complete": true,
+  "completedAt": "2026-09-16T21:34:35.456066+00:00",
+  "passed": true,
+  "summary": {
+    "requests": 45,
+    "assertions": 180,
+    "failedAssertions": []
+  }
+}
