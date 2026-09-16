@@ -1,0 +1,1549 @@
+$ bun scripts/run-playwright-local-auth.ts "--project=chromium" "e2e/local-auth/old-cli-publish-compat.pw.test.ts"
+Warming the npm cache for local Convex external Node dependencies: sharp@0.35.4
+
+added 6 packages in 304ms
+External dependency warmup finished in 0.5s.
+Starting local Convex at http://127.0.0.1:3910 with isolated e2e state.
+CONVEX_AGENT_MODE=anonymous mode is in beta, functionality may change in the future.
+Could not find project with name anonymous-agent!
+✔ Configured a local deployment for http://127.0.0.1:3910 and saved its:
+    name as CONVEX_DEPLOYMENT
+    client URL as VITE_CONVEX_URL
+    HTTP actions URL as VITE_CONVEX_SITE_URL
+ to .env.local
+
+Write your Convex functions in convex
+Give us feedback at https://convex.dev/community or support@convex.dev
+View the Convex dashboard at null
+
+▌ Developing against deployment:
+▌ [Local] Port 3910 • No Convex account (run npx convex login to link to a project)
+▌ └─ http://127.0.0.1:3910
+A minor update is available for Convex (1.44.0 → 1.45.0)
+Changelog: https://github.com/get-convex/convex-js/blob/main/CHANGELOG.md#changelog
+Configuring local Convex environment for local-auth Playwright e2e.
+Pushing local Convex functions with the test environment configured.
+▌ Showing logs of deployment:
+▌ [Local] Port 3910 • No Convex account (run npx convex login to link to a project)
+▌ └─ http://127.0.0.1:3910
+Watching logs for dev deployment anonymous-agent...
+- Preparing Convex functions...
+
+✔ Added table indexes:
+  [+] apiTokens.by_hash   tokenHash, _creationTime
+  [+] apiTokens.by_user   userId, _creationTime
+  [+] auditLogs.by_actor   actorUserId, _creationTime
+  [+] auditLogs.by_target   targetType, targetId, _creationTime
+  [+] auditLogs.by_target_action   targetType, targetId, action, _creationTime
+  [+] auditLogs.by_target_createdAt   targetType, targetId, createdAt, _creationTime
+  [+] authAccounts.providerAndAccountId   provider, providerAccountId, _creationTime
+  [+] authAccounts.userIdAndProvider   userId, provider, _creationTime
+  [+] authRateLimits.identifier   identifier, _creationTime
+  [+] authRefreshTokens.by_expiration_time   expirationTime, _creationTime
+  [+] authRefreshTokens.sessionId   sessionId, _creationTime
+  [+] authRefreshTokens.sessionIdAndParentRefreshTokenId   sessionId, parentRefreshTokenId, _creationTime
+  [+] authSessions.by_expiration_time   expirationTime, _creationTime
+  [+] authSessions.userId   userId, _creationTime
+  [+] authVerificationCodes.accountId   accountId, _creationTime
+  [+] authVerificationCodes.code   code, _creationTime
+  [+] authVerifiers.signature   signature, _creationTime
+  [+] canonicalTrendingItems.by_expires_at   expiresAt, _creationTime
+  [+] canonicalTrendingItems.by_snapshot_id_and_position   snapshotId, position, _creationTime
+  [+] canonicalTrendingNativePoolItems.by_expires_at   expiresAt, _creationTime
+  [+] canonicalTrendingNativePoolItems.by_pool_id_and_lane_and_position   poolId, lane, position, _creationTime
+  [+] canonicalTrendingNativePools.by_expires_at   expiresAt, _creationTime
+  [+] canonicalTrendingNativePools.by_pool_id   poolId, _creationTime
+  [+] canonicalTrendingNativePools.by_status_and_generated_at   status, generatedAt, _creationTime
+  [+] canonicalTrendingSnapshots.by_expires_at   expiresAt, _creationTime
+  [+] canonicalTrendingSnapshots.by_kind_and_status_and_expires_at   kind, status, expiresAt, _creationTime
+  [+] canonicalTrendingSnapshots.by_snapshot_id   snapshotId, _creationTime
+  [+] catalogClassificationResults.by_apply_status   applyStatus, classifiedAt, _creationTime
+  [+] catalogClassificationResults.by_category_confidence   categoryConfidence, classifiedAt, _creationTime
+  [+] catalogClassificationResults.by_package   packageId, _creationTime
+  [+] catalogClassificationResults.by_skill   skillId, _creationTime
+  [+] catalogClassificationResults.by_topic_confidence   topicConfidence, classifiedAt, _creationTime
+  [+] catalogFeedPublications.by_feed   feedId, _creationTime
+  [+] cliDeviceCodes.by_device_code_hash   deviceCodeHash, _creationTime
+  [+] cliDeviceCodes.by_status_expires   status, expiresAt, _creationTime
+  [+] cliDeviceCodes.by_user_code_hash   userCodeHash, _creationTime
+  [+] curatedSkillSearchDigest.by_active_created   softDeletedAt, createdAt, _creationTime
+  [+] curatedSkillSearchDigest.by_active_downloads   softDeletedAt, statsDownloads, updatedAt, _creationTime
+  [+] curatedSkillSearchDigest.by_active_installs   softDeletedAt, statsInstallsAllTime, updatedAt, _creationTime
+  [+] curatedSkillSearchDigest.by_active_name   softDeletedAt, displayName, _creationTime
+  [+] curatedSkillSearchDigest.by_active_recommended_score   softDeletedAt, recommendedScore, updatedAt, _creationTime
+  [+] curatedSkillSearchDigest.by_active_stars   softDeletedAt, statsStars, updatedAt, _creationTime
+  [+] curatedSkillSearchDigest.by_active_updated   softDeletedAt, updatedAt, _creationTime
+  [+] curatedSkillSearchDigest.by_nonsuspicious_created   softDeletedAt, isSuspicious, createdAt, _creationTime
+  [+] curatedSkillSearchDigest.by_nonsuspicious_downloads   softDeletedAt, isSuspicious, statsDownloads, updatedAt, _creationTime
+  [+] curatedSkillSearchDigest.by_nonsuspicious_installs   softDeletedAt, isSuspicious, statsInstallsAllTime, updatedAt, _creationTime
+  [+] curatedSkillSearchDigest.by_nonsuspicious_name   softDeletedAt, isSuspicious, displayName, _creationTime
+  [+] curatedSkillSearchDigest.by_nonsuspicious_recommended_score   softDeletedAt, isSuspicious, recommendedScore, updatedAt, _creationTime
+  [+] curatedSkillSearchDigest.by_nonsuspicious_stars   softDeletedAt, isSuspicious, statsStars, updatedAt, _creationTime
+  [+] curatedSkillSearchDigest.by_nonsuspicious_updated   softDeletedAt, isSuspicious, updatedAt, _creationTime
+  [+] curatedSkillSearchDigest.by_skill   skillId, _creationTime
+  [+] downloadMetricDedupes.by_day   dayStart, _creationTime
+  [+] downloadMetricDedupes.by_target_identity_day   targetKind, targetId, identityKind, identityHash, dayStart, _creationTime
+  [+] embeddingSkillMap.by_embedding   embeddingId, _creationTime
+  [+] githubOrgMemberships.by_user   userId, _creationTime
+  [+] githubOrgMemberships.by_user_and_github_org   userId, githubOrgId, _creationTime
+  [+] githubSkillCandidates.by_github_source   githubSourceId, _creationTime
+  [+] githubSkillCandidates.by_github_source_and_lifecycle_status   githubSourceId, lifecycleStatus, _creationTime
+  [+] githubSkillCandidates.by_skill   skillId, _creationTime
+  [+] githubSkillCandidates.by_skill_and_commit_and_content_hash   skillId, githubCommit, githubContentHash, _creationTime
+  [+] githubSkillCandidates.by_skill_and_content_hash   skillId, githubContentHash, _creationTime
+  [+] githubSkillCandidates.by_skill_and_repo_source_commit_path_hash   skillId, githubRepo, githubSourceId, githubCommit, githubPath, githubContentHash, _creationTime
+  [+] githubSkillContents.by_github_source   githubSourceId, _creationTime
+  [+] githubSkillContents.by_skill   skillId, _creationTime
+  [+] githubSkillContents.by_skill_and_content_hash   skillId, githubContentHash, _creationTime
+  [+] githubSkillScans.by_github_source_and_updated_at   githubSourceId, updatedAt, _creationTime
+  [+] githubSkillScans.by_skill_and_content_hash   skillId, contentHash, _creationTime
+  [+] githubSkillSources.by_created   createdAt, _creationTime
+  [+] githubSkillSources.by_github_repository_id   githubRepositoryId, _creationTime
+  [+] githubSkillSources.by_owner_publisher   ownerPublisherId, _creationTime
+  [+] githubSkillSources.by_owner_publisher_and_repo   ownerPublisherId, repo, _creationTime
+  [+] githubSkillSources.by_repo   repo, _creationTime
+  [+] githubSkillSources.by_updated   updatedAt, _creationTime
+  [+] globalStats.by_key   key, _creationTime
+  [+] httpRateLimitKeys.by_expires_at   expiresAt, _creationTime
+  [+] httpRateLimitKeys.by_name_and_key_and_expires_at   name, key, expiresAt, _creationTime
+  [+] httpRateLimitKeys.by_name_and_key_and_shard   name, key, shard, _creationTime
+  [+] installTelemetryDedupes.by_day   dayStart, _creationTime
+  [+] installTelemetryDedupes.by_skill   skillId, _creationTime
+  [+] installTelemetryDedupes.by_user   userId, _creationTime
+  [+] installTelemetryDedupes.by_user_createdAt   userId, createdAt, _creationTime
+  [+] installTelemetryDedupes.by_user_skill_day   userId, skillId, dayStart, _creationTime
+  [+] officialPluginMigrations.by_bundled_plugin   bundledPluginId, _creationTime
+  [+] officialPluginMigrations.by_package_name   packageName, _creationTime
+  [+] officialPluginMigrations.by_phase_updatedAt   phase, updatedAt, _creationTime
+  [+] officialPluginMigrations.by_updatedAt   updatedAt, _creationTime
+  [+] officialPublishers.by_created   createdAt, _creationTime
+  [+] officialPublishers.by_publisher   publisherId, _creationTime
+  [+] packageAppeals.by_createdAt   createdAt, _creationTime
+  [+] packageAppeals.by_package   packageId, _creationTime
+  [+] packageAppeals.by_release_status_createdAt   releaseId, status, createdAt, _creationTime
+  [+] packageAppeals.by_status_createdAt   status, createdAt, _creationTime
+  [+] packageAppeals.by_user_createdAt   userId, createdAt, _creationTime
+  [+] packageBadges.by_kind_at   kind, at, _creationTime
+  [+] packageBadges.by_package   packageId, _creationTime
+  [+] packageBadges.by_package_kind   packageId, kind, _creationTime
+  [+] packageDailyStats.by_day   day, _creationTime
+  [+] packageDailyStats.by_package_day   packageId, day, _creationTime
+  [+] packageInspectorFindingNotifications.by_owner_user_sent   ownerUserId, sentAt, _creationTime
+  [+] packageInspectorFindingNotifications.by_release   releaseId, _creationTime
+  [+] packageInspectorScanCursors.by_name   name, _creationTime
+  [+] packageInspectorScanStates.by_release_and_completed_at   releaseId, completedAt, _creationTime
+  [+] packageInspectorScanStates.by_release_and_inspector_version_and_target_openclaw_version   releaseId, inspectorVersion, targetOpenClawVersion, _creationTime
+  [+] packageInspectorWarnings.by_owner_publisher_created   ownerPublisherId, createdAt, _creationTime
+  [+] packageInspectorWarnings.by_owner_user_created   ownerUserId, createdAt, _creationTime
+  [+] packageInspectorWarnings.by_package_created   packageId, createdAt, _creationTime
+  [+] packageInspectorWarnings.by_release   releaseId, _creationTime
+  [+] packageInspectorWarnings.by_release_created   releaseId, createdAt, _creationTime
+  [+] packageInstallMetricDedupes.by_day   dayStart, _creationTime
+  [+] packageInstallMetricDedupes.by_target_metric_identity_day   targetKind, targetId, metricKind, identityKind, identityHash, dayStart, _creationTime
+  [+] packageLeaderboards.by_kind   kind, generatedAt, _creationTime
+  [+] packageModerationEventLogs.by_actor_createdAt   actorUserId, createdAt, _creationTime
+  [+] packageModerationEventLogs.by_appeal_createdAt   appealId, createdAt, _creationTime
+  [+] packageModerationEventLogs.by_report_createdAt   reportId, createdAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_category_downloads   softDeletedAt, pluginCategory, stats.downloads, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_category_installs   softDeletedAt, pluginCategory, stats.installs, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_category_recommended_score   softDeletedAt, pluginCategory, recommendedScore, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_category_updated   softDeletedAt, pluginCategory, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_channel_category_downloads   softDeletedAt, channel, pluginCategory, stats.downloads, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_channel_category_updated   softDeletedAt, channel, pluginCategory, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_channel_official_category_downloads   softDeletedAt, channel, isOfficial, pluginCategory, stats.downloads, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_channel_official_category_updated   softDeletedAt, channel, isOfficial, pluginCategory, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_family_category_downloads   softDeletedAt, family, pluginCategory, stats.downloads, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_family_category_installs   softDeletedAt, family, pluginCategory, stats.installs, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_family_category_recommended_score   softDeletedAt, family, pluginCategory, recommendedScore, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_family_category_updated   softDeletedAt, family, pluginCategory, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_family_channel_category_downloads   softDeletedAt, family, channel, pluginCategory, stats.downloads, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_family_channel_category_updated   softDeletedAt, family, channel, pluginCategory, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_family_channel_official_category_downloads   softDeletedAt, family, channel, isOfficial, pluginCategory, stats.downloads, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_family_official_category_downloads   softDeletedAt, family, isOfficial, pluginCategory, stats.downloads, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_family_official_category_installs   softDeletedAt, family, isOfficial, pluginCategory, stats.installs, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_family_official_category_recommended_score   softDeletedAt, family, isOfficial, pluginCategory, recommendedScore, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_family_official_category_updated   softDeletedAt, family, isOfficial, pluginCategory, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_official_category_downloads   softDeletedAt, isOfficial, pluginCategory, stats.downloads, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_official_category_installs   softDeletedAt, isOfficial, pluginCategory, stats.installs, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_official_category_recommended_score   softDeletedAt, isOfficial, pluginCategory, recommendedScore, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_active_official_category_updated   softDeletedAt, isOfficial, pluginCategory, updatedAt, _creationTime
+  [+] packagePluginCategorySearchDigest.by_package   packageId, pluginCategory, _creationTime
+  [+] packagePublishTokens.by_hash   tokenHash, _creationTime
+  [+] packagePublishTokens.by_package   packageId, version, createdAt, _creationTime
+  [+] packagePublishTokens.by_package_revoked_created   packageId, revokedAt, createdAt, _creationTime
+  [+] packagePublishUploadTickets.by_publish_token   publishTokenId, _creationTime
+  [+] packageReleases.by_active_created   softDeletedAt, createdAt, _creationTime
+  [+] packageReleases.by_package   packageId, _creationTime
+  [+] packageReleases.by_package_active_created   packageId, softDeletedAt, createdAt, _creationTime
+  [+] packageReleases.by_package_owner_deleted_created   packageId, ownerDeletedBy, createdAt, _creationTime
+  [+] packageReleases.by_package_version   packageId, version, _creationTime
+  [+] packageReleases.by_sha256hash   sha256hash, _creationTime
+  [+] packageReports.by_createdAt   createdAt, _creationTime
+  [+] packageReports.by_package   packageId, _creationTime
+  [+] packageReports.by_package_createdAt   packageId, createdAt, _creationTime
+  [+] packageReports.by_package_user   packageId, userId, _creationTime
+  [+] packageReports.by_release   releaseId, _creationTime
+  [+] packageReports.by_status_createdAt   status, createdAt, _creationTime
+  [+] packageReports.by_user   userId, _creationTime
+  [+] packageSearchDigest.by_active_channel_official_updated   softDeletedAt, channel, isOfficial, updatedAt, _creationTime
+  [+] packageSearchDigest.by_active_channel_updated   softDeletedAt, channel, updatedAt, _creationTime
+  [+] packageSearchDigest.by_active_family_channel_updated   softDeletedAt, family, channel, updatedAt, _creationTime
+  [+] packageSearchDigest.by_active_family_created   softDeletedAt, family, createdAt, _creationTime
+  [+] packageSearchDigest.by_active_family_normalized_name   softDeletedAt, family, normalizedName, updatedAt, _creationTime
+  [+] packageSearchDigest.by_active_family_official_updated   softDeletedAt, family, isOfficial, updatedAt, _creationTime
+  [+] packageSearchDigest.by_active_family_owner_handle   softDeletedAt, family, ownerHandle, updatedAt, _creationTime
+  [+] packageSearchDigest.by_active_family_runtime_id   softDeletedAt, family, runtimeId, updatedAt, _creationTime
+  [+] packageSearchDigest.by_active_family_updated   softDeletedAt, family, updatedAt, _creationTime
+  [+] packageSearchDigest.by_active_name   softDeletedAt, displayName, _creationTime
+  [+] packageSearchDigest.by_active_normalized_name   softDeletedAt, normalizedName, updatedAt, _creationTime
+  [+] packageSearchDigest.by_active_official_updated   softDeletedAt, isOfficial, updatedAt, _creationTime
+  [+] packageSearchDigest.by_active_owner_handle   softDeletedAt, ownerHandle, updatedAt, _creationTime
+  [+] packageSearchDigest.by_active_runtime_id   softDeletedAt, runtimeId, updatedAt, _creationTime
+  [+] packageSearchDigest.by_active_updated   softDeletedAt, updatedAt, _creationTime
+  [+] packageSearchDigest.by_package   packageId, _creationTime
+  [+] packageSearchDigest.search_by_display_name (text)   displayName, filters on family, softDeletedAt
+  [+] packageStatEvents.by_package   packageId, _creationTime
+  [+] packageStatEvents.by_unprocessed   processedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_channel_official_topic_downloads   softDeletedAt, channel, isOfficial, topic, stats.downloads, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_channel_official_topic_updated   softDeletedAt, channel, isOfficial, topic, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_channel_topic_downloads   softDeletedAt, channel, topic, stats.downloads, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_channel_topic_updated   softDeletedAt, channel, topic, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_family_channel_official_topic_downloads   softDeletedAt, family, channel, isOfficial, topic, stats.downloads, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_family_channel_topic_downloads   softDeletedAt, family, channel, topic, stats.downloads, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_family_channel_topic_updated   softDeletedAt, family, channel, topic, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_family_official_topic_downloads   softDeletedAt, family, isOfficial, topic, stats.downloads, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_family_official_topic_updated   softDeletedAt, family, isOfficial, topic, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_family_topic_downloads   softDeletedAt, family, topic, stats.downloads, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_family_topic_updated   softDeletedAt, family, topic, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_official_topic_downloads   softDeletedAt, isOfficial, topic, stats.downloads, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_official_topic_installs   softDeletedAt, isOfficial, topic, stats.installs, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_official_topic_recommended_score   softDeletedAt, isOfficial, topic, recommendedScore, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_official_topic_updated   softDeletedAt, isOfficial, topic, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_topic_downloads   softDeletedAt, topic, stats.downloads, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_topic_installs   softDeletedAt, topic, stats.installs, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_topic_recommended_score   softDeletedAt, topic, recommendedScore, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_active_topic_updated   softDeletedAt, topic, updatedAt, _creationTime
+  [+] packageTopicSearchDigest.by_package   packageId, topic, _creationTime
+  [+] packageTrustedPublishers.by_package   packageId, _creationTime
+  [+] packageTrustedPublishers.by_repository   repository, workflowFilename, _creationTime
+  [+] packages.by_active_downloads   softDeletedAt, stats.downloads, updatedAt, _creationTime
+  [+] packages.by_active_family_downloads   softDeletedAt, family, stats.downloads, updatedAt, _creationTime
+  [+] packages.by_active_family_installs   softDeletedAt, family, stats.installs, updatedAt, _creationTime
+  [+] packages.by_active_family_official_downloads   softDeletedAt, family, isOfficial, stats.downloads, updatedAt, _creationTime
+  [+] packages.by_active_family_official_installs   softDeletedAt, family, isOfficial, stats.installs, updatedAt, _creationTime
+  [+] packages.by_active_family_recommended_rank   softDeletedAt, family, stats.stars, stats.downloads, stats.installs, updatedAt, _creationTime
+  [+] packages.by_active_family_recommended_score   softDeletedAt, family, recommendedScore, updatedAt, _creationTime
+  [+] packages.by_active_family_recommended_score_version   softDeletedAt, family, recommendedScoreVersion, _creationTime
+  [+] packages.by_active_installs   softDeletedAt, stats.installs, updatedAt, _creationTime
+  [+] packages.by_active_recommended_rank   softDeletedAt, stats.stars, stats.downloads, stats.installs, updatedAt, _creationTime
+  [+] packages.by_active_recommended_score   softDeletedAt, recommendedScore, updatedAt, _creationTime
+  [+] packages.by_active_recommended_score_version   softDeletedAt, recommendedScoreVersion, _creationTime
+  [+] packages.by_active_updated   softDeletedAt, updatedAt, _creationTime
+  [+] packages.by_family_channel_updated   family, channel, updatedAt, _creationTime
+  [+] packages.by_family_official_updated   family, isOfficial, updatedAt, _creationTime
+  [+] packages.by_family_updated   family, updatedAt, _creationTime
+  [+] packages.by_name   normalizedName, _creationTime
+  [+] packages.by_owner   ownerUserId, _creationTime
+  [+] packages.by_ownerPublisherId_runtimeId_softDeletedAt   ownerPublisherId, runtimeId, softDeletedAt, _creationTime
+  [+] packages.by_ownerUserId_ownerPublisherId_runtimeId_softDeletedAt   ownerUserId, ownerPublisherId, runtimeId, softDeletedAt, _creationTime
+  [+] packages.by_owner_publisher   ownerPublisherId, _creationTime
+  [+] packages.by_owner_publisher_active_downloads   ownerPublisherId, softDeletedAt, stats.downloads, updatedAt, _creationTime
+  [+] packages.by_owner_publisher_active_installs   ownerPublisherId, softDeletedAt, stats.installs, updatedAt, _creationTime
+  [+] packages.by_owner_publisher_active_updated   ownerPublisherId, softDeletedAt, updatedAt, _creationTime
+  [+] packages.by_runtime_id   runtimeId, _creationTime
+  [+] pluginCategoryRefreshes.by_run   runId, _creationTime
+  [+] pluginCategoryRefreshes.by_run_package   runId, packageId, _creationTime
+  [+] pluginCategoryRefreshes.by_status   status, _creationTime
+  [+] pluginSearchObservations.by_observed_at   observedAt, _creationTime
+  [+] promotions.by_slug   slug, _creationTime
+  [+] promotions.by_status_endsAt   status, endsAt, _creationTime
+  [+] publishAttempts.by_expires_at   expiresAt, _creationTime
+  [+] publishAttempts.by_idempotency_key   idempotencyKey, _creationTime
+  [+] publishAttempts.by_kind_status_slug_version_created   kind, status, slug, version, createdAt, _creationTime
+  [+] publishAttempts.by_owner_publisher_status_created   ownerPublisherId, status, createdAt, _creationTime
+  [+] publishAttempts.by_status_and_created   status, createdAt, _creationTime
+  [+] publishAttempts.by_status_check_claim_expires_at_created   status, checkClaimExpiresAt, createdAt, _creationTime
+  [+] publishAttempts.by_user_status_created   userId, status, createdAt, _creationTime
+  [+] publisherAbuseReviewEvents.by_actor_and_created_at   actorUserId, createdAt, _creationTime
+  [+] publisherAbuseReviewEvents.by_nomination_and_created_at   nominationId, createdAt, _creationTime
+  [+] publisherAbuseReviewEvents.by_owner_key_and_created_at   ownerKey, createdAt, _creationTime
+  [+] publisherAbuseReviewNominations.by_label_and_status_and_last_scored_at   label, status, lastScoredAt, _creationTime
+  [+] publisherAbuseReviewNominations.by_last_scored_at   lastScoredAt, _creationTime
+  [+] publisherAbuseReviewNominations.by_owner_key_and_model_version   ownerKey, modelVersion, _creationTime
+  [+] publisherAbuseReviewNominations.by_status_and_label_and_last_scored_at   status, label, lastScoredAt, _creationTime
+  [+] publisherAbuseReviewNominations.by_status_and_last_scored_at   status, lastScoredAt, _creationTime
+  [+] publisherAbuseReviewNominations.by_status_and_model_version_and_label_and_last_scored_at   status, modelVersion, label, lastScoredAt, _creationTime
+  [+] publisherAbuseReviewNominations.by_status_and_reviewed_at   status, reviewedAt, _creationTime
+  [+] publisherAbuseReviewNominations.by_status_and_updated_at   status, updatedAt, _creationTime
+  [+] publisherAbuseScoreRuns.by_model_status_phase_temporal_complete_started_at   modelVersion, status, phase, temporalMode, temporalScanComplete, startedAt, _creationTime
+  [+] publisherAbuseScoreRuns.by_model_version_and_started_at   modelVersion, startedAt, _creationTime
+  [+] publisherAbuseScoreRuns.by_model_version_and_status_and_trigger_and_updated_at   modelVersion, status, trigger, updatedAt, _creationTime
+  [+] publisherAbuseScoreRuns.by_model_version_and_status_and_updated_at   modelVersion, status, updatedAt, _creationTime
+  [+] publisherAbuseScoreRuns.by_model_version_and_temporal_pipeline_kind_and_phase_started_at   modelVersion, temporalPipelineKind, temporalPipelinePhase, startedAt, _creationTime
+  [+] publisherAbuseScoreRuns.by_started_at   startedAt, _creationTime
+  [+] publisherAbuseScoreRuns.by_status_and_updated_at   status, updatedAt, _creationTime
+  [+] publisherAbuseScoreRuns.by_temporal_pipeline_kind_and_started_at   temporalPipelineKind, startedAt, _creationTime
+  [+] publisherAbuseScoreRuns.by_temporal_pipeline_kind_and_status_and_updated_at   temporalPipelineKind, status, updatedAt, _creationTime
+  [+] publisherAbuseScores.by_label_and_z_score   label, zScore, _creationTime
+  [+] publisherAbuseScores.by_owner_key_and_created_at   ownerKey, createdAt, _creationTime
+  [+] publisherAbuseScores.by_owner_key_and_model_version   ownerKey, modelVersion, _creationTime
+  [+] publisherAbuseScores.by_run_and_label_and_rank   runId, label, rank, _creationTime
+  [+] publisherAbuseScores.by_run_and_owner_key   runId, ownerKey, _creationTime
+  [+] publisherAbuseScores.by_run_and_pressure   runId, pressure, _creationTime
+  [+] publisherAbuseScores.by_run_and_rank   runId, rank, _creationTime
+  [+] publisherAbuseSignals.by_last_seen_at   lastSeenAt, _creationTime
+  [+] publisherAbuseSignals.by_owner_key_and_last_seen_at   ownerKey, lastSeenAt, _creationTime
+  [+] publisherAbuseSignals.by_owner_key_and_signal_type   ownerKey, signalType, _creationTime
+  [+] publisherAbuseSignals.by_signal_type_and_last_seen_at   signalType, lastSeenAt, _creationTime
+  [+] publisherAbuseSignals.by_skill_and_signal_type   skillId, signalType, _creationTime
+  [+] publisherAbuseSignals.by_skill_signal_type_and_owner_key   skillId, signalType, ownerKey, _creationTime
+  [+] publisherAbuseTemporalScanCandidates.by_expiration_time   expirationTime, _creationTime
+  [+] publisherAbuseTemporalScanCandidates.by_run_id   runId, _creationTime
+  [+] publisherAbuseTemporalScanCandidates.by_run_id_and_synchrony_eligible_and_owner_key   runId, synchronyEligible, ownerKey, _creationTime
+  [+] publisherAbuseTemporalScanSamples.by_expiration_time   expirationTime, _creationTime
+  [+] publisherAbuseTemporalScanSamples.by_run_id_and_excess7_downloads   runId, excess7Downloads, _creationTime
+  [+] publisherAbuseTemporalScanSamples.by_run_id_and_recent30_downloads   runId, recent30Downloads, _creationTime
+  [+] publisherAbuseTemporalScanSamples.by_run_id_and_spike_multiplier   runId, spikeMultiplier, _creationTime
+  [+] publisherImageUploadTickets.by_publisher_user   publisherId, userId, _creationTime
+  [+] publisherInvites.by_expires_at   expiresAt, _creationTime
+  [+] publisherInvites.by_publisher_status_expires   publisherId, status, expiresAt, _creationTime
+  [+] publisherInvites.by_publisher_target_status_expires   publisherId, targetHandle, status, expiresAt, _creationTime
+  [+] publisherInvites.by_publisher_target_user_status_expires   publisherId, targetUserId, status, expiresAt, _creationTime
+  [+] publisherInvites.by_target_handle_status_expires   targetHandle, status, expiresAt, _creationTime
+  [+] publisherInvites.by_target_user_status_expires   targetUserId, status, expiresAt, _creationTime
+  [+] publisherMembers.by_publisher   publisherId, _creationTime
+  [+] publisherMembers.by_publisher_and_role   publisherId, role, _creationTime
+  [+] publisherMembers.by_publisher_user   publisherId, userId, _creationTime
+  [+] publisherMembers.by_user   userId, _creationTime
+  [+] publishers.by_active_kind_handle   deletedAt, deactivatedAt, kind, handle, _creationTime
+  [+] publishers.by_active_kind_total_downloads   deletedAt, deactivatedAt, kind, totalDownloads, updatedAt, _creationTime
+  [+] publishers.by_active_kind_total_installs   deletedAt, deactivatedAt, kind, totalInstalls, updatedAt, _creationTime
+  [+] publishers.by_active_total_downloads   deletedAt, deactivatedAt, totalDownloads, updatedAt, _creationTime
+  [+] publishers.by_active_total_installs   deletedAt, deactivatedAt, totalInstalls, updatedAt, _creationTime
+  [+] publishers.by_handle   handle, _creationTime
+  [+] publishers.by_kind_handle   kind, handle, _creationTime
+  [+] publishers.by_linked_user   linkedUserId, _creationTime
+  [+] rankingMetricImports.by_dataset_version   datasetVersion, _creationTime
+  [+] rankingMetricImports.by_imported_at   importedAt, _creationTime
+  [+] registryArtifactBackupJobs.by_package_release   packageReleaseId, _creationTime
+  [+] registryArtifactBackupJobs.by_skill_version   skillVersionId, _creationTime
+  [+] registryArtifactBackupJobs.by_status_attempts   status, attempts, _creationTime
+  [+] registryArtifactBackupJobs.by_status_leaseExpiresAt   status, leaseExpiresAt, _creationTime
+  [+] registryArtifactBackupJobs.by_status_nextRunAt   status, nextRunAt, _creationTime
+  [+] registryArtifactBackupJobs.by_updatedAt   updatedAt, _creationTime
+  [+] registryArtifactBackupSyncState.by_key   key, _creationTime
+  [+] reservedHandles.by_handle   handle, _creationTime
+  [+] reservedHandles.by_handle_active_updatedAt   handle, releasedAt, updatedAt, _creationTime
+  [+] reservedHandles.by_owner   rightfulOwnerUserId, _creationTime
+  [+] reservedSlugs.by_expiry   expiresAt, _creationTime
+  [+] reservedSlugs.by_owner   originalOwnerUserId, _creationTime
+  [+] reservedSlugs.by_slug   slug, _creationTime
+  [+] reservedSlugs.by_slug_active_deletedAt   slug, releasedAt, deletedAt, _creationTime
+  [+] searchAggregateStates.by_key   key, _creationTime
+  [+] searchClassificationRuns.by_expirationTime   expirationTime, _creationTime
+  [+] searchClassificationRuns.by_weekEnd   weekEnd, _creationTime
+  [+] searchDailyAggregates.by_artifact_day   artifactKind, dayStart, _creationTime
+  [+] searchDailyAggregates.by_artifact_source_day   artifactKind, source, dayStart, _creationTime
+  [+] searchDailyAggregates.by_bucket   artifactKind, scope, dayStart, source, query, category, intent, _creationTime
+  [+] searchDailyAggregates.by_dayStart_and_source_and_query_and_category_and_intent   dayStart, source, query, category, intent, _creationTime
+  [+] searchDailyAggregates.by_expirationTime   expirationTime, _creationTime
+  [+] searchReportChunks.by_expirationTime   expirationTime, _creationTime
+  [+] searchReportChunks.by_reportId_index   reportId, index, _creationTime
+  [+] searchReportRuns.by_expirationTime   expirationTime, _creationTime
+  [+] searchReportRuns.by_refreshOf   refreshOf, _creationTime
+  [+] searchReportRuns.by_requestKey   requestKey, _creationTime
+  [+] searchWeeklyClassifications.by_expirationTime   expirationTime, _creationTime
+  [+] searchWeeklyClassifications.by_query_and_weekEnd   query, weekEnd, _creationTime
+  [+] searchWeeklyClassifications.by_weekEnd   weekEnd, _creationTime
+  [+] searchWeeklyDigests.by_expiration_time   expirationTime, _creationTime
+  [+] searchWeeklyDigests.by_status_and_nextAttemptAt   status, nextAttemptAt, _creationTime
+  [+] searchWeeklyDigests.by_weekEnd   weekEnd, _creationTime
+  [+] securityScanDispatchState.by_key   key, _creationTime
+  [+] securityScanJobs.by_package_release   packageReleaseId, _creationTime
+  [+] securityScanJobs.by_skill_scan_request   skillScanRequestId, _creationTime
+  [+] securityScanJobs.by_skill_version   skillVersionId, _creationTime
+  [+] securityScanJobs.by_status_and_lease_expires_at   status, leaseExpiresAt, _creationTime
+  [+] securityScanJobs.by_status_and_next_run_at   status, nextRunAt, _creationTime
+  [+] securityScanJobs.by_status_and_updated_at   status, updatedAt, _creationTime
+  [+] securityScanJobs.by_status_malicious_signal_next_run_at   status, hasMaliciousSignal, nextRunAt, _creationTime
+  [+] securityScanJobs.by_status_source_created_at   status, source, createdAt, _creationTime
+  [+] securityScanJobs.by_status_source_next_run_at   status, source, nextRunAt, _creationTime
+  [+] securityScanJobs.by_status_source_target_kind_created_at   status, source, targetKind, createdAt, _creationTime
+  [+] skillAppeals.by_createdAt   createdAt, _creationTime
+  [+] skillAppeals.by_skill_status_createdAt   skillId, status, createdAt, _creationTime
+  [+] skillAppeals.by_status_createdAt   status, createdAt, _creationTime
+  [+] skillAppeals.by_user_createdAt   userId, createdAt, _creationTime
+  [+] skillBadges.by_kind_at   kind, at, _creationTime
+  [+] skillBadges.by_skill   skillId, _creationTime
+  [+] skillBadges.by_skill_kind   skillId, kind, _creationTime
+  [+] skillCardGenerationJobs.by_skill   skillId, _creationTime
+  [+] skillCardGenerationJobs.by_skill_version   skillVersionId, _creationTime
+  [+] skillCardGenerationJobs.by_skill_version_status   skillVersionId, status, _creationTime
+  [+] skillCardGenerationJobs.by_status_and_lease_expires_at   status, leaseExpiresAt, _creationTime
+  [+] skillCardGenerationJobs.by_status_and_next_run_at   status, nextRunAt, _creationTime
+  [+] skillDailyStats.by_day   day, _creationTime
+  [+] skillDailyStats.by_skill_day   skillId, day, _creationTime
+  [+] skillEmbeddings.by_embedding (vector)   embedding (1536 dimensions), filter on visibility
+  [+] skillEmbeddings.by_skill   skillId, _creationTime
+  [+] skillEmbeddings.by_version   versionId, _creationTime
+  [+] skillEvaluationRuns.by_skill_content_hash_config_key   skillId, contentHash, configKey, _creationTime
+  [+] skillEvaluationRuns.by_status_lease_expires_at   status, leaseExpiresAt, _creationTime
+  [+] skillEvaluationRuns.by_status_next_run_at   status, nextRunAt, _creationTime
+  [+] skillEvaluationRuns.by_status_source_next_run_at   status, source, nextRunAt, _creationTime
+  [+] skillHourlyStatStates.by_key   key, _creationTime
+  [+] skillHourlyStats.by_expires_at   expiresAt, _creationTime
+  [+] skillHourlyStats.by_hour   hour, _creationTime
+  [+] skillHourlyStats.by_skill_and_hour_and_generation   skillId, hour, generation, _creationTime
+  [+] skillLeaderboards.by_kind   kind, generatedAt, _creationTime
+  [+] skillModerationEventLogs.by_actor_createdAt   actorUserId, createdAt, _creationTime
+  [+] skillModerationEventLogs.by_appeal_createdAt   appealId, createdAt, _creationTime
+  [+] skillModerationEventLogs.by_report_createdAt   reportId, createdAt, _creationTime
+  [+] skillOwnershipTransfers.by_from_user   fromUserId, _creationTime
+  [+] skillOwnershipTransfers.by_from_user_status   fromUserId, status, _creationTime
+  [+] skillOwnershipTransfers.by_skill   skillId, _creationTime
+  [+] skillOwnershipTransfers.by_skill_status   skillId, status, _creationTime
+  [+] skillOwnershipTransfers.by_to_user   toUserId, _creationTime
+  [+] skillOwnershipTransfers.by_to_user_status   toUserId, status, _creationTime
+  [+] skillPresentationAssets.by_sha256   sha256, _creationTime
+  [+] skillPublishUploadTickets.by_expires_at   expiresAt, _creationTime
+  [+] skillPublishUploadTickets.by_user   userId, _creationTime
+  [+] skillReports.by_createdAt   createdAt, _creationTime
+  [+] skillReports.by_skill   skillId, _creationTime
+  [+] skillReports.by_skill_createdAt   skillId, createdAt, _creationTime
+  [+] skillReports.by_skill_status_createdAt   skillId, status, createdAt, _creationTime
+  [+] skillReports.by_skill_user   skillId, userId, _creationTime
+  [+] skillReports.by_status_createdAt   status, createdAt, _creationTime
+  [+] skillReports.by_user   userId, _creationTime
+  [+] skillScanRequestFileChunks.by_skill_scan_request_id_and_chunk_index   skillScanRequestId, chunkIndex, _creationTime
+  [+] skillScanRequests.by_actor_user_id_and_created_at   actorUserId, createdAt, _creationTime
+  [+] skillScanRequests.by_expires_at   expiresAt, _creationTime
+  [+] skillScanRequests.by_security_scan_job_id   securityScanJobId, _creationTime
+  [+] skillScanRequests.by_skill_version_id_and_created_at   skillVersionId, createdAt, _creationTime
+  [+] skillSearchDigest.by_active_created   softDeletedAt, createdAt, _creationTime
+  [+] skillSearchDigest.by_active_name   softDeletedAt, displayName, _creationTime
+  [+] skillSearchDigest.by_active_normalized_display_name   softDeletedAt, normalizedDisplayName, _creationTime
+  [+] skillSearchDigest.by_active_normalized_display_name_first_token   softDeletedAt, normalizedDisplayNameFirstToken, _creationTime
+  [+] skillSearchDigest.by_active_normalized_slug   softDeletedAt, normalizedSlug, _creationTime
+  [+] skillSearchDigest.by_active_normalized_slug_first_token   softDeletedAt, normalizedSlugFirstToken, _creationTime
+  [+] skillSearchDigest.by_active_recommended_rank   softDeletedAt, statsStars, statsDownloads, updatedAt, _creationTime
+  [+] skillSearchDigest.by_active_recommended_score   softDeletedAt, recommendedScore, updatedAt, _creationTime
+  [+] skillSearchDigest.by_active_recommended_score_version   softDeletedAt, recommendedScoreVersion, _creationTime
+  [+] skillSearchDigest.by_active_stats_downloads   softDeletedAt, statsDownloads, updatedAt, _creationTime
+  [+] skillSearchDigest.by_active_stats_installs_all_time   softDeletedAt, statsInstallsAllTime, updatedAt, _creationTime
+  [+] skillSearchDigest.by_active_stats_stars   softDeletedAt, statsStars, updatedAt, _creationTime
+  [+] skillSearchDigest.by_active_updated   softDeletedAt, updatedAt, _creationTime
+  [+] skillSearchDigest.by_nonsuspicious_created   softDeletedAt, isSuspicious, createdAt, _creationTime
+  [+] skillSearchDigest.by_nonsuspicious_downloads   softDeletedAt, isSuspicious, statsDownloads, updatedAt, _creationTime
+  [+] skillSearchDigest.by_nonsuspicious_installs   softDeletedAt, isSuspicious, statsInstallsAllTime, updatedAt, _creationTime
+  [+] skillSearchDigest.by_nonsuspicious_name   softDeletedAt, isSuspicious, displayName, _creationTime
+  [+] skillSearchDigest.by_nonsuspicious_normalized_display_name   softDeletedAt, isSuspicious, normalizedDisplayName, _creationTime
+  [+] skillSearchDigest.by_nonsuspicious_normalized_display_name_first_token   softDeletedAt, isSuspicious, normalizedDisplayNameFirstToken, _creationTime
+  [+] skillSearchDigest.by_nonsuspicious_normalized_slug   softDeletedAt, isSuspicious, normalizedSlug, _creationTime
+  [+] skillSearchDigest.by_nonsuspicious_normalized_slug_first_token   softDeletedAt, isSuspicious, normalizedSlugFirstToken, _creationTime
+  [+] skillSearchDigest.by_nonsuspicious_recommended_rank   softDeletedAt, isSuspicious, statsStars, statsDownloads, updatedAt, _creationTime
+  [+] skillSearchDigest.by_nonsuspicious_recommended_score   softDeletedAt, isSuspicious, recommendedScore, updatedAt, _creationTime
+  [+] skillSearchDigest.by_nonsuspicious_recommended_score_version   softDeletedAt, isSuspicious, recommendedScoreVersion, _creationTime
+  [+] skillSearchDigest.by_nonsuspicious_stars   softDeletedAt, isSuspicious, statsStars, updatedAt, _creationTime
+  [+] skillSearchDigest.by_nonsuspicious_updated   softDeletedAt, isSuspicious, updatedAt, _creationTime
+  [+] skillSearchDigest.by_skill   skillId, _creationTime
+  [+] skillSearchDigest.search_by_display_name (text)   displayName, filters on isSuspicious, softDeletedAt
+  [+] skillSearchDigest.search_by_slug (text)   slug, filters on isSuspicious, softDeletedAt
+  [+] skillSlugAliases.by_owner   ownerUserId, _creationTime
+  [+] skillSlugAliases.by_owner_publisher   ownerPublisherId, _creationTime
+  [+] skillSlugAliases.by_owner_publisher_slug   ownerPublisherId, slug, _creationTime
+  [+] skillSlugAliases.by_owner_slug   ownerUserId, slug, _creationTime
+  [+] skillSlugAliases.by_skill   skillId, _creationTime
+  [+] skillSlugAliases.by_slug   slug, _creationTime
+  [+] skillStatBackfillState.by_key   key, _creationTime
+  [+] skillStatDocSyncLeases.by_key   key, _creationTime
+  [+] skillStatEvents.by_skill   skillId, _creationTime
+  [+] skillStatEvents.by_skill_processed   skillId, processedAt, _creationTime
+  [+] skillStatEvents.by_unprocessed   processedAt, _creationTime
+  [+] skillStatUpdateCursors.by_key   key, _creationTime
+  [+] skillTopicSearchDigest.by_active_topic_created   softDeletedAt, topic, createdAt, updatedAt, _creationTime
+  [+] skillTopicSearchDigest.by_active_topic_downloads   softDeletedAt, topic, statsDownloads, updatedAt, _creationTime
+  [+] skillTopicSearchDigest.by_active_topic_installs   softDeletedAt, topic, statsInstallsAllTime, updatedAt, _creationTime
+  [+] skillTopicSearchDigest.by_active_topic_name   softDeletedAt, topic, normalizedDisplayName, updatedAt, _creationTime
+  [+] skillTopicSearchDigest.by_active_topic_recommended_score   softDeletedAt, topic, recommendedScore, updatedAt, _creationTime
+  [+] skillTopicSearchDigest.by_active_topic_stars   softDeletedAt, topic, statsStars, updatedAt, _creationTime
+  [+] skillTopicSearchDigest.by_active_topic_updated   softDeletedAt, topic, updatedAt, _creationTime
+  [+] skillTopicSearchDigest.by_nonsuspicious_topic_created   softDeletedAt, isSuspicious, topic, createdAt, updatedAt, _creationTime
+  [+] skillTopicSearchDigest.by_nonsuspicious_topic_downloads   softDeletedAt, isSuspicious, topic, statsDownloads, updatedAt, _creationTime
+  [+] skillTopicSearchDigest.by_nonsuspicious_topic_installs   softDeletedAt, isSuspicious, topic, statsInstallsAllTime, updatedAt, _creationTime
+  [+] skillTopicSearchDigest.by_nonsuspicious_topic_name   softDeletedAt, isSuspicious, topic, normalizedDisplayName, updatedAt, _creationTime
+  [+] skillTopicSearchDigest.by_nonsuspicious_topic_recommended_score   softDeletedAt, isSuspicious, topic, recommendedScore, updatedAt, _creationTime
+  [+] skillTopicSearchDigest.by_nonsuspicious_topic_stars   softDeletedAt, isSuspicious, topic, statsStars, updatedAt, _creationTime
+  [+] skillTopicSearchDigest.by_nonsuspicious_topic_updated   softDeletedAt, isSuspicious, topic, updatedAt, _creationTime
+  [+] skillTopicSearchDigest.by_skill   skillId, topic, _creationTime
+  [+] skillVersionFingerprints.by_fingerprint   fingerprint, _creationTime
+  [+] skillVersionFingerprints.by_skill_fingerprint   skillId, fingerprint, _creationTime
+  [+] skillVersionFingerprints.by_version   versionId, _creationTime
+  [+] skillVersionFingerprints.by_version_kind   versionId, kind, _creationTime
+  [+] skillVersions.by_active_created   softDeletedAt, createdAt, _creationTime
+  [+] skillVersions.by_active_vt_status_created   softDeletedAt, vtAnalysis.status, createdAt, _creationTime
+  [+] skillVersions.by_dep_registry_scan_status_and_created   depRegistryScanStatus, createdAt, _creationTime
+  [+] skillVersions.by_sha256hash   sha256hash, _creationTime
+  [+] skillVersions.by_skill   skillId, _creationTime
+  [+] skillVersions.by_skill_active_created   skillId, softDeletedAt, createdAt, _creationTime
+  [+] skillVersions.by_skill_owner_deleted_created   skillId, ownerDeletedBy, createdAt, _creationTime
+  [+] skillVersions.by_skill_version   skillId, version, _creationTime
+  [+] skills.by_active_created   softDeletedAt, createdAt, _creationTime
+  [+] skills.by_active_name   softDeletedAt, displayName, _creationTime
+  [+] skills.by_active_stats_downloads   softDeletedAt, statsDownloads, updatedAt, _creationTime
+  [+] skills.by_active_stats_installs_all_time   softDeletedAt, statsInstallsAllTime, updatedAt, _creationTime
+  [+] skills.by_active_stats_stars   softDeletedAt, statsStars, updatedAt, _creationTime
+  [+] skills.by_active_updated   softDeletedAt, updatedAt, _creationTime
+  [+] skills.by_batch   batch, _creationTime
+  [+] skills.by_canonical   canonicalSkillId, _creationTime
+  [+] skills.by_fork_of   forkOf.skillId, _creationTime
+  [+] skills.by_github_source   githubSourceId, _creationTime
+  [+] skills.by_moderation   moderationStatus, moderationReason, _creationTime
+  [+] skills.by_nonsuspicious_created   softDeletedAt, isSuspicious, createdAt, _creationTime
+  [+] skills.by_nonsuspicious_downloads   softDeletedAt, isSuspicious, statsDownloads, updatedAt, _creationTime
+  [+] skills.by_nonsuspicious_installs   softDeletedAt, isSuspicious, statsInstallsAllTime, updatedAt, _creationTime
+  [+] skills.by_nonsuspicious_name   softDeletedAt, isSuspicious, displayName, _creationTime
+  [+] skills.by_nonsuspicious_stars   softDeletedAt, isSuspicious, statsStars, updatedAt, _creationTime
+  [+] skills.by_nonsuspicious_updated   softDeletedAt, isSuspicious, updatedAt, _creationTime
+  [+] skills.by_owner   ownerUserId, _creationTime
+  [+] skills.by_owner_active_updated   ownerUserId, softDeletedAt, updatedAt, _creationTime
+  [+] skills.by_owner_publisher   ownerPublisherId, _creationTime
+  [+] skills.by_owner_publisher_active_downloads   ownerPublisherId, softDeletedAt, statsDownloads, updatedAt, _creationTime
+  [+] skills.by_owner_publisher_active_installs   ownerPublisherId, softDeletedAt, statsInstallsAllTime, updatedAt, _creationTime
+  [+] skills.by_owner_publisher_active_updated   ownerPublisherId, softDeletedAt, updatedAt, _creationTime
+  [+] skills.by_owner_publisher_slug   ownerPublisherId, slug, _creationTime
+  [+] skills.by_owner_slug   ownerUserId, slug, _creationTime
+  [+] skills.by_slug   slug, _creationTime
+  [+] skills.by_stats_downloads   statsDownloads, updatedAt, _creationTime
+  [+] skills.by_stats_installs_all_time   statsInstallsAllTime, updatedAt, _creationTime
+  [+] skills.by_stats_installs_current   statsInstallsCurrent, updatedAt, _creationTime
+  [+] skills.by_stats_stars   statsStars, updatedAt, _creationTime
+  [+] skills.by_updated   updatedAt, _creationTime
+  [+] skillsShCatalogControls.by_key   key, _creationTime
+  [+] skillsShCatalogEntries.by_external_id   externalId, _creationTime
+  [+] skillsShCatalogEntries.by_owner_and_source_kind_and_github_owner_id   owner, sourceKind, githubOwnerId, _creationTime
+  [+] skillsShCatalogEntries.by_scan_status_and_updated_at   scanStatus, updatedAt, _creationTime
+  [+] skillsShCatalogEntries.by_source_kind_and_github_owner_id_and_owner   sourceKind, githubOwnerId, owner, _creationTime
+  [+] skillsShCatalogRuns.by_started_at   startedAt, _creationTime
+  [+] skillsShCatalogRuns.by_status_and_updated_at   status, updatedAt, _creationTime
+  [+] skillsShCatalogScanAttempts.by_created_at   createdAt, _creationTime
+  [+] skillsShCatalogScanAttempts.by_dispatch_kind_and_status_and_created_at   dispatchKind, status, createdAt, _creationTime
+  [+] skillsShCatalogScanAttempts.by_entry_and_source_content_hash   entryId, sourceContentHash, _creationTime
+  [+] skillsShCatalogScanAttempts.by_run   runId, _creationTime
+  [+] skillsShCatalogScanAttempts.by_run_and_status   runId, status, _creationTime
+  [+] skillsShCatalogScanAttempts.by_run_dispatch_kind_status_created_at   runId, dispatchKind, status, createdAt, _creationTime
+  [+] skillsShCatalogScanAttempts.by_status_and_created_at   status, createdAt, _creationTime
+  [+] skillsShMirrorConflicts.by_external_id_and_created_at   externalId, createdAt, _creationTime
+  [+] skillsShMirrorConflicts.by_run_id   runId, _creationTime
+  [+] skillsShMirrorConflicts.by_run_id_and_external_id_and_kind   runId, externalId, kind, _creationTime
+  [+] skillsShMirrorControls.by_key   key, _creationTime
+  [+] skillsShMirrorDetails.by_digest_id   digestId, _creationTime
+  [+] skillsShMirrorDetails.by_external_id   externalId, _creationTime
+  [+] skillsShMirrorDigests.by_active_and_normalized_display_name   active, normalizedDisplayName, _creationTime
+  [+] skillsShMirrorDigests.by_active_and_normalized_display_name_first_token   active, normalizedDisplayNameFirstToken, _creationTime
+  [+] skillsShMirrorDigests.by_active_and_normalized_slug   active, normalizedSlug, _creationTime
+  [+] skillsShMirrorDigests.by_active_and_normalized_slug_first_token   active, normalizedSlugFirstToken, _creationTime
+  [+] skillsShMirrorDigests.by_active_and_source_type_and_owner_and_repo_and_external_id   active, sourceType, owner, repo, externalId, _creationTime
+  [+] skillsShMirrorDigests.by_active_and_upstream_installs   active, upstreamInstalls, _creationTime
+  [+] skillsShMirrorDigests.by_active_visible_installable_fresh_display   active, publicVisible, installable, sourceFreshnessStatus, normalizedDisplayName, _creationTime
+  [+] skillsShMirrorDigests.by_active_visible_installable_fresh_display_token   active, publicVisible, installable, sourceFreshnessStatus, normalizedDisplayNameFirstToken, _creationTime
+  [+] skillsShMirrorDigests.by_active_visible_installable_fresh_slug   active, publicVisible, installable, sourceFreshnessStatus, normalizedSlug, _creationTime
+  [+] skillsShMirrorDigests.by_active_visible_installable_fresh_slug_token   active, publicVisible, installable, sourceFreshnessStatus, normalizedSlugFirstToken, _creationTime
+  [+] skillsShMirrorDigests.by_external_id   externalId, _creationTime
+  [+] skillsShMirrorDigests.by_last_observed_at   lastObservedAt, _creationTime
+  [+] skillsShMirrorDigests.by_source_type_and_external_id   sourceType, externalId, _creationTime
+  [+] skillsShMirrorDigests.search_by_search_text (text)   searchText, filters on active, installable, publicVisible, sourceFreshnessStatus
+  [+] skillsShMirrorFacets.by_active_and_kind_and_term_and_installs_and_external_id   active, kind, term, installs, externalId, _creationTime
+  [+] skillsShMirrorFacets.by_digest_id_and_kind_and_term   digestId, kind, term, _creationTime
+  [+] skillsShMirrorRuns.by_source_view_and_status_and_source_snapshot_hash   sourceView, status, sourceSnapshotHash, _creationTime
+  [+] skillsShMirrorRuns.by_started_at   startedAt, _creationTime
+  [+] skillsShMirrorRuns.by_status_and_updated_at   status, updatedAt, _creationTime
+  [+] skillsShMirrorSourcePages.by_snapshot_hash_and_page   snapshotHash, page, _creationTime
+  [+] skillsShMirrorSourcePages.by_source_view_and_page_and_created_at   sourceView, page, createdAt, _creationTime
+  [+] stars.by_skill   skillId, _creationTime
+  [+] stars.by_skill_user   skillId, userId, _creationTime
+  [+] stars.by_user   userId, _creationTime
+  [+] systemSettings.by_key_and_updated_at   key, updatedAt, _creationTime
+  [+] userPackageInstalls.by_package   packageId, _creationTime
+  [+] userPackageInstalls.by_user   userId, _creationTime
+  [+] userPackageInstalls.by_user_lastSeenAt   userId, lastSeenAt, _creationTime
+  [+] userPackageInstalls.by_user_package   userId, packageId, _creationTime
+  [+] userSkillInstalls.by_skill   skillId, _creationTime
+  [+] userSkillInstalls.by_user   userId, _creationTime
+  [+] userSkillInstalls.by_user_lastSeenAt   userId, lastSeenAt, _creationTime
+  [+] userSkillInstalls.by_user_skill   userId, skillId, _creationTime
+  [+] users.by_active_handle   deletedAt, deactivatedAt, handle, _creationTime
+  [+] users.by_ban_reason_deleted_at   banReason, deletedAt, _creationTime
+  [+] users.by_deactivated_purged_at   deactivatedAt, purgedAt, _creationTime
+  [+] users.email   email, _creationTime
+  [+] users.handle   handle, _creationTime
+  [+] users.phone   phone, _creationTime
+  [+] vtScanLogs.by_type_date   type, createdAt, _creationTime
+✔ Installed component migrations.
+✔ Installed component rateLimiter.
+✔ Installed component searchReports.
+✔ Installed component searchReports/batchWorker.
+✔ 13:43:32 Convex functions ready! (22.73s)
+Waiting for local Convex functions.
+{
+  "appBuildSha": null,
+  "deployedAt": null
+}
+Materializing an empty canonical Trending snapshot for the isolated runtime.
+"kh7ephrp3rqq9bkrgztbmvh1nd8ehg30"
+{
+  "snapshotId": "local-auth-canonical-trending-v1",
+  "status": "ready"
+}
+Building ClawHub for local-auth Playwright e2e.
+$ bun run llms:generate && vite build && bun scripts/copy-og-assets.ts
+$ bun scripts/generate-llms-txt.ts
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - import "./scripts/copy-og-assets" without a file extension (vite.config.ts:9:30). Add the file extension
+  - import "../server/og/ogAssets" without a file extension (scripts/copy-og-assets.ts:4:31). Add the file extension
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 6617 modules transformed.
+rendering chunks...
+computing gzip size...
+.output/public/assets/codicon-Brq4_Ui5.ttf                        140.95 kB
+.output/public/assets/editor.worker-CwQAd_xr.js                   300.30 kB
+.output/public/assets/json.worker-B5iK5MyW.js                     430.38 kB
+.output/public/assets/html.worker-BgLBS-Gh.js                     740.72 kB
+.output/public/assets/css.worker-CmKwfZve.js                    1,075.65 kB
+.output/public/assets/ts.worker-D4QZpCuw.js                     6,913.17 kB
+.output/public/assets/design-system-CRChLBu8.css                   27.76 kB │ gzip:   4.43 kB
+.output/public/assets/editor-jjEx9u7D.css                          79.50 kB │ gzip:  12.33 kB
+.output/public/assets/SkillDiffCard--ixms01u.css                   82.32 kB │ gzip:  12.97 kB
+.output/public/assets/styles-BCOwaDSm.css                         777.90 kB │ gzip: 114.05 kB
+.output/public/assets/hasOwnProperty-ivV6mtXI.js                    0.10 kB │ gzip:   0.11 kB
+.output/public/assets/array-BifhSqXX.js                             0.10 kB │ gzip:   0.11 kB
+.output/public/assets/check-C41632g2.js                             0.11 kB │ gzip:   0.12 kB
+.output/public/assets/channel-bI48Qqgl.js                           0.11 kB │ gzip:   0.12 kB
+.output/public/assets/chevron-down-COcunEgC.js                      0.11 kB │ gzip:   0.12 kB
+.output/public/assets/chevron-right-aa7c11W6.js                     0.11 kB │ gzip:   0.13 kB
+.output/public/assets/not-found-i5RsCZif.js                         0.11 kB │ gzip:   0.11 kB
+.output/public/assets/pie-RZYD4A2V-iitcikpV.js                      0.12 kB │ gzip:   0.13 kB
+.output/public/assets/info-DKCQHKI2-CkndhM-C.js                     0.12 kB │ gzip:   0.13 kB
+.output/public/assets/radar-I7S5WNFK-BZGxCjDL.js                    0.12 kB │ gzip:   0.13 kB
+.output/public/assets/packet-7NZHBO7P-20ccTbI1.js                   0.12 kB │ gzip:   0.13 kB
+.output/public/assets/cynefin-VYW2F7L2-Ceq0TRNK.js                  0.12 kB │ gzip:   0.13 kB
+.output/public/assets/treemap-6X3UGDF4-BCxGNxRs.js                  0.12 kB │ gzip:   0.13 kB
+.output/public/assets/wardley-OPB4EBWU-CUPqQ3nc.js                  0.12 kB │ gzip:   0.13 kB
+.output/public/assets/gitGraph-TEB2WS4Q-DKv8CPf7.js                 0.12 kB │ gzip:   0.13 kB
+.output/public/assets/railroad-3IZDKUUU-exTl8_os.js                 0.12 kB │ gzip:   0.13 kB
+.output/public/assets/treeView-QDETBFTQ-Bf3211m1.js                 0.12 kB │ gzip:   0.13 kB
+.output/public/assets/railroad-peg-LSFZ7HO6-DCi0AWtG.js             0.13 kB │ gzip:   0.13 kB
+.output/public/assets/architecture-TIHT7OUA-Ca4tqdu2.js             0.13 kB │ gzip:   0.13 kB
+.output/public/assets/railroad-abnf-AHOZXSZD-Dhr2Lp5A.js            0.13 kB │ gzip:   0.13 kB
+.output/public/assets/railroad-ebnf-EBAXGLYW-BtG2LXI3.js            0.13 kB │ gzip:   0.13 kB
+.output/public/assets/eventmodeling-45OFAUF4-CISk7SKi.js            0.13 kB │ gzip:   0.13 kB
+.output/public/assets/init-C-OQMol4.js                              0.14 kB │ gzip:   0.12 kB
+.output/public/assets/plus-yIs8l6vp.js                              0.14 kB │ gzip:   0.13 kB
+.output/public/assets/x-tLjazxYn.js                                 0.14 kB │ gzip:   0.14 kB
+.output/public/assets/arrow-left-Be9qy4O-.js                        0.15 kB │ gzip:   0.15 kB
+.output/public/assets/arrow-right-jezSePQc.js                       0.15 kB │ gzip:   0.15 kB
+.output/public/assets/chunk-Y2CYZVJY-DsF7k-Jl.js                    0.15 kB │ gzip:   0.14 kB
+.output/public/assets/useRouterState-DKl9vd3x.js                    0.16 kB │ gzip:   0.15 kB
+.output/public/assets/roles-B61Zsc5W.js                             0.19 kB │ gzip:   0.14 kB
+.output/public/assets/chunk-2Q5K7J3B-DkgXkOxL.js                    0.19 kB │ gzip:   0.16 kB
+.output/public/assets/download-BCSXTYb3.js                          0.21 kB │ gzip:   0.18 kB
+.output/public/assets/chunk-JWPE2WC7-DVXcaiue.js                    0.22 kB │ gzip:   0.17 kB
+.output/public/assets/flag-zV8TRsUY.js                              0.24 kB │ gzip:   0.20 kB
+.output/public/assets/badges-Ddj1mXWJ.js                            0.24 kB │ gzip:   0.15 kB
+.output/public/assets/security-audit-sWqJCfwh.js                    0.24 kB │ gzip:   0.20 kB
+.output/public/assets/_name-0U5tIdwX.js                             0.24 kB │ gzip:   0.19 kB
+.output/public/assets/_slug-CE4jrHhv.js                             0.24 kB │ gzip:   0.20 kB
+.output/public/assets/security-audit-CfwmyiVq.js                    0.24 kB │ gzip:   0.19 kB
+.output/public/assets/settings-BgQ1Dcgp.js                          0.24 kB │ gzip:   0.19 kB
+.output/public/assets/triangle-alert-D4ZDLIFf.js                    0.25 kB │ gzip:   0.20 kB
+.output/public/assets/chunk-XXDRQBXY-DqAYeljN.js                    0.26 kB │ gzip:   0.22 kB
+.output/public/assets/_slug-Dd0HaRmS.js                             0.27 kB │ gzip:   0.22 kB
+.output/public/assets/manualCatalogSearch-jUmeqkec.js               0.28 kB │ gzip:   0.20 kB
+.output/public/assets/_slug-u-wGYQPe.js                             0.28 kB │ gzip:   0.21 kB
+.output/public/assets/security-audit-CkTmF5fR.js                    0.28 kB │ gzip:   0.22 kB
+.output/public/assets/client-CSVPQT4a.js                            0.30 kB │ gzip:   0.22 kB
+.output/public/assets/truncateText-jG78HYB5.js                      0.30 kB │ gzip:   0.25 kB
+.output/public/assets/refresh-cw-DiLKT41b.js                        0.30 kB │ gzip:   0.21 kB
+.output/public/assets/chunk-5VM5RSS4-ZNzvKenW.js                    0.36 kB │ gzip:   0.27 kB
+.output/public/assets/file-text-CNYOBKg2.js                         0.37 kB │ gzip:   0.24 kB
+.output/public/assets/useMediaQuery-DcoJYwhB.js                     0.38 kB │ gzip:   0.26 kB
+.output/public/assets/skeleton-DfjarQmr.js                          0.39 kB │ gzip:   0.29 kB
+.output/public/assets/classPrivateFieldGet2-CB7J8LIR.js             0.42 kB │ gzip:   0.25 kB
+.output/public/assets/sparkles-CGuq57Fb.js                          0.48 kB │ gzip:   0.27 kB
+.output/public/assets/codeowners-C8r90Shi.js                        0.54 kB │ gzip:   0.31 kB
+.output/public/assets/timeAgo-CTFU6G0L.js                           0.54 kB │ gzip:   0.34 kB
+.output/public/assets/site-BtlF32QL.js                              0.57 kB │ gzip:   0.37 kB
+.output/public/assets/chunk-KBJHAD2P-Br0FibIr.js                    0.57 kB │ gzip:   0.40 kB
+.output/public/assets/flowDiagram-UKHOOZJN-etvSvWNS.js              0.57 kB │ gzip:   0.31 kB
+.output/public/assets/fingerprint-pattern-D77Fxkzz.js               0.59 kB │ gzip:   0.34 kB
+.output/public/assets/infoDiagram-6WML65LV-NXW9ZYDX.js              0.65 kB │ gzip:   0.41 kB
+.output/public/assets/ownerRoute-Do479oDl.js                        0.67 kB │ gzip:   0.34 kB
+.output/public/assets/javascript-DrvCOI1j.js                        0.68 kB │ gzip:   0.41 kB
+.output/public/assets/azcli-Bc_sGQ0U.js                             0.70 kB │ gzip:   0.28 kB
+.output/public/assets/defineProperty-BbfpZ9Tg.js                    0.70 kB │ gzip:   0.39 kB
+.output/public/assets/slugRoute-DDYFrb2-.js                         0.70 kB │ gzip:   0.41 kB
+.output/public/assets/shellsession-CVsQGYfZ.js                      0.71 kB │ gzip:   0.43 kB
+.output/public/assets/rolldown-runtime-hePW80VL.js                  0.71 kB │ gzip:   0.42 kB
+.output/public/assets/tsv-sltzmVWM.js                               0.73 kB │ gzip:   0.33 kB
+.output/public/assets/classDiagram-JCYQIIEL-BVrKk62v.js             0.77 kB │ gzip:   0.45 kB
+.output/public/assets/classDiagram-v2-OCEON4UE-BVrKk62v.js          0.77 kB │ gzip:   0.45 kB
+.output/public/assets/stateDiagram-v2-UEYNNEHI-BQqe5iRM.js          0.78 kB │ gzip:   0.45 kB
+.output/public/assets/runtimeEnv-pEKKdabE.js                        0.81 kB │ gzip:   0.48 kB
+.output/public/assets/swimlanesDiagram-ULZ7WXOC-CDti_WW2.js         0.83 kB │ gzip:   0.48 kB
+.output/public/assets/html-derivative-i4STDFnl.js                   0.84 kB │ gzip:   0.45 kB
+.output/public/assets/sizeCapture-X5ZJPWSS-B0uUizjq.js              0.87 kB │ gzip:   0.51 kB
+.output/public/assets/line-CllzivSY.js                              0.94 kB │ gzip:   0.47 kB
+.output/public/assets/ini-sBoK_t0W.js                               0.96 kB │ gzip:   0.49 kB
+.output/public/assets/chunk-UBXNYLIW-CyTyMoLa.js                    0.96 kB │ gzip:   0.59 kB
+.output/public/assets/git-rebase-BDPpS8w6.js                        0.98 kB │ gzip:   0.44 kB
+.output/public/assets/qmldir-DCQb3MpD.js                            0.99 kB │ gzip:   0.44 kB
+.output/public/assets/card-Dw5zLYcu.js                              1.03 kB │ gzip:   0.46 kB
+.output/public/assets/pluginRoutes-KWx5_pJt.js                      1.08 kB │ gzip:   0.52 kB
+.output/public/assets/csv-Dx-8-gkx.js                               1.13 kB │ gzip:   0.36 kB
+.output/public/assets/ordinal-BDEzSJ7C.js                           1.17 kB │ gzip:   0.56 kB
+.output/public/assets/preload-helper-BZ1Pz5am.js                    1.21 kB │ gzip:   0.69 kB
+.output/public/assets/git-commit-BSykSTBG.js                        1.22 kB │ gzip:   0.52 kB
+.output/public/assets/workers-B1hmtb79.js                           1.25 kB │ gzip:   0.59 kB
+.output/public/assets/csp-bTuwJoIa.js                               1.27 kB │ gzip:   0.48 kB
+.output/public/assets/alert-DY0tCVH9.js                             1.33 kB │ gzip:   0.59 kB
+.output/public/assets/xsl-BOPS8gLt.js                               1.36 kB │ gzip:   0.49 kB
+.output/public/assets/skillPage-et70_IJV.js                         1.39 kB │ gzip:   0.63 kB
+.output/public/assets/dotenv-_5a1GRtc.js                            1.41 kB │ gzip:   0.52 kB
+.output/public/assets/sparql-D_iOobhT.js                            1.47 kB │ gzip:   0.81 kB
+.output/public/assets/ini-B5eOa1yu.js                               1.51 kB │ gzip:   0.49 kB
+.output/public/assets/skillReadmeLinks-rAd3Smog.js                  1.52 kB │ gzip:   0.66 kB
+.output/public/assets/EmptyState-B9tS1JOY.js                        1.52 kB │ gzip:   0.70 kB
+.output/public/assets/pla-CopQ2nXW.js                               1.54 kB │ gzip:   0.60 kB
+.output/public/assets/scheme-BeGwcela.js                            1.62 kB │ gzip:   0.77 kB
+.output/public/assets/railroadDiagram-AXF67PYL-BGHmmonL.js          1.65 kB │ gzip:   0.77 kB
+.output/public/assets/fortran-fixed-form-DEKoE2YW.js                1.66 kB │ gzip:   0.68 kB
+.output/public/assets/flow9-C5_-GSwl.js                             1.66 kB │ gzip:   0.80 kB
+.output/public/assets/sb-CcwsVR0C.js                                1.68 kB │ gzip:   0.78 kB
+.output/public/assets/bat-i0X4ZdIN.js                               1.69 kB │ gzip:   0.82 kB
+.output/public/assets/browseCategoryIcons-DGT4B_PS.js               1.72 kB │ gzip:   0.73 kB
+.output/public/assets/dockerfile-DZFCIeNp.js                        1.72 kB │ gzip:   0.63 kB
+.output/public/assets/docker-IyjqRm3v.js                            1.73 kB │ gzip:   0.59 kB
+.output/public/assets/SidebarMetadata-BOkzkO4Z.js                   1.78 kB │ gzip:   0.83 kB
+.output/public/assets/desktop-Dlh5hvp9.js                           1.82 kB │ gzip:   0.75 kB
+.output/public/assets/abnfDiagram-N423BO3Z-BOrhu50x.js              1.84 kB │ gzip:   0.89 kB
+.output/public/assets/chunk-W5SLKNZC-DW3MAzp1.js                    1.84 kB │ gzip:   0.90 kB
+.output/public/assets/pascaligo-D-ptJ9y-.js                         1.85 kB │ gzip:   0.86 kB
+.output/public/assets/hxml-Dcm88srW.js                              1.89 kB │ gzip:   0.89 kB
+.output/public/assets/xml-zL_LPwqG.js                               1.92 kB │ gzip:   0.72 kB
+.output/public/assets/chunk-2GRJ4B5K-ATN7fVi3.js                    1.97 kB │ gzip:   0.88 kB
+.output/public/assets/cameligo-DMUM7wLl.js                          1.97 kB │ gzip:   0.91 kB
+.output/public/assets/lua-CsQS60Ue.js                               1.98 kB │ gzip:   0.88 kB
+.output/public/assets/pegDiagram-VL7TDLO6-C80AP5LX.js               2.01 kB │ gzip:   0.94 kB
+.output/public/assets/ebnfDiagram-BXEA7PRR-RMWhpdmD.js              2.05 kB │ gzip:   0.89 kB
+.output/public/assets/MarketplaceIcon-DVssYUhS.js                   2.07 kB │ gzip:   1.07 kB
+.output/public/assets/objective-c-FvmIjYaQ.js                       2.10 kB │ gzip:   1.01 kB
+.output/public/assets/chunk-7BUUIJ7U-Bb538aSH.js                    2.10 kB │ gzip:   0.82 kB
+.output/public/assets/graphql-fmXr3nnJ.js                           2.11 kB │ gzip:   0.99 kB
+.output/public/assets/erb-C7MPl934.js                               2.13 kB │ gzip:   0.62 kB
+.output/public/assets/wenyan-C8pVoKbM.js                            2.15 kB │ gzip:   1.08 kB
+.output/public/assets/api-CNFrJvmR.js                               2.15 kB │ gzip:   1.20 kB
+.output/public/assets/dist-v5Q1xZ2K.js                              2.17 kB │ gzip:   0.98 kB
+.output/public/assets/sparql-D_Lu-MrJ.js                            2.21 kB │ gzip:   1.10 kB
+.output/public/assets/jssm-DXw9l8Rf.js                              2.23 kB │ gzip:   0.61 kB
+.output/public/assets/path-fybaL0A-.js                              2.27 kB │ gzip:   0.98 kB
+.output/public/assets/lexon-CfSJPG6W.js                             2.28 kB │ gzip:   0.88 kB
+.output/public/assets/edge-DCY0a-ow.js                              2.30 kB │ gzip:   0.67 kB
+.output/public/assets/mips-CIPQ_RoX.js                              2.32 kB │ gzip:   1.02 kB
+.output/public/assets/reg-CRGYupPL.js                               2.33 kB │ gzip:   0.69 kB
+.output/public/assets/go-C-y9NEjX.js                                2.35 kB │ gzip:   1.11 kB
+.output/public/assets/bicep-B5-_aFwp.js                             2.36 kB │ gzip:   0.91 kB
+.output/public/assets/sophia-CRfGWb83.js                            2.48 kB │ gzip:   1.15 kB
+.output/public/assets/security-audit-BoXKwCA5.js                    2.49 kB │ gzip:   1.08 kB
+.output/public/assets/m3-D-oSqn_W.js                                2.52 kB │ gzip:   1.29 kB
+.output/public/assets/diff-woXpYk--.js                              2.56 kB │ gzip:   0.68 kB
+.output/public/assets/gleam-CSRkHgEL.js                             2.57 kB │ gzip:   0.81 kB
+.output/public/assets/typespec-B8J7ngcE.js                          2.62 kB │ gzip:   1.01 kB
+.output/public/assets/pascal-DrH0SRf2.js                            2.63 kB │ gzip:   1.35 kB
+.output/public/assets/hy-CZbG8q4J.js                                2.64 kB │ gzip:   1.17 kB
+.output/public/assets/fsharp-C8Ef5oNN.js                            2.65 kB │ gzip:   1.27 kB
+.output/public/assets/qsharp-DkqhCAOL.js                            2.72 kB │ gzip:   1.37 kB
+.output/public/assets/shell-CC2rA5mh.js                             2.81 kB │ gzip:   1.16 kB
+.output/public/assets/openscad-BUDT5pXO.js                          2.81 kB │ gzip:   1.00 kB
+.output/public/assets/r-BwWrilGY.js                                 2.83 kB │ gzip:   1.25 kB
+.output/public/assets/log-BNLmms1o.js                               2.84 kB │ gzip:   0.89 kB
+.output/public/assets/json-DAgxKhMr.js                              2.89 kB │ gzip:   0.82 kB
+.output/public/assets/java-BEtHBSE6.js                              2.90 kB │ gzip:   1.34 kB
+.output/public/assets/cairo-DLTphjLi.js                             2.93 kB │ gzip:   0.80 kB
+.output/public/assets/cssMode-DzSKNJn3.js                           2.95 kB │ gzip:   1.12 kB
+.output/public/assets/PublisherListItem-GA4epVCu.js                 2.98 kB │ gzip:   1.05 kB
+.output/public/assets/berry-DKpUyyne.js                             2.99 kB │ gzip:   0.80 kB
+.output/public/assets/jsonl-CmCQp5Yx.js                             3.00 kB │ gzip:   0.78 kB
+.output/public/assets/redis-ClamHrr6.js                             3.03 kB │ gzip:   1.41 kB
+.output/public/assets/kotlin-BOotOW0E.js                            3.04 kB │ gzip:   1.41 kB
+.output/public/assets/cypher-CVaqCwHa.js                            3.04 kB │ gzip:   1.40 kB
+.output/public/assets/powershell-DmHpPYUd.js                        3.05 kB │ gzip:   1.33 kB
+.output/public/assets/jsonc-CYpm1nAK.js                             3.10 kB │ gzip:   0.78 kB
+.output/public/assets/logo-Cluzi2Zq.js                              3.12 kB │ gzip:   1.46 kB
+.output/public/assets/po-BiJDBrnU.js                                3.23 kB │ gzip:   0.90 kB
+.output/public/assets/json5-BR5RXkoi.js                             3.24 kB │ gzip:   0.82 kB
+.output/public/assets/mipsasm-BMqwQI7S.js                           3.25 kB │ gzip:   1.17 kB
+.output/public/assets/tcl-DISqw1ZD.js                               3.27 kB │ gzip:   1.32 kB
+.output/public/assets/tasl-DMoTqEGO.js                              3.28 kB │ gzip:   0.84 kB
+.output/public/assets/rbs-C0MpOrj4.js                               3.30 kB │ gzip:   0.72 kB
+.output/public/assets/liquid-BSIO5q9w.js                            3.34 kB │ gzip:   1.41 kB
+.output/public/assets/genie-CV2tkWYe.js                             3.34 kB │ gzip:   1.20 kB
+.output/public/assets/rel-BtDbiS_P.js                               3.36 kB │ gzip:   1.10 kB
+.output/public/assets/vala-zf12oZj6.js                              3.36 kB │ gzip:   1.18 kB
+.output/public/assets/coffee-Ba7i2nA0.js                            3.36 kB │ gzip:   1.24 kB
+.output/public/assets/htmlMode-C-QcCtgg.js                          3.40 kB │ gzip:   1.24 kB
+.output/public/assets/splunk-BC2Px7Mm.js                            3.42 kB │ gzip:   1.51 kB
+.output/public/assets/hcl-CpzslTdj.js                               3.44 kB │ gzip:   1.45 kB
+.output/public/assets/python-D70jGBOw.js                            3.45 kB │ gzip:   1.42 kB
+.output/public/assets/apex-BWPQTe0t.js                              3.46 kB │ gzip:   1.70 kB
+.output/public/assets/arc-Pry-7G1_.js                               3.47 kB │ gzip:   1.46 kB
+.output/public/assets/hurl-DCZHXKU4.js                              3.51 kB │ gzip:   1.09 kB
+.output/public/assets/yaml-BFRH48kZ.js                              3.54 kB │ gzip:   1.29 kB
+.output/public/assets/PluginListItem-Dmlq7_eZ.js                    3.59 kB │ gzip:   1.22 kB
+.output/public/assets/official-D1agcjT_.js                          3.59 kB │ gzip:   1.43 kB
+.output/public/assets/fluent-C03EYrpw.js                            3.60 kB │ gzip:   0.89 kB
+.output/public/assets/ssh-config-BgfXC-Er.js                        3.61 kB │ gzip:   1.59 kB
+.output/public/assets/jsonnet-CJTPZ8u_.js                           3.61 kB │ gzip:   1.03 kB
+.output/public/assets/kdl-CsD5j6eV.js                               3.62 kB │ gzip:   1.03 kB
+.output/public/assets/markdown-Cimd5fb3.js                          3.63 kB │ gzip:   1.34 kB
+.output/public/assets/rust-DdL9SqIa.js                              3.66 kB │ gzip:   1.80 kB
+.output/public/assets/narrat-_X_XdTYD.js                            3.66 kB │ gzip:   1.09 kB
+.output/public/assets/turtle-ByJddavk.js                            3.69 kB │ gzip:   0.96 kB
+.output/public/assets/glsl-D5MA2a_X.js                              3.69 kB │ gzip:   1.46 kB
+.output/public/assets/restructuredtext-BYgofb2h.js                  3.74 kB │ gzip:   1.32 kB
+.output/public/assets/less-B9JPFI3C.js                              3.74 kB │ gzip:   1.36 kB
+.output/public/assets/security-audit-BzZyAexh.js                    3.89 kB │ gzip:   1.71 kB
+.output/public/assets/zenscript-BnlCZFoB.js                         3.90 kB │ gzip:   1.28 kB
+.output/public/assets/ron-VUp2lXgN.js                               3.90 kB │ gzip:   0.97 kB
+.output/public/assets/dart-onAF5SnQ.js                              3.93 kB │ gzip:   1.60 kB
+.output/public/assets/gn-ilITqXS6.js                                3.99 kB │ gzip:   1.47 kB
+.output/public/assets/og-DP3gwEhA.js                                4.01 kB │ gzip:   1.72 kB
+.output/public/assets/csharp-BKxtCVv1.js                            4.11 kB │ gzip:   1.66 kB
+.output/public/assets/pascal-4ZHwLPI5.js                            4.14 kB │ gzip:   1.67 kB
+.output/public/assets/msdax-DauUninz.js                             4.27 kB │ gzip:   1.87 kB
+.output/public/assets/diagram-LBJQPF4R-DTzx80aT.js                  4.27 kB │ gzip:   1.84 kB
+.output/public/assets/mdx-BfKmrwze.js                               4.31 kB │ gzip:   1.21 kB
+.output/public/assets/css-DIMkf-bt.js                               4.36 kB │ gzip:   1.33 kB
+.output/public/assets/theme-Ck7Qkui-.js                             4.40 kB │ gzip:   1.62 kB
+.output/public/assets/http-kmH8AyfE.js                              4.41 kB │ gzip:   1.06 kB
+.output/public/assets/tcl-CZd0xW_V.js                               4.42 kB │ gzip:   1.50 kB
+.output/public/assets/pug-Z5eAx3Zn.js                               4.46 kB │ gzip:   1.60 kB
+.output/public/assets/swift-Bxkupp3x.js                             4.48 kB │ gzip:   1.99 kB
+.output/public/assets/nextflow-BJtWHP5T.js                          4.50 kB │ gzip:   1.16 kB
+.output/public/assets/html-Gtht3TZL.js                              4.51 kB │ gzip:   1.15 kB
+.output/public/assets/rosmsg-CAekHB0j.js                            4.51 kB │ gzip:   1.05 kB
+.output/public/assets/Match-DCdwZypn.js                             4.57 kB │ gzip:   1.79 kB
+.output/public/assets/ecl-D05T4iGw.js                               4.62 kB │ gzip:   2.19 kB
+.output/public/assets/defaultLocale-BFoDCU3G.js                     4.63 kB │ gzip:   2.12 kB
+.output/public/assets/polar-C7UOKdEL.js                             4.66 kB │ gzip:   1.12 kB
+.output/public/assets/typescript-DEBlf-bB.js                        4.67 kB │ gzip:   1.94 kB
+.output/public/assets/sdbl-bTVj8UrX.js                              4.69 kB │ gzip:   2.00 kB
+.output/public/assets/cpp-C7h46wYY.js                               4.74 kB │ gzip:   2.02 kB
+.output/public/assets/fennel-DQxkIbk2.js                            4.76 kB │ gzip:   1.53 kB
+.output/public/assets/bibtex-Ci_nEsc7.js                            4.78 kB │ gzip:   0.83 kB
+.output/public/assets/map-CLsMSThe.js                               5.03 kB │ gzip:   2.05 kB
+.output/public/assets/llvm-DqHOMS-s.js                              5.03 kB │ gzip:   2.01 kB
+.output/public/assets/wgsl-BsKzXJz4.js                              5.13 kB │ gzip:   1.38 kB
+.output/public/assets/gdresource-xMC7jr7x.js                        5.28 kB │ gzip:   1.33 kB
+.output/public/assets/vb-DV3o63ZY.js                                5.30 kB │ gzip:   2.01 kB
+.output/public/assets/zig-CMLA9XwU.js                               5.33 kB │ gzip:   1.55 kB
+.output/public/assets/qml-_a-QhfPD.js                               5.33 kB │ gzip:   1.38 kB
+.output/public/assets/dax-BkyTk9wS.js                               5.35 kB │ gzip:   2.21 kB
+.output/public/assets/bicep-CUHmPFLl.js                             5.37 kB │ gzip:   1.14 kB
+.output/public/assets/xml-BlnrEAEy.js                               5.44 kB │ gzip:   1.25 kB
+.output/public/assets/awk-BWXHIvNe.js                               5.45 kB │ gzip:   1.37 kB
+.output/public/assets/linear-SzVmGSw4.js                            5.51 kB │ gzip:   2.25 kB
+.output/public/assets/audits-BzlULTvx.js                            5.58 kB │ gzip:   2.06 kB
+.output/public/assets/jinja-B-tLrNsM.js                             5.62 kB │ gzip:   1.36 kB
+.output/public/assets/http_client-B-6DHc7v.js                       5.72 kB │ gzip:   1.76 kB
+.output/public/assets/lean-CewbzKMR.js                              5.77 kB │ gzip:   1.91 kB
+.output/public/assets/twig-De2hgUGE.js                              5.78 kB │ gzip:   1.48 kB
+.output/public/assets/chunk-4I5QYGJK-CwYt3d7P.js                    5.83 kB │ gzip:   2.68 kB
+.output/public/assets/powerquery-DNMTfnFr.js                        5.89 kB │ gzip:   1.51 kB
+.output/public/assets/shaderlab-TOUzSsQk.js                         5.91 kB │ gzip:   2.08 kB
+.output/public/assets/cypher-ClKdZ_lG.js                            5.94 kB │ gzip:   1.71 kB
+.output/public/assets/coq-DuBRPxYg.js                               6.03 kB │ gzip:   1.95 kB
+.output/public/assets/vb-DOwzaHZ0.js                                6.06 kB │ gzip:   2.32 kB
+.output/public/assets/diagram-UB23O5K3-B8UmLKRn.js                  6.07 kB │ gzip:   2.56 kB
+.output/public/assets/SkillSecurityScanResults-C_kBmBg6.js          6.12 kB │ gzip:   2.22 kB
+.output/public/assets/button-CNifU1U3.js                            6.22 kB │ gzip:   2.44 kB
+.output/public/assets/pieDiagram-7S7Q4E2Y-CPMVZD17.js               6.22 kB │ gzip:   2.60 kB
+.output/public/assets/scss-gp-XZpBa.js                              6.26 kB │ gzip:   1.70 kB
+.output/public/assets/handlebars-kCBbsFEe.js                        6.28 kB │ gzip:   1.37 kB
+.output/public/assets/min-dark-BSWPekZh.js                          6.28 kB │ gzip:   1.70 kB
+.output/public/assets/gdshader-CBce3t8t.js                          6.31 kB │ gzip:   1.72 kB
+.output/public/assets/ara-4CJ0cIlV.js                               6.35 kB │ gzip:   1.80 kB
+.output/public/assets/SkillFilesPanel-CQ_6fyvs.js                   6.39 kB │ gzip:   2.22 kB
+.output/public/assets/verilog-B2gwz-sJ.js                           6.40 kB │ gzip:   1.92 kB
+.output/public/assets/clojure-DqKBuwfJ.js                           6.40 kB │ gzip:   1.41 kB
+.output/public/assets/postcss-BXeXVLqQ.js                           6.41 kB │ gzip:   1.90 kB
+.output/public/assets/red-DX1BQOs8.js                               6.41 kB │ gzip:   1.63 kB
+.output/public/assets/toml-CcmNWLt0.js                              6.41 kB │ gzip:   1.28 kB
+.output/public/assets/julia-Bri6UV-V.js                             6.50 kB │ gzip:   2.64 kB
+.output/public/assets/proto-DB4EqR-F.js                             6.54 kB │ gzip:   1.41 kB
+.output/public/assets/_slug-BBW4jxkV.js                             6.54 kB │ gzip:   2.77 kB
+.output/public/assets/chapel-DmtgEXO_.js                            6.62 kB │ gzip:   1.85 kB
+.output/public/assets/solarized-light-C1IUL_tW.js                   6.62 kB │ gzip:   1.74 kB
+.output/public/assets/talonscript-CohzipZa.js                       6.75 kB │ gzip:   1.48 kB
+.output/public/assets/r-BHcO8Vjq.js                                 6.80 kB │ gzip:   1.89 kB
+.output/public/assets/systemverilog-Bz4Y3fRF.js                     6.85 kB │ gzip:   2.72 kB
+.output/public/assets/riscv-Ckw8ddFX.js                             6.90 kB │ gzip:   1.97 kB
+.output/public/assets/soy-DEd-qcad.js                               6.92 kB │ gzip:   1.62 kB
+.output/public/assets/st-DbInun42.js                                6.94 kB │ gzip:   2.24 kB
+.output/public/assets/min-light-DDpmG2fV.js                         6.96 kB │ gzip:   1.88 kB
+.output/public/assets/solarized-dark-UdsmMDCL.js                    6.99 kB │ gzip:   1.81 kB
+.output/public/assets/chunk-RYQCIY6F-DaaQ3B7N.js                    7.02 kB │ gzip:   2.68 kB
+.output/public/assets/scala-DHpiXF5c.js                             7.11 kB │ gzip:   2.07 kB
+.output/public/assets/scheme-DQCgrYNe.js                            7.16 kB │ gzip:   2.04 kB
+.output/public/assets/wgsl-DpFanUEy.js                              7.18 kB │ gzip:   2.73 kB
+.output/public/assets/hlsl-Cvrh5tZx.js                              7.25 kB │ gzip:   2.18 kB
+.output/public/assets/perl-oz_6vUea.js                              7.35 kB │ gzip:   3.10 kB
+.output/public/assets/postiats-43DmfD33.js                          7.36 kB │ gzip:   2.39 kB
+.output/public/assets/qss-Fe1Jh2GI.js                               7.46 kB │ gzip:   2.57 kB
+.output/public/assets/prisma-DMgNhnYS.js                            7.73 kB │ gzip:   1.48 kB
+.output/public/assets/php-nr791fC2.js                               7.74 kB │ gzip:   2.03 kB
+.output/public/assets/systemd-BxMlprV5.js                           7.86 kB │ gzip:   2.54 kB
+.output/public/assets/plugins-FwrrM4dk.js                           8.00 kB │ gzip:   3.03 kB
+.output/public/assets/monokai-B_bV9PQ9.js                           8.02 kB │ gzip:   1.93 kB
+.output/public/assets/openClawExtensionSlugs-CMSvJUYo.js            8.04 kB │ gzip:   1.73 kB
+.output/public/assets/regexp-DR20uMnK.js                            8.05 kB │ gzip:   1.47 kB
+.output/public/assets/razor-DZw5_kAD.js                             8.11 kB │ gzip:   2.05 kB
+.output/public/assets/search-CXWL2nOb.js                            8.13 kB │ gzip:   2.60 kB
+.output/public/assets/themes-DF9wtQKR.js                            8.17 kB │ gzip:   1.75 kB
+.output/public/assets/clojure-Cm7r79vr.js                           8.21 kB │ gzip:   3.49 kB
+.output/public/assets/ruby-DezsRK8O.js                              8.21 kB │ gzip:   2.55 kB
+.output/public/assets/diagram-7IWD3JNH-Bru-vVNX.js                  8.31 kB │ gzip:   3.70 kB
+.output/public/assets/haml-CwEpbK1d.js                              8.33 kB │ gzip:   1.86 kB
+.output/public/assets/vue-html-DkKkQnZL.js                          8.47 kB │ gzip:   1.68 kB
+.output/public/assets/plsql-DGHpHOYJ.js                             8.50 kB │ gzip:   2.99 kB
+.output/public/assets/packageApi-CHCwSQzV.js                        8.54 kB │ gzip:   2.44 kB
+.output/public/assets/dart-CnvKMtbv.js                              8.61 kB │ gzip:   1.99 kB
+.output/public/assets/horizon-CE9ld1lL.js                           8.77 kB │ gzip:   1.94 kB
+.output/public/assets/kotlin-DhhofPvG.js                            8.77 kB │ gzip:   2.12 kB
+.output/public/assets/horizon-bright-DSNQnXHK.js                    8.78 kB │ gzip:   1.96 kB
+.output/public/assets/dagre-VZM6K2ZE-ORgutnlO.js                    8.81 kB │ gzip:   3.42 kB
+.output/public/assets/sql-NEE52Syq.js                               8.84 kB │ gzip:   3.73 kB
+.output/public/assets/protobuf-C531GsRP.js                          8.89 kB │ gzip:   2.04 kB
+.output/public/assets/make-Dixweg8N.js                              8.95 kB │ gzip:   1.76 kB
+.output/public/assets/andromeeda-vGVdxbeo.js                        9.01 kB │ gzip:   2.35 kB
+.output/public/assets/SkillReportDialog-DSmWIQYq.js                 9.03 kB │ gzip:   3.75 kB
+.output/public/assets/sas-CBpMWA2M.js                               9.06 kB │ gzip:   3.82 kB
+.output/public/assets/dark-plus-Cs2F2srj.js                         9.09 kB │ gzip:   2.10 kB
+.output/public/assets/slack-dark-DnToyrRv.js                        9.11 kB │ gzip:   1.96 kB
+.output/public/assets/smithy-Dgaz7aur.js                            9.12 kB │ gzip:   1.51 kB
+.output/public/assets/sass-DXrisJhu.js                              9.28 kB │ gzip:   2.48 kB
+.output/public/assets/plastic-DQwYfKfQ.js                           9.29 kB │ gzip:   1.96 kB
+.output/public/assets/slack-ochin-B2OO5cIa.js                       9.42 kB │ gzip:   2.08 kB
+.output/public/assets/mysql-SOo6toE5.js                             9.65 kB │ gzip:   3.98 kB
+.output/public/assets/jison-CBjhYtSs.js                             9.69 kB │ gzip:   1.86 kB
+.output/public/assets/tex-BK-H2Wn4.js                               9.73 kB │ gzip:   3.10 kB
+.output/public/assets/cmake-Bj61d0ZC.js                             9.84 kB │ gzip:   3.37 kB
+.output/public/assets/numberFormat-b85VGv8l.js                      9.86 kB │ gzip:   3.96 kB
+.output/public/assets/light-plus-DVQuIRkW.js                        9.93 kB │ gzip:   2.27 kB
+.output/public/assets/cynefinDiagram-MW4NZA55-PX66lM2F.js           9.94 kB │ gzip:   3.51 kB
+.output/public/assets/hcl-Dh228itO.js                              10.04 kB │ gzip:   1.93 kB
+.output/public/assets/elixir-6RTg0lbw.js                           10.11 kB │ gzip:   2.50 kB
+.output/public/assets/rst-BQCbfb9V.js                              10.31 kB │ gzip:   2.24 kB
+.output/public/assets/redshift-DT7zqm-g.js                         10.33 kB │ gzip:   4.24 kB
+.output/public/assets/pkl-ot-7Btpt.js                              10.36 kB │ gzip:   1.37 kB
+.output/public/assets/beancount-D-usSTwE.js                        10.36 kB │ gzip:   1.43 kB
+.output/public/assets/nextflow-groovy-DJMQeKeT.js                  10.43 kB │ gzip:   2.13 kB
+.output/public/assets/dream-maker-DW3nJb8Q.js                      10.46 kB │ gzip:   2.25 kB
+.output/public/assets/raku-B3gFvitq.js                             10.46 kB │ gzip:   2.94 kB
+.output/public/assets/yaml-Du_6cdrH.js                             10.57 kB │ gzip:   2.32 kB
+.output/public/assets/stateDiagram-OKZ733FA-BugmIaRc.js            10.64 kB │ gzip:   3.74 kB
+.output/public/assets/diagram-B4RE2ZJO-CX9B0LPS.js                 10.65 kB │ gzip:   4.12 kB
+.output/public/assets/just-B9Xn_Dp4.js                             10.84 kB │ gzip:   2.62 kB
+.output/public/assets/InstallCopyButton-LfXNE7fi.js                10.88 kB │ gzip:   4.19 kB
+.output/public/assets/elm-o4NJxfws.js                              10.94 kB │ gzip:   2.09 kB
+.output/public/assets/github-light-EUqPIrTm.js                     11.18 kB │ gzip:   2.49 kB
+.output/public/assets/prolog-iXnhIJG7.js                           11.34 kB │ gzip:   3.84 kB
+.output/public/assets/terraform-DswuEJGm.js                        11.38 kB │ gzip:   2.51 kB
+.output/public/assets/github-dark-C-LZuMrd.js                      11.40 kB │ gzip:   2.53 kB
+.output/public/assets/puppet-CDv2pdJW.js                           11.43 kB │ gzip:   2.10 kB
+.output/public/assets/laserwave-C_8bwKvT.js                        11.49 kB │ gzip:   2.57 kB
+.output/public/assets/abap-08VXUWAP.js                             11.69 kB │ gzip:   5.15 kB
+.output/public/assets/pgsql-DTj74zXo.js                            11.91 kB │ gzip:   4.42 kB
+.output/public/assets/gherkin-DExj1W_8.js                          11.93 kB │ gzip:   5.04 kB
+.output/public/assets/wasm-ByWQv1Qj.js                             12.00 kB │ gzip:   2.17 kB
+.output/public/assets/hjson-CxZEssPk.js                            12.04 kB │ gzip:   1.64 kB
+.output/public/assets/surrealql-BZoq2lXR.js                        12.06 kB │ gzip:   3.29 kB
+.output/public/assets/handlebars-ryMP1rBR.js                       12.16 kB │ gzip:   2.37 kB
+.output/public/assets/jsonMode-BTHqhdjl.js                         12.18 kB │ gzip:   4.45 kB
+.output/public/assets/apache-U0d_L8uA.js                           12.44 kB │ gzip:   3.71 kB
+.output/public/assets/vesper-DdrHHSXu.js                           12.73 kB │ gzip:   1.99 kB
+.output/public/assets/BrowseControls-DdZGyCzC.js                   12.80 kB │ gzip:   3.23 kB
+.output/public/assets/bat-qdxAdBWQ.js                              12.88 kB │ gzip:   3.23 kB
+.output/public/assets/fish-BJitypiv.js                             13.03 kB │ gzip:   1.73 kB
+.output/public/assets/nsis-CjNLYCLg.js                             13.11 kB │ gzip:   4.06 kB
+.output/public/assets/v-DBj4K9d_.js                                13.32 kB │ gzip:   2.75 kB
+.output/public/assets/vitesse-light-VbXTXTou.js                    13.61 kB │ gzip:   3.03 kB
+.output/public/assets/aurora-x-CDeNXAV0.js                         13.65 kB │ gzip:   2.28 kB
+.output/public/assets/vitesse-black-fwtXNY1n.js                    13.67 kB │ gzip:   3.05 kB
+.output/public/assets/vitesse-dark-BZCL-v6S.js                     13.75 kB │ gzip:   3.06 kB
+.output/public/assets/pug-DkgDHZci.js                              13.84 kB │ gzip:   2.58 kB
+.output/public/assets/synthwave-84-nFMaYfgc.js                     14.03 kB │ gzip:   2.85 kB
+.output/public/assets/smalltalk-BHpQb5nM.js                        14.11 kB │ gzip:   2.14 kB
+.output/public/assets/github-light-default-BXViO-2h.js             14.15 kB │ gzip:   3.02 kB
+.output/public/assets/github-light-high-contrast-B68TUdTA.js       14.27 kB │ gzip:   3.00 kB
+.output/public/assets/clarity-CtfBBspg.js                          14.35 kB │ gzip:   2.50 kB
+.output/public/assets/github-dark-dimmed-Bx1FflLF.js               14.43 kB │ gzip:   3.11 kB
+.output/public/assets/github-dark-default-DXG-b-1a.js              14.43 kB │ gzip:   3.12 kB
+.output/public/assets/github-dark-high-contrast-B_tTalzw.js        14.59 kB │ gzip:   3.07 kB
+.output/public/assets/SkillDetailPageView-AdO6J1PT.js              14.62 kB │ gzip:   4.55 kB
+.output/public/assets/gnuplot-7GGW24-e.js                          14.77 kB │ gzip:   3.27 kB
+.output/public/assets/rust-Cfkwpbl8.js                             15.06 kB │ gzip:   2.71 kB
+.output/public/assets/kusto-C7mF5XQf.js                            15.16 kB │ gzip:   3.92 kB
+.output/public/assets/powerquery-D3hlyOfw.js                       15.34 kB │ gzip:   4.73 kB
+.output/public/assets/nix-IvuFDN5E.js                              15.50 kB │ gzip:   2.47 kB
+.output/public/assets/actionscript-3-Cs6JJXT5.js                   15.53 kB │ gzip:   2.70 kB
+.output/public/assets/freemarker2-BHuAGUIE.js                      15.54 kB │ gzip:   3.97 kB
+.output/public/assets/lua-FONpmTUP.js                              15.60 kB │ gzip:   3.19 kB
+.output/public/assets/chunk-6Q2QTUOP-DVVfp70y.js                   15.64 kB │ gzip:   4.36 kB
+.output/public/assets/diagram-Q27KOJAE-BXJjigN6.js                 15.75 kB │ gzip:   5.52 kB
+.output/public/assets/abap-CLvhMVsD.js                             15.84 kB │ gzip:   5.93 kB
+.output/public/assets/solidity-BEEn4gHE.js                         15.99 kB │ gzip:   4.39 kB
+.output/public/assets/matlab-D7qyCx1q.js                           16.07 kB │ gzip:   3.06 kB
+.output/public/assets/luau-C2pBCSgt.js                             16.13 kB │ gzip:   3.54 kB
+.output/public/assets/cue-CE9AQfxI.js                              16.19 kB │ gzip:   2.04 kB
+.output/public/assets/elixir-DP304Xio.js                           16.26 kB │ gzip:   2.76 kB
+.output/public/assets/solidity-Bj7E1mRn.js                         16.40 kB │ gzip:   3.14 kB
+.output/public/assets/odin-B1RWQWA5.js                             16.50 kB │ gzip:   2.92 kB
+.output/public/assets/ts-tags-Cc5do7zu.js                          16.54 kB │ gzip:   2.05 kB
+.output/public/assets/mermaid-parser.core-DZxY3CZd.js              16.65 kB │ gzip:   4.15 kB
+.output/public/assets/Combination-DQl5B-7O.js                      16.93 kB │ gzip:   6.48 kB
+.output/public/assets/kanagawa-wave-BML5mF2J.js                    17.11 kB │ gzip:   2.90 kB
+.output/public/assets/kanagawa-lotus-BmuOG9ZW.js                   17.11 kB │ gzip:   2.91 kB
+.output/public/assets/kanagawa-dragon-Bozd7klA.js                  17.12 kB │ gzip:   2.92 kB
+.output/public/assets/ishikawaDiagram-WSZJBQD7-ByEogLm1.js         17.30 kB │ gzip:   6.53 kB
+.output/public/assets/move-BYnGhZoM.js                             17.65 kB │ gzip:   3.06 kB
+.output/public/assets/graphql-Ctjuxyvl.js                          18.08 kB │ gzip:   2.53 kB
+.output/public/assets/liquid-G0MH4h_m.js                           18.10 kB │ gzip:   3.14 kB
+.output/public/assets/svelte-Bj3Hmc9F.js                           18.24 kB │ gzip:   3.14 kB
+.output/public/assets/space-separated-tokens-C2u2-XdK.js           18.44 kB │ gzip:   6.29 kB
+.output/public/assets/material-theme-Bm3Qr25_.js                   18.61 kB │ gzip:   3.10 kB
+.output/public/assets/material-theme-darker-2IIEA8gg.js            18.62 kB │ gzip:   3.10 kB
+.output/public/assets/material-theme-ocean-CHQ94UKr.js             18.62 kB │ gzip:   3.12 kB
+.output/public/assets/material-theme-lighter-uhdI0v04.js           18.63 kB │ gzip:   3.10 kB
+.output/public/assets/material-theme-palenight-B5W6OYN7.js         18.63 kB │ gzip:   3.11 kB
+.output/public/assets/gdscript-DYvRD3hg.js                         19.08 kB │ gzip:   3.76 kB
+.output/public/assets/groovy-CacY0gHj.js                           19.17 kB │ gzip:   3.59 kB
+.output/public/assets/ayu-dark-DluEY0Gj.js                         20.07 kB │ gzip:   3.93 kB
+.output/public/assets/ayu-mirage-Bqwy1Gya.js                       20.08 kB │ gzip:   3.91 kB
+.output/public/assets/glimmer-js-BONyzAsu.js                       20.08 kB │ gzip:   2.94 kB
+.output/public/assets/glimmer-ts-f9c0GCOe.js                       20.08 kB │ gzip:   2.93 kB
+.output/public/assets/mdc-BKfPFPZw.js                              20.08 kB │ gzip:   6.80 kB
+.output/public/assets/ayu-light-C3h-C4tm.js                        20.14 kB │ gzip:   3.89 kB
+.output/public/assets/powershell-CCSX75yM.js                       20.15 kB │ gzip:   4.05 kB
+.output/public/assets/kanban-definition-27J2QSJJ-DESC6OMW.js       20.22 kB │ gzip:   7.13 kB
+.output/public/assets/CatalogMetadataEditor-BkICulAa.js            20.22 kB │ gzip:   6.15 kB
+.output/public/assets/viml-DvXPmvsu.js                             20.35 kB │ gzip:   6.73 kB
+.output/public/assets/snazzy-light-4G7pJPwS.js                     20.77 kB │ gzip:   3.80 kB
+.output/public/assets/nushell-DHYfO66s.js                          20.87 kB │ gzip:   5.36 kB
+.output/public/assets/dracula-BHWKrbxM.js                          21.06 kB │ gzip:   3.99 kB
+.output/public/assets/dracula-soft-5eyTD99u.js                     21.07 kB │ gzip:   4.02 kB
+.output/public/assets/wit-DdvCle-K.js                              21.46 kB │ gzip:   2.87 kB
+.output/public/assets/twig-BVSnuTf-.js                             21.51 kB │ gzip:   3.75 kB
+.output/public/assets/rose-pine-aMsaMD1D.js                        21.73 kB │ gzip:   3.88 kB
+.output/public/assets/rose-pine-moon-DO-qXg-I.js                   21.74 kB │ gzip:   3.89 kB
+.output/public/assets/rose-pine-dawn-8PwUyIlP.js                   21.74 kB │ gzip:   3.89 kB
+.output/public/assets/tsMode-fGxKxk-r.js                           21.85 kB │ gzip:   6.16 kB
+.output/public/assets/nim-B6yJ_yaC.js                              22.45 kB │ gzip:   3.15 kB
+.output/public/assets/common-lisp-Cv5bFMCO.js                      22.57 kB │ gzip:   6.07 kB
+.output/public/assets/gruvbox-dark-hard-C820rvS2.js                22.63 kB │ gzip:   4.15 kB
+.output/public/assets/gruvbox-dark-soft-MrdJrrXF.js                22.63 kB │ gzip:   4.15 kB
+.output/public/assets/gruvbox-light-hard-BC_s9l72.js               22.63 kB │ gzip:   4.16 kB
+.output/public/assets/gruvbox-light-soft-BSMLrYjP.js               22.63 kB │ gzip:   4.16 kB
+.output/public/assets/gruvbox-dark-medium-BPjhmG05.js              22.63 kB │ gzip:   4.15 kB
+.output/public/assets/gruvbox-light-medium-BAWPOn9u.js             22.63 kB │ gzip:   4.16 kB
+.output/public/assets/sankeyDiagram-W5VNT64P-CiyHUYNW.js           22.78 kB │ gzip:   8.28 kB
+.output/public/assets/journeyDiagram-NVQOT4AX-D_7PwUBq.js          23.15 kB │ gzip:   8.15 kB
+.output/public/assets/_handle-EWocfOIt.js                          23.31 kB │ gzip:   7.40 kB
+.output/public/assets/mindmap-definition-FAOFIHXS-W0_dZosE.js      23.43 kB │ gzip:   8.01 kB
+.output/public/assets/sql-DdD7vxS4.js                              23.49 kB │ gzip:   7.51 kB
+.output/public/assets/cadence-CQ2zXKGN.js                          23.66 kB │ gzip:   3.65 kB
+.output/public/assets/graphlib-DS17s2tU.js                         23.90 kB │ gzip:   8.31 kB
+.output/public/assets/astro-B-4NNgOP.js                            24.02 kB │ gzip:   7.59 kB
+.output/public/assets/apl-Dhin1L29.js                              24.02 kB │ gzip:   4.16 kB
+.output/public/assets/templ-TjxbArHn.js                            24.06 kB │ gzip:   5.41 kB
+.output/public/assets/angular-html-B8mrqUL5.js                     24.24 kB │ gzip:   3.99 kB
+.output/public/assets/vhdl-BroJfC0k.js                             24.25 kB │ gzip:   3.86 kB
+.output/public/assets/purescript-9MfHhQsQ.js                       24.67 kB │ gzip:   3.24 kB
+.output/public/assets/moonbit-DgjMoLWr.js                          24.93 kB │ gzip:   3.76 kB
+.output/public/assets/vue-BNQF7r6F.js                              24.96 kB │ gzip:   3.03 kB
+.output/public/assets/typespec-BRdr0IET.js                         25.03 kB │ gzip:   2.62 kB
+.output/public/assets/wardleyDiagram-T6FBY63Y-BfGlEQux.js          25.20 kB │ gzip:   6.54 kB
+.output/public/assets/one-light-D7Lr4KcI.js                        25.29 kB │ gzip:   3.63 kB
+.output/public/assets/fsharp-D13ZGOAj.js                           25.30 kB │ gzip:   4.12 kB
+.output/public/assets/marko-DV5GrDmo.js                            25.48 kB │ gzip:   3.59 kB
+.output/public/assets/night-owl-light-eJ-hLW7d.js                  25.89 kB │ gzip:   4.23 kB
+.output/public/assets/c3-D0apG41V.js                               26.37 kB │ gzip:   3.97 kB
+.output/public/assets/dropdown-menu-Ca0dZYN3.js                    26.38 kB │ gzip:   8.64 kB
+.output/public/assets/system-verilog-Dh5ihWbf.js                   26.54 kB │ gzip:   4.85 kB
+.output/public/assets/nord-Cb4Vim4T.js                             26.72 kB │ gzip:   4.35 kB
+.output/public/assets/codeql-oeQT6MSM.js                           26.87 kB │ gzip:   3.79 kB
+.output/public/assets/erDiagram-JOGREHBK-D0zAx4g8.js               27.09 kB │ gzip:   9.44 kB
+.output/public/assets/rough.esm-Dy-Kn_BL.js                        27.10 kB │ gzip:   8.85 kB
+.output/public/assets/utils-DojpP95n.js                            27.26 kB │ gzip:   8.69 kB
+.output/public/assets/scss-YesllqfO.js                             27.26 kB │ gzip:   4.23 kB
+.output/public/assets/java-DdHNQ9hk.js                             27.28 kB │ gzip:   4.31 kB
+.output/public/assets/coffee-CiiSLhB6.js                           27.42 kB │ gzip:   6.35 kB
+.output/public/assets/badge-C9GTlgUZ.js                            27.43 kB │ gzip:  10.05 kB
+.output/public/assets/razor-BMJ0eI3p.js                            27.45 kB │ gzip:   3.54 kB
+.output/public/assets/lspLanguageFeatures-B2r00LQE.js              28.22 kB │ gzip:   7.17 kB
+.output/public/assets/langs-CV7tr9oi.js                            28.54 kB │ gzip:   7.43 kB
+.output/public/assets/scala-BiFt_7mu.js                            28.88 kB │ gzip:   3.93 kB
+.output/public/assets/night-owl-DhmEMT88.js                        28.91 kB │ gzip:   5.14 kB
+.output/public/assets/gitGraphDiagram-DS77QQ5N-Bz_fC7_n.js         29.00 kB │ gzip:   8.55 kB
+.output/public/assets/crystal-DGPAtLeY.js                          29.41 kB │ gzip:   4.44 kB
+.output/public/assets/applescript-CCn79oCD.js                      29.56 kB │ gzip:   5.94 kB
+.output/public/assets/timeline-definition-Z64GVDOM-BVrXcmrQ.js     30.36 kB │ gzip:   9.97 kB
+.output/public/assets/chunk-NSK5VX7P-ChCBtZc7.js                   30.78 kB │ gzip:   8.51 kB
+.output/public/assets/requirementDiagram-LRYGKXZP-Chw8rCgN.js      30.99 kB │ gzip:   9.78 kB
+.output/public/assets/julia-CXJVy74_.js                            31.00 kB │ gzip:   4.30 kB
+.output/public/assets/stylus-B6D30XZt.js                           31.06 kB │ gzip:   8.01 kB
+.output/public/assets/ahk-CA9gdOdF.js                              31.43 kB │ gzip:   7.82 kB
+.output/public/assets/dagre-jnk0s9qx.js                            32.06 kB │ gzip:  11.58 kB
+.output/public/assets/poimandres-DRFjx7u4.js                       33.49 kB │ gzip:   5.49 kB
+.output/public/assets/quadrantDiagram-CIZ2JOQS-BZHnk-GC.js         33.51 kB │ gzip:   9.74 kB
+.output/public/assets/one-dark-pro-CLwyXe_n.js                     33.78 kB │ gzip:   5.50 kB
+.output/public/assets/bsl-_VjlB9mv.js                              33.94 kB │ gzip:   8.35 kB
+.output/public/assets/chunk-7Z6QIM7H-CXkB8LZD.js                   33.95 kB │ gzip:   7.31 kB
+.output/public/assets/nginx-BTMw9COX.js                            35.35 kB │ gzip:   4.45 kB
+.output/public/assets/houston-CsvMBhTu.js                          35.41 kB │ gzip:   5.76 kB
+.output/public/assets/tokyo-night-oM2G3aXe.js                      35.66 kB │ gzip:   6.22 kB
+.output/public/assets/haxe-C8oCnwJJ.js                             35.94 kB │ gzip:   6.00 kB
+.output/public/assets/org-Ddi8Gs6E.js                              36.26 kB │ gzip:   3.67 kB
+.output/public/assets/_name-CZeshZ9L.js                            36.32 kB │ gzip:  10.67 kB
+.output/public/assets/erlang-Cphh6RMH.js                           37.47 kB │ gzip:   4.36 kB
+.output/public/assets/chunk-5RXB4S5H-DRQ29KEA.js                   37.67 kB │ gzip:  12.29 kB
+.output/public/assets/bird2-CYIUgYqB.js                            38.67 kB │ gzip:   8.49 kB
+.output/public/assets/cobol-Cw2-KvLW.js                            39.07 kB │ gzip:  10.89 kB
+.output/public/assets/asm-Cmm7eHzH.js                              40.71 kB │ gzip:   8.16 kB
+.output/public/assets/vennDiagram-T6HMQDX7-BIt8QPgr.js             41.15 kB │ gzip:  15.11 kB
+.output/public/assets/haskell-D8IpX4py.js                          41.48 kB │ gzip:   6.41 kB
+.output/public/assets/shellscript-Da78Ox-3.js                      41.54 kB │ gzip:   6.13 kB
+.output/public/assets/xychartDiagram-ELKLHX3M-DVBm1uED.js          41.61 kB │ gzip:  11.75 kB
+.output/public/assets/SecurityAuditPage-DmqVWlJP.js                41.99 kB │ gzip:  15.53 kB
+.output/public/assets/perl-DEgXgjuC.js                             43.14 kB │ gzip:   4.64 kB
+.output/public/assets/dist-DZGkVItX.js                             43.31 kB │ gzip:  15.64 kB
+.output/public/assets/d-qD-0Kul2.js                                43.78 kB │ gzip:   8.43 kB
+.output/public/assets/dialog-TXIs8vfR.js                           43.82 kB │ gzip:  12.83 kB
+.output/public/assets/routes-BQNfuVl4.js                           44.53 kB │ gzip:  13.30 kB
+.output/public/assets/ahk2-_6rzW9BS.js                             45.05 kB │ gzip:   9.87 kB
+.output/public/assets/src-B6xuSHsQ.js                              45.68 kB │ gzip:  16.00 kB
+.output/public/assets/ruby-B8JcIHv0.js                             46.60 kB │ gzip:   5.70 kB
+.output/public/assets/go-rLFTqkRN.js                               46.81 kB │ gzip:   5.14 kB
+.output/public/assets/chunk-WRU74C26-BbYAXNs2.js                   47.27 kB │ gzip:  14.83 kB
+.output/public/assets/apex-KFGFyKwG.js                             47.88 kB │ gzip:   6.85 kB
+.output/public/assets/ada-C5qYipkI.js                              48.07 kB │ gzip:   5.96 kB
+.output/public/assets/_name-G9FP9QSf.js                            48.62 kB │ gzip:  14.53 kB
+.output/public/assets/chunk-GF5L2VYU-KyyTbHe1.js                   48.77 kB │ gzip:  15.75 kB
+.output/public/assets/css-CNuuLpMC.js                              49.10 kB │ gzip:  11.96 kB
+.output/public/assets/imba-DsUTQ-LC.js                             49.92 kB │ gzip:   9.47 kB
+.output/public/assets/catppuccin-mocha-DjuaAJKi.js                 50.84 kB │ gzip:   8.47 kB
+.output/public/assets/catppuccin-latte-CtsyrtPq.js                 50.84 kB │ gzip:   8.48 kB
+.output/public/assets/catppuccin-frappe-C9Q5zVZY.js                50.85 kB │ gzip:   8.48 kB
+.output/public/assets/catppuccin-macchiato-R8nAf1vR.js             50.85 kB │ gzip:   8.48 kB
+.output/public/assets/everforest-dark-sB-x3p7T.js                  53.74 kB │ gzip:   8.37 kB
+.output/public/assets/everforest-light-Df2xbC6M.js                 53.74 kB │ gzip:   8.36 kB
+.output/public/assets/mermaid-BxpfTIzt.js                          54.80 kB │ gzip:   4.79 kB
+.output/public/assets/wikitext-ClFFjSW2.js                         55.87 kB │ gzip:   4.81 kB
+.output/public/assets/stata-CMv7m7Gi.js                            56.99 kB │ gzip:  12.39 kB
+.output/public/assets/html-XwrE-1r6.js                             57.32 kB │ gzip:  11.78 kB
+.output/public/assets/ballerina-B7ZEbQpA.js                        58.68 kB │ gzip:   8.10 kB
+.output/public/assets/engine-javascript-QqnFFvas.js                58.77 kB │ gzip:  20.64 kB
+.output/public/assets/markdown-BYOwaDjH.js                         59.32 kB │ gzip:   5.66 kB
+.output/public/assets/chunk-JQJVKLGR-CIFcyYxO.js                   60.11 kB │ gzip:  19.52 kB
+.output/public/assets/ocaml-O90oeIOV.js                            62.44 kB │ gzip:   5.04 kB
+.output/public/assets/c4Diagram-5PPSVZJV-SAxYQar9.js               69.16 kB │ gzip:  19.35 kB
+.output/public/assets/ganttDiagram-PKOTCBZU-CuD7e_De.js            69.35 kB │ gzip:  22.74 kB
+.output/public/assets/mojo-fg40_ntQ.js                             69.51 kB │ gzip:   9.20 kB
+.output/public/assets/python-gzcpVVnB.js                           69.94 kB │ gzip:   9.09 kB
+.output/public/assets/c-iCihek07.js                                72.17 kB │ gzip:  10.55 kB
+.output/public/assets/blockDiagram-VBNYF7ZC-BCV3rSfY.js            72.71 kB │ gzip:  20.71 kB
+.output/public/assets/latex-o9DRzaEe.js                            72.88 kB │ gzip:   6.74 kB
+.output/public/assets/vyper-CgoNMtux.js                            74.64 kB │ gzip:  10.69 kB
+.output/public/assets/use_queries-N-XWOxGk.js                      78.02 kB │ gzip:  22.33 kB
+.output/public/assets/mermaid.core-DWtJ_3S7.js                     79.90 kB │ gzip:  27.56 kB
+.output/public/assets/hack-Dh_ZLRbs.js                             81.07 kB │ gzip:  26.45 kB
+.output/public/assets/cose-bilkent-JH36ORCC-Cm2_ZA6x.js            81.25 kB │ gzip:  21.54 kB
+.output/public/assets/swift-CyEgAFGc.js                            87.22 kB │ gzip:  14.79 kB
+.output/public/assets/fortran-free-form-CYNrtFtB.js                88.96 kB │ gzip:  11.18 kB
+.output/public/assets/csharp-oqKa8noW.js                           90.18 kB │ gzip:  10.71 kB
+.output/public/assets/racket-DcIDlBhZ.js                           92.38 kB │ gzip:  15.07 kB
+.output/public/assets/core-DwAYSVOd.js                             95.78 kB │ gzip:  29.85 kB
+.output/public/assets/SkillDetailPage-D3lcbGGj.js                  96.13 kB │ gzip:  29.11 kB
+.output/public/assets/less-DVTAwKKz.js                             97.62 kB │ gzip:  14.84 kB
+.output/public/assets/chunk-QR6OTTB3-CxXeKPyP.js                  101.85 kB │ gzip:  24.81 kB
+.output/public/assets/CodeWrapToggle-DsNYS1h4.js                  102.07 kB │ gzip:  31.23 kB
+.output/public/assets/blade-C6Gedziy.js                           104.97 kB │ gzip:  28.29 kB
+.output/public/assets/objective-c-D1A_Heim.js                     105.40 kB │ gzip:  23.63 kB
+.output/public/assets/php-B9UPq-vz.js                             113.08 kB │ gzip:  28.85 kB
+.output/public/assets/swimlanes-SLNWSIFB-LE778rGy.js              114.07 kB │ gzip:  39.16 kB
+.output/public/assets/sequenceDiagram-SI44F4Z6-GZP-re-A.js        115.74 kB │ gzip:  30.58 kB
+.output/public/assets/asciidoc-SCjQUq34.js                        136.04 kB │ gzip:   9.45 kB
+.output/public/assets/mdx-DQZ5AkYe.js                             136.10 kB │ gzip:  23.54 kB
+.output/public/assets/architectureDiagram-T3A2C74G-BkEnsr4s.js    148.90 kB │ gzip:  41.13 kB
+.output/public/assets/typst-C40W_gC6.js                           163.48 kB │ gzip:  10.96 kB
+.output/public/assets/objective-cpp-BsSzOQcm.js                   171.96 kB │ gzip:  30.98 kB
+.output/public/assets/javascript-obGGvMPs.js                      174.89 kB │ gzip:  16.68 kB
+.output/public/assets/tsx-CUOciP0b.js                             175.60 kB │ gzip:  16.68 kB
+.output/public/assets/jsx-gTgmArGx.js                             177.85 kB │ gzip:  16.77 kB
+.output/public/assets/typescript-BydbNFcO.js                      181.14 kB │ gzip:  16.29 kB
+.output/public/assets/angular-ts-Bzix210W.js                      183.73 kB │ gzip:  16.78 kB
+.output/public/assets/vue-vine-DFaKYU4X.js                        190.05 kB │ gzip:  18.07 kB
+.output/public/assets/chunk-I66GZJ75-Df1pUxQ4.js                  234.96 kB │ gzip:  37.99 kB
+.output/public/assets/MarkdownPreview-CKdf8HqN.js                 236.98 kB │ gzip:  74.26 kB
+.output/public/assets/katex-ZlcWpGUi.js                           258.68 kB │ gzip:  77.43 kB
+.output/public/assets/wolfram-DLL8P-h_.js                         262.38 kB │ gzip:  77.63 kB
+.output/public/assets/dist-L8Y0lRgQ.js                            304.20 kB │ gzip:  89.71 kB
+.output/public/assets/cytoscape.esm-EK2DW5Qr.js                   434.69 kB │ gzip: 137.74 kB
+.output/public/assets/chunk-KEIR6QF5-C59hBQWR.js                  662.56 kB │ gzip: 145.17 kB
+.output/public/assets/cpp-71xkOQct.js                             785.54 kB │ gzip:  58.27 kB
+.output/public/assets/emacs-lisp-c_oH4hRZ.js                      790.00 kB │ gzip: 200.30 kB
+.output/public/assets/index-CcF08bVy.js                           843.02 kB │ gzip: 238.73 kB
+.output/public/assets/SkillDiffCard-J749coKu.js                 1,300.55 kB │ gzip: 332.30 kB
+.output/public/assets/editor.api-BHixPtRA.js                    2,651.50 kB │ gzip: 683.40 kB
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 900 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 3.49s
+vite v8.3.0 building ssr environment for production...
+transforming...
+✓ 416 modules transformed.
+rendering chunks...
+computing gzip size...
+node_modules/.nitro/vite/services/ssr/assets/editor.worker-CwQAd_xr.js               300.30 kB
+node_modules/.nitro/vite/services/ssr/assets/design-system-CRChLBu8.css               27.76 kB │ gzip:   4.43 kB
+node_modules/.nitro/vite/services/ssr/assets/styles-BCOwaDSm.css                     777.90 kB │ gzip: 114.05 kB
+node_modules/.nitro/vite/services/ssr/assets/start-D11SjyKz.js                         0.17 kB │ gzip:   0.14 kB
+node_modules/.nitro/vite/services/ssr/assets/publicUser-BO6BTLIG.js                    0.17 kB │ gzip:   0.14 kB
+node_modules/.nitro/vite/services/ssr/assets/utils-C_uf36nf.js                         0.18 kB │ gzip:   0.15 kB
+node_modules/.nitro/vite/services/ssr/assets/hasOwnProperty-CexFtVMN.js                0.22 kB │ gzip:   0.16 kB
+node_modules/.nitro/vite/services/ssr/assets/empty-plugin-adapters-C63kSN4g.js         0.25 kB │ gzip:   0.17 kB
+node_modules/.nitro/vite/services/ssr/assets/browseCount-B1ERrt0-.js                   0.32 kB │ gzip:   0.23 kB
+node_modules/.nitro/vite/services/ssr/assets/roles-d7ziIxOU.js                         0.39 kB │ gzip:   0.21 kB
+node_modules/.nitro/vite/services/ssr/assets/api-DSJLF2wo.js                           0.44 kB │ gzip:   0.30 kB
+node_modules/.nitro/vite/services/ssr/assets/skeleton-Bh-h7Xqz.js                      0.45 kB │ gzip:   0.31 kB
+node_modules/.nitro/vite/services/ssr/assets/settings-DhGqZuSf.js                      0.46 kB │ gzip:   0.29 kB
+node_modules/.nitro/vite/services/ssr/assets/_slug-8MwtuFqS.js                         0.47 kB │ gzip:   0.29 kB
+node_modules/.nitro/vite/services/ssr/assets/security-audit-BhS1BlGQ.js                0.49 kB │ gzip:   0.30 kB
+node_modules/.nitro/vite/services/ssr/assets/_slug-BQeIPhrI.js                         0.50 kB │ gzip:   0.31 kB
+node_modules/.nitro/vite/services/ssr/assets/_name-BFz3fHbN.js                         0.52 kB │ gzip:   0.31 kB
+node_modules/.nitro/vite/services/ssr/assets/security-audit-BvNw-87F.js                0.56 kB │ gzip:   0.32 kB
+node_modules/.nitro/vite/services/ssr/assets/badges-Dzal_lb4.js                        0.56 kB │ gzip:   0.24 kB
+node_modules/.nitro/vite/services/ssr/assets/useMediaQuery-BDft5wVw.js                 0.59 kB │ gzip:   0.30 kB
+node_modules/.nitro/vite/services/ssr/assets/_slug-DBZNDG5Z.js                         0.60 kB │ gzip:   0.34 kB
+node_modules/.nitro/vite/services/ssr/assets/timeAgo-sJDV60Bo.js                       0.65 kB │ gzip:   0.31 kB
+node_modules/.nitro/vite/services/ssr/assets/security-audit-DqOFN8x0.js                0.65 kB │ gzip:   0.35 kB
+node_modules/.nitro/vite/services/ssr/assets/truncateText-Call-9mK.js                  0.76 kB │ gzip:   0.44 kB
+node_modules/.nitro/vite/services/ssr/assets/manualCatalogSearch-COJLfuuk.js           0.80 kB │ gzip:   0.34 kB
+node_modules/.nitro/vite/services/ssr/assets/client-BV72mFNH.js                        0.93 kB │ gzip:   0.50 kB
+node_modules/.nitro/vite/services/ssr/assets/site-CxWE6-DZ.js                          1.26 kB │ gzip:   0.60 kB
+node_modules/.nitro/vite/services/ssr/assets/card-d460kt51.js                          1.31 kB │ gzip:   0.50 kB
+node_modules/.nitro/vite/services/ssr/assets/slugRoute-C0G29abT.js                     1.50 kB │ gzip:   0.61 kB
+node_modules/.nitro/vite/services/ssr/assets/alert-CHOwU49Y.js                         1.55 kB │ gzip:   0.65 kB
+node_modules/.nitro/vite/services/ssr/assets/badge-Ceph_-Lr.js                         1.59 kB │ gzip:   0.61 kB
+node_modules/.nitro/vite/services/ssr/assets/featureFlagManifest-CHJH82p_.js           1.64 kB │ gzip:   0.73 kB
+node_modules/.nitro/vite/services/ssr/assets/ownerRoute-Zh0CoH2b.js                    1.66 kB │ gzip:   0.56 kB
+node_modules/.nitro/vite/services/ssr/assets/browseCategoryIcons-CtgQmGQ6.js           1.94 kB │ gzip:   0.73 kB
+node_modules/.nitro/vite/services/ssr/assets/featureFlags.functions-D3HDnS0Q.js        2.00 kB │ gzip:   0.93 kB
+node_modules/.nitro/vite/services/ssr/assets/EmptyState-YAQnBMU1.js                    2.05 kB │ gzip:   0.81 kB
+node_modules/.nitro/vite/services/ssr/assets/skillPage-CYjNOBUw.js                     2.40 kB │ gzip:   0.86 kB
+node_modules/.nitro/vite/services/ssr/assets/pluginRoutes-uBRPP9RH.js                  2.61 kB │ gzip:   0.81 kB
+node_modules/.nitro/vite/services/ssr/assets/SidebarMetadata-BktP8CkG.js               2.84 kB │ gzip:   1.10 kB
+node_modules/.nitro/vite/services/ssr/assets/skillReadmeLinks-D-uemGgb.js              3.01 kB │ gzip:   0.93 kB
+node_modules/.nitro/vite/services/ssr/assets/MarketplaceIcon-C6FY9Z5t.js               3.04 kB │ gzip:   1.21 kB
+node_modules/.nitro/vite/services/ssr/assets/button-CzrYhCyw.js                        3.24 kB │ gzip:   1.15 kB
+node_modules/.nitro/vite/services/ssr/assets/dropdown-menu-5-3ECPiE.js                 3.84 kB │ gzip:   1.17 kB
+node_modules/.nitro/vite/services/ssr/assets/SkillListItem-CXDQNtHB.js                 4.01 kB │ gzip:   1.28 kB
+node_modules/.nitro/vite/services/ssr/assets/InstallCopyButton-DagfxlEG.js             4.05 kB │ gzip:   1.56 kB
+node_modules/.nitro/vite/services/ssr/assets/BrowseResultsSkeleton-BQVQQdqO.js         4.16 kB │ gzip:   0.97 kB
+node_modules/.nitro/vite/services/ssr/assets/security-audit-C8uwWjAH.js                4.40 kB │ gzip:   1.46 kB
+node_modules/.nitro/vite/services/ssr/assets/PublisherListItem-ChvVuJcD.js             5.14 kB │ gzip:   1.42 kB
+node_modules/.nitro/vite/services/ssr/assets/security-audit-DU17Pe5p.js                5.32 kB │ gzip:   1.76 kB
+node_modules/.nitro/vite/services/ssr/assets/PluginListItem-Dap62_GO.js                6.53 kB │ gzip:   1.75 kB
+node_modules/.nitro/vite/services/ssr/assets/official-DblCGTG2.js                      6.60 kB │ gzip:   1.91 kB
+node_modules/.nitro/vite/services/ssr/assets/numberFormat-DgIOpvgv.js                  6.94 kB │ gzip:   2.31 kB
+node_modules/.nitro/vite/services/ssr/assets/skillDetailUtils-B3iicvaS.js              7.85 kB │ gzip:   2.77 kB
+node_modules/.nitro/vite/services/ssr/assets/theme-D-K1xOSE.js                         8.14 kB │ gzip:   2.16 kB
+node_modules/.nitro/vite/services/ssr/assets/_tanstack-start-manifest_v-olCZju0j.js    8.23 kB │ gzip:   2.06 kB
+node_modules/.nitro/vite/services/ssr/assets/og-tcZ9M5W5.js                            8.47 kB │ gzip:   2.38 kB
+node_modules/.nitro/vite/services/ssr/assets/openClawExtensionSlugs-C4yGnePD.js        9.17 kB │ gzip:   1.94 kB
+node_modules/.nitro/vite/services/ssr/assets/audits-BtC2cK1G.js                        9.51 kB │ gzip:   2.82 kB
+node_modules/.nitro/vite/services/ssr/assets/_slug-DwSWHZ_I.js                         9.58 kB │ gzip:   3.35 kB
+node_modules/.nitro/vite/services/ssr/assets/SkillSecurityScanResults-Bao5AJ8b.js      9.89 kB │ gzip:   2.83 kB
+node_modules/.nitro/vite/services/ssr/assets/dialog-DAqOaus8.js                       10.68 kB │ gzip:   3.19 kB
+node_modules/.nitro/vite/services/ssr/assets/SkillFilesPanel-BhYfj48a.js              11.88 kB │ gzip:   3.10 kB
+node_modules/.nitro/vite/services/ssr/assets/http_client-De-lwnIs.js                  13.76 kB │ gzip:   3.49 kB
+node_modules/.nitro/vite/services/ssr/assets/search-D9engEH4.js                       13.87 kB │ gzip:   3.33 kB
+node_modules/.nitro/vite/services/ssr/assets/packageApi-CFaCou9z.js                   15.33 kB │ gzip:   3.74 kB
+node_modules/.nitro/vite/services/ssr/assets/plugins-_ig0RiCV.js                      16.65 kB │ gzip:   4.40 kB
+node_modules/.nitro/vite/services/ssr/assets/SkillReportDialog-BrKsaLgC.js            17.13 kB │ gzip:   5.24 kB
+node_modules/.nitro/vite/services/ssr/assets/BrowseControls-D6iVcbjV.js               19.64 kB │ gzip:   3.83 kB
+node_modules/.nitro/vite/services/ssr/assets/SkillDetailPageView-B6juP4lD.js          24.46 kB │ gzip:   5.53 kB
+node_modules/.nitro/vite/services/ssr/assets/CatalogMetadataEditor-Cn_FKwzV.js        34.55 kB │ gzip:   8.00 kB
+node_modules/.nitro/vite/services/ssr/assets/SkillDiffCard-CCM8M0vG.js                36.73 kB │ gzip:   9.21 kB
+node_modules/.nitro/vite/services/ssr/assets/MarkdownPreview-DX2MASja.js              39.59 kB │ gzip:  10.98 kB
+node_modules/.nitro/vite/services/ssr/assets/SecurityAuditPage-Skc1q7wC.js            40.00 kB │ gzip:  10.07 kB
+node_modules/.nitro/vite/services/ssr/assets/_handle-SkDAe6MB.js                      42.66 kB │ gzip:  10.16 kB
+node_modules/.nitro/vite/services/ssr/assets/_name-C3xTou7O.js                        62.76 kB │ gzip:  14.37 kB
+node_modules/.nitro/vite/services/ssr/assets/routes-B4sZxWUz.js                       64.98 kB │ gzip:  15.45 kB
+node_modules/.nitro/vite/services/ssr/index.js                                        72.43 kB │ gzip:  18.49 kB
+node_modules/.nitro/vite/services/ssr/assets/dist-eLbrPg4B.js                         74.08 kB │ gzip:  16.35 kB
+node_modules/.nitro/vite/services/ssr/assets/_name-JuzUJCtQ.js                        81.91 kB │ gzip:  18.98 kB
+node_modules/.nitro/vite/services/ssr/assets/SkillDetailPage-ASGYbLrO.js             125.74 kB │ gzip:  28.67 kB
+node_modules/.nitro/vite/services/ssr/assets/use_queries-B9KkacHu.js                 132.50 kB │ gzip:  29.92 kB
+node_modules/.nitro/vite/services/ssr/assets/router-Co50dsHs.js                      908.47 kB │ gzip: 189.37 kB
+
+✓ built in 1.67s
+
+[nitro] ◐ Building [Nitro] (preset: node-server, compatibility: 2026-09-11)
+[nitro] ✔ Generated public .output/public
+vite v8.3.0 building nitro environment for production...
+transforming...
+✓ 6783 modules transformed.
+ℹ Tracing dependencies:
+- sharp (0.35.4)
+- tslib (2.8.1)
+- @img/colour (1.1.0)
+- @img/sharp-darwin-arm64 (0.35.4)
+- detect-libc (2.1.2)
+- semver (7.8.5)
+- @img/sharp-libvips-darwin-arm64 (1.3.3)
+✔ Traced 7 dependencies (79 files) in 203ms.
+ℹ Ensure your production environment matches the builder OS and architecture (darwin-arm64) to avoid native module issues.
+rendering chunks...
+computing gzip size...
+.output/server/_routes/og/skill.mjs                                  0.09 kB │ gzip:     0.08 kB
+.output/server/_routes/og/plugin.mjs                                 0.09 kB │ gzip:     0.08 kB
+.output/server/_routes/og/profile.mjs                                0.09 kB │ gzip:     0.08 kB
+.output/server/_libs/_.mjs                                           0.10 kB │ gzip:     0.10 kB
+.output/server/_libs/devlop.mjs                                      0.16 kB │ gzip:     0.14 kB
+.output/server/_ssr/start-D11SjyKz.mjs                               0.16 kB │ gzip:     0.14 kB
+.output/server/_libs/arkregex.mjs                                    0.18 kB │ gzip:     0.16 kB
+.output/server/_routes/ops/skills_sh/mirror.mjs                      0.23 kB │ gzip:     0.16 kB
+.output/server/_ssr/empty-plugin-adapters-C63kSN4g.mjs               0.25 kB │ gzip:     0.18 kB
+.output/server/_libs/bail.mjs                                        0.28 kB │ gzip:     0.21 kB
+.output/server/_libs/escape-string-regexp.mjs                        0.32 kB │ gzip:     0.24 kB
+.output/server/_libs/radix-ui__number.mjs                            0.35 kB │ gzip:     0.25 kB
+.output/server/_libs/d3-selection.mjs                                0.37 kB │ gzip:     0.24 kB
+.output/server/_libs/is-plain-obj.mjs                                0.43 kB │ gzip:     0.26 kB
+.output/server/_libs/d3-scale-chromatic.mjs                          0.53 kB │ gzip:     0.32 kB
+.output/server/_libs/rehype-sanitize.mjs                             0.58 kB │ gzip:     0.34 kB
+.output/server/_ssr/settings-DhGqZuSf.mjs                            0.62 kB │ gzip:     0.37 kB
+.output/server/_ssr/security-audit-BhS1BlGQ.mjs                      0.65 kB │ gzip:     0.38 kB
+.output/server/_name-BFz3fHbN.mjs                                    0.65 kB │ gzip:     0.39 kB
+.output/server/_slug-8MwtuFqS.mjs                                    0.66 kB │ gzip:     0.39 kB
+.output/server/_ssr/security-audit-BvNw-87F.mjs                      0.67 kB │ gzip:     0.40 kB
+.output/server/_slug-BQeIPhrI.mjs                                    0.67 kB │ gzip:     0.40 kB
+.output/server/_libs/estree-util-is-identifier-name.mjs              0.68 kB │ gzip:     0.40 kB
+.output/server/_libs/decode-named-character-reference+[...].mjs      0.73 kB │ gzip:     0.45 kB
+.output/server/_libs/html-url-attributes.mjs                         0.74 kB │ gzip:     0.44 kB
+.output/server/_slug-DBZNDG5Z.mjs                                    0.74 kB │ gzip:     0.42 kB
+.output/server/_ssr/security-audit-DqOFN8x0.mjs                      0.77 kB │ gzip:     0.43 kB
+.output/server/_libs/radix-ui__react-direction.mjs                   0.79 kB │ gzip:     0.43 kB
+.output/server/_libs/rehype-raw.mjs                                  0.79 kB │ gzip:     0.43 kB
+.output/server/_libs/longest-streak.mjs                              0.86 kB │ gzip:     0.45 kB
+.output/server/_chunks/ssr-renderer.mjs                              1.01 kB │ gzip:     0.50 kB
+.output/server/_libs/radix-ui__react-label.mjs                       1.08 kB │ gzip:     0.55 kB
+.output/server/_libs/is-network-error.mjs                            1.09 kB │ gzip:     0.53 kB
+.output/server/_libs/remark-gfm.mjs                                  1.24 kB │ gzip:     0.53 kB
+.output/server/_libs/radix-ui__react-separator.mjs                   1.54 kB │ gzip:     0.68 kB
+.output/server/_libs/radix-ui__react-toggle.mjs                      1.55 kB │ gzip:     0.70 kB
+.output/server/_ssr/featureFlagManifest-CHJH82p_.mjs                 1.66 kB │ gzip:     0.77 kB
+.output/server/_runtime.mjs                                          1.75 kB │ gzip:     0.82 kB
+.output/server/_libs/radix-ui__primitive.mjs                         1.85 kB │ gzip:     0.73 kB
+.output/server/_ssr/featureFlags.functions-D3HDnS0Q.mjs              1.95 kB │ gzip:     0.93 kB
+.output/server/_libs/ufo.mjs                                         2.21 kB │ gzip:     0.72 kB
+.output/server/_libs/extend.mjs                                      2.63 kB │ gzip:     0.98 kB
+.output/server/_routes/dev_auth/secret.mjs                           2.74 kB │ gzip:     1.00 kB
+.output/server/_libs/d3-interpolate.mjs                              2.98 kB │ gzip:     0.99 kB
+.output/server/_libs/class-variance-authority+clsx.mjs               3.22 kB │ gzip:     1.26 kB
+.output/server/_libs/d3-color.mjs                                    3.33 kB │ gzip:     1.29 kB
+.output/server/_libs/braintree__sanitize-url.mjs                     3.43 kB │ gzip:     1.15 kB
+.output/server/_libs/vercel__speed-insights.mjs                      4.02 kB │ gzip:     1.48 kB
+.output/server/_libs/vercel__analytics.mjs                           4.40 kB │ gzip:     1.65 kB
+.output/server/_ssr/security-audit-C8uwWjAH.mjs                      4.54 kB │ gzip:     1.51 kB
+.output/server/_libs/d3-axis.mjs                                     5.04 kB │ gzip:     1.53 kB
+.output/server/_routes/og/plugin.png.mjs                             5.36 kB │ gzip:     2.01 kB
+.output/server/_ssr/PublisherListItem-ChvVuJcD.mjs                   5.81 kB │ gzip:     1.45 kB
+.output/server/_libs/mdast-util-find-and-replace.mjs                 5.98 kB │ gzip:     2.17 kB
+.output/server/_libs/d3-path.mjs                                     6.40 kB │ gzip:     1.60 kB
+.output/server/_libs/d3-array.mjs                                    6.60 kB │ gzip:     1.54 kB
+.output/server/_libs/ungap__structured-clone.mjs                     6.65 kB │ gzip:     2.01 kB
+.output/server/_libs/radix-ui__react-toggle-group.mjs                6.98 kB │ gzip:     1.65 kB
+.output/server/_ssr/official-DblCGTG2.mjs                            7.67 kB │ gzip:     2.06 kB
+.output/server/_tanstack-start-manifest_v-olCZju0j.mjs               8.31 kB │ gzip:     2.11 kB
+.output/server/_routes/og/skill.png.mjs                              8.49 kB │ gzip:     3.31 kB
+.output/server/_libs/monaco-editor__react.mjs                        8.63 kB │ gzip:     2.65 kB
+.output/server/_libs/markdown-table.mjs                              8.85 kB │ gzip:     2.55 kB
+.output/server/_libs/ignore.mjs                                      9.28 kB │ gzip:     3.13 kB
+.output/server/_libs/radix-ui__react-popover.mjs                     9.79 kB │ gzip:     2.42 kB
+.output/server/_libs/@openclaw/krillswitch-react+[...].mjs          10.07 kB │ gzip:     3.07 kB
+.output/server/_slug-DwSWHZ_I.mjs                                   10.32 kB │ gzip:     3.35 kB
+.output/server/_routes/ops/skills_sh/catalog_test.mjs               10.79 kB │ gzip:     3.23 kB
+.output/server/_ssr/audits-BtC2cK1G.mjs                             10.81 kB │ gzip:     2.94 kB
+.output/server/_libs/d3-format.mjs                                  10.95 kB │ gzip:     3.05 kB
+.output/server/_libs/d3-hierarchy.mjs                               11.52 kB │ gzip:     2.74 kB
+.output/server/_libs/tanstack__history.mjs                          12.07 kB │ gzip:     3.48 kB
+.output/server/_libs/iconify__utils.mjs                             12.22 kB │ gzip:     3.72 kB
+.output/server/_libs/d3-sankey+d3-shape.mjs                         12.51 kB │ gzip:     3.03 kB
+.output/server/_libs/cytoscape-cose-bilkent.mjs                     12.57 kB │ gzip:     3.45 kB
+.output/server/_ssr/SkillFilesPanel-BhYfj48a.mjs                    13.57 kB │ gzip:     3.28 kB
+.output/server/_libs/resvg__resvg-wasm.mjs                          15.51 kB │ gzip:     3.97 kB
+.output/server/_ssr/search-D9engEH4.mjs                             15.54 kB │ gzip:     3.43 kB
+.output/server/_libs/@monaco-editor/loader+[...].mjs                16.03 kB │ gzip:     4.53 kB
+.output/server/_libs/@radix-ui/react-avatar+[...].mjs               17.79 kB │ gzip:     4.39 kB
+.output/server/_ssr/plugins-_ig0RiCV.mjs                            18.06 kB │ gzip:     4.50 kB
+.output/server/_libs/khroma.mjs                                     18.37 kB │ gzip:     4.99 kB
+.output/server/_libs/@radix-ui/react-collection.mjs                 18.44 kB │ gzip:     4.12 kB
+.output/server/_libs/radix-ui__react-tooltip.mjs                    19.01 kB │ gzip:     4.34 kB
+.output/server/_libs/hast-util-sanitize.mjs                         19.61 kB │ gzip:     5.45 kB
+.output/server/_libs/hast-util-from-parse5+[...].mjs                20.98 kB │ gzip:     5.97 kB
+.output/server/_routes/og/profile.png.mjs                           22.44 kB │ gzip:     6.59 kB
+.output/server/_libs/h3-v2+rou3+srvx.mjs                            23.68 kB │ gzip:     5.54 kB
+.output/server/_chunks/pngResponse.mjs                              24.63 kB │ gzip:     7.26 kB
+.output/server/_libs/dayjs.mjs                                      25.58 kB │ gzip:     7.60 kB
+.output/server/_libs/@floating-ui/dom+[...].mjs                     25.91 kB │ gzip:     6.58 kB
+.output/server/_libs/@floating-ui/core+[...].mjs                    25.91 kB │ gzip:     6.37 kB
+.output/server/_libs/@shikijs/rehype+[...].mjs                      30.89 kB │ gzip:     7.53 kB
+.output/server/_libs/@floating-ui/react-dom+[...].mjs               31.37 kB │ gzip:     7.97 kB
+.output/server/_libs/fflate.mjs                                     32.88 kB │ gzip:    11.12 kB
+.output/server/_libs/jose.mjs                                       33.11 kB │ gzip:     8.40 kB
+.output/server/_libs/convex.mjs                                     33.70 kB │ gzip:     8.48 kB
+.output/server/_libs/hast-util-to-jsx-runtime+[...].mjs             33.90 kB │ gzip:     8.92 kB
+.output/server/_libs/character-entities.mjs                         35.33 kB │ gzip:    12.29 kB
+.output/server/_libs/d3-shape.mjs                                   35.81 kB │ gzip:     6.32 kB
+.output/server/_ssr/packageApi-CFaCou9z.mjs                         36.87 kB │ gzip:     9.21 kB
+.output/server/_libs/srvx.mjs                                       38.65 kB │ gzip:     9.04 kB
+.output/server/_libs/es-toolkit.mjs                                 39.38 kB │ gzip:     7.59 kB
+.output/server/_ssr/SkillDiffCard-CCM8M0vG.mjs                      39.97 kB │ gzip:     9.49 kB
+.output/server/_libs/shiki.mjs                                      41.66 kB │ gzip:     5.27 kB
+.output/server/_libs/d3-scale+[...].mjs                             41.94 kB │ gzip:     8.99 kB
+.output/server/_libs/@radix-ui/react-select+[...].mjs               45.72 kB │ gzip:     9.69 kB
+.output/server/_handle-SkDAe6MB.mjs                                 46.22 kB │ gzip:    10.27 kB
+.output/server/_libs/cytoscape-fcose.mjs                            48.83 kB │ gzip:    10.36 kB
+.output/server/_libs/@radix-ui/react-dropdown-menu+[...].mjs        49.58 kB │ gzip:    10.50 kB
+.output/server/_libs/mdast-util-to-hast+[...].mjs                   49.59 kB │ gzip:    10.20 kB
+.output/server/_libs/marked.mjs                                     50.54 kB │ gzip:    13.73 kB
+.output/server/_libs/upsetjs__venn.js.mjs                           50.95 kB │ gzip:    13.22 kB
+.output/server/_libs/micromark-extension-gfm+[...].mjs              51.46 kB │ gzip:     9.49 kB
+.output/server/_libs/semver.mjs                                     53.05 kB │ gzip:    10.57 kB
+.output/server/_libs/sonner.mjs                                     53.65 kB │ gzip:    12.13 kB
+.output/server/_libs/mdast-util-gfm+[...].mjs                       59.31 kB │ gzip:    10.78 kB
+.output/server/_libs/lucide-react.mjs                               62.06 kB │ gzip:    11.53 kB
+.output/server/_libs/arktype.mjs                                    63.06 kB │ gzip:    16.11 kB
+.output/server/_chunks/dist.mjs                                     63.88 kB │ gzip:    13.44 kB
+.output/server/_routes/ops/skills_sh/mirror_test.mjs                68.00 kB │ gzip:    16.71 kB
+.output/server/_name-C3xTou7O.mjs                                   68.62 kB │ gzip:    14.56 kB
+.output/server/_ssr/routes-B4sZxWUz.mjs                             69.62 kB │ gzip:    15.52 kB
+.output/server/_libs/h3+rou3+srvx.mjs                               69.93 kB │ gzip:    11.78 kB
+.output/server/_ssr/ssr.mjs                                         70.28 kB │ gzip:    18.48 kB
+.output/server/_libs/react-markdown+[...].mjs                       70.85 kB │ gzip:    17.02 kB
+.output/server/_libs/d3+[...].mjs                                   72.51 kB │ gzip:    16.47 kB
+.output/server/_libs/@radix-ui/react-dialog+[...].mjs               74.06 kB │ gzip:    17.15 kB
+.output/server/_libs/dompurify.mjs                                  75.90 kB │ gzip:    20.66 kB
+.output/server/_ssr/openClawExtensionSlugs-C4yGnePD.mjs             83.09 kB │ gzip:    18.45 kB
+.output/server/_chunks/skillsShCatalogSource.mjs                    87.15 kB │ gzip:    20.80 kB
+.output/server/_libs/tailwind-merge.mjs                             88.16 kB │ gzip:    15.68 kB
+.output/server/_libs/entities.mjs                                   91.05 kB │ gzip:    47.81 kB
+.output/server/_libs/@vercel/cli-exec+[...].mjs                     93.26 kB │ gzip:    19.40 kB
+.output/server/_libs/@shikijs/engine-javascript.mjs                105.54 kB │ gzip:    29.10 kB
+.output/server/_libs/@tanstack/router-core+[...].mjs               122.38 kB │ gzip:    25.84 kB
+.output/server/_ssr/use_queries-B9KkacHu.mjs                       130.11 kB │ gzip:    29.66 kB
+.output/server/_libs/mdast-util-from-markdown+[...].mjs            192.89 kB │ gzip:    36.61 kB
+.output/server/index.mjs                                           193.29 kB │ gzip:    43.70 kB
+.output/server/_libs/parse5.mjs                                    197.79 kB │ gzip:    32.44 kB
+.output/server/_libs/jose+vercel__oidc.mjs                         197.93 kB │ gzip:    33.06 kB
+.output/server/_libs/hast-util-raw+[...].mjs                       220.05 kB │ gzip:    38.11 kB
+.output/server/_libs/@ark/schema.mjs                               229.02 kB │ gzip:    53.66 kB
+.output/server/_libs/yaml.mjs                                      233.49 kB │ gzip:    53.20 kB
+.output/server/_libs/@shikijs/core+[...].mjs                       249.13 kB │ gzip:    57.61 kB
+.output/server/_libs/dagre-d3-es+lodash-es.mjs                     259.83 kB │ gzip:    53.04 kB
+.output/server/_libs/cose-base+layout-base.mjs                     370.76 kB │ gzip:    69.34 kB
+.output/server/_libs/katex.mjs                                     497.65 kB │ gzip:   109.85 kB
+.output/server/_libs/@vercel/cli-config+[...].mjs                  504.12 kB │ gzip:    73.24 kB
+.output/server/_libs/@tanstack/react-router+[...].mjs              655.74 kB │ gzip:   137.27 kB
+.output/server/_libs/cytoscape.mjs                                 869.36 kB │ gzip:   199.49 kB
+.output/server/_libs/mermaid-js__parser.mjs                      1,191.78 kB │ gzip:   209.32 kB
+.output/server/_libs/shikijs__themes.mjs                         1,479.22 kB │ gzip:   174.38 kB
+.output/server/_ssr/router-Co50dsHs.mjs                          1,493.51 kB │ gzip:   298.39 kB
+.output/server/_libs/mermaid+[...].mjs                           2,575.53 kB │ gzip:   526.62 kB
+.output/server/_libs/monaco-editor.mjs                           7,871.17 kB │ gzip: 1,572.44 kB
+.output/server/_libs/shikijs__langs.mjs                          8,622.19 kB │ gzip: 1,307.73 kB
+
+✓ built in 1.25s
+ℹ Generated .output/nitro.json
+
+[nitro] ✔ You can preview this build using npx vite preview
+Starting preview server at http://127.0.0.1:3912.
+$ bun --bun vite preview --host "127.0.0.1" --port "3912"
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - import "./scripts/copy-og-assets" without a file extension (vite.config.ts:9:30). Add the file extension
+  - import "../server/og/ogAssets" without a file extension (scripts/copy-og-assets.ts:4:31). Add the file extension
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ ╭────────── [Build Info] ────────────╮
+ │                                    │
+ │  - Build Directory: .output        │
+ │  - Date: 9/16/2026, 1:43:40 PM     │
+ │  - Nitro Version: 3.0.260610-beta  │
+ │  - Nitro Preset: node-server       │
+ │                                    │
+ ╰────────────────────────────────────╯
+
+  ➜  Local:   http://127.0.0.1:3912/
+
+Running 1 test using 1 worker
+
+(node:88837) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+9/16/2026, 1:43:48 PM [CONVEX A(publishAttempts:completePrePublicationChecks)] ArgumentValidationError: Object is missing the required field `clawscan`. Consider wrapping the field validator in `v.optional(...)` if this is expected.
+
+Object: {artifactFingerprint: "3f8e117f0737e0334c791b51247639dc1d5a88b76291fb9ab24e89021a084d0c", attemptId: "rh715wgnc3w26x0n205sc35hmh8egybn", claimId: "c4d75cd9-b269-4ade-ae61-cb1044ead5ac", token: "<REDACTED>", trufflehog: {status: "clean", summary: "Mock TruffleHog found no secrets in the local e2e fixture."}}
+Validator: v.object({aigAnalysis: v.optional(v.object({checkedAt: v.float64(), error: v.optional(v.string()), findings: v.array(v.object({description: v.optional(v.string()), endLine: v.optional(v.float64()), file: v.optional(v.string()), level: v.string(), message: v.string(), remediation: v.optional(v.string()), ruleId: v.string(), startLine: v.optional(v.float64()), title: v.optional(v.string())})), issueCount: v.float64(), scannerVersion: v.optional(v.string()), status: v.string(), summary: v.optional(v.string())})), artifactFingerprint: v.string(), attemptId: v.id("publishAttempts"), claimId: v.string(), clawscan: v.object({redactedFindings: v.optional(v.array(v.string())), status: v.union(v.literal("clean"), v.literal("blocked"), v.literal("failed")), summary: v.optional(v.string())}), clawscanAnalysis: v.optional(v.object({checkedAt: v.float64(), confidence: v.optional(v.string()), dimensions: v.optional(v.array(v.object({detail: v.string(), label: v.string(), name: v.string(), rating: v.string()}))), findings: v.optional(v.string()), guidance: v.optional(v.string()), model: v.optional(v.string()), status: v.string(), summary: v.optional(v.string()), verdict: v.optional(v.string())})), token: v.string(), trufflehog: v.object({redactedFindings: v.optional(v.array(v.string())), status: v.union(v.literal("clean"), v.literal("blocked"), v.literal("failed")), summary: v.optional(v.string())})})
+
+
+9/16/2026, 1:43:49 PM [CONVEX A(publishAttempts:completePrePublicationChecks)] [WARN] 'OPENAI_API_KEY is not configured; using zero embeddings'
+9/16/2026, 1:43:49 PM [CONVEX A(vt:scanWithVirusTotal)] [LOG] 'VT_API_KEY not configured, skipping skill scan without activation'
+[CONVEX A(publishAttempts:completePrePublicationChecks)] [WARN] 'OPENAI_API_KEY is not configured; using zero embeddings'
+9/16/2026, 1:43:51 PM [CONVEX A(packageInspectorNode:runPackageInspectorForPublishInternal)] [INFO] 'Plugin Inspector stage' {
+  stage: 'workspace',
+  packageName: 'old-cli-plugin-mu4kj0o5',
+  version: '1.0.0'
+}
+9/16/2026, 1:43:51 PM [CONVEX A(packageInspectorNode:runPackageInspectorForPublishInternal)] [INFO] 'Plugin Inspector stage' {
+  stage: 'package files',
+  packageName: 'old-cli-plugin-mu4kj0o5',
+  version: '1.0.0'
+}
+9/16/2026, 1:43:51 PM [CONVEX A(packageInspectorNode:runPackageInspectorForPublishInternal)] [INFO] 'Plugin Inspector stage' {
+  stage: 'OpenClaw target preparation',
+  packageName: 'old-cli-plugin-mu4kj0o5',
+  version: '1.0.0'
+}
+9/16/2026, 1:43:56 PM [CONVEX A(packageInspectorNode:runPackageInspectorForPublishInternal)] [INFO] 'Plugin Inspector stage' {
+  stage: 'inspection',
+  packageName: 'old-cli-plugin-mu4kj0o5',
+  version: '1.0.0'
+}
+9/16/2026, 1:43:56 PM [CONVEX A(packageInspectorNode:runPackageInspectorForPublishInternal)] [INFO] 'Plugin Inspector stage' {
+  stage: 'workspace cleanup',
+  packageName: 'old-cli-plugin-mu4kj0o5',
+  version: '1.0.0'
+}
+9/16/2026, 1:43:57 PM [CONVEX A(publishAttempts:completePrePublicationChecks)] ArgumentValidationError: Object is missing the required field `clawscan`. Consider wrapping the field validator in `v.optional(...)` if this is expected.
+
+Object: {artifactFingerprint: "04c1d9ca6511f9e3f4483b0741bec8864944aec4d7013426e5e9e83f1beb17e4", attemptId: "rh7b0ex227edtefepz425a6yth8ehgtb", claimId: "e6f6bcbc-e5de-43a8-bada-8bdc6b17152b", token: "<REDACTED>", trufflehog: {status: "clean", summary: "Mock TruffleHog found no secrets in the local e2e fixture."}}
+Validator: v.object({aigAnalysis: v.optional(v.object({checkedAt: v.float64(), error: v.optional(v.string()), findings: v.array(v.object({description: v.optional(v.string()), endLine: v.optional(v.float64()), file: v.optional(v.string()), level: v.string(), message: v.string(), remediation: v.optional(v.string()), ruleId: v.string(), startLine: v.optional(v.float64()), title: v.optional(v.string())})), issueCount: v.float64(), scannerVersion: v.optional(v.string()), status: v.string(), summary: v.optional(v.string())})), artifactFingerprint: v.string(), attemptId: v.id("publishAttempts"), claimId: v.string(), clawscan: v.object({redactedFindings: v.optional(v.array(v.string())), status: v.union(v.literal("clean"), v.literal("blocked"), v.literal("failed")), summary: v.optional(v.string())}), clawscanAnalysis: v.optional(v.object({checkedAt: v.float64(), confidence: v.optional(v.string()), dimensions: v.optional(v.array(v.object({detail: v.string(), label: v.string(), name: v.string(), rating: v.string()}))), findings: v.optional(v.string()), guidance: v.optional(v.string()), model: v.optional(v.string()), status: v.string(), summary: v.optional(v.string()), verdict: v.optional(v.string())})), token: v.string(), trufflehog: v.object({redactedFindings: v.optional(v.array(v.string())), status: v.union(v.literal("clean"), v.literal("blocked"), v.literal("failed")), summary: v.optional(v.string())})})
+
+
+  ✓  1 [chromium] › e2e/local-auth/old-cli-publish-compat.pw.test.ts:218:1 › released CLI publishes skills and plugins only after both security checks pass (14.9s)
+
+  1 passed (15.8s)
+error: script "preview" was terminated by signal SIGTERM (Polite quit request)

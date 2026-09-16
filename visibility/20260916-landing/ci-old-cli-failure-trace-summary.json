@@ -1,0 +1,22 @@
+[
+  {
+    "trace": "data/5839964b7c92a674a0be3b676ba5a7de507fe2bd.zip",
+    "url": "http://127.0.0.1:3211/api/v1/skills/old-cli-skill-mu4kfhcb/versions/1.0.0?ownerHandle=cli-admin",
+    "method": "GET",
+    "status": 404,
+    "statusText": "Not Found",
+    "body": null,
+    "mimeType": "text/plain; charset=utf-8",
+    "size": 15
+  },
+  {
+    "trace": "data/dfa5090bad4579612e165837176833704a01a862.zip",
+    "url": "http://127.0.0.1:3211/api/v1/skills/old-cli-skill-mu4kfefo/versions/1.0.0?ownerHandle=cli-admin",
+    "method": "GET",
+    "status": 404,
+    "statusText": "Not Found",
+    "body": null,
+    "mimeType": "text/plain; charset=utf-8",
+    "size": 15
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "writtenAt": "2026-09-16T20:44:59.465386+00:00",
+  "base": "04fe22d59e3d55efcec0992b442903c1be6ac6ae",
+  "commit": "31e2f0b3ed90ce9e65b38a456cfea6635dc62561",
+  "testFile": "e2e/local-auth/old-cli-publish-compat.pw.test.ts",
+  "testBlob": "b109cd9daff601fa7da9315d37675244a5c2b296",
+  "productionSourceChanged": false,
+  "ciBefore": {
+    "runId": 35146838733,
+    "attempt": 2,
+    "jobId": 104968283614,
+    "conclusion": "failure",
+    "failure": "Both initial test and retry expected currently unavailable but received Skill not found. Retained network traces establish HTTP 404 for both.",
+    "otherLocalAuthJobs": "All seven other local-auth jobs completed success at the retained final snapshot."
+  },
+  "nativeAfter": {
+    "cwd": "/Users/patrickerichsen/Git/openclaw/inbox-zero-20260915/visibility-execution/old-cli-proof",
+    "command": "PATH=/Users/patrickerichsen/.nvm/versions/node/v24.19.0/bin:$PATH PLAYWRIGHT_LOCAL_AUTH_CONVEX_DEPLOYMENT=anonymous:anonymous-agent PLAYWRIGHT_LOCAL_AUTH_CONVEX_URL=http://127.0.0.1:3910 PLAYWRIGHT_LOCAL_AUTH_CONVEX_SITE_URL=http://127.0.0.1:3911 PLAYWRIGHT_PORT=3912 npm exec --yes --package=bun@1.3.10 -- bun run test:pw:local-auth -- --project=chromium e2e/local-auth/old-cli-publish-compat.pw.test.ts",
+    "runtime": "Native local Convex and Nitro on macOS; Node 24.19.0 and Bun 1.3.10; released CLI invoked by unchanged test helpers.",
+    "exitCode": 0,
+    "testCount": 1,
+    "passed": 1,
+    "testDurationSeconds": 14.9,
+    "playwrightDurationSeconds": 15.8,
+    "testAttempts": 1,
+    "setupNote": "Process was in Convex push before Playwright loading when the test-only correction was applied. No obsolete-assertion local replay; exact CI failure/trace supplies before evidence.",
+    "expectedLogs": "Missing clawscan ArgumentValidationError is intentionally provoked by incomplete-scan rejection assertions. Preview SIGTERM follows successful test during launcher cleanup."
+  },
+  "checks": {
+    "formatExitCode": 0,
+    "typeAwareLintExitCode": 0,
+    "diffCheckExitCode": 0,
+    "manualReview": "Scoped test-only diff retains CLI success, incomplete-check rejection, pending invisibility, and final published visibility for skills and plugins. Parent owns integrated static/unit rerun and review."
+  },
+  "cleanup": {
+    "observedAt": "2026-09-16T20:44:28.011621+00:00",
+    "ports": [
+      {
+        "port": 3910,
+        "listening": false
+      },
+      {
+        "port": 3911,
+        "listening": false
+      },
+      {
+        "port": 3912,
+        "listening": false
+      }
+    ]
+  },
+  "artifacts": {
+    "ci-old-cli-failure-job.json": "e1f0c809979887f11e45c35eb69ec0430f4cc72f77463974aab25661e0522e27",
+    "ci-old-cli-failure-sanitized.txt": "6ad4e04a0d021b7b222760f75334a9bbe5282a6ea7feba2a00f828aa5c19e515",
+    "ci-old-cli-failure-trace-summary.json": "9bdde58a40edb585d099d91ae03809f0880f7b3dcd531f24a269cce12f9d8fa7",
+    "ci-attempt2-failure-jobs-final.json": "6ff564a9e98ef99aa53da77aa6e14ed346a5d9671b089b878287620d54b438e3",
+    "old-cli-native-after-sanitized.txt": "8d01189bd071859a4687b9ddbc7e6e6bd6ffe5685b3a39069d8b61457d44092d",
+    "old-cli-native-cleanup.json": "f2d25ab4dd5c20b5c8520555a8264d9d03e54d2ea72f054a1dfd7b1eaffe563e",
+    "old-cli-format.txt": "5dc2cdb266ebdc547905c7f581dfb7f29baf1af70cff6d826e97efe7555f53a9",
+    "old-cli-lint.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
