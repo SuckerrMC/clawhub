@@ -250,7 +250,7 @@ describe("downloads helpers", () => {
     });
   });
 
-  it("returns a bounded archive manifest to the Nitro streaming owner", async () => {
+  it.each([false, true])("requires all manifest URLs (%s)", async (missing) => {
     vi.stubEnv("CLAWHUB_PREVIEW", "1");
     vi.stubEnv("TRUST_FORWARDED_IPS", "true");
     vi.spyOn(Date, "now").mockReturnValue(10_000);
@@ -297,7 +297,9 @@ describe("downloads helpers", () => {
     const storageGetUrl = vi.fn(async (storageId: string) =>
       storageId === "_storage:1"
         ? "https://preview-branch-123.convex.cloud/api/storage/storage-1"
-        : null,
+        : missing
+          ? null
+          : "https://preview-branch-123.convex.cloud/api/storage/storage-2",
     );
 
     const response = await downloadZipHandler(
@@ -321,6 +323,12 @@ describe("downloads helpers", () => {
       { verifyArchiveRequester: vi.fn(async () => undefined) },
     );
 
+    if (missing) {
+      expect(response.status).toBe(410);
+      expect(await response.text()).toBe("Skill archive file missing from storage");
+      expect(runAfter).not.toHaveBeenCalled();
+      return;
+    }
     expect(response.status).toBe(200);
     expect(response.headers.get("Content-Type")).toBe(ARCHIVE_MANIFEST_CONTENT_TYPE);
     expect(response.headers.get("Cache-Control")).toBe("private, no-store");
@@ -346,6 +354,10 @@ describe("downloads helpers", () => {
         {
           path: "SKILL.md",
           url: "https://preview-branch-123.convex.cloud/api/storage/storage-1",
+        },
+        {
+          path: "missing.txt",
+          url: "https://preview-branch-123.convex.cloud/api/storage/storage-2",
         },
       ],
       metricToken: expect.any(String),
@@ -465,7 +477,7 @@ describe("downloads helpers", () => {
     expect(runAfter).toHaveBeenCalledTimes(1);
   });
 
-  it("streams stored file chunks, stays deterministic, and skips a Blob that vanishes", async () => {
+  it("streams stored file chunks and stays deterministic", async () => {
     const firstChunk = new Uint8Array(64 * 1024).fill(0x61);
     const secondChunk = new TextEncoder().encode("streamed body\n");
     const releaseSecondChunk = deferred<void>();
@@ -523,7 +535,6 @@ describe("downloads helpers", () => {
           files: [
             { path: "a.txt", storageId: "_storage:skill" },
             { path: "b.txt", storageId: "_storage:notes" },
-            { path: "missing.txt", storageId: "_storage:missing" },
           ],
           softDeletedAt: undefined,
         };
@@ -555,7 +566,9 @@ describe("downloads helpers", () => {
 
     expect(response.status).toBe(200);
     expect(storageGetMetadata).not.toHaveBeenCalled();
-    expect(storageGet).not.toHaveBeenCalled();
+    expect(storageGet).toHaveBeenCalledWith("_storage:skill");
+    expect(storageGet).toHaveBeenCalledWith("_storage:notes");
+    expect(stream).not.toHaveBeenCalled();
 
     const reader = response.body!.getReader();
     const firstArchiveChunk = await reader.read();
@@ -575,7 +588,6 @@ describe("downloads helpers", () => {
     expect(Object.keys(unzipped).sort()).toEqual(["_meta.json", "a.txt", "b.txt"]);
     expect(unzipped["a.txt"]).toEqual(Uint8Array.from([...firstChunk, ...secondChunk]));
     expect(new TextDecoder().decode(unzipped["b.txt"])).toBe("supporting notes\n");
-    expect(storageGet).toHaveBeenCalledWith("_storage:missing");
 
     const repeatResponse = await downloadZipHandler(
       {
@@ -615,6 +627,63 @@ describe("downloads helpers", () => {
       new Request("https://example.com/api/v1/download?slug=demo"),
     );
     expect(new Uint8Array(await repeatResponse.arrayBuffer())).toEqual(responseBytes);
+  });
+
+  it("returns 410 when a skill archive blob is missing from storage", async () => {
+    const runQuery = vi.fn(async (_query: unknown, args: Record<string, unknown>) => {
+      if ("slug" in args) {
+        return {
+          skill: {
+            _id: "skills:1",
+            ownerUserId: "users:1",
+            slug: "demo",
+            tags: {},
+            latestVersionId: "skillVersions:1",
+          },
+          moderationInfo: null,
+        };
+      }
+      if ("versionId" in args) {
+        return {
+          _id: "skillVersions:1",
+          skillId: "skills:1",
+          version: "1.0.0",
+          createdAt: 3,
+          files: [
+            { path: "SKILL.md", storageId: "_storage:1" },
+            { path: "missing.txt", storageId: "_storage:missing" },
+          ],
+          softDeletedAt: undefined,
+        };
+      }
+      return null;
+    });
+    const runMutation = vi.fn(async (_mutation: unknown, args: Record<string, unknown>) => {
+      if (isRateLimitArgs(args)) return okRate();
+      return null;
+    });
+    const runAfter = vi.fn();
+    const storageGet = vi.fn(async (storageId: string) =>
+      storageId === "_storage:1" ? streamingBlob("hello") : null,
+    );
+
+    const response = await downloadZipHandler(
+      {
+        runQuery,
+        runMutation,
+        scheduler: { runAfter },
+        storage: { get: storageGet, getMetadata: vi.fn().mockResolvedValue({}) },
+      } as unknown as ActionCtx,
+      new Request("https://example.com/api/v1/download?slug=demo", {
+        headers: { "cf-connecting-ip": "1.2.3.4" },
+      }),
+    );
+
+    expect(response.status).toBe(410);
+    expect(await response.text()).toBe("Skill archive file missing from storage");
+    expect(response.headers.get("Content-Type")).not.toBe("application/zip");
+    expect(storageGet).toHaveBeenCalledWith("_storage:missing");
+    expect(runAfter).not.toHaveBeenCalled();
   });
 
   it("returns 410 for an explicitly requested revoked version", async () => {

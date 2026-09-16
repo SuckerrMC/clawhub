@@ -110,9 +110,12 @@ import {
 import { insertPackageInstallStatEvent } from "./lib/packageStatEvents";
 import {
   classifyPluginCategories,
+  readPluginCategoryDocumentation,
+} from "./lib/pluginCategoryClassification";
+import {
   pluginCategoryClassificationValidator,
   type PluginCategoryClassification,
-} from "./lib/pluginCategoryClassification";
+} from "./lib/pluginCategoryClassificationContract";
 import { toPublicPublisher } from "./lib/public";
 import {
   assertCanManageOwnedResource,
@@ -696,6 +699,7 @@ type PackagePublishAuthContext =
 type PackageTrustedPublisherDoc = Doc<"packageTrustedPublishers">;
 type PackagePublishOptions = {
   stagePrePublicationChecks?: boolean;
+  onFilesAdopted?: () => void;
 };
 type PackageDoc = Doc<"packages">;
 type PublicPackageListItem = {
@@ -8493,6 +8497,9 @@ function resolveTrustedPublishSource(
   const source = payload.source;
   const sourceRepository = publishToken.candidateRepository ?? publishToken.repository;
   const sourceSha = publishToken.candidateSha ?? publishToken.sha;
+  // Split-candidate credentials pin both fields to the candidate SHA; ordinary credentials
+  // preserve the verified workflow ref while still binding the commit to its authorized SHA.
+  const sourceRef = publishToken.candidateSha ?? publishToken.ref;
   if (source && source.kind !== "github") {
     throw new ConvexError("Trusted publishes only support GitHub source metadata");
   }
@@ -8504,17 +8511,17 @@ function resolveTrustedPublishSource(
     throw new ConvexError("Trusted publish source repo must match the verified GitHub repository");
   }
   if (source?.commit && source.commit !== sourceSha) {
-    throw new ConvexError("Trusted publish source commit must match the authorized candidate SHA");
+    throw new ConvexError("Trusted publish source commit must match the authorized source commit");
   }
-  if (source?.ref && source.ref !== sourceSha) {
-    throw new ConvexError("Trusted publish source ref must match the authorized candidate SHA");
+  if (source?.ref && source.ref !== sourceRef) {
+    throw new ConvexError("Trusted publish source ref must match the authorized source ref");
   }
   const path = source?.path?.trim() || ".";
   return {
     kind: "github",
     url: `https://github.com/${sourceRepository}`,
     repo: sourceRepository,
-    ref: sourceSha,
+    ref: sourceRef,
     commit: sourceSha,
     path,
     importedAt: source?.importedAt ?? Date.now(),
@@ -9178,12 +9185,15 @@ async function publishPackageImpl(
   let normalizedTopics: string[];
   try {
     if (family === "code-plugin" || family === "bundle-plugin") {
-      const assignment = await classifyPluginCategories({
+      const evidence = {
         name,
-        pluginManifest,
-        packageJson,
-        bundleManifest,
-        documentation: readmeEntry?.text,
+        pluginManifest: storedPluginManifest,
+        packageJson: storedPackageJson,
+        bundleManifest: family === "bundle-plugin" ? storedBundleManifest : undefined,
+      };
+      const assignment = await classifyPluginCategories({
+        ...evidence,
+        documentation: await readPluginCategoryDocumentation(ctx, { ...evidence, files }),
       });
       categories = assignment.categories;
       categoryClassification = assignment.classification;
@@ -9265,21 +9275,6 @@ async function publishPackageImpl(
           ...(icon ? { icon } : {}),
         };
 
-  const legacyZipStorageId =
-    payload.artifact?.kind === "npm-pack"
-      ? undefined
-      : await ctx.storage.store(
-          new Blob(
-            [
-              legacyZipBytes.buffer.slice(
-                legacyZipBytes.byteOffset,
-                legacyZipBytes.byteOffset + legacyZipBytes.byteLength,
-              ) as ArrayBuffer,
-            ],
-            { type: "application/zip" },
-          ),
-        );
-
   const packageInsertArgs = {
     actorUserId,
     ownerUserId,
@@ -9305,8 +9300,7 @@ async function publishPackageImpl(
     integritySha256,
     sha256hash: legacyZipSha256,
     artifactKind: payload.artifact?.kind ?? "legacy-zip",
-    clawpackStorageId:
-      (payload.artifact?.storageId as Id<"_storage"> | undefined) ?? legacyZipStorageId,
+    clawpackStorageId: payload.artifact?.storageId as Id<"_storage"> | undefined,
     clawpackSha256: payload.artifact?.sha256 ?? legacyZipSha256,
     clawpackSize: payload.artifact?.size ?? legacyZipBytes.byteLength,
     clawpackFormat: payload.artifact?.format,
@@ -9327,6 +9321,46 @@ async function publishPackageImpl(
     source: effectiveSource,
     trustedPublishTokenId: auth.kind === "github-actions" ? auth.publishToken._id : undefined,
     trustedPublishInventoryDigest: auth.kind === "github-actions" ? inventoryDigest : undefined,
+  };
+  // This action owns only ZIPs it generates; caller uploads and adopted release archives survive.
+  const storeLegacyZipIfNeeded = async () => {
+    if (payload.artifact?.kind === "npm-pack" || packageInsertArgs.clawpackStorageId) {
+      return undefined;
+    }
+    const legacyZipStorageId = await ctx.storage.store(
+      new Blob(
+        [
+          legacyZipBytes.buffer.slice(
+            legacyZipBytes.byteOffset,
+            legacyZipBytes.byteOffset + legacyZipBytes.byteLength,
+          ) as ArrayBuffer,
+        ],
+        { type: "application/zip" },
+      ),
+    );
+    packageInsertArgs.clawpackStorageId = legacyZipStorageId;
+    return legacyZipStorageId;
+  };
+  const insertReleaseOwningLegacyZip = async <
+    TResult extends { ok: true; reusedExistingRelease?: boolean },
+  >(
+    insert: () => Promise<TResult>,
+  ) => {
+    const legacyZipStorageId = await storeLegacyZipIfNeeded();
+    try {
+      const { reusedExistingRelease, ...result } = await insert();
+      if (!reusedExistingRelease) options.onFilesAdopted?.();
+      if (reusedExistingRelease && legacyZipStorageId) {
+        // An idempotent retry keeps the old archive instead of adopting this ZIP.
+        await ctx.storage.delete(legacyZipStorageId).catch(() => undefined);
+      }
+      return result;
+    } catch (error) {
+      if (legacyZipStorageId) {
+        await ctx.storage.delete(legacyZipStorageId).catch(() => undefined);
+      }
+      throw error;
+    }
   };
   const publishedArtifactSha256 = family === "claw" ? packageInsertArgs.clawpackSha256 : undefined;
   const attemptArtifactFingerprint = publishedArtifactSha256 ?? integritySha256;
@@ -9466,16 +9500,18 @@ async function publishPackageImpl(
       version,
       inventoryDigest,
     });
-    const pendingResult = await runMutationRef<{
-      ok: true;
-      packageId: Id<"packages">;
-      releaseId: Id<"packageReleases">;
-      publicationStatus?: "pending" | "published";
-      createdNewParent?: boolean;
-    }>(ctx, internalRefs.packages.insertReleaseInternal, {
-      ...packageInsertArgs,
-      publicationStatus: "pending",
-    });
+    const pendingResult = await insertReleaseOwningLegacyZip(() =>
+      runMutationRef<{
+        ok: true;
+        packageId: Id<"packages">;
+        releaseId: Id<"packageReleases">;
+        publicationStatus?: "pending" | "published";
+        createdNewParent?: boolean;
+      }>(ctx, internalRefs.packages.insertReleaseInternal, {
+        ...packageInsertArgs,
+        publicationStatus: "pending",
+      }),
+    );
 
     const staged = await runMutationRef<{
       attemptId: Id<"publishAttempts">;
@@ -9585,11 +9621,13 @@ async function publishPackageImpl(
     version,
     inventoryDigest,
   });
-  const publishResult = await runMutationRef<{
-    ok: true;
-    packageId: Id<"packages">;
-    releaseId: Id<"packageReleases">;
-  }>(ctx, internalRefs.packages.insertReleaseInternal, packageInsertArgs);
+  const publishResult = await insertReleaseOwningLegacyZip(() =>
+    runMutationRef<{
+      ok: true;
+      packageId: Id<"packages">;
+      releaseId: Id<"packageReleases">;
+    }>(ctx, internalRefs.packages.insertReleaseInternal, packageInsertArgs),
+  );
   if (inspectorResult?.warnings.length) {
     const insertFindingsResult = await runMutationRef<{
       ok: true;
@@ -9702,17 +9740,37 @@ function toPackageInspectorPublishResponseFinding(
   };
 }
 
+async function withRequestPackageStorage<TResult>(
+  ctx: Pick<ActionCtx, "storage">,
+  requestStorageIds: Id<"_storage">[] | undefined,
+  publish: (onFilesAdopted: () => void) => Promise<TResult>,
+) {
+  let adopted = false;
+  try {
+    return await publish(() => {
+      adopted = true;
+    });
+  } finally {
+    // These IDs come only from the HTTP request's stores, never from reused tickets.
+    // Successful retries may reuse old rows without adopting any of these new files.
+    if (!adopted && requestStorageIds?.length) {
+      await Promise.allSettled(requestStorageIds.map((id) => ctx.storage.delete(id)));
+    }
+  }
+}
+
 export const publishPackageForUserInternal = internalAction({
   args: {
     actorUserId: v.id("users"),
     payload: v.any(),
+    requestStorageIds: v.optional(v.array(v.id("_storage"))),
   },
   handler: async (ctx, args) => {
-    return await publishPackageImpl(
-      ctx,
-      { kind: "user", actorUserId: args.actorUserId },
-      args.payload,
-      { stagePrePublicationChecks: stagedPrePublicationPublishesEnabled() },
+    return await withRequestPackageStorage(ctx, args.requestStorageIds, (onFilesAdopted) =>
+      publishPackageImpl(ctx, { kind: "user", actorUserId: args.actorUserId }, args.payload, {
+        stagePrePublicationChecks: stagedPrePublicationPublishesEnabled(),
+        onFilesAdopted,
+      }),
     );
   },
 });
@@ -9824,6 +9882,12 @@ export const finalizePackagePublishAttemptInternal = internalAction({
       publishResult = existingResult;
     }
 
+    // The finalization mutation accepts only the public three-field result.
+    publishResult = {
+      ok: true,
+      packageId: publishResult.packageId,
+      releaseId: publishResult.releaseId,
+    };
     try {
       await runPackagePublishPostFinalizeFollowups(ctx, publishResult, claim.packageFollowup);
       await runMutationRef(
@@ -9878,38 +9942,42 @@ export const publishPackageForTrustedPublisherInternal = internalAction({
   args: {
     publishTokenId: v.id("packagePublishTokens"),
     payload: v.any(),
+    requestStorageIds: v.optional(v.array(v.id("_storage"))),
   },
   handler: async (ctx, args) => {
-    const publishToken = await runQueryRef<Doc<"packagePublishTokens"> | null>(
-      ctx,
-      internalRefs.packagePublishTokens.getByIdInternal,
-      { tokenId: args.publishTokenId },
-    );
-    if (
-      !publishToken ||
-      publishToken.revokedAt ||
-      publishToken.consumedAt ||
-      publishToken.expiresAt <= Date.now()
-    ) {
-      throw new ConvexError("Trusted publish token is missing or expired");
-    }
-    if ((publishToken.scope ?? "publish") !== "publish") {
-      throw new ConvexError("Trusted upload token cannot authorize package publication");
-    }
-    assertOpenClawPublishAuthorizationVersion(publishToken);
-    const trustedPublisher = await runQueryRef<PackageTrustedPublisherDoc | null>(
-      ctx,
-      internalRefs.packages.getTrustedPublisherByPackageIdInternal,
-      { packageId: publishToken.packageId },
-    );
-    if (!doesTrustedPublisherMatchPublishToken(trustedPublisher, publishToken)) {
-      throw new ConvexError(
-        "Trusted publish token no longer matches the current package trusted publisher",
+    return await withRequestPackageStorage(ctx, args.requestStorageIds, async (onFilesAdopted) => {
+      const publishToken = await runQueryRef<Doc<"packagePublishTokens"> | null>(
+        ctx,
+        internalRefs.packagePublishTokens.getByIdInternal,
+        { tokenId: args.publishTokenId },
       );
-    }
-    return await publishPackageImpl(ctx, { kind: "github-actions", publishToken }, args.payload, {
-      stagePrePublicationChecks:
-        publishToken.authorizationVersion === 2 || stagedPrePublicationPublishesEnabled(),
+      if (
+        !publishToken ||
+        publishToken.revokedAt ||
+        publishToken.consumedAt ||
+        publishToken.expiresAt <= Date.now()
+      ) {
+        throw new ConvexError("Trusted publish token is missing or expired");
+      }
+      if ((publishToken.scope ?? "publish") !== "publish") {
+        throw new ConvexError("Trusted upload token cannot authorize package publication");
+      }
+      assertOpenClawPublishAuthorizationVersion(publishToken);
+      const trustedPublisher = await runQueryRef<PackageTrustedPublisherDoc | null>(
+        ctx,
+        internalRefs.packages.getTrustedPublisherByPackageIdInternal,
+        { packageId: publishToken.packageId },
+      );
+      if (!doesTrustedPublisherMatchPublishToken(trustedPublisher, publishToken)) {
+        throw new ConvexError(
+          "Trusted publish token no longer matches the current package trusted publisher",
+        );
+      }
+      return await publishPackageImpl(ctx, { kind: "github-actions", publishToken }, args.payload, {
+        onFilesAdopted,
+        stagePrePublicationChecks:
+          publishToken.authorizationVersion === 2 || stagedPrePublicationPublishesEnabled(),
+      });
     });
   },
 });
@@ -12100,13 +12168,16 @@ export const insertReleaseInternal = internalMutation({
             : existing.ownerPublisherId === undefined && existing.ownerUserId === args.ownerUserId;
         const allowExactClawRetry =
           args.family === "claw" && matchesExistingOwner && matchesExactClawArtifact;
+        // Staged retries are resolved before insertion. A concurrent insert must
+        // reject here so a new attempt never references an unadopted candidate ZIP.
         const canReuseExistingRelease =
-          args.allowExistingRelease ||
-          (allowExactClawRetry &&
-            isPublishedPackageRelease(releaseExists) &&
-            releaseExists.manualModeration?.state !== "quarantined" &&
-            releaseExists.manualModeration?.state !== "revoked" &&
-            resolvePackageReleaseScanStatus(releaseExists) !== "malicious");
+          !pendingPublication &&
+          (args.allowExistingRelease ||
+            (allowExactClawRetry &&
+              isPublishedPackageRelease(releaseExists) &&
+              releaseExists.manualModeration?.state !== "quarantined" &&
+              releaseExists.manualModeration?.state !== "revoked" &&
+              resolvePackageReleaseScanStatus(releaseExists) !== "malicious"));
         if (
           canReuseExistingRelease &&
           !releaseExists.softDeletedAt &&
@@ -12117,6 +12188,7 @@ export const insertReleaseInternal = internalMutation({
             ok: true as const,
             packageId: existing._id,
             releaseId: releaseExists._id,
+            reusedExistingRelease: true,
           };
         }
         throw new ConvexError(
