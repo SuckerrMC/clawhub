@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "path": "final-fixed.json",
+      "sha256": "04ee7c52759a4548df32d790a5c9e902f4473dd3dad498fbfc55f797d3d60ad8"
+    },
+    {
+      "path": "foundation-extended.json",
+      "sha256": "b51a6451d069835431fa69b02f93ba5aa10314bb7ea17148f48a628796a78b98"
+    },
+    {
+      "path": "report.md",
+      "sha256": "e3b065fd0219657f1b93b779ab421c203c4f075edc593e71f95cdb5eee628779"
+    },
+    {
+      "path": "runtime-equivalence.json",
+      "sha256": "9bed276beecc8ba99220bdb1db73da3fd9bdfbf5700f76d8985fd2205324399a"
+    }
+  ]
+}
