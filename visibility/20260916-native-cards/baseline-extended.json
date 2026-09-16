@@ -1,0 +1,4228 @@
+{
+  "label": "baseline-extended",
+  "ref": "50726e9bec5d7a7355256605eebebb6b8bf03872",
+  "requests": [
+    {
+      "surface": "skill-file",
+      "version": "1.0.0",
+      "path": "/api/v1/skills/visibility-contract/file?path=SKILL.md&version=1.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 107,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58",
+      "body": "---\nname: visibility-proof\ndescription: contract published content\n---\n# contract published 1.0.0 SKILL.md\n"
+    },
+    {
+      "surface": "skill-card",
+      "version": "1.0.0",
+      "path": "/api/v1/skills/visibility-contract/card?version=1.0.0",
+      "status": 200,
+      "type": "text/markdown; charset=utf-8",
+      "bytes": 112,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "9aac77dd75fea022a3cbb48df06a2d69dcb9ab65fe356a35de996bcace454895",
+      "body": "---\nname: visibility-proof\ndescription: contract published content\n---\n# contract published 1.0.0 skill-card.md\n"
+    },
+    {
+      "surface": "skill-verify",
+      "version": "1.0.0",
+      "path": "/api/v1/skills/visibility-contract/verify?version=1.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 1555,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "c7f63a7e14ec83d702034e1015c43b60f6fa654091c66af55c57db18a8cf7852",
+      "body": "{\"schema\":\"clawhub.skill.verify.v1\",\"ok\":true,\"decision\":\"pass\",\"reasons\":[],\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"pageUrl\":\"https://clawhub.ai/visibility-contract/skills/visibility-contract\",\"publisherHandle\":\"visibility-contract\",\"publisherDisplayName\":\"Local visibility owner\",\"publisherProfileUrl\":\"https://clawhub.ai/visibility-contract\",\"version\":\"1.0.0\",\"resolvedFrom\":\"version\",\"tag\":null,\"createdAt\":1789589383252,\"card\":{\"available\":true,\"path\":\"skill-card.md\",\"url\":\"http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=1.0.0\",\"sha256\":\"9aac77dd75fea022a3cbb48df06a2d69dcb9ab65fe356a35de996bcace454895\",\"size\":112,\"contentType\":\"text/markdown; charset=utf-8\"},\"artifact\":{\"sourceFingerprint\":\"34cfb8e40437e161dcd91b2eab66daddb9a5c9e9ed3a237e08d3ead557cb0fbe\",\"bundleFingerprints\":[\"34cfb8e40437e161dcd91b2eab66daddb9a5c9e9ed3a237e08d3ead557cb0fbe\"],\"files\":[{\"path\":\"SKILL.md\",\"size\":107,\"sha256\":\"79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58\",\"contentType\":null},{\"path\":\"index.js\",\"size\":107,\"sha256\":\"44f15bdc744cdcf08c2341aa7cb03f3c7e61a2f8c63e060509f40d4f3e2669a7\",\"contentType\":null}]},\"provenance\":{\"source\":\"unavailable\",\"reason\":\"No server-resolved GitHub import provenance is stored for this version.\"},\"security\":{\"status\":\"clean\",\"passed\":true,\"rawStatus\":\"clean\",\"verdict\":null,\"confidence\":null,\"summary\":null,\"model\":null,\"checkedAt\":1789589383252,\"scannerReports\":{\"aig\":null,\"skillspector\":null}},\"signature\":{\"status\":\"unsigned\"}}",
+      "json": {
+        "schema": "clawhub.skill.verify.v1",
+        "ok": true,
+        "decision": "pass",
+        "reasons": [],
+        "slug": "visibility-contract",
+        "displayName": "visibility-contract",
+        "pageUrl": "https://clawhub.ai/visibility-contract/skills/visibility-contract",
+        "publisherHandle": "visibility-contract",
+        "publisherDisplayName": "Local visibility owner",
+        "publisherProfileUrl": "https://clawhub.ai/visibility-contract",
+        "version": "1.0.0",
+        "resolvedFrom": "version",
+        "tag": null,
+        "createdAt": 1789589383252,
+        "card": {
+          "available": true,
+          "path": "skill-card.md",
+          "url": "http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=1.0.0",
+          "sha256": "9aac77dd75fea022a3cbb48df06a2d69dcb9ab65fe356a35de996bcace454895",
+          "size": 112,
+          "contentType": "text/markdown; charset=utf-8"
+        },
+        "artifact": {
+          "sourceFingerprint": "34cfb8e40437e161dcd91b2eab66daddb9a5c9e9ed3a237e08d3ead557cb0fbe",
+          "bundleFingerprints": [
+            "34cfb8e40437e161dcd91b2eab66daddb9a5c9e9ed3a237e08d3ead557cb0fbe"
+          ],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 107,
+              "sha256": "79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58",
+              "contentType": null
+            },
+            {
+              "path": "index.js",
+              "size": 107,
+              "sha256": "44f15bdc744cdcf08c2341aa7cb03f3c7e61a2f8c63e060509f40d4f3e2669a7",
+              "contentType": null
+            }
+          ]
+        },
+        "provenance": {
+          "source": "unavailable",
+          "reason": "No server-resolved GitHub import provenance is stored for this version."
+        },
+        "security": {
+          "status": "clean",
+          "passed": true,
+          "rawStatus": "clean",
+          "verdict": null,
+          "confidence": null,
+          "summary": null,
+          "model": null,
+          "checkedAt": 1789589383252,
+          "scannerReports": {
+            "aig": null,
+            "skillspector": null
+          }
+        },
+        "signature": {
+          "status": "unsigned"
+        }
+      }
+    },
+    {
+      "surface": "skill-metadata",
+      "version": "1.0.0",
+      "path": "/api/v1/skills/visibility-contract/versions/1.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 1022,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "c080601aed4bf4564386c47b78e92d0c481adac66f6187ecce9c369d7df77bbe",
+      "body": "{\"skill\":{\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\"},\"version\":{\"version\":\"1.0.0\",\"createdAt\":1789589383252,\"changelog\":\"published fixture\",\"changelogSource\":null,\"license\":null,\"files\":[{\"path\":\"SKILL.md\",\"size\":107,\"sha256\":\"79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58\",\"contentType\":null},{\"path\":\"skill-card.md\",\"size\":112,\"sha256\":\"9aac77dd75fea022a3cbb48df06a2d69dcb9ab65fe356a35de996bcace454895\",\"contentType\":null},{\"path\":\"index.js\",\"size\":107,\"sha256\":\"44f15bdc744cdcf08c2341aa7cb03f3c7e61a2f8c63e060509f40d4f3e2669a7\",\"contentType\":null}],\"security\":{\"status\":\"clean\",\"hasWarnings\":false,\"checkedAt\":1789589383252,\"model\":null,\"hasScanResult\":true,\"sha256hash\":null,\"virustotalUrl\":null,\"scanners\":{\"vt\":null,\"skillspector\":null,\"llm\":{\"status\":\"clean\",\"verdict\":null,\"normalizedStatus\":\"clean\",\"confidence\":null,\"summary\":null,\"dimensions\":null,\"guidance\":null,\"findings\":null,\"agenticRiskFindings\":null,\"riskSummary\":null,\"model\":null,\"checkedAt\":1789589383252}}}}}",
+      "json": {
+        "skill": {
+          "slug": "visibility-contract",
+          "displayName": "visibility-contract"
+        },
+        "version": {
+          "version": "1.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "published fixture",
+          "changelogSource": null,
+          "license": null,
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 107,
+              "sha256": "79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58",
+              "contentType": null
+            },
+            {
+              "path": "skill-card.md",
+              "size": 112,
+              "sha256": "9aac77dd75fea022a3cbb48df06a2d69dcb9ab65fe356a35de996bcace454895",
+              "contentType": null
+            },
+            {
+              "path": "index.js",
+              "size": 107,
+              "sha256": "44f15bdc744cdcf08c2341aa7cb03f3c7e61a2f8c63e060509f40d4f3e2669a7",
+              "contentType": null
+            }
+          ],
+          "security": {
+            "status": "clean",
+            "hasWarnings": false,
+            "checkedAt": 1789589383252,
+            "model": null,
+            "hasScanResult": true,
+            "sha256hash": null,
+            "virustotalUrl": null,
+            "scanners": {
+              "vt": null,
+              "skillspector": null,
+              "llm": {
+                "status": "clean",
+                "verdict": null,
+                "normalizedStatus": "clean",
+                "confidence": null,
+                "summary": null,
+                "dimensions": null,
+                "guidance": null,
+                "findings": null,
+                "agenticRiskFindings": null,
+                "riskSummary": null,
+                "model": null,
+                "checkedAt": 1789589383252
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "surface": "skill-alias-metadata",
+      "version": "1.0.0",
+      "path": "/api/v1/packages/visibility-contract/versions/1.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 607,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "3c9d90b9eaf8990e3ea6eb0edb8f3a032dcaf3f6b0589e84e3be149eb53d69b7",
+      "body": "{\"package\":{\"name\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"family\":\"skill\"},\"version\":{\"version\":\"1.0.0\",\"createdAt\":1789589383252,\"changelog\":\"published fixture\",\"distTags\":[\"latest\",\"stable\"],\"files\":[{\"path\":\"SKILL.md\",\"size\":107,\"sha256\":\"79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58\"},{\"path\":\"skill-card.md\",\"size\":112,\"sha256\":\"9aac77dd75fea022a3cbb48df06a2d69dcb9ab65fe356a35de996bcace454895\"},{\"path\":\"index.js\",\"size\":107,\"sha256\":\"44f15bdc744cdcf08c2341aa7cb03f3c7e61a2f8c63e060509f40d4f3e2669a7\"}],\"compatibility\":null,\"verification\":null,\"artifact\":null}}",
+      "json": {
+        "package": {
+          "name": "visibility-contract",
+          "displayName": "visibility-contract",
+          "family": "skill"
+        },
+        "version": {
+          "version": "1.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "published fixture",
+          "distTags": [
+            "latest",
+            "stable"
+          ],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 107,
+              "sha256": "79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58"
+            },
+            {
+              "path": "skill-card.md",
+              "size": 112,
+              "sha256": "9aac77dd75fea022a3cbb48df06a2d69dcb9ab65fe356a35de996bcace454895"
+            },
+            {
+              "path": "index.js",
+              "size": 107,
+              "sha256": "44f15bdc744cdcf08c2341aa7cb03f3c7e61a2f8c63e060509f40d4f3e2669a7"
+            }
+          ],
+          "compatibility": null,
+          "verification": null,
+          "artifact": null
+        }
+      }
+    },
+    {
+      "surface": "skill-alias-file",
+      "version": "1.0.0",
+      "path": "/api/v1/packages/visibility-contract/file?path=SKILL.md&version=1.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 107,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58",
+      "body": "---\nname: visibility-proof\ndescription: contract published content\n---\n# contract published 1.0.0 SKILL.md\n"
+    },
+    {
+      "surface": "skill-zip",
+      "version": "1.0.0",
+      "path": "/api/v1/download?slug=visibility-contract&version=1.0.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 845,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "f85109ae31170d0c86f9d2728a90bea9dd09a6e8c49d998553720925e9f2f6de",
+      "files": [
+        "SKILL.md",
+        "_meta.json",
+        "index.js",
+        "skill-card.md"
+      ],
+      "fixtureKinds": [
+        "published"
+      ],
+      "containsWithheld": false
+    },
+    {
+      "surface": "package-file",
+      "version": "1.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/file?path=index.js&version=1.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 107,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "44f15bdc744cdcf08c2341aa7cb03f3c7e61a2f8c63e060509f40d4f3e2669a7",
+      "body": "---\nname: visibility-proof\ndescription: contract published content\n---\n# contract published 1.0.0 index.js\n"
+    },
+    {
+      "surface": "package-zip",
+      "version": "1.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/download?version=1.0.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 612,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "1dfe059aa4b80e2efa9f43149ea148d2931a63733bf9f076c6d1c28e361068cd",
+      "files": [
+        "package/SKILL.md",
+        "package/index.js",
+        "package/skill-card.md"
+      ],
+      "fixtureKinds": [
+        "published"
+      ],
+      "containsWithheld": false
+    },
+    {
+      "surface": "package-metadata",
+      "version": "1.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/versions/1.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 972,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a1668c697c3bb3ffc5641cc1595f08058aa752f4211cc9a0da57916b9269dd5e",
+      "body": "{\"package\":{\"name\":\"visibility-plugin-contract\",\"displayName\":\"visibility-plugin-contract\",\"family\":\"code-plugin\"},\"version\":{\"version\":\"1.0.0\",\"createdAt\":1789589383252,\"changelog\":\"published fixture\",\"distTags\":[],\"files\":[{\"path\":\"SKILL.md\",\"size\":107,\"sha256\":\"79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58\"},{\"path\":\"skill-card.md\",\"size\":112,\"sha256\":\"9aac77dd75fea022a3cbb48df06a2d69dcb9ab65fe356a35de996bcace454895\"},{\"path\":\"index.js\",\"size\":107,\"sha256\":\"44f15bdc744cdcf08c2341aa7cb03f3c7e61a2f8c63e060509f40d4f3e2669a7\"}],\"compatibility\":null,\"pluginManifestSummary\":null,\"clawManifestSummary\":null,\"verification\":{\"scanStatus\":\"clean\",\"scope\":\"artifact-only\",\"tier\":\"source-linked\"},\"artifact\":{\"kind\":\"legacy-zip\",\"format\":\"zip\",\"source\":\"clawhub\",\"artifactKind\":\"legacy-zip\",\"packageName\":\"visibility-plugin-contract\",\"version\":\"1.0.0\"},\"sha256hash\":null,\"vtAnalysis\":null,\"skillSpectorAnalysis\":null,\"llmAnalysis\":null,\"staticScan\":null}}",
+      "json": {
+        "package": {
+          "name": "visibility-plugin-contract",
+          "displayName": "visibility-plugin-contract",
+          "family": "code-plugin"
+        },
+        "version": {
+          "version": "1.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "published fixture",
+          "distTags": [],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 107,
+              "sha256": "79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58"
+            },
+            {
+              "path": "skill-card.md",
+              "size": 112,
+              "sha256": "9aac77dd75fea022a3cbb48df06a2d69dcb9ab65fe356a35de996bcace454895"
+            },
+            {
+              "path": "index.js",
+              "size": 107,
+              "sha256": "44f15bdc744cdcf08c2341aa7cb03f3c7e61a2f8c63e060509f40d4f3e2669a7"
+            }
+          ],
+          "compatibility": null,
+          "pluginManifestSummary": null,
+          "clawManifestSummary": null,
+          "verification": {
+            "scanStatus": "clean",
+            "scope": "artifact-only",
+            "tier": "source-linked"
+          },
+          "artifact": {
+            "kind": "legacy-zip",
+            "format": "zip",
+            "source": "clawhub",
+            "artifactKind": "legacy-zip",
+            "packageName": "visibility-plugin-contract",
+            "version": "1.0.0"
+          },
+          "sha256hash": null,
+          "vtAnalysis": null,
+          "skillSpectorAnalysis": null,
+          "llmAnalysis": null,
+          "staticScan": null
+        }
+      }
+    },
+    {
+      "surface": "skill-file",
+      "version": "1.1.0",
+      "path": "/api/v1/skills/visibility-contract/file?path=SKILL.md&version=1.1.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 101,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "5b9d49f1d11876209ce8eedd3bf5431495193a9ad2753f960f943b5866af1579",
+      "body": "---\nname: visibility-proof\ndescription: contract legacy content\n---\n# contract legacy 1.1.0 SKILL.md\n"
+    },
+    {
+      "surface": "skill-card",
+      "version": "1.1.0",
+      "path": "/api/v1/skills/visibility-contract/card?version=1.1.0",
+      "status": 200,
+      "type": "text/markdown; charset=utf-8",
+      "bytes": 106,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "215b488be3b4377a5ca1c4b3a4654ad77954d6d70a89979b3e34359ec4f26ce9",
+      "body": "---\nname: visibility-proof\ndescription: contract legacy content\n---\n# contract legacy 1.1.0 skill-card.md\n"
+    },
+    {
+      "surface": "skill-verify",
+      "version": "1.1.0",
+      "path": "/api/v1/skills/visibility-contract/verify?version=1.1.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 1555,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "ba7d228dd2b3631f7f08f0e7a82ebfb5092ab1cdc379c395434f2cfad29d92ea",
+      "body": "{\"schema\":\"clawhub.skill.verify.v1\",\"ok\":true,\"decision\":\"pass\",\"reasons\":[],\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"pageUrl\":\"https://clawhub.ai/visibility-contract/skills/visibility-contract\",\"publisherHandle\":\"visibility-contract\",\"publisherDisplayName\":\"Local visibility owner\",\"publisherProfileUrl\":\"https://clawhub.ai/visibility-contract\",\"version\":\"1.1.0\",\"resolvedFrom\":\"version\",\"tag\":null,\"createdAt\":1789589383252,\"card\":{\"available\":true,\"path\":\"skill-card.md\",\"url\":\"http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=1.1.0\",\"sha256\":\"215b488be3b4377a5ca1c4b3a4654ad77954d6d70a89979b3e34359ec4f26ce9\",\"size\":106,\"contentType\":\"text/markdown; charset=utf-8\"},\"artifact\":{\"sourceFingerprint\":\"7ad63b81d0559ab0d08ff668187395b7c05e2281727340676a11bc88aa7ddcba\",\"bundleFingerprints\":[\"7ad63b81d0559ab0d08ff668187395b7c05e2281727340676a11bc88aa7ddcba\"],\"files\":[{\"path\":\"SKILL.md\",\"size\":101,\"sha256\":\"5b9d49f1d11876209ce8eedd3bf5431495193a9ad2753f960f943b5866af1579\",\"contentType\":null},{\"path\":\"index.js\",\"size\":101,\"sha256\":\"1b75fead3fed62d2c8b5571a75784cbf22e7dab5d6b4eea6198f04827dcda46b\",\"contentType\":null}]},\"provenance\":{\"source\":\"unavailable\",\"reason\":\"No server-resolved GitHub import provenance is stored for this version.\"},\"security\":{\"status\":\"clean\",\"passed\":true,\"rawStatus\":\"clean\",\"verdict\":null,\"confidence\":null,\"summary\":null,\"model\":null,\"checkedAt\":1789589383252,\"scannerReports\":{\"aig\":null,\"skillspector\":null}},\"signature\":{\"status\":\"unsigned\"}}",
+      "json": {
+        "schema": "clawhub.skill.verify.v1",
+        "ok": true,
+        "decision": "pass",
+        "reasons": [],
+        "slug": "visibility-contract",
+        "displayName": "visibility-contract",
+        "pageUrl": "https://clawhub.ai/visibility-contract/skills/visibility-contract",
+        "publisherHandle": "visibility-contract",
+        "publisherDisplayName": "Local visibility owner",
+        "publisherProfileUrl": "https://clawhub.ai/visibility-contract",
+        "version": "1.1.0",
+        "resolvedFrom": "version",
+        "tag": null,
+        "createdAt": 1789589383252,
+        "card": {
+          "available": true,
+          "path": "skill-card.md",
+          "url": "http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=1.1.0",
+          "sha256": "215b488be3b4377a5ca1c4b3a4654ad77954d6d70a89979b3e34359ec4f26ce9",
+          "size": 106,
+          "contentType": "text/markdown; charset=utf-8"
+        },
+        "artifact": {
+          "sourceFingerprint": "7ad63b81d0559ab0d08ff668187395b7c05e2281727340676a11bc88aa7ddcba",
+          "bundleFingerprints": [
+            "7ad63b81d0559ab0d08ff668187395b7c05e2281727340676a11bc88aa7ddcba"
+          ],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 101,
+              "sha256": "5b9d49f1d11876209ce8eedd3bf5431495193a9ad2753f960f943b5866af1579",
+              "contentType": null
+            },
+            {
+              "path": "index.js",
+              "size": 101,
+              "sha256": "1b75fead3fed62d2c8b5571a75784cbf22e7dab5d6b4eea6198f04827dcda46b",
+              "contentType": null
+            }
+          ]
+        },
+        "provenance": {
+          "source": "unavailable",
+          "reason": "No server-resolved GitHub import provenance is stored for this version."
+        },
+        "security": {
+          "status": "clean",
+          "passed": true,
+          "rawStatus": "clean",
+          "verdict": null,
+          "confidence": null,
+          "summary": null,
+          "model": null,
+          "checkedAt": 1789589383252,
+          "scannerReports": {
+            "aig": null,
+            "skillspector": null
+          }
+        },
+        "signature": {
+          "status": "unsigned"
+        }
+      }
+    },
+    {
+      "surface": "skill-metadata",
+      "version": "1.1.0",
+      "path": "/api/v1/skills/visibility-contract/versions/1.1.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 1019,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "e64ef2c2cbfa4404ef04f5d042495b2a9f2dbff90eb8af1493b4ed88f99ccc5c",
+      "body": "{\"skill\":{\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\"},\"version\":{\"version\":\"1.1.0\",\"createdAt\":1789589383252,\"changelog\":\"legacy fixture\",\"changelogSource\":null,\"license\":null,\"files\":[{\"path\":\"SKILL.md\",\"size\":101,\"sha256\":\"5b9d49f1d11876209ce8eedd3bf5431495193a9ad2753f960f943b5866af1579\",\"contentType\":null},{\"path\":\"skill-card.md\",\"size\":106,\"sha256\":\"215b488be3b4377a5ca1c4b3a4654ad77954d6d70a89979b3e34359ec4f26ce9\",\"contentType\":null},{\"path\":\"index.js\",\"size\":101,\"sha256\":\"1b75fead3fed62d2c8b5571a75784cbf22e7dab5d6b4eea6198f04827dcda46b\",\"contentType\":null}],\"security\":{\"status\":\"clean\",\"hasWarnings\":false,\"checkedAt\":1789589383252,\"model\":null,\"hasScanResult\":true,\"sha256hash\":null,\"virustotalUrl\":null,\"scanners\":{\"vt\":null,\"skillspector\":null,\"llm\":{\"status\":\"clean\",\"verdict\":null,\"normalizedStatus\":\"clean\",\"confidence\":null,\"summary\":null,\"dimensions\":null,\"guidance\":null,\"findings\":null,\"agenticRiskFindings\":null,\"riskSummary\":null,\"model\":null,\"checkedAt\":1789589383252}}}}}",
+      "json": {
+        "skill": {
+          "slug": "visibility-contract",
+          "displayName": "visibility-contract"
+        },
+        "version": {
+          "version": "1.1.0",
+          "createdAt": 1789589383252,
+          "changelog": "legacy fixture",
+          "changelogSource": null,
+          "license": null,
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 101,
+              "sha256": "5b9d49f1d11876209ce8eedd3bf5431495193a9ad2753f960f943b5866af1579",
+              "contentType": null
+            },
+            {
+              "path": "skill-card.md",
+              "size": 106,
+              "sha256": "215b488be3b4377a5ca1c4b3a4654ad77954d6d70a89979b3e34359ec4f26ce9",
+              "contentType": null
+            },
+            {
+              "path": "index.js",
+              "size": 101,
+              "sha256": "1b75fead3fed62d2c8b5571a75784cbf22e7dab5d6b4eea6198f04827dcda46b",
+              "contentType": null
+            }
+          ],
+          "security": {
+            "status": "clean",
+            "hasWarnings": false,
+            "checkedAt": 1789589383252,
+            "model": null,
+            "hasScanResult": true,
+            "sha256hash": null,
+            "virustotalUrl": null,
+            "scanners": {
+              "vt": null,
+              "skillspector": null,
+              "llm": {
+                "status": "clean",
+                "verdict": null,
+                "normalizedStatus": "clean",
+                "confidence": null,
+                "summary": null,
+                "dimensions": null,
+                "guidance": null,
+                "findings": null,
+                "agenticRiskFindings": null,
+                "riskSummary": null,
+                "model": null,
+                "checkedAt": 1789589383252
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "surface": "skill-alias-metadata",
+      "version": "1.1.0",
+      "path": "/api/v1/packages/visibility-contract/versions/1.1.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 587,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "32ad48c1c8f8cf7ebd89e5fd903ea1b7f04447e7bdaf6135bfea55608c70e8ee",
+      "body": "{\"package\":{\"name\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"family\":\"skill\"},\"version\":{\"version\":\"1.1.0\",\"createdAt\":1789589383252,\"changelog\":\"legacy fixture\",\"distTags\":[],\"files\":[{\"path\":\"SKILL.md\",\"size\":101,\"sha256\":\"5b9d49f1d11876209ce8eedd3bf5431495193a9ad2753f960f943b5866af1579\"},{\"path\":\"skill-card.md\",\"size\":106,\"sha256\":\"215b488be3b4377a5ca1c4b3a4654ad77954d6d70a89979b3e34359ec4f26ce9\"},{\"path\":\"index.js\",\"size\":101,\"sha256\":\"1b75fead3fed62d2c8b5571a75784cbf22e7dab5d6b4eea6198f04827dcda46b\"}],\"compatibility\":null,\"verification\":null,\"artifact\":null}}",
+      "json": {
+        "package": {
+          "name": "visibility-contract",
+          "displayName": "visibility-contract",
+          "family": "skill"
+        },
+        "version": {
+          "version": "1.1.0",
+          "createdAt": 1789589383252,
+          "changelog": "legacy fixture",
+          "distTags": [],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 101,
+              "sha256": "5b9d49f1d11876209ce8eedd3bf5431495193a9ad2753f960f943b5866af1579"
+            },
+            {
+              "path": "skill-card.md",
+              "size": 106,
+              "sha256": "215b488be3b4377a5ca1c4b3a4654ad77954d6d70a89979b3e34359ec4f26ce9"
+            },
+            {
+              "path": "index.js",
+              "size": 101,
+              "sha256": "1b75fead3fed62d2c8b5571a75784cbf22e7dab5d6b4eea6198f04827dcda46b"
+            }
+          ],
+          "compatibility": null,
+          "verification": null,
+          "artifact": null
+        }
+      }
+    },
+    {
+      "surface": "skill-alias-file",
+      "version": "1.1.0",
+      "path": "/api/v1/packages/visibility-contract/file?path=SKILL.md&version=1.1.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 101,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "5b9d49f1d11876209ce8eedd3bf5431495193a9ad2753f960f943b5866af1579",
+      "body": "---\nname: visibility-proof\ndescription: contract legacy content\n---\n# contract legacy 1.1.0 SKILL.md\n"
+    },
+    {
+      "surface": "skill-zip",
+      "version": "1.1.0",
+      "path": "/api/v1/download?slug=visibility-contract&version=1.1.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 835,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "934786595a22a6cd8994f5815ab62d94c61293f487419ff71de2ae5252e9dbf8",
+      "files": [
+        "SKILL.md",
+        "_meta.json",
+        "index.js",
+        "skill-card.md"
+      ],
+      "fixtureKinds": [
+        "legacy"
+      ],
+      "containsWithheld": false
+    },
+    {
+      "surface": "package-file",
+      "version": "1.1.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/file?path=index.js&version=1.1.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 101,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "1b75fead3fed62d2c8b5571a75784cbf22e7dab5d6b4eea6198f04827dcda46b",
+      "body": "---\nname: visibility-proof\ndescription: contract legacy content\n---\n# contract legacy 1.1.0 index.js\n"
+    },
+    {
+      "surface": "package-zip",
+      "version": "1.1.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/download?version=1.1.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 603,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "f69e6400f6e08ad6fecf02df139e55b3d649618e32adf97214a05b76839d7abc",
+      "files": [
+        "package/SKILL.md",
+        "package/index.js",
+        "package/skill-card.md"
+      ],
+      "fixtureKinds": [
+        "legacy"
+      ],
+      "containsWithheld": false
+    },
+    {
+      "surface": "package-metadata",
+      "version": "1.1.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/versions/1.1.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 969,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "e684cf1080f4964e20594b48a71867c90008fd99b5cabd36fc64091d3f718444",
+      "body": "{\"package\":{\"name\":\"visibility-plugin-contract\",\"displayName\":\"visibility-plugin-contract\",\"family\":\"code-plugin\"},\"version\":{\"version\":\"1.1.0\",\"createdAt\":1789589383252,\"changelog\":\"legacy fixture\",\"distTags\":[],\"files\":[{\"path\":\"SKILL.md\",\"size\":101,\"sha256\":\"5b9d49f1d11876209ce8eedd3bf5431495193a9ad2753f960f943b5866af1579\"},{\"path\":\"skill-card.md\",\"size\":106,\"sha256\":\"215b488be3b4377a5ca1c4b3a4654ad77954d6d70a89979b3e34359ec4f26ce9\"},{\"path\":\"index.js\",\"size\":101,\"sha256\":\"1b75fead3fed62d2c8b5571a75784cbf22e7dab5d6b4eea6198f04827dcda46b\"}],\"compatibility\":null,\"pluginManifestSummary\":null,\"clawManifestSummary\":null,\"verification\":{\"scanStatus\":\"clean\",\"scope\":\"artifact-only\",\"tier\":\"source-linked\"},\"artifact\":{\"kind\":\"legacy-zip\",\"format\":\"zip\",\"source\":\"clawhub\",\"artifactKind\":\"legacy-zip\",\"packageName\":\"visibility-plugin-contract\",\"version\":\"1.1.0\"},\"sha256hash\":null,\"vtAnalysis\":null,\"skillSpectorAnalysis\":null,\"llmAnalysis\":null,\"staticScan\":null}}",
+      "json": {
+        "package": {
+          "name": "visibility-plugin-contract",
+          "displayName": "visibility-plugin-contract",
+          "family": "code-plugin"
+        },
+        "version": {
+          "version": "1.1.0",
+          "createdAt": 1789589383252,
+          "changelog": "legacy fixture",
+          "distTags": [],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 101,
+              "sha256": "5b9d49f1d11876209ce8eedd3bf5431495193a9ad2753f960f943b5866af1579"
+            },
+            {
+              "path": "skill-card.md",
+              "size": 106,
+              "sha256": "215b488be3b4377a5ca1c4b3a4654ad77954d6d70a89979b3e34359ec4f26ce9"
+            },
+            {
+              "path": "index.js",
+              "size": 101,
+              "sha256": "1b75fead3fed62d2c8b5571a75784cbf22e7dab5d6b4eea6198f04827dcda46b"
+            }
+          ],
+          "compatibility": null,
+          "pluginManifestSummary": null,
+          "clawManifestSummary": null,
+          "verification": {
+            "scanStatus": "clean",
+            "scope": "artifact-only",
+            "tier": "source-linked"
+          },
+          "artifact": {
+            "kind": "legacy-zip",
+            "format": "zip",
+            "source": "clawhub",
+            "artifactKind": "legacy-zip",
+            "packageName": "visibility-plugin-contract",
+            "version": "1.1.0"
+          },
+          "sha256hash": null,
+          "vtAnalysis": null,
+          "skillSpectorAnalysis": null,
+          "llmAnalysis": null,
+          "staticScan": null
+        }
+      }
+    },
+    {
+      "surface": "skill-file",
+      "version": "2.0.0",
+      "path": "/api/v1/skills/visibility-contract/file?path=SKILL.md&version=2.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 103,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "1a2a6f28a5e468c8a824618daf70a7bc9e3896d6ab04d6979fd5bbb13897d3e1",
+      "body": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 SKILL.md\n"
+    },
+    {
+      "surface": "skill-card",
+      "version": "2.0.0",
+      "path": "/api/v1/skills/visibility-contract/card?version=2.0.0",
+      "status": 200,
+      "type": "text/markdown; charset=utf-8",
+      "bytes": 108,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "da82dd78335be1f7142857f8bda5c5e4796497cc66f006945366d5d8fd63b2e8",
+      "body": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 skill-card.md\n"
+    },
+    {
+      "surface": "skill-verify",
+      "version": "2.0.0",
+      "path": "/api/v1/skills/visibility-contract/verify?version=2.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 1555,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a372d66679995f797f961ab99e2da33778ac00d4ecd1b7eb06abf402db71b087",
+      "body": "{\"schema\":\"clawhub.skill.verify.v1\",\"ok\":true,\"decision\":\"pass\",\"reasons\":[],\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"pageUrl\":\"https://clawhub.ai/visibility-contract/skills/visibility-contract\",\"publisherHandle\":\"visibility-contract\",\"publisherDisplayName\":\"Local visibility owner\",\"publisherProfileUrl\":\"https://clawhub.ai/visibility-contract\",\"version\":\"2.0.0\",\"resolvedFrom\":\"version\",\"tag\":null,\"createdAt\":1789589383252,\"card\":{\"available\":true,\"path\":\"skill-card.md\",\"url\":\"http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=2.0.0\",\"sha256\":\"da82dd78335be1f7142857f8bda5c5e4796497cc66f006945366d5d8fd63b2e8\",\"size\":108,\"contentType\":\"text/markdown; charset=utf-8\"},\"artifact\":{\"sourceFingerprint\":\"407ff5b03a8055a6b751d2b659a875dfb7769bf58cae79bc5f8926a2d0721ae4\",\"bundleFingerprints\":[\"407ff5b03a8055a6b751d2b659a875dfb7769bf58cae79bc5f8926a2d0721ae4\"],\"files\":[{\"path\":\"SKILL.md\",\"size\":103,\"sha256\":\"1a2a6f28a5e468c8a824618daf70a7bc9e3896d6ab04d6979fd5bbb13897d3e1\",\"contentType\":null},{\"path\":\"index.js\",\"size\":103,\"sha256\":\"5c7a8f9ab01ba10da9d4698cf75f5fdeb68e31d0221f716092bba7af0553b806\",\"contentType\":null}]},\"provenance\":{\"source\":\"unavailable\",\"reason\":\"No server-resolved GitHub import provenance is stored for this version.\"},\"security\":{\"status\":\"clean\",\"passed\":true,\"rawStatus\":\"clean\",\"verdict\":null,\"confidence\":null,\"summary\":null,\"model\":null,\"checkedAt\":1789589383252,\"scannerReports\":{\"aig\":null,\"skillspector\":null}},\"signature\":{\"status\":\"unsigned\"}}",
+      "json": {
+        "schema": "clawhub.skill.verify.v1",
+        "ok": true,
+        "decision": "pass",
+        "reasons": [],
+        "slug": "visibility-contract",
+        "displayName": "visibility-contract",
+        "pageUrl": "https://clawhub.ai/visibility-contract/skills/visibility-contract",
+        "publisherHandle": "visibility-contract",
+        "publisherDisplayName": "Local visibility owner",
+        "publisherProfileUrl": "https://clawhub.ai/visibility-contract",
+        "version": "2.0.0",
+        "resolvedFrom": "version",
+        "tag": null,
+        "createdAt": 1789589383252,
+        "card": {
+          "available": true,
+          "path": "skill-card.md",
+          "url": "http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=2.0.0",
+          "sha256": "da82dd78335be1f7142857f8bda5c5e4796497cc66f006945366d5d8fd63b2e8",
+          "size": 108,
+          "contentType": "text/markdown; charset=utf-8"
+        },
+        "artifact": {
+          "sourceFingerprint": "407ff5b03a8055a6b751d2b659a875dfb7769bf58cae79bc5f8926a2d0721ae4",
+          "bundleFingerprints": [
+            "407ff5b03a8055a6b751d2b659a875dfb7769bf58cae79bc5f8926a2d0721ae4"
+          ],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 103,
+              "sha256": "1a2a6f28a5e468c8a824618daf70a7bc9e3896d6ab04d6979fd5bbb13897d3e1",
+              "contentType": null
+            },
+            {
+              "path": "index.js",
+              "size": 103,
+              "sha256": "5c7a8f9ab01ba10da9d4698cf75f5fdeb68e31d0221f716092bba7af0553b806",
+              "contentType": null
+            }
+          ]
+        },
+        "provenance": {
+          "source": "unavailable",
+          "reason": "No server-resolved GitHub import provenance is stored for this version."
+        },
+        "security": {
+          "status": "clean",
+          "passed": true,
+          "rawStatus": "clean",
+          "verdict": null,
+          "confidence": null,
+          "summary": null,
+          "model": null,
+          "checkedAt": 1789589383252,
+          "scannerReports": {
+            "aig": null,
+            "skillspector": null
+          }
+        },
+        "signature": {
+          "status": "unsigned"
+        }
+      }
+    },
+    {
+      "surface": "skill-metadata",
+      "version": "2.0.0",
+      "path": "/api/v1/skills/visibility-contract/versions/2.0.0",
+      "status": 404,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "body": "Version not found"
+    },
+    {
+      "surface": "skill-alias-metadata",
+      "version": "2.0.0",
+      "path": "/api/v1/packages/visibility-contract/versions/2.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 596,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "cc6e0e63d0c4063c9050494bfc5ec63fcaac2a2a0116620ea5385c96d6846c8b",
+      "body": "{\"package\":{\"name\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"family\":\"skill\"},\"version\":{\"version\":\"2.0.0\",\"createdAt\":1789589383252,\"changelog\":\"pending fixture\",\"distTags\":[\"canary\"],\"files\":[{\"path\":\"SKILL.md\",\"size\":103,\"sha256\":\"1a2a6f28a5e468c8a824618daf70a7bc9e3896d6ab04d6979fd5bbb13897d3e1\"},{\"path\":\"skill-card.md\",\"size\":108,\"sha256\":\"da82dd78335be1f7142857f8bda5c5e4796497cc66f006945366d5d8fd63b2e8\"},{\"path\":\"index.js\",\"size\":103,\"sha256\":\"5c7a8f9ab01ba10da9d4698cf75f5fdeb68e31d0221f716092bba7af0553b806\"}],\"compatibility\":null,\"verification\":null,\"artifact\":null}}",
+      "json": {
+        "package": {
+          "name": "visibility-contract",
+          "displayName": "visibility-contract",
+          "family": "skill"
+        },
+        "version": {
+          "version": "2.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "pending fixture",
+          "distTags": [
+            "canary"
+          ],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 103,
+              "sha256": "1a2a6f28a5e468c8a824618daf70a7bc9e3896d6ab04d6979fd5bbb13897d3e1"
+            },
+            {
+              "path": "skill-card.md",
+              "size": 108,
+              "sha256": "da82dd78335be1f7142857f8bda5c5e4796497cc66f006945366d5d8fd63b2e8"
+            },
+            {
+              "path": "index.js",
+              "size": 103,
+              "sha256": "5c7a8f9ab01ba10da9d4698cf75f5fdeb68e31d0221f716092bba7af0553b806"
+            }
+          ],
+          "compatibility": null,
+          "verification": null,
+          "artifact": null
+        }
+      }
+    },
+    {
+      "surface": "skill-alias-file",
+      "version": "2.0.0",
+      "path": "/api/v1/packages/visibility-contract/file?path=SKILL.md&version=2.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 103,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "1a2a6f28a5e468c8a824618daf70a7bc9e3896d6ab04d6979fd5bbb13897d3e1",
+      "body": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 SKILL.md\n"
+    },
+    {
+      "surface": "skill-zip",
+      "version": "2.0.0",
+      "path": "/api/v1/download?slug=visibility-contract&version=2.0.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 838,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "fac6ea6acc3a2f10b86fbce15a060986183e0d521ccc0e5f45cce75f411badd4",
+      "files": [
+        "SKILL.md",
+        "_meta.json",
+        "index.js",
+        "skill-card.md"
+      ],
+      "fixtureKinds": [
+        "pending"
+      ],
+      "containsWithheld": true
+    },
+    {
+      "surface": "package-file",
+      "version": "2.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/file?path=index.js&version=2.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 103,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "5c7a8f9ab01ba10da9d4698cf75f5fdeb68e31d0221f716092bba7af0553b806",
+      "body": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 index.js\n"
+    },
+    {
+      "surface": "package-zip",
+      "version": "2.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/download?version=2.0.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 606,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "7fa0f9eb09d5aa51cb808d6bdb67faa84547fab1a5a92664819edc20e53ba903",
+      "files": [
+        "package/SKILL.md",
+        "package/index.js",
+        "package/skill-card.md"
+      ],
+      "fixtureKinds": [
+        "pending"
+      ],
+      "containsWithheld": true
+    },
+    {
+      "surface": "package-metadata",
+      "version": "2.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/versions/2.0.0",
+      "status": 404,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "body": "Version not found"
+    },
+    {
+      "surface": "skill-file",
+      "version": "3.0.0",
+      "path": "/api/v1/skills/visibility-contract/file?path=SKILL.md&version=3.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 103,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "54cbabd4e4df056f958c702672a37556d8cacc2dd8d9863246a1932ca8a2b532",
+      "body": "---\nname: visibility-proof\ndescription: contract blocked content\n---\n# contract blocked 3.0.0 SKILL.md\n"
+    },
+    {
+      "surface": "skill-card",
+      "version": "3.0.0",
+      "path": "/api/v1/skills/visibility-contract/card?version=3.0.0",
+      "status": 200,
+      "type": "text/markdown; charset=utf-8",
+      "bytes": 108,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "b44b054e3097f482c03bcb45375705ebe1389f1acc4d54d087dc5c1bf93126a0",
+      "body": "---\nname: visibility-proof\ndescription: contract blocked content\n---\n# contract blocked 3.0.0 skill-card.md\n"
+    },
+    {
+      "surface": "skill-verify",
+      "version": "3.0.0",
+      "path": "/api/v1/skills/visibility-contract/verify?version=3.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 1555,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "8ce852fa781ff9a1abaf4fc5843719cec08db947be4b5857fa8eb304c1577870",
+      "body": "{\"schema\":\"clawhub.skill.verify.v1\",\"ok\":true,\"decision\":\"pass\",\"reasons\":[],\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"pageUrl\":\"https://clawhub.ai/visibility-contract/skills/visibility-contract\",\"publisherHandle\":\"visibility-contract\",\"publisherDisplayName\":\"Local visibility owner\",\"publisherProfileUrl\":\"https://clawhub.ai/visibility-contract\",\"version\":\"3.0.0\",\"resolvedFrom\":\"version\",\"tag\":null,\"createdAt\":1789589383252,\"card\":{\"available\":true,\"path\":\"skill-card.md\",\"url\":\"http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=3.0.0\",\"sha256\":\"b44b054e3097f482c03bcb45375705ebe1389f1acc4d54d087dc5c1bf93126a0\",\"size\":108,\"contentType\":\"text/markdown; charset=utf-8\"},\"artifact\":{\"sourceFingerprint\":\"c9c4e1641f838f78e2f61fc382cb10229e205a3e49081f2a80b90968096e281e\",\"bundleFingerprints\":[\"c9c4e1641f838f78e2f61fc382cb10229e205a3e49081f2a80b90968096e281e\"],\"files\":[{\"path\":\"SKILL.md\",\"size\":103,\"sha256\":\"54cbabd4e4df056f958c702672a37556d8cacc2dd8d9863246a1932ca8a2b532\",\"contentType\":null},{\"path\":\"index.js\",\"size\":103,\"sha256\":\"e95854fe076cdb57411ebcbe0b4ffc0b355bc449eb6e665d632dd8604321de4f\",\"contentType\":null}]},\"provenance\":{\"source\":\"unavailable\",\"reason\":\"No server-resolved GitHub import provenance is stored for this version.\"},\"security\":{\"status\":\"clean\",\"passed\":true,\"rawStatus\":\"clean\",\"verdict\":null,\"confidence\":null,\"summary\":null,\"model\":null,\"checkedAt\":1789589383252,\"scannerReports\":{\"aig\":null,\"skillspector\":null}},\"signature\":{\"status\":\"unsigned\"}}",
+      "json": {
+        "schema": "clawhub.skill.verify.v1",
+        "ok": true,
+        "decision": "pass",
+        "reasons": [],
+        "slug": "visibility-contract",
+        "displayName": "visibility-contract",
+        "pageUrl": "https://clawhub.ai/visibility-contract/skills/visibility-contract",
+        "publisherHandle": "visibility-contract",
+        "publisherDisplayName": "Local visibility owner",
+        "publisherProfileUrl": "https://clawhub.ai/visibility-contract",
+        "version": "3.0.0",
+        "resolvedFrom": "version",
+        "tag": null,
+        "createdAt": 1789589383252,
+        "card": {
+          "available": true,
+          "path": "skill-card.md",
+          "url": "http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=3.0.0",
+          "sha256": "b44b054e3097f482c03bcb45375705ebe1389f1acc4d54d087dc5c1bf93126a0",
+          "size": 108,
+          "contentType": "text/markdown; charset=utf-8"
+        },
+        "artifact": {
+          "sourceFingerprint": "c9c4e1641f838f78e2f61fc382cb10229e205a3e49081f2a80b90968096e281e",
+          "bundleFingerprints": [
+            "c9c4e1641f838f78e2f61fc382cb10229e205a3e49081f2a80b90968096e281e"
+          ],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 103,
+              "sha256": "54cbabd4e4df056f958c702672a37556d8cacc2dd8d9863246a1932ca8a2b532",
+              "contentType": null
+            },
+            {
+              "path": "index.js",
+              "size": 103,
+              "sha256": "e95854fe076cdb57411ebcbe0b4ffc0b355bc449eb6e665d632dd8604321de4f",
+              "contentType": null
+            }
+          ]
+        },
+        "provenance": {
+          "source": "unavailable",
+          "reason": "No server-resolved GitHub import provenance is stored for this version."
+        },
+        "security": {
+          "status": "clean",
+          "passed": true,
+          "rawStatus": "clean",
+          "verdict": null,
+          "confidence": null,
+          "summary": null,
+          "model": null,
+          "checkedAt": 1789589383252,
+          "scannerReports": {
+            "aig": null,
+            "skillspector": null
+          }
+        },
+        "signature": {
+          "status": "unsigned"
+        }
+      }
+    },
+    {
+      "surface": "skill-metadata",
+      "version": "3.0.0",
+      "path": "/api/v1/skills/visibility-contract/versions/3.0.0",
+      "status": 404,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "body": "Version not found"
+    },
+    {
+      "surface": "skill-alias-metadata",
+      "version": "3.0.0",
+      "path": "/api/v1/packages/visibility-contract/versions/3.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 588,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "527b211997df45dddaac23b79694281500fde83cc69cbbf260d1d6fe9be062af",
+      "body": "{\"package\":{\"name\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"family\":\"skill\"},\"version\":{\"version\":\"3.0.0\",\"createdAt\":1789589383252,\"changelog\":\"blocked fixture\",\"distTags\":[],\"files\":[{\"path\":\"SKILL.md\",\"size\":103,\"sha256\":\"54cbabd4e4df056f958c702672a37556d8cacc2dd8d9863246a1932ca8a2b532\"},{\"path\":\"skill-card.md\",\"size\":108,\"sha256\":\"b44b054e3097f482c03bcb45375705ebe1389f1acc4d54d087dc5c1bf93126a0\"},{\"path\":\"index.js\",\"size\":103,\"sha256\":\"e95854fe076cdb57411ebcbe0b4ffc0b355bc449eb6e665d632dd8604321de4f\"}],\"compatibility\":null,\"verification\":null,\"artifact\":null}}",
+      "json": {
+        "package": {
+          "name": "visibility-contract",
+          "displayName": "visibility-contract",
+          "family": "skill"
+        },
+        "version": {
+          "version": "3.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "blocked fixture",
+          "distTags": [],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 103,
+              "sha256": "54cbabd4e4df056f958c702672a37556d8cacc2dd8d9863246a1932ca8a2b532"
+            },
+            {
+              "path": "skill-card.md",
+              "size": 108,
+              "sha256": "b44b054e3097f482c03bcb45375705ebe1389f1acc4d54d087dc5c1bf93126a0"
+            },
+            {
+              "path": "index.js",
+              "size": 103,
+              "sha256": "e95854fe076cdb57411ebcbe0b4ffc0b355bc449eb6e665d632dd8604321de4f"
+            }
+          ],
+          "compatibility": null,
+          "verification": null,
+          "artifact": null
+        }
+      }
+    },
+    {
+      "surface": "skill-alias-file",
+      "version": "3.0.0",
+      "path": "/api/v1/packages/visibility-contract/file?path=SKILL.md&version=3.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 103,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "54cbabd4e4df056f958c702672a37556d8cacc2dd8d9863246a1932ca8a2b532",
+      "body": "---\nname: visibility-proof\ndescription: contract blocked content\n---\n# contract blocked 3.0.0 SKILL.md\n"
+    },
+    {
+      "surface": "skill-zip",
+      "version": "3.0.0",
+      "path": "/api/v1/download?slug=visibility-contract&version=3.0.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 839,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a8050bceb6fbb830ac02b3d1ca9cd2172774d9ea14fb81f739cc5bdcb5b8bbc0",
+      "files": [
+        "SKILL.md",
+        "_meta.json",
+        "index.js",
+        "skill-card.md"
+      ],
+      "fixtureKinds": [
+        "blocked"
+      ],
+      "containsWithheld": true
+    },
+    {
+      "surface": "package-file",
+      "version": "3.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/file?path=index.js&version=3.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 103,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "e95854fe076cdb57411ebcbe0b4ffc0b355bc449eb6e665d632dd8604321de4f",
+      "body": "---\nname: visibility-proof\ndescription: contract blocked content\n---\n# contract blocked 3.0.0 index.js\n"
+    },
+    {
+      "surface": "package-zip",
+      "version": "3.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/download?version=3.0.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 607,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "fc56a2f89189dfcd841ac6a769db536b1e9ba5ce5f70f16173afb88c2568a230",
+      "files": [
+        "package/SKILL.md",
+        "package/index.js",
+        "package/skill-card.md"
+      ],
+      "fixtureKinds": [
+        "blocked"
+      ],
+      "containsWithheld": true
+    },
+    {
+      "surface": "package-metadata",
+      "version": "3.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/versions/3.0.0",
+      "status": 404,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "body": "Version not found"
+    },
+    {
+      "surface": "skill-file",
+      "version": "4.0.0",
+      "path": "/api/v1/skills/visibility-contract/file?path=SKILL.md&version=4.0.0",
+      "status": 410,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 21,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "440e0002891fd920fd4f2c4cd3460bacd2112b2ada4b24e585b8c4edc83fc6c8",
+      "body": "Version not available"
+    },
+    {
+      "surface": "skill-card",
+      "version": "4.0.0",
+      "path": "/api/v1/skills/visibility-contract/card?version=4.0.0",
+      "status": 410,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 21,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "440e0002891fd920fd4f2c4cd3460bacd2112b2ada4b24e585b8c4edc83fc6c8",
+      "body": "Version not available"
+    },
+    {
+      "surface": "skill-verify",
+      "version": "4.0.0",
+      "path": "/api/v1/skills/visibility-contract/verify?version=4.0.0",
+      "status": 410,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 21,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "440e0002891fd920fd4f2c4cd3460bacd2112b2ada4b24e585b8c4edc83fc6c8",
+      "body": "Version not available"
+    },
+    {
+      "surface": "skill-metadata",
+      "version": "4.0.0",
+      "path": "/api/v1/skills/visibility-contract/versions/4.0.0",
+      "status": 404,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "body": "Version not found"
+    },
+    {
+      "surface": "skill-alias-metadata",
+      "version": "4.0.0",
+      "path": "/api/v1/packages/visibility-contract/versions/4.0.0",
+      "status": 404,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "body": "Version not found"
+    },
+    {
+      "surface": "skill-alias-file",
+      "version": "4.0.0",
+      "path": "/api/v1/packages/visibility-contract/file?path=SKILL.md&version=4.0.0",
+      "status": 404,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "body": "Version not found"
+    },
+    {
+      "surface": "skill-zip",
+      "version": "4.0.0",
+      "path": "/api/v1/download?slug=visibility-contract&version=4.0.0",
+      "status": 410,
+      "type": "text/plain;charset=UTF-8",
+      "bytes": 21,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "440e0002891fd920fd4f2c4cd3460bacd2112b2ada4b24e585b8c4edc83fc6c8",
+      "body": "Version not available"
+    },
+    {
+      "surface": "package-file",
+      "version": "4.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/file?path=index.js&version=4.0.0",
+      "status": 404,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "body": "Version not found"
+    },
+    {
+      "surface": "package-zip",
+      "version": "4.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/download?version=4.0.0",
+      "status": 404,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "body": "Version not found"
+    },
+    {
+      "surface": "package-metadata",
+      "version": "4.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/versions/4.0.0",
+      "status": 404,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "body": "Version not found"
+    },
+    {
+      "surface": "skill-file",
+      "version": "5.0.0",
+      "path": "/api/v1/skills/visibility-contract/file?path=SKILL.md&version=5.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 113,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "18191aba3d86f2e98487a807797ad3225a32c83fdcc5411138ea1057147dfc6c",
+      "body": "---\nname: visibility-proof\ndescription: contract ownerDeleted content\n---\n# contract ownerDeleted 5.0.0 SKILL.md\n"
+    },
+    {
+      "surface": "skill-card",
+      "version": "5.0.0",
+      "path": "/api/v1/skills/visibility-contract/card?version=5.0.0",
+      "status": 200,
+      "type": "text/markdown; charset=utf-8",
+      "bytes": 118,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "75c8e0d0834173a8135f0215dccd0ffd5f320c1ffe25f640e2694181de596ac7",
+      "body": "---\nname: visibility-proof\ndescription: contract ownerDeleted content\n---\n# contract ownerDeleted 5.0.0 skill-card.md\n"
+    },
+    {
+      "surface": "skill-verify",
+      "version": "5.0.0",
+      "path": "/api/v1/skills/visibility-contract/verify?version=5.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 1555,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "8e776a3b6c309af4291f039306bed8ff4acc92f589f43a5c7389c2ed634bad0e",
+      "body": "{\"schema\":\"clawhub.skill.verify.v1\",\"ok\":true,\"decision\":\"pass\",\"reasons\":[],\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"pageUrl\":\"https://clawhub.ai/visibility-contract/skills/visibility-contract\",\"publisherHandle\":\"visibility-contract\",\"publisherDisplayName\":\"Local visibility owner\",\"publisherProfileUrl\":\"https://clawhub.ai/visibility-contract\",\"version\":\"5.0.0\",\"resolvedFrom\":\"version\",\"tag\":null,\"createdAt\":1789589383252,\"card\":{\"available\":true,\"path\":\"skill-card.md\",\"url\":\"http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=5.0.0\",\"sha256\":\"75c8e0d0834173a8135f0215dccd0ffd5f320c1ffe25f640e2694181de596ac7\",\"size\":118,\"contentType\":\"text/markdown; charset=utf-8\"},\"artifact\":{\"sourceFingerprint\":\"710e67650c57926f108d6bf89a595d286d7b0dc98917ea5759cf3029ac934f65\",\"bundleFingerprints\":[\"710e67650c57926f108d6bf89a595d286d7b0dc98917ea5759cf3029ac934f65\"],\"files\":[{\"path\":\"SKILL.md\",\"size\":113,\"sha256\":\"18191aba3d86f2e98487a807797ad3225a32c83fdcc5411138ea1057147dfc6c\",\"contentType\":null},{\"path\":\"index.js\",\"size\":113,\"sha256\":\"475beb70bb1b10ec3c8bc3410a64bc7ffadb5f5210f54949c3cb39be344fe1cf\",\"contentType\":null}]},\"provenance\":{\"source\":\"unavailable\",\"reason\":\"No server-resolved GitHub import provenance is stored for this version.\"},\"security\":{\"status\":\"clean\",\"passed\":true,\"rawStatus\":\"clean\",\"verdict\":null,\"confidence\":null,\"summary\":null,\"model\":null,\"checkedAt\":1789589383252,\"scannerReports\":{\"aig\":null,\"skillspector\":null}},\"signature\":{\"status\":\"unsigned\"}}",
+      "json": {
+        "schema": "clawhub.skill.verify.v1",
+        "ok": true,
+        "decision": "pass",
+        "reasons": [],
+        "slug": "visibility-contract",
+        "displayName": "visibility-contract",
+        "pageUrl": "https://clawhub.ai/visibility-contract/skills/visibility-contract",
+        "publisherHandle": "visibility-contract",
+        "publisherDisplayName": "Local visibility owner",
+        "publisherProfileUrl": "https://clawhub.ai/visibility-contract",
+        "version": "5.0.0",
+        "resolvedFrom": "version",
+        "tag": null,
+        "createdAt": 1789589383252,
+        "card": {
+          "available": true,
+          "path": "skill-card.md",
+          "url": "http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=5.0.0",
+          "sha256": "75c8e0d0834173a8135f0215dccd0ffd5f320c1ffe25f640e2694181de596ac7",
+          "size": 118,
+          "contentType": "text/markdown; charset=utf-8"
+        },
+        "artifact": {
+          "sourceFingerprint": "710e67650c57926f108d6bf89a595d286d7b0dc98917ea5759cf3029ac934f65",
+          "bundleFingerprints": [
+            "710e67650c57926f108d6bf89a595d286d7b0dc98917ea5759cf3029ac934f65"
+          ],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 113,
+              "sha256": "18191aba3d86f2e98487a807797ad3225a32c83fdcc5411138ea1057147dfc6c",
+              "contentType": null
+            },
+            {
+              "path": "index.js",
+              "size": 113,
+              "sha256": "475beb70bb1b10ec3c8bc3410a64bc7ffadb5f5210f54949c3cb39be344fe1cf",
+              "contentType": null
+            }
+          ]
+        },
+        "provenance": {
+          "source": "unavailable",
+          "reason": "No server-resolved GitHub import provenance is stored for this version."
+        },
+        "security": {
+          "status": "clean",
+          "passed": true,
+          "rawStatus": "clean",
+          "verdict": null,
+          "confidence": null,
+          "summary": null,
+          "model": null,
+          "checkedAt": 1789589383252,
+          "scannerReports": {
+            "aig": null,
+            "skillspector": null
+          }
+        },
+        "signature": {
+          "status": "unsigned"
+        }
+      }
+    },
+    {
+      "surface": "skill-metadata",
+      "version": "5.0.0",
+      "path": "/api/v1/skills/visibility-contract/versions/5.0.0",
+      "status": 404,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "body": "Version not found"
+    },
+    {
+      "surface": "skill-alias-metadata",
+      "version": "5.0.0",
+      "path": "/api/v1/packages/visibility-contract/versions/5.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 593,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "cebf44d96e9ce827c369f627ead2575f298766ce828d59f5a35ce5b4cd46ec92",
+      "body": "{\"package\":{\"name\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"family\":\"skill\"},\"version\":{\"version\":\"5.0.0\",\"createdAt\":1789589383252,\"changelog\":\"ownerDeleted fixture\",\"distTags\":[],\"files\":[{\"path\":\"SKILL.md\",\"size\":113,\"sha256\":\"18191aba3d86f2e98487a807797ad3225a32c83fdcc5411138ea1057147dfc6c\"},{\"path\":\"skill-card.md\",\"size\":118,\"sha256\":\"75c8e0d0834173a8135f0215dccd0ffd5f320c1ffe25f640e2694181de596ac7\"},{\"path\":\"index.js\",\"size\":113,\"sha256\":\"475beb70bb1b10ec3c8bc3410a64bc7ffadb5f5210f54949c3cb39be344fe1cf\"}],\"compatibility\":null,\"verification\":null,\"artifact\":null}}",
+      "json": {
+        "package": {
+          "name": "visibility-contract",
+          "displayName": "visibility-contract",
+          "family": "skill"
+        },
+        "version": {
+          "version": "5.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "ownerDeleted fixture",
+          "distTags": [],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 113,
+              "sha256": "18191aba3d86f2e98487a807797ad3225a32c83fdcc5411138ea1057147dfc6c"
+            },
+            {
+              "path": "skill-card.md",
+              "size": 118,
+              "sha256": "75c8e0d0834173a8135f0215dccd0ffd5f320c1ffe25f640e2694181de596ac7"
+            },
+            {
+              "path": "index.js",
+              "size": 113,
+              "sha256": "475beb70bb1b10ec3c8bc3410a64bc7ffadb5f5210f54949c3cb39be344fe1cf"
+            }
+          ],
+          "compatibility": null,
+          "verification": null,
+          "artifact": null
+        }
+      }
+    },
+    {
+      "surface": "skill-alias-file",
+      "version": "5.0.0",
+      "path": "/api/v1/packages/visibility-contract/file?path=SKILL.md&version=5.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 113,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "18191aba3d86f2e98487a807797ad3225a32c83fdcc5411138ea1057147dfc6c",
+      "body": "---\nname: visibility-proof\ndescription: contract ownerDeleted content\n---\n# contract ownerDeleted 5.0.0 SKILL.md\n"
+    },
+    {
+      "surface": "skill-zip",
+      "version": "5.0.0",
+      "path": "/api/v1/download?slug=visibility-contract&version=5.0.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 853,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "e1532a34414c0bf7ac5a1754c415f00b9a4f671a1bfae746b3abee0e1340296f",
+      "files": [
+        "SKILL.md",
+        "_meta.json",
+        "index.js",
+        "skill-card.md"
+      ],
+      "fixtureKinds": [
+        "ownerDeleted"
+      ],
+      "containsWithheld": false
+    },
+    {
+      "surface": "package-file",
+      "version": "5.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/file?path=index.js&version=5.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 113,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "475beb70bb1b10ec3c8bc3410a64bc7ffadb5f5210f54949c3cb39be344fe1cf",
+      "body": "---\nname: visibility-proof\ndescription: contract ownerDeleted content\n---\n# contract ownerDeleted 5.0.0 index.js\n"
+    },
+    {
+      "surface": "package-zip",
+      "version": "5.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/download?version=5.0.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 621,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "ac2fe5b030dd63056896854e8381aee63bd8db311ef6440e9c0931cf1dbdb826",
+      "files": [
+        "package/SKILL.md",
+        "package/index.js",
+        "package/skill-card.md"
+      ],
+      "fixtureKinds": [
+        "ownerDeleted"
+      ],
+      "containsWithheld": false
+    },
+    {
+      "surface": "package-metadata",
+      "version": "5.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/versions/5.0.0",
+      "status": 404,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 17,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a8f65ec3d83f0d49808fac4b620504a78e8be3f4fe60ca303777c0eef2ac9b18",
+      "body": "Version not found"
+    },
+    {
+      "surface": "skill-file",
+      "version": "6.0.0",
+      "path": "/api/v1/skills/visibility-contract/file?path=SKILL.md&version=6.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 109,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "38dac4de2efb828ca68bd15e4d8acf6b90ea9e6aabf1a7f176d4ac17c5351f1f",
+      "body": "---\nname: visibility-proof\ndescription: contract suspicious content\n---\n# contract suspicious 6.0.0 SKILL.md\n"
+    },
+    {
+      "surface": "skill-card",
+      "version": "6.0.0",
+      "path": "/api/v1/skills/visibility-contract/card?version=6.0.0",
+      "status": 200,
+      "type": "text/markdown; charset=utf-8",
+      "bytes": 114,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "adac213418da6bdd8e030020f60ba80ca169f04316a9d9094b260d3ff2d1ad21",
+      "body": "---\nname: visibility-proof\ndescription: contract suspicious content\n---\n# contract suspicious 6.0.0 skill-card.md\n"
+    },
+    {
+      "surface": "skill-verify",
+      "version": "6.0.0",
+      "path": "/api/v1/skills/visibility-contract/verify?version=6.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 1594,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "082666cadff2d32ae31f69cfe8705c05de9dd3af50103dd3f2569563594cc6c8",
+      "body": "{\"schema\":\"clawhub.skill.verify.v1\",\"ok\":false,\"decision\":\"fail\",\"reasons\":[\"security.status_not_clean\"],\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"pageUrl\":\"https://clawhub.ai/visibility-contract/skills/visibility-contract\",\"publisherHandle\":\"visibility-contract\",\"publisherDisplayName\":\"Local visibility owner\",\"publisherProfileUrl\":\"https://clawhub.ai/visibility-contract\",\"version\":\"6.0.0\",\"resolvedFrom\":\"version\",\"tag\":null,\"createdAt\":1789589383252,\"card\":{\"available\":true,\"path\":\"skill-card.md\",\"url\":\"http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=6.0.0\",\"sha256\":\"adac213418da6bdd8e030020f60ba80ca169f04316a9d9094b260d3ff2d1ad21\",\"size\":114,\"contentType\":\"text/markdown; charset=utf-8\"},\"artifact\":{\"sourceFingerprint\":\"e82483582b02a94594bceaf3cb3eafd502c2fe298a52eab174db3674384498ea\",\"bundleFingerprints\":[\"e82483582b02a94594bceaf3cb3eafd502c2fe298a52eab174db3674384498ea\"],\"files\":[{\"path\":\"SKILL.md\",\"size\":109,\"sha256\":\"38dac4de2efb828ca68bd15e4d8acf6b90ea9e6aabf1a7f176d4ac17c5351f1f\",\"contentType\":null},{\"path\":\"index.js\",\"size\":109,\"sha256\":\"c26bb5bd45f48839c90fab4082399265aa317b21092efd036ec58f737b452f95\",\"contentType\":null}]},\"provenance\":{\"source\":\"unavailable\",\"reason\":\"No server-resolved GitHub import provenance is stored for this version.\"},\"security\":{\"status\":\"suspicious\",\"passed\":false,\"rawStatus\":\"suspicious\",\"verdict\":null,\"confidence\":null,\"summary\":null,\"model\":null,\"checkedAt\":1789589383252,\"scannerReports\":{\"aig\":null,\"skillspector\":null}},\"signature\":{\"status\":\"unsigned\"}}",
+      "json": {
+        "schema": "clawhub.skill.verify.v1",
+        "ok": false,
+        "decision": "fail",
+        "reasons": [
+          "security.status_not_clean"
+        ],
+        "slug": "visibility-contract",
+        "displayName": "visibility-contract",
+        "pageUrl": "https://clawhub.ai/visibility-contract/skills/visibility-contract",
+        "publisherHandle": "visibility-contract",
+        "publisherDisplayName": "Local visibility owner",
+        "publisherProfileUrl": "https://clawhub.ai/visibility-contract",
+        "version": "6.0.0",
+        "resolvedFrom": "version",
+        "tag": null,
+        "createdAt": 1789589383252,
+        "card": {
+          "available": true,
+          "path": "skill-card.md",
+          "url": "http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=6.0.0",
+          "sha256": "adac213418da6bdd8e030020f60ba80ca169f04316a9d9094b260d3ff2d1ad21",
+          "size": 114,
+          "contentType": "text/markdown; charset=utf-8"
+        },
+        "artifact": {
+          "sourceFingerprint": "e82483582b02a94594bceaf3cb3eafd502c2fe298a52eab174db3674384498ea",
+          "bundleFingerprints": [
+            "e82483582b02a94594bceaf3cb3eafd502c2fe298a52eab174db3674384498ea"
+          ],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 109,
+              "sha256": "38dac4de2efb828ca68bd15e4d8acf6b90ea9e6aabf1a7f176d4ac17c5351f1f",
+              "contentType": null
+            },
+            {
+              "path": "index.js",
+              "size": 109,
+              "sha256": "c26bb5bd45f48839c90fab4082399265aa317b21092efd036ec58f737b452f95",
+              "contentType": null
+            }
+          ]
+        },
+        "provenance": {
+          "source": "unavailable",
+          "reason": "No server-resolved GitHub import provenance is stored for this version."
+        },
+        "security": {
+          "status": "suspicious",
+          "passed": false,
+          "rawStatus": "suspicious",
+          "verdict": null,
+          "confidence": null,
+          "summary": null,
+          "model": null,
+          "checkedAt": 1789589383252,
+          "scannerReports": {
+            "aig": null,
+            "skillspector": null
+          }
+        },
+        "signature": {
+          "status": "unsigned"
+        }
+      }
+    },
+    {
+      "surface": "skill-metadata",
+      "version": "6.0.0",
+      "path": "/api/v1/skills/visibility-contract/versions/6.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 1037,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "14a535e9af9273a53683a7511614060374958374465749b79be50d98838b99d9",
+      "body": "{\"skill\":{\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\"},\"version\":{\"version\":\"6.0.0\",\"createdAt\":1789589383252,\"changelog\":\"suspicious fixture\",\"changelogSource\":null,\"license\":null,\"files\":[{\"path\":\"SKILL.md\",\"size\":109,\"sha256\":\"38dac4de2efb828ca68bd15e4d8acf6b90ea9e6aabf1a7f176d4ac17c5351f1f\",\"contentType\":null},{\"path\":\"skill-card.md\",\"size\":114,\"sha256\":\"adac213418da6bdd8e030020f60ba80ca169f04316a9d9094b260d3ff2d1ad21\",\"contentType\":null},{\"path\":\"index.js\",\"size\":109,\"sha256\":\"c26bb5bd45f48839c90fab4082399265aa317b21092efd036ec58f737b452f95\",\"contentType\":null}],\"security\":{\"status\":\"suspicious\",\"hasWarnings\":true,\"checkedAt\":1789589383252,\"model\":null,\"hasScanResult\":true,\"sha256hash\":null,\"virustotalUrl\":null,\"scanners\":{\"vt\":null,\"skillspector\":null,\"llm\":{\"status\":\"suspicious\",\"verdict\":null,\"normalizedStatus\":\"suspicious\",\"confidence\":null,\"summary\":null,\"dimensions\":null,\"guidance\":null,\"findings\":null,\"agenticRiskFindings\":null,\"riskSummary\":null,\"model\":null,\"checkedAt\":1789589383252}}}}}",
+      "json": {
+        "skill": {
+          "slug": "visibility-contract",
+          "displayName": "visibility-contract"
+        },
+        "version": {
+          "version": "6.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "suspicious fixture",
+          "changelogSource": null,
+          "license": null,
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 109,
+              "sha256": "38dac4de2efb828ca68bd15e4d8acf6b90ea9e6aabf1a7f176d4ac17c5351f1f",
+              "contentType": null
+            },
+            {
+              "path": "skill-card.md",
+              "size": 114,
+              "sha256": "adac213418da6bdd8e030020f60ba80ca169f04316a9d9094b260d3ff2d1ad21",
+              "contentType": null
+            },
+            {
+              "path": "index.js",
+              "size": 109,
+              "sha256": "c26bb5bd45f48839c90fab4082399265aa317b21092efd036ec58f737b452f95",
+              "contentType": null
+            }
+          ],
+          "security": {
+            "status": "suspicious",
+            "hasWarnings": true,
+            "checkedAt": 1789589383252,
+            "model": null,
+            "hasScanResult": true,
+            "sha256hash": null,
+            "virustotalUrl": null,
+            "scanners": {
+              "vt": null,
+              "skillspector": null,
+              "llm": {
+                "status": "suspicious",
+                "verdict": null,
+                "normalizedStatus": "suspicious",
+                "confidence": null,
+                "summary": null,
+                "dimensions": null,
+                "guidance": null,
+                "findings": null,
+                "agenticRiskFindings": null,
+                "riskSummary": null,
+                "model": null,
+                "checkedAt": 1789589383252
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "surface": "skill-alias-metadata",
+      "version": "6.0.0",
+      "path": "/api/v1/packages/visibility-contract/versions/6.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 591,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a7e554c2bb6a3382b8b0651adca2330a359b9679656b8d80bed76b922fd900df",
+      "body": "{\"package\":{\"name\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"family\":\"skill\"},\"version\":{\"version\":\"6.0.0\",\"createdAt\":1789589383252,\"changelog\":\"suspicious fixture\",\"distTags\":[],\"files\":[{\"path\":\"SKILL.md\",\"size\":109,\"sha256\":\"38dac4de2efb828ca68bd15e4d8acf6b90ea9e6aabf1a7f176d4ac17c5351f1f\"},{\"path\":\"skill-card.md\",\"size\":114,\"sha256\":\"adac213418da6bdd8e030020f60ba80ca169f04316a9d9094b260d3ff2d1ad21\"},{\"path\":\"index.js\",\"size\":109,\"sha256\":\"c26bb5bd45f48839c90fab4082399265aa317b21092efd036ec58f737b452f95\"}],\"compatibility\":null,\"verification\":null,\"artifact\":null}}",
+      "json": {
+        "package": {
+          "name": "visibility-contract",
+          "displayName": "visibility-contract",
+          "family": "skill"
+        },
+        "version": {
+          "version": "6.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "suspicious fixture",
+          "distTags": [],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 109,
+              "sha256": "38dac4de2efb828ca68bd15e4d8acf6b90ea9e6aabf1a7f176d4ac17c5351f1f"
+            },
+            {
+              "path": "skill-card.md",
+              "size": 114,
+              "sha256": "adac213418da6bdd8e030020f60ba80ca169f04316a9d9094b260d3ff2d1ad21"
+            },
+            {
+              "path": "index.js",
+              "size": 109,
+              "sha256": "c26bb5bd45f48839c90fab4082399265aa317b21092efd036ec58f737b452f95"
+            }
+          ],
+          "compatibility": null,
+          "verification": null,
+          "artifact": null
+        }
+      }
+    },
+    {
+      "surface": "skill-alias-file",
+      "version": "6.0.0",
+      "path": "/api/v1/packages/visibility-contract/file?path=SKILL.md&version=6.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 109,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "38dac4de2efb828ca68bd15e4d8acf6b90ea9e6aabf1a7f176d4ac17c5351f1f",
+      "body": "---\nname: visibility-proof\ndescription: contract suspicious content\n---\n# contract suspicious 6.0.0 SKILL.md\n"
+    },
+    {
+      "surface": "skill-zip",
+      "version": "6.0.0",
+      "path": "/api/v1/download?slug=visibility-contract&version=6.0.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 847,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "e337d7f491f0997c57cd2bd5d4169697b6e15215afdea5af9ece2953f3067aa4",
+      "files": [
+        "SKILL.md",
+        "_meta.json",
+        "index.js",
+        "skill-card.md"
+      ],
+      "fixtureKinds": [
+        "suspicious"
+      ],
+      "containsWithheld": false
+    },
+    {
+      "surface": "package-file",
+      "version": "6.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/file?path=index.js&version=6.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 109,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "c26bb5bd45f48839c90fab4082399265aa317b21092efd036ec58f737b452f95",
+      "body": "---\nname: visibility-proof\ndescription: contract suspicious content\n---\n# contract suspicious 6.0.0 index.js\n"
+    },
+    {
+      "surface": "package-zip",
+      "version": "6.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/download?version=6.0.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 614,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "528bea47c74c3b02535d57337e1551ccd337eb2f7b126696ae3fb6cee31e8ec0",
+      "files": [
+        "package/SKILL.md",
+        "package/index.js",
+        "package/skill-card.md"
+      ],
+      "fixtureKinds": [
+        "suspicious"
+      ],
+      "containsWithheld": false
+    },
+    {
+      "surface": "package-metadata",
+      "version": "6.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/versions/6.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 978,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "58ccdbce0fda3b4aeb07fc178b22ceee9d6cef46ae2e31144bb36ea82fe0c04f",
+      "body": "{\"package\":{\"name\":\"visibility-plugin-contract\",\"displayName\":\"visibility-plugin-contract\",\"family\":\"code-plugin\"},\"version\":{\"version\":\"6.0.0\",\"createdAt\":1789589383252,\"changelog\":\"suspicious fixture\",\"distTags\":[],\"files\":[{\"path\":\"SKILL.md\",\"size\":109,\"sha256\":\"38dac4de2efb828ca68bd15e4d8acf6b90ea9e6aabf1a7f176d4ac17c5351f1f\"},{\"path\":\"skill-card.md\",\"size\":114,\"sha256\":\"adac213418da6bdd8e030020f60ba80ca169f04316a9d9094b260d3ff2d1ad21\"},{\"path\":\"index.js\",\"size\":109,\"sha256\":\"c26bb5bd45f48839c90fab4082399265aa317b21092efd036ec58f737b452f95\"}],\"compatibility\":null,\"pluginManifestSummary\":null,\"clawManifestSummary\":null,\"verification\":{\"scanStatus\":\"suspicious\",\"scope\":\"artifact-only\",\"tier\":\"source-linked\"},\"artifact\":{\"kind\":\"legacy-zip\",\"format\":\"zip\",\"source\":\"clawhub\",\"artifactKind\":\"legacy-zip\",\"packageName\":\"visibility-plugin-contract\",\"version\":\"6.0.0\"},\"sha256hash\":null,\"vtAnalysis\":null,\"skillSpectorAnalysis\":null,\"llmAnalysis\":null,\"staticScan\":null}}",
+      "json": {
+        "package": {
+          "name": "visibility-plugin-contract",
+          "displayName": "visibility-plugin-contract",
+          "family": "code-plugin"
+        },
+        "version": {
+          "version": "6.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "suspicious fixture",
+          "distTags": [],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 109,
+              "sha256": "38dac4de2efb828ca68bd15e4d8acf6b90ea9e6aabf1a7f176d4ac17c5351f1f"
+            },
+            {
+              "path": "skill-card.md",
+              "size": 114,
+              "sha256": "adac213418da6bdd8e030020f60ba80ca169f04316a9d9094b260d3ff2d1ad21"
+            },
+            {
+              "path": "index.js",
+              "size": 109,
+              "sha256": "c26bb5bd45f48839c90fab4082399265aa317b21092efd036ec58f737b452f95"
+            }
+          ],
+          "compatibility": null,
+          "pluginManifestSummary": null,
+          "clawManifestSummary": null,
+          "verification": {
+            "scanStatus": "suspicious",
+            "scope": "artifact-only",
+            "tier": "source-linked"
+          },
+          "artifact": {
+            "kind": "legacy-zip",
+            "format": "zip",
+            "source": "clawhub",
+            "artifactKind": "legacy-zip",
+            "packageName": "visibility-plugin-contract",
+            "version": "6.0.0"
+          },
+          "sha256hash": null,
+          "vtAnalysis": null,
+          "skillSpectorAnalysis": null,
+          "llmAnalysis": null,
+          "staticScan": null
+        }
+      }
+    },
+    {
+      "surface": "skill-file",
+      "version": "7.0.0",
+      "path": "/api/v1/skills/visibility-contract/file?path=SKILL.md&version=7.0.0",
+      "status": 403,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 95,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "e264d8255c5281d0856ab2810dcc71cdad9f63d9fe23d0d62227971f920744f3",
+      "body": "Blocked: this skill version has been flagged as malicious by ClawScan and cannot be downloaded."
+    },
+    {
+      "surface": "skill-card",
+      "version": "7.0.0",
+      "path": "/api/v1/skills/visibility-contract/card?version=7.0.0",
+      "status": 403,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 95,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "e264d8255c5281d0856ab2810dcc71cdad9f63d9fe23d0d62227971f920744f3",
+      "body": "Blocked: this skill version has been flagged as malicious by ClawScan and cannot be downloaded."
+    },
+    {
+      "surface": "skill-verify",
+      "version": "7.0.0",
+      "path": "/api/v1/skills/visibility-contract/verify?version=7.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 1592,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "4abc6fd348631f74516aad5c26031924ccfb51bbe9577becbc48f974eecd2782",
+      "body": "{\"schema\":\"clawhub.skill.verify.v1\",\"ok\":false,\"decision\":\"fail\",\"reasons\":[\"security.status_not_clean\"],\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"pageUrl\":\"https://clawhub.ai/visibility-contract/skills/visibility-contract\",\"publisherHandle\":\"visibility-contract\",\"publisherDisplayName\":\"Local visibility owner\",\"publisherProfileUrl\":\"https://clawhub.ai/visibility-contract\",\"version\":\"7.0.0\",\"resolvedFrom\":\"version\",\"tag\":null,\"createdAt\":1789589383252,\"card\":{\"available\":true,\"path\":\"skill-card.md\",\"url\":\"http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=7.0.0\",\"sha256\":\"0a31e023a956ad48072905c2fd881523a2eba8c9259526cc6638d82b1517d680\",\"size\":112,\"contentType\":\"text/markdown; charset=utf-8\"},\"artifact\":{\"sourceFingerprint\":\"5b23f9c1848cbb41bfdd963fb687d42e7c50a449dc5f7dff4d175a91a39f4a17\",\"bundleFingerprints\":[\"5b23f9c1848cbb41bfdd963fb687d42e7c50a449dc5f7dff4d175a91a39f4a17\"],\"files\":[{\"path\":\"SKILL.md\",\"size\":107,\"sha256\":\"acef0237aaa6b96977ed447476a194e4e7835d7336bcbe5237f180de7c671f8b\",\"contentType\":null},{\"path\":\"index.js\",\"size\":107,\"sha256\":\"b8abd05c3142a63cbabd6daad4ab44789484cd1933c0de99173f2c8a503d995c\",\"contentType\":null}]},\"provenance\":{\"source\":\"unavailable\",\"reason\":\"No server-resolved GitHub import provenance is stored for this version.\"},\"security\":{\"status\":\"malicious\",\"passed\":false,\"rawStatus\":\"malicious\",\"verdict\":null,\"confidence\":null,\"summary\":null,\"model\":null,\"checkedAt\":1789589383252,\"scannerReports\":{\"aig\":null,\"skillspector\":null}},\"signature\":{\"status\":\"unsigned\"}}",
+      "json": {
+        "schema": "clawhub.skill.verify.v1",
+        "ok": false,
+        "decision": "fail",
+        "reasons": [
+          "security.status_not_clean"
+        ],
+        "slug": "visibility-contract",
+        "displayName": "visibility-contract",
+        "pageUrl": "https://clawhub.ai/visibility-contract/skills/visibility-contract",
+        "publisherHandle": "visibility-contract",
+        "publisherDisplayName": "Local visibility owner",
+        "publisherProfileUrl": "https://clawhub.ai/visibility-contract",
+        "version": "7.0.0",
+        "resolvedFrom": "version",
+        "tag": null,
+        "createdAt": 1789589383252,
+        "card": {
+          "available": true,
+          "path": "skill-card.md",
+          "url": "http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=7.0.0",
+          "sha256": "0a31e023a956ad48072905c2fd881523a2eba8c9259526cc6638d82b1517d680",
+          "size": 112,
+          "contentType": "text/markdown; charset=utf-8"
+        },
+        "artifact": {
+          "sourceFingerprint": "5b23f9c1848cbb41bfdd963fb687d42e7c50a449dc5f7dff4d175a91a39f4a17",
+          "bundleFingerprints": [
+            "5b23f9c1848cbb41bfdd963fb687d42e7c50a449dc5f7dff4d175a91a39f4a17"
+          ],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 107,
+              "sha256": "acef0237aaa6b96977ed447476a194e4e7835d7336bcbe5237f180de7c671f8b",
+              "contentType": null
+            },
+            {
+              "path": "index.js",
+              "size": 107,
+              "sha256": "b8abd05c3142a63cbabd6daad4ab44789484cd1933c0de99173f2c8a503d995c",
+              "contentType": null
+            }
+          ]
+        },
+        "provenance": {
+          "source": "unavailable",
+          "reason": "No server-resolved GitHub import provenance is stored for this version."
+        },
+        "security": {
+          "status": "malicious",
+          "passed": false,
+          "rawStatus": "malicious",
+          "verdict": null,
+          "confidence": null,
+          "summary": null,
+          "model": null,
+          "checkedAt": 1789589383252,
+          "scannerReports": {
+            "aig": null,
+            "skillspector": null
+          }
+        },
+        "signature": {
+          "status": "unsigned"
+        }
+      }
+    },
+    {
+      "surface": "skill-metadata",
+      "version": "7.0.0",
+      "path": "/api/v1/skills/visibility-contract/versions/7.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 1033,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "4b1931f771e82c82d49b4b6367c663d8d5733c2a2825d70a005f9978e4ade5da",
+      "body": "{\"skill\":{\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\"},\"version\":{\"version\":\"7.0.0\",\"createdAt\":1789589383252,\"changelog\":\"malicious fixture\",\"changelogSource\":null,\"license\":null,\"files\":[{\"path\":\"SKILL.md\",\"size\":107,\"sha256\":\"acef0237aaa6b96977ed447476a194e4e7835d7336bcbe5237f180de7c671f8b\",\"contentType\":null},{\"path\":\"skill-card.md\",\"size\":112,\"sha256\":\"0a31e023a956ad48072905c2fd881523a2eba8c9259526cc6638d82b1517d680\",\"contentType\":null},{\"path\":\"index.js\",\"size\":107,\"sha256\":\"b8abd05c3142a63cbabd6daad4ab44789484cd1933c0de99173f2c8a503d995c\",\"contentType\":null}],\"security\":{\"status\":\"malicious\",\"hasWarnings\":true,\"checkedAt\":1789589383252,\"model\":null,\"hasScanResult\":true,\"sha256hash\":null,\"virustotalUrl\":null,\"scanners\":{\"vt\":null,\"skillspector\":null,\"llm\":{\"status\":\"malicious\",\"verdict\":null,\"normalizedStatus\":\"malicious\",\"confidence\":null,\"summary\":null,\"dimensions\":null,\"guidance\":null,\"findings\":null,\"agenticRiskFindings\":null,\"riskSummary\":null,\"model\":null,\"checkedAt\":1789589383252}}}}}",
+      "json": {
+        "skill": {
+          "slug": "visibility-contract",
+          "displayName": "visibility-contract"
+        },
+        "version": {
+          "version": "7.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "malicious fixture",
+          "changelogSource": null,
+          "license": null,
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 107,
+              "sha256": "acef0237aaa6b96977ed447476a194e4e7835d7336bcbe5237f180de7c671f8b",
+              "contentType": null
+            },
+            {
+              "path": "skill-card.md",
+              "size": 112,
+              "sha256": "0a31e023a956ad48072905c2fd881523a2eba8c9259526cc6638d82b1517d680",
+              "contentType": null
+            },
+            {
+              "path": "index.js",
+              "size": 107,
+              "sha256": "b8abd05c3142a63cbabd6daad4ab44789484cd1933c0de99173f2c8a503d995c",
+              "contentType": null
+            }
+          ],
+          "security": {
+            "status": "malicious",
+            "hasWarnings": true,
+            "checkedAt": 1789589383252,
+            "model": null,
+            "hasScanResult": true,
+            "sha256hash": null,
+            "virustotalUrl": null,
+            "scanners": {
+              "vt": null,
+              "skillspector": null,
+              "llm": {
+                "status": "malicious",
+                "verdict": null,
+                "normalizedStatus": "malicious",
+                "confidence": null,
+                "summary": null,
+                "dimensions": null,
+                "guidance": null,
+                "findings": null,
+                "agenticRiskFindings": null,
+                "riskSummary": null,
+                "model": null,
+                "checkedAt": 1789589383252
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "surface": "skill-alias-metadata",
+      "version": "7.0.0",
+      "path": "/api/v1/packages/visibility-contract/versions/7.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 590,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "83a15bc97d9ff75efa1a1055ecd3897e5bdde9927e96ce421bd379cec8e6f396",
+      "body": "{\"package\":{\"name\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"family\":\"skill\"},\"version\":{\"version\":\"7.0.0\",\"createdAt\":1789589383252,\"changelog\":\"malicious fixture\",\"distTags\":[],\"files\":[{\"path\":\"SKILL.md\",\"size\":107,\"sha256\":\"acef0237aaa6b96977ed447476a194e4e7835d7336bcbe5237f180de7c671f8b\"},{\"path\":\"skill-card.md\",\"size\":112,\"sha256\":\"0a31e023a956ad48072905c2fd881523a2eba8c9259526cc6638d82b1517d680\"},{\"path\":\"index.js\",\"size\":107,\"sha256\":\"b8abd05c3142a63cbabd6daad4ab44789484cd1933c0de99173f2c8a503d995c\"}],\"compatibility\":null,\"verification\":null,\"artifact\":null}}",
+      "json": {
+        "package": {
+          "name": "visibility-contract",
+          "displayName": "visibility-contract",
+          "family": "skill"
+        },
+        "version": {
+          "version": "7.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "malicious fixture",
+          "distTags": [],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 107,
+              "sha256": "acef0237aaa6b96977ed447476a194e4e7835d7336bcbe5237f180de7c671f8b"
+            },
+            {
+              "path": "skill-card.md",
+              "size": 112,
+              "sha256": "0a31e023a956ad48072905c2fd881523a2eba8c9259526cc6638d82b1517d680"
+            },
+            {
+              "path": "index.js",
+              "size": 107,
+              "sha256": "b8abd05c3142a63cbabd6daad4ab44789484cd1933c0de99173f2c8a503d995c"
+            }
+          ],
+          "compatibility": null,
+          "verification": null,
+          "artifact": null
+        }
+      }
+    },
+    {
+      "surface": "skill-alias-file",
+      "version": "7.0.0",
+      "path": "/api/v1/packages/visibility-contract/file?path=SKILL.md&version=7.0.0",
+      "status": 403,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 95,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "e264d8255c5281d0856ab2810dcc71cdad9f63d9fe23d0d62227971f920744f3",
+      "body": "Blocked: this skill version has been flagged as malicious by ClawScan and cannot be downloaded."
+    },
+    {
+      "surface": "skill-zip",
+      "version": "7.0.0",
+      "path": "/api/v1/download?slug=visibility-contract&version=7.0.0",
+      "status": 403,
+      "type": "text/plain;charset=UTF-8",
+      "bytes": 95,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "e264d8255c5281d0856ab2810dcc71cdad9f63d9fe23d0d62227971f920744f3",
+      "body": "Blocked: this skill version has been flagged as malicious by ClawScan and cannot be downloaded."
+    },
+    {
+      "surface": "package-file",
+      "version": "7.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/file?path=index.js&version=7.0.0",
+      "status": 403,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 85,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "cb89797399d854c8721b328cba095f348831654b78e058fc3ece1370b380d154",
+      "body": "Blocked: this package release has been flagged as malicious and cannot be downloaded."
+    },
+    {
+      "surface": "package-zip",
+      "version": "7.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/download?version=7.0.0",
+      "status": 403,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 85,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "cb89797399d854c8721b328cba095f348831654b78e058fc3ece1370b380d154",
+      "body": "Blocked: this package release has been flagged as malicious and cannot be downloaded."
+    },
+    {
+      "surface": "package-metadata",
+      "version": "7.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/versions/7.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 976,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "b2175f603b962a274a6c33260f65ca922e405c3f5862efafb0d73f42fbb7519e",
+      "body": "{\"package\":{\"name\":\"visibility-plugin-contract\",\"displayName\":\"visibility-plugin-contract\",\"family\":\"code-plugin\"},\"version\":{\"version\":\"7.0.0\",\"createdAt\":1789589383252,\"changelog\":\"malicious fixture\",\"distTags\":[],\"files\":[{\"path\":\"SKILL.md\",\"size\":107,\"sha256\":\"acef0237aaa6b96977ed447476a194e4e7835d7336bcbe5237f180de7c671f8b\"},{\"path\":\"skill-card.md\",\"size\":112,\"sha256\":\"0a31e023a956ad48072905c2fd881523a2eba8c9259526cc6638d82b1517d680\"},{\"path\":\"index.js\",\"size\":107,\"sha256\":\"b8abd05c3142a63cbabd6daad4ab44789484cd1933c0de99173f2c8a503d995c\"}],\"compatibility\":null,\"pluginManifestSummary\":null,\"clawManifestSummary\":null,\"verification\":{\"scanStatus\":\"malicious\",\"scope\":\"artifact-only\",\"tier\":\"source-linked\"},\"artifact\":{\"kind\":\"legacy-zip\",\"format\":\"zip\",\"source\":\"clawhub\",\"artifactKind\":\"legacy-zip\",\"packageName\":\"visibility-plugin-contract\",\"version\":\"7.0.0\"},\"sha256hash\":null,\"vtAnalysis\":null,\"skillSpectorAnalysis\":null,\"llmAnalysis\":null,\"staticScan\":null}}",
+      "json": {
+        "package": {
+          "name": "visibility-plugin-contract",
+          "displayName": "visibility-plugin-contract",
+          "family": "code-plugin"
+        },
+        "version": {
+          "version": "7.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "malicious fixture",
+          "distTags": [],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 107,
+              "sha256": "acef0237aaa6b96977ed447476a194e4e7835d7336bcbe5237f180de7c671f8b"
+            },
+            {
+              "path": "skill-card.md",
+              "size": 112,
+              "sha256": "0a31e023a956ad48072905c2fd881523a2eba8c9259526cc6638d82b1517d680"
+            },
+            {
+              "path": "index.js",
+              "size": 107,
+              "sha256": "b8abd05c3142a63cbabd6daad4ab44789484cd1933c0de99173f2c8a503d995c"
+            }
+          ],
+          "compatibility": null,
+          "pluginManifestSummary": null,
+          "clawManifestSummary": null,
+          "verification": {
+            "scanStatus": "malicious",
+            "scope": "artifact-only",
+            "tier": "source-linked"
+          },
+          "artifact": {
+            "kind": "legacy-zip",
+            "format": "zip",
+            "source": "clawhub",
+            "artifactKind": "legacy-zip",
+            "packageName": "visibility-plugin-contract",
+            "version": "7.0.0"
+          },
+          "sha256hash": null,
+          "vtAnalysis": null,
+          "skillSpectorAnalysis": null,
+          "llmAnalysis": null,
+          "staticScan": null
+        }
+      }
+    },
+    {
+      "surface": "skill-file",
+      "version": "8.0.0",
+      "path": "/api/v1/skills/visibility-contract/file?path=SKILL.md&version=8.0.0",
+      "status": 403,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 95,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "e264d8255c5281d0856ab2810dcc71cdad9f63d9fe23d0d62227971f920744f3",
+      "body": "Blocked: this skill version has been flagged as malicious by ClawScan and cannot be downloaded."
+    },
+    {
+      "surface": "skill-card",
+      "version": "8.0.0",
+      "path": "/api/v1/skills/visibility-contract/card?version=8.0.0",
+      "status": 403,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 95,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "e264d8255c5281d0856ab2810dcc71cdad9f63d9fe23d0d62227971f920744f3",
+      "body": "Blocked: this skill version has been flagged as malicious by ClawScan and cannot be downloaded."
+    },
+    {
+      "surface": "skill-verify",
+      "version": "8.0.0",
+      "path": "/api/v1/skills/visibility-contract/verify?version=8.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 1602,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "3edd8da071c904ac0d1b83acc16ba98dd40101a51ab7cc72280649f3180a3aa4",
+      "body": "{\"schema\":\"clawhub.skill.verify.v1\",\"ok\":false,\"decision\":\"fail\",\"reasons\":[\"security.status_not_clean\",\"security.error\"],\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"pageUrl\":\"https://clawhub.ai/visibility-contract/skills/visibility-contract\",\"publisherHandle\":\"visibility-contract\",\"publisherDisplayName\":\"Local visibility owner\",\"publisherProfileUrl\":\"https://clawhub.ai/visibility-contract\",\"version\":\"8.0.0\",\"resolvedFrom\":\"version\",\"tag\":null,\"createdAt\":1789589383252,\"card\":{\"available\":true,\"path\":\"skill-card.md\",\"url\":\"http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=8.0.0\",\"sha256\":\"771f46875c0c0dcfe231bfccb56091418157bb87f672d330e54f1572c94b136c\",\"size\":106,\"contentType\":\"text/markdown; charset=utf-8\"},\"artifact\":{\"sourceFingerprint\":\"907a2ed1d34d35a95281a712888ed9fe652dc75f84045f09a70822f393b7c5a2\",\"bundleFingerprints\":[\"907a2ed1d34d35a95281a712888ed9fe652dc75f84045f09a70822f393b7c5a2\"],\"files\":[{\"path\":\"SKILL.md\",\"size\":101,\"sha256\":\"46778f41808498361214f5a43486bb59a86dc19330306d06129269e46c50bc06\",\"contentType\":null},{\"path\":\"index.js\",\"size\":101,\"sha256\":\"752a1a76016629abb313e681992d8c2a4760abdbb687bb8ecaa88fe5d5485365\",\"contentType\":null}]},\"provenance\":{\"source\":\"unavailable\",\"reason\":\"No server-resolved GitHub import provenance is stored for this version.\"},\"security\":{\"status\":\"error\",\"passed\":false,\"rawStatus\":\"failed\",\"verdict\":null,\"confidence\":null,\"summary\":null,\"model\":null,\"checkedAt\":1789589383252,\"scannerReports\":{\"aig\":null,\"skillspector\":null}},\"signature\":{\"status\":\"unsigned\"}}",
+      "json": {
+        "schema": "clawhub.skill.verify.v1",
+        "ok": false,
+        "decision": "fail",
+        "reasons": [
+          "security.status_not_clean",
+          "security.error"
+        ],
+        "slug": "visibility-contract",
+        "displayName": "visibility-contract",
+        "pageUrl": "https://clawhub.ai/visibility-contract/skills/visibility-contract",
+        "publisherHandle": "visibility-contract",
+        "publisherDisplayName": "Local visibility owner",
+        "publisherProfileUrl": "https://clawhub.ai/visibility-contract",
+        "version": "8.0.0",
+        "resolvedFrom": "version",
+        "tag": null,
+        "createdAt": 1789589383252,
+        "card": {
+          "available": true,
+          "path": "skill-card.md",
+          "url": "http://127.0.0.1:3911/api/v1/skills/visibility-contract/card?ownerHandle=visibility-contract&version=8.0.0",
+          "sha256": "771f46875c0c0dcfe231bfccb56091418157bb87f672d330e54f1572c94b136c",
+          "size": 106,
+          "contentType": "text/markdown; charset=utf-8"
+        },
+        "artifact": {
+          "sourceFingerprint": "907a2ed1d34d35a95281a712888ed9fe652dc75f84045f09a70822f393b7c5a2",
+          "bundleFingerprints": [
+            "907a2ed1d34d35a95281a712888ed9fe652dc75f84045f09a70822f393b7c5a2"
+          ],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 101,
+              "sha256": "46778f41808498361214f5a43486bb59a86dc19330306d06129269e46c50bc06",
+              "contentType": null
+            },
+            {
+              "path": "index.js",
+              "size": 101,
+              "sha256": "752a1a76016629abb313e681992d8c2a4760abdbb687bb8ecaa88fe5d5485365",
+              "contentType": null
+            }
+          ]
+        },
+        "provenance": {
+          "source": "unavailable",
+          "reason": "No server-resolved GitHub import provenance is stored for this version."
+        },
+        "security": {
+          "status": "error",
+          "passed": false,
+          "rawStatus": "failed",
+          "verdict": null,
+          "confidence": null,
+          "summary": null,
+          "model": null,
+          "checkedAt": 1789589383252,
+          "scannerReports": {
+            "aig": null,
+            "skillspector": null
+          }
+        },
+        "signature": {
+          "status": "unsigned"
+        }
+      }
+    },
+    {
+      "surface": "skill-metadata",
+      "version": "8.0.0",
+      "path": "/api/v1/skills/visibility-contract/versions/8.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 1021,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "807445b34bc9a8cc82d68fa31324cdfe9e7298cace0c621fb9850a7523e7d0e1",
+      "body": "{\"skill\":{\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\"},\"version\":{\"version\":\"8.0.0\",\"createdAt\":1789589383252,\"changelog\":\"failed fixture\",\"changelogSource\":null,\"license\":null,\"files\":[{\"path\":\"SKILL.md\",\"size\":101,\"sha256\":\"46778f41808498361214f5a43486bb59a86dc19330306d06129269e46c50bc06\",\"contentType\":null},{\"path\":\"skill-card.md\",\"size\":106,\"sha256\":\"771f46875c0c0dcfe231bfccb56091418157bb87f672d330e54f1572c94b136c\",\"contentType\":null},{\"path\":\"index.js\",\"size\":101,\"sha256\":\"752a1a76016629abb313e681992d8c2a4760abdbb687bb8ecaa88fe5d5485365\",\"contentType\":null}],\"security\":{\"status\":\"error\",\"hasWarnings\":false,\"checkedAt\":1789589383252,\"model\":null,\"hasScanResult\":false,\"sha256hash\":null,\"virustotalUrl\":null,\"scanners\":{\"vt\":null,\"skillspector\":null,\"llm\":{\"status\":\"failed\",\"verdict\":null,\"normalizedStatus\":\"error\",\"confidence\":null,\"summary\":null,\"dimensions\":null,\"guidance\":null,\"findings\":null,\"agenticRiskFindings\":null,\"riskSummary\":null,\"model\":null,\"checkedAt\":1789589383252}}}}}",
+      "json": {
+        "skill": {
+          "slug": "visibility-contract",
+          "displayName": "visibility-contract"
+        },
+        "version": {
+          "version": "8.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "failed fixture",
+          "changelogSource": null,
+          "license": null,
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 101,
+              "sha256": "46778f41808498361214f5a43486bb59a86dc19330306d06129269e46c50bc06",
+              "contentType": null
+            },
+            {
+              "path": "skill-card.md",
+              "size": 106,
+              "sha256": "771f46875c0c0dcfe231bfccb56091418157bb87f672d330e54f1572c94b136c",
+              "contentType": null
+            },
+            {
+              "path": "index.js",
+              "size": 101,
+              "sha256": "752a1a76016629abb313e681992d8c2a4760abdbb687bb8ecaa88fe5d5485365",
+              "contentType": null
+            }
+          ],
+          "security": {
+            "status": "error",
+            "hasWarnings": false,
+            "checkedAt": 1789589383252,
+            "model": null,
+            "hasScanResult": false,
+            "sha256hash": null,
+            "virustotalUrl": null,
+            "scanners": {
+              "vt": null,
+              "skillspector": null,
+              "llm": {
+                "status": "failed",
+                "verdict": null,
+                "normalizedStatus": "error",
+                "confidence": null,
+                "summary": null,
+                "dimensions": null,
+                "guidance": null,
+                "findings": null,
+                "agenticRiskFindings": null,
+                "riskSummary": null,
+                "model": null,
+                "checkedAt": 1789589383252
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "surface": "skill-alias-metadata",
+      "version": "8.0.0",
+      "path": "/api/v1/packages/visibility-contract/versions/8.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 587,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "dce9c868a67d391231ca0466fd1fac5a5478de55d6706591e9a8261ed9bfa931",
+      "body": "{\"package\":{\"name\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"family\":\"skill\"},\"version\":{\"version\":\"8.0.0\",\"createdAt\":1789589383252,\"changelog\":\"failed fixture\",\"distTags\":[],\"files\":[{\"path\":\"SKILL.md\",\"size\":101,\"sha256\":\"46778f41808498361214f5a43486bb59a86dc19330306d06129269e46c50bc06\"},{\"path\":\"skill-card.md\",\"size\":106,\"sha256\":\"771f46875c0c0dcfe231bfccb56091418157bb87f672d330e54f1572c94b136c\"},{\"path\":\"index.js\",\"size\":101,\"sha256\":\"752a1a76016629abb313e681992d8c2a4760abdbb687bb8ecaa88fe5d5485365\"}],\"compatibility\":null,\"verification\":null,\"artifact\":null}}",
+      "json": {
+        "package": {
+          "name": "visibility-contract",
+          "displayName": "visibility-contract",
+          "family": "skill"
+        },
+        "version": {
+          "version": "8.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "failed fixture",
+          "distTags": [],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 101,
+              "sha256": "46778f41808498361214f5a43486bb59a86dc19330306d06129269e46c50bc06"
+            },
+            {
+              "path": "skill-card.md",
+              "size": 106,
+              "sha256": "771f46875c0c0dcfe231bfccb56091418157bb87f672d330e54f1572c94b136c"
+            },
+            {
+              "path": "index.js",
+              "size": 101,
+              "sha256": "752a1a76016629abb313e681992d8c2a4760abdbb687bb8ecaa88fe5d5485365"
+            }
+          ],
+          "compatibility": null,
+          "verification": null,
+          "artifact": null
+        }
+      }
+    },
+    {
+      "surface": "skill-alias-file",
+      "version": "8.0.0",
+      "path": "/api/v1/packages/visibility-contract/file?path=SKILL.md&version=8.0.0",
+      "status": 403,
+      "type": "text/plain; charset=utf-8",
+      "bytes": 95,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "e264d8255c5281d0856ab2810dcc71cdad9f63d9fe23d0d62227971f920744f3",
+      "body": "Blocked: this skill version has been flagged as malicious by ClawScan and cannot be downloaded."
+    },
+    {
+      "surface": "skill-zip",
+      "version": "8.0.0",
+      "path": "/api/v1/download?slug=visibility-contract&version=8.0.0",
+      "status": 403,
+      "type": "text/plain;charset=UTF-8",
+      "bytes": 95,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "e264d8255c5281d0856ab2810dcc71cdad9f63d9fe23d0d62227971f920744f3",
+      "body": "Blocked: this skill version has been flagged as malicious by ClawScan and cannot be downloaded."
+    },
+    {
+      "surface": "package-file",
+      "version": "8.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/file?path=index.js&version=8.0.0",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 101,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "752a1a76016629abb313e681992d8c2a4760abdbb687bb8ecaa88fe5d5485365",
+      "body": "---\nname: visibility-proof\ndescription: contract failed content\n---\n# contract failed 8.0.0 index.js\n"
+    },
+    {
+      "surface": "package-zip",
+      "version": "8.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/download?version=8.0.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 603,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "bf1b12760f4e7258b1458a44c3ec7be99c323857c06d04e4a6b37804d9ae7380",
+      "files": [
+        "package/SKILL.md",
+        "package/index.js",
+        "package/skill-card.md"
+      ],
+      "fixtureKinds": [
+        "failed"
+      ],
+      "containsWithheld": false
+    },
+    {
+      "surface": "package-metadata",
+      "version": "8.0.0",
+      "path": "/api/v1/packages/visibility-plugin-contract/versions/8.0.0",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 971,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "91cd61f4a3ecf1051e6ce1448d7701f798779923095f714713470e83b2b2ef5f",
+      "body": "{\"package\":{\"name\":\"visibility-plugin-contract\",\"displayName\":\"visibility-plugin-contract\",\"family\":\"code-plugin\"},\"version\":{\"version\":\"8.0.0\",\"createdAt\":1789589383252,\"changelog\":\"failed fixture\",\"distTags\":[],\"files\":[{\"path\":\"SKILL.md\",\"size\":101,\"sha256\":\"46778f41808498361214f5a43486bb59a86dc19330306d06129269e46c50bc06\"},{\"path\":\"skill-card.md\",\"size\":106,\"sha256\":\"771f46875c0c0dcfe231bfccb56091418157bb87f672d330e54f1572c94b136c\"},{\"path\":\"index.js\",\"size\":101,\"sha256\":\"752a1a76016629abb313e681992d8c2a4760abdbb687bb8ecaa88fe5d5485365\"}],\"compatibility\":null,\"pluginManifestSummary\":null,\"clawManifestSummary\":null,\"verification\":{\"scanStatus\":\"pending\",\"scope\":\"artifact-only\",\"tier\":\"source-linked\"},\"artifact\":{\"kind\":\"legacy-zip\",\"format\":\"zip\",\"source\":\"clawhub\",\"artifactKind\":\"legacy-zip\",\"packageName\":\"visibility-plugin-contract\",\"version\":\"8.0.0\"},\"sha256hash\":null,\"vtAnalysis\":null,\"skillSpectorAnalysis\":null,\"llmAnalysis\":null,\"staticScan\":null}}",
+      "json": {
+        "package": {
+          "name": "visibility-plugin-contract",
+          "displayName": "visibility-plugin-contract",
+          "family": "code-plugin"
+        },
+        "version": {
+          "version": "8.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "failed fixture",
+          "distTags": [],
+          "files": [
+            {
+              "path": "SKILL.md",
+              "size": 101,
+              "sha256": "46778f41808498361214f5a43486bb59a86dc19330306d06129269e46c50bc06"
+            },
+            {
+              "path": "skill-card.md",
+              "size": 106,
+              "sha256": "771f46875c0c0dcfe231bfccb56091418157bb87f672d330e54f1572c94b136c"
+            },
+            {
+              "path": "index.js",
+              "size": 101,
+              "sha256": "752a1a76016629abb313e681992d8c2a4760abdbb687bb8ecaa88fe5d5485365"
+            }
+          ],
+          "compatibility": null,
+          "pluginManifestSummary": null,
+          "clawManifestSummary": null,
+          "verification": {
+            "scanStatus": "pending",
+            "scope": "artifact-only",
+            "tier": "source-linked"
+          },
+          "artifact": {
+            "kind": "legacy-zip",
+            "format": "zip",
+            "source": "clawhub",
+            "artifactKind": "legacy-zip",
+            "packageName": "visibility-plugin-contract",
+            "version": "8.0.0"
+          },
+          "sha256hash": null,
+          "vtAnalysis": null,
+          "skillSpectorAnalysis": null,
+          "llmAnalysis": null,
+          "staticScan": null
+        }
+      }
+    },
+    {
+      "surface": "http-resolve",
+      "version": "1.0.0",
+      "path": "/api/v1/resolve?slug=visibility-contract&hash=34cfb8e40437e161dcd91b2eab66daddb9a5c9e9ed3a237e08d3ead557cb0fbe",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 94,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "08cfb00ff1ddd6c25233d89eb3016e9fd7037dd7254dbb5b387ca075546cdf12",
+      "body": "{\"slug\":\"visibility-contract\",\"match\":{\"version\":\"1.0.0\"},\"latestVersion\":{\"version\":\"1.0.0\"}}",
+      "json": {
+        "slug": "visibility-contract",
+        "match": {
+          "version": "1.0.0"
+        },
+        "latestVersion": {
+          "version": "1.0.0"
+        }
+      }
+    },
+    {
+      "surface": "http-resolve",
+      "version": "1.1.0",
+      "path": "/api/v1/resolve?slug=visibility-contract&hash=7ad63b81d0559ab0d08ff668187395b7c05e2281727340676a11bc88aa7ddcba",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 94,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "c3f586dd2cfb5e53146bb69827598c7b2ca7ecfbabe7853969338f43a4256218",
+      "body": "{\"slug\":\"visibility-contract\",\"match\":{\"version\":\"1.1.0\"},\"latestVersion\":{\"version\":\"1.0.0\"}}",
+      "json": {
+        "slug": "visibility-contract",
+        "match": {
+          "version": "1.1.0"
+        },
+        "latestVersion": {
+          "version": "1.0.0"
+        }
+      }
+    },
+    {
+      "surface": "http-resolve",
+      "version": "2.0.0",
+      "path": "/api/v1/resolve?slug=visibility-contract&hash=407ff5b03a8055a6b751d2b659a875dfb7769bf58cae79bc5f8926a2d0721ae4",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 94,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "8e2ef59d987a56a1fbba01422ddb4fd3ff015952871a608ea41481d444962e68",
+      "body": "{\"slug\":\"visibility-contract\",\"match\":{\"version\":\"2.0.0\"},\"latestVersion\":{\"version\":\"1.0.0\"}}",
+      "json": {
+        "slug": "visibility-contract",
+        "match": {
+          "version": "2.0.0"
+        },
+        "latestVersion": {
+          "version": "1.0.0"
+        }
+      }
+    },
+    {
+      "surface": "http-resolve",
+      "version": "3.0.0",
+      "path": "/api/v1/resolve?slug=visibility-contract&hash=c9c4e1641f838f78e2f61fc382cb10229e205a3e49081f2a80b90968096e281e",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 94,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "7cde96502167d5fbb3819d68abd1970c1b3ad81a4edea2dc16cc0b0f258ad096",
+      "body": "{\"slug\":\"visibility-contract\",\"match\":{\"version\":\"3.0.0\"},\"latestVersion\":{\"version\":\"1.0.0\"}}",
+      "json": {
+        "slug": "visibility-contract",
+        "match": {
+          "version": "3.0.0"
+        },
+        "latestVersion": {
+          "version": "1.0.0"
+        }
+      }
+    },
+    {
+      "surface": "skill-file-canary",
+      "path": "/api/v1/skills/visibility-contract/file?path=SKILL.md&tag=canary",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 103,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "1a2a6f28a5e468c8a824618daf70a7bc9e3896d6ab04d6979fd5bbb13897d3e1",
+      "body": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 SKILL.md\n"
+    },
+    {
+      "surface": "skill-file-missing-tag",
+      "path": "/api/v1/skills/visibility-contract/file?path=SKILL.md&tag=missing",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 107,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "79f61ec46c96eda7ac9edb901e23fdb9c89cba8b87d9065d7bcdb33792115b58",
+      "body": "---\nname: visibility-proof\ndescription: contract published content\n---\n# contract published 1.0.0 SKILL.md\n"
+    },
+    {
+      "surface": "skill-tags",
+      "path": "/api/v1/skills/visibility-contract",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 697,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a38270b49e06b67e53612b1c01de6561021c1590784f02410b224599d775ddd6",
+      "body": "{\"skill\":{\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"summary\":null,\"icon\":null,\"description\":\"---\\nname: visibility-proof\\ndescription: contract published content\\n---\\n# contract published 1.0.0 SKILL.md\\n\",\"tags\":{\"latest\":\"1.0.0\",\"stable\":\"1.0.0\",\"canary\":\"2.0.0\"},\"stats\":{\"comments\":0,\"downloads\":0,\"installs\":0,\"stars\":0,\"versions\":9},\"createdAt\":1789589383252,\"updatedAt\":1789589383252},\"latestVersion\":{\"version\":\"1.0.0\",\"createdAt\":1789589383252,\"changelog\":\"published fixture\",\"license\":null},\"metadata\":null,\"owner\":{\"handle\":\"visibility-contract\",\"userId\":\"sx77755vetqt3emrt4ky2rfe8x8eh7k4\",\"displayName\":\"Local visibility owner\",\"image\":null},\"moderation\":null}",
+      "json": {
+        "skill": {
+          "slug": "visibility-contract",
+          "displayName": "visibility-contract",
+          "summary": null,
+          "icon": null,
+          "description": "---\nname: visibility-proof\ndescription: contract published content\n---\n# contract published 1.0.0 SKILL.md\n",
+          "tags": {
+            "latest": "1.0.0",
+            "stable": "1.0.0",
+            "canary": "2.0.0"
+          },
+          "stats": {
+            "comments": 0,
+            "downloads": 0,
+            "installs": 0,
+            "stars": 0,
+            "versions": 9
+          },
+          "createdAt": 1789589383252,
+          "updatedAt": 1789589383252
+        },
+        "latestVersion": {
+          "version": "1.0.0",
+          "createdAt": 1789589383252,
+          "changelog": "published fixture",
+          "license": null
+        },
+        "metadata": null,
+        "owner": {
+          "handle": "visibility-contract",
+          "userId": "sx77755vetqt3emrt4ky2rfe8x8eh7k4",
+          "displayName": "Local visibility owner",
+          "image": null
+        },
+        "moderation": null
+      }
+    },
+    {
+      "surface": "package-tags",
+      "path": "/api/v1/packages/visibility-plugin-contract",
+      "status": 200,
+      "type": "application/json",
+      "bytes": 635,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "be523845c6841e3fc3e9663a73093cfe1a0c238dcbc9d652e2266b7a33d591e2",
+      "body": "{\"package\":{\"_id\":\"r17chzzny8a60r6azgthsafvhs8eg48z\",\"artifact\":{\"format\":\"zip\",\"kind\":\"legacy-zip\"},\"channel\":\"official\",\"createdAt\":1789589383252,\"displayName\":\"visibility-plugin-contract\",\"family\":\"code-plugin\",\"icon\":null,\"isOfficial\":true,\"latestReleaseId\":\"q971zhb9kepqbbmd4qvekjy05n8eggcw\",\"latestVersion\":\"1.0.0\",\"name\":\"visibility-plugin-contract\",\"scanStatus\":\"clean\",\"stats\":{\"downloads\":0,\"installs\":0,\"stars\":0,\"versions\":9},\"tags\":{\"canary\":\"2.0.0\",\"latest\":\"1.0.0\",\"stable\":\"1.0.0\"},\"updatedAt\":1789589383252},\"owner\":{\"handle\":\"visibility-contract\",\"displayName\":\"Local visibility owner\",\"image\":null,\"official\":false}}",
+      "json": {
+        "package": {
+          "_id": "r17chzzny8a60r6azgthsafvhs8eg48z",
+          "artifact": {
+            "format": "zip",
+            "kind": "legacy-zip"
+          },
+          "channel": "official",
+          "createdAt": 1789589383252,
+          "displayName": "visibility-plugin-contract",
+          "family": "code-plugin",
+          "icon": null,
+          "isOfficial": true,
+          "latestReleaseId": "q971zhb9kepqbbmd4qvekjy05n8eggcw",
+          "latestVersion": "1.0.0",
+          "name": "visibility-plugin-contract",
+          "scanStatus": "clean",
+          "stats": {
+            "downloads": 0,
+            "installs": 0,
+            "stars": 0,
+            "versions": 9
+          },
+          "tags": {
+            "canary": "2.0.0",
+            "latest": "1.0.0",
+            "stable": "1.0.0"
+          },
+          "updatedAt": 1789589383252
+        },
+        "owner": {
+          "handle": "visibility-contract",
+          "displayName": "Local visibility owner",
+          "image": null,
+          "official": false
+        }
+      }
+    },
+    {
+      "surface": "package-file-canary",
+      "path": "/api/v1/packages/visibility-plugin-contract/file?path=index.js&tag=canary",
+      "status": 200,
+      "type": "application/octet-stream",
+      "bytes": 103,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "5c7a8f9ab01ba10da9d4698cf75f5fdeb68e31d0221f716092bba7af0553b806",
+      "body": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 index.js\n"
+    },
+    {
+      "surface": "hosted-skill-zip",
+      "version": "1.0.0",
+      "path": "/api/v1/download?slug=visibility-contract&version=1.0.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 845,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "f85109ae31170d0c86f9d2728a90bea9dd09a6e8c49d998553720925e9f2f6de",
+      "files": [
+        "SKILL.md",
+        "_meta.json",
+        "index.js",
+        "skill-card.md"
+      ],
+      "fixtureKinds": [
+        "published"
+      ],
+      "containsWithheld": false
+    },
+    {
+      "surface": "hosted-skill-zip",
+      "version": "1.1.0",
+      "path": "/api/v1/download?slug=visibility-contract&version=1.1.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 835,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "934786595a22a6cd8994f5815ab62d94c61293f487419ff71de2ae5252e9dbf8",
+      "files": [
+        "SKILL.md",
+        "_meta.json",
+        "index.js",
+        "skill-card.md"
+      ],
+      "fixtureKinds": [
+        "legacy"
+      ],
+      "containsWithheld": false
+    },
+    {
+      "surface": "hosted-skill-zip",
+      "version": "2.0.0",
+      "path": "/api/v1/download?slug=visibility-contract&version=2.0.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 838,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "fac6ea6acc3a2f10b86fbce15a060986183e0d521ccc0e5f45cce75f411badd4",
+      "files": [
+        "SKILL.md",
+        "_meta.json",
+        "index.js",
+        "skill-card.md"
+      ],
+      "fixtureKinds": [
+        "pending"
+      ],
+      "containsWithheld": true
+    },
+    {
+      "surface": "hosted-skill-zip",
+      "version": "3.0.0",
+      "path": "/api/v1/download?slug=visibility-contract&version=3.0.0",
+      "status": 200,
+      "type": "application/zip",
+      "bytes": 839,
+      "exported": null,
+      "exportErrors": null,
+      "sha256": "a8050bceb6fbb830ac02b3d1ca9cd2172774d9ea14fb81f739cc5bdcb5b8bbc0",
+      "files": [
+        "SKILL.md",
+        "_meta.json",
+        "index.js",
+        "skill-card.md"
+      ],
+      "fixtureKinds": [
+        "blocked"
+      ],
+      "containsWithheld": true
+    }
+  ],
+  "queries": [
+    {
+      "surface": "hash",
+      "version": "1.0.0",
+      "status": "published",
+      "identity": "anonymous",
+      "result": {
+        "latestVersion": {
+          "version": "1.0.0"
+        },
+        "match": {
+          "version": "1.0.0"
+        }
+      }
+    },
+    {
+      "surface": "hash",
+      "version": "1.1.0",
+      "status": "legacy",
+      "identity": "anonymous",
+      "result": {
+        "latestVersion": {
+          "version": "1.0.0"
+        },
+        "match": {
+          "version": "1.1.0"
+        }
+      }
+    },
+    {
+      "surface": "hash",
+      "version": "2.0.0",
+      "status": "pending",
+      "identity": "anonymous",
+      "result": {
+        "latestVersion": {
+          "version": "1.0.0"
+        },
+        "match": {
+          "version": "2.0.0"
+        }
+      }
+    },
+    {
+      "surface": "hash",
+      "version": "3.0.0",
+      "status": "blocked",
+      "identity": "anonymous",
+      "result": {
+        "latestVersion": {
+          "version": "1.0.0"
+        },
+        "match": {
+          "version": "3.0.0"
+        }
+      }
+    }
+  ],
+  "previews": [
+    {
+      "actor": "anonymous",
+      "returned": false,
+      "containsPending": false,
+      "error": true
+    },
+    {
+      "actor": "owner",
+      "returned": true,
+      "containsPending": true,
+      "error": false
+    },
+    {
+      "actor": "staff",
+      "returned": true,
+      "containsPending": true,
+      "error": false
+    },
+    {
+      "actor": "ordinary-user",
+      "returned": false,
+      "containsPending": false,
+      "error": true
+    }
+  ],
+  "lifecycle": [
+    {
+      "stage": "published-pointer",
+      "requests": [
+        {
+          "surface": "skill-root",
+          "path": "/api/v1/skills/visibility-contract",
+          "status": 200,
+          "type": "application/json",
+          "bytes": 691,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "a929e2cc71b91f7f784d7c3ed6a12b311e1e8eed750bad39aa1db7c31cf58b8e",
+          "body": "{\"skill\":{\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"summary\":null,\"icon\":null,\"description\":\"---\\nname: visibility-proof\\ndescription: contract pending content\\n---\\n# contract pending 2.0.0 SKILL.md\\n\",\"tags\":{\"canary\":\"2.0.0\",\"latest\":\"1.0.0\",\"stable\":\"1.0.0\"},\"stats\":{\"comments\":0,\"downloads\":0,\"installs\":0,\"stars\":0,\"versions\":9},\"createdAt\":1789589383252,\"updatedAt\":1789589383252},\"latestVersion\":{\"version\":\"2.0.0\",\"createdAt\":1789589383252,\"changelog\":\"pending fixture\",\"license\":null},\"metadata\":null,\"owner\":{\"handle\":\"visibility-contract\",\"userId\":\"sx77755vetqt3emrt4ky2rfe8x8eh7k4\",\"displayName\":\"Local visibility owner\",\"image\":null},\"moderation\":null}",
+          "json": {
+            "skill": {
+              "slug": "visibility-contract",
+              "displayName": "visibility-contract",
+              "summary": null,
+              "icon": null,
+              "description": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 SKILL.md\n",
+              "tags": {
+                "canary": "2.0.0",
+                "latest": "1.0.0",
+                "stable": "1.0.0"
+              },
+              "stats": {
+                "comments": 0,
+                "downloads": 0,
+                "installs": 0,
+                "stars": 0,
+                "versions": 9
+              },
+              "createdAt": 1789589383252,
+              "updatedAt": 1789589383252
+            },
+            "latestVersion": {
+              "version": "2.0.0",
+              "createdAt": 1789589383252,
+              "changelog": "pending fixture",
+              "license": null
+            },
+            "metadata": null,
+            "owner": {
+              "handle": "visibility-contract",
+              "userId": "sx77755vetqt3emrt4ky2rfe8x8eh7k4",
+              "displayName": "Local visibility owner",
+              "image": null
+            },
+            "moderation": null
+          }
+        },
+        {
+          "surface": "skill-list",
+          "path": "/api/v1/skills?limit=100",
+          "status": 200,
+          "type": "application/json",
+          "bytes": 486,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "c6addb83714b99568a990ea3cecd3cb56584634107935627f0dda27a3a1278c4",
+          "body": "{\"items\":[{\"ownerHandle\":\"visibility-contract\",\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"summary\":null,\"description\":null,\"topics\":[],\"tags\":{\"canary\":\"2.0.0\",\"latest\":\"1.0.0\",\"stable\":\"1.0.0\"},\"stats\":{\"comments\":0,\"downloads\":0,\"installs\":0,\"stars\":0,\"versions\":9},\"createdAt\":1789589383252,\"updatedAt\":1789589383252,\"latestVersion\":{\"version\":\"2.0.0\",\"createdAt\":1789589383252,\"changelog\":\"pending fixture\",\"license\":null},\"metadata\":null}],\"nextCursor\":null}",
+          "json": {
+            "items": [
+              {
+                "ownerHandle": "visibility-contract",
+                "slug": "visibility-contract",
+                "displayName": "visibility-contract",
+                "summary": null,
+                "description": null,
+                "topics": [],
+                "tags": {
+                  "canary": "2.0.0",
+                  "latest": "1.0.0",
+                  "stable": "1.0.0"
+                },
+                "stats": {
+                  "comments": 0,
+                  "downloads": 0,
+                  "installs": 0,
+                  "stars": 0,
+                  "versions": 9
+                },
+                "createdAt": 1789589383252,
+                "updatedAt": 1789589383252,
+                "latestVersion": {
+                  "version": "2.0.0",
+                  "createdAt": 1789589383252,
+                  "changelog": "pending fixture",
+                  "license": null
+                },
+                "metadata": null
+              }
+            ],
+            "nextCursor": null
+          }
+        },
+        {
+          "surface": "package-root",
+          "path": "/api/v1/packages/visibility-plugin-contract",
+          "status": 200,
+          "type": "application/json",
+          "bytes": 635,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "6a1a4cd834bcdbc3d70f500a8352c1c8280d4efb84fdbbf3b89e40247bd34d44",
+          "body": "{\"package\":{\"_id\":\"r17chzzny8a60r6azgthsafvhs8eg48z\",\"artifact\":{\"format\":\"zip\",\"kind\":\"legacy-zip\"},\"channel\":\"official\",\"createdAt\":1789589383252,\"displayName\":\"visibility-plugin-contract\",\"family\":\"code-plugin\",\"icon\":null,\"isOfficial\":true,\"latestReleaseId\":\"q973a9fffe41xz33m83k1y9vcd8egyf6\",\"latestVersion\":\"2.0.0\",\"name\":\"visibility-plugin-contract\",\"scanStatus\":\"clean\",\"stats\":{\"downloads\":0,\"installs\":0,\"stars\":0,\"versions\":9},\"tags\":{\"canary\":\"2.0.0\",\"latest\":\"1.0.0\",\"stable\":\"1.0.0\"},\"updatedAt\":1789589383252},\"owner\":{\"handle\":\"visibility-contract\",\"displayName\":\"Local visibility owner\",\"image\":null,\"official\":false}}",
+          "json": {
+            "package": {
+              "_id": "r17chzzny8a60r6azgthsafvhs8eg48z",
+              "artifact": {
+                "format": "zip",
+                "kind": "legacy-zip"
+              },
+              "channel": "official",
+              "createdAt": 1789589383252,
+              "displayName": "visibility-plugin-contract",
+              "family": "code-plugin",
+              "icon": null,
+              "isOfficial": true,
+              "latestReleaseId": "q973a9fffe41xz33m83k1y9vcd8egyf6",
+              "latestVersion": "2.0.0",
+              "name": "visibility-plugin-contract",
+              "scanStatus": "clean",
+              "stats": {
+                "downloads": 0,
+                "installs": 0,
+                "stars": 0,
+                "versions": 9
+              },
+              "tags": {
+                "canary": "2.0.0",
+                "latest": "1.0.0",
+                "stable": "1.0.0"
+              },
+              "updatedAt": 1789589383252
+            },
+            "owner": {
+              "handle": "visibility-contract",
+              "displayName": "Local visibility owner",
+              "image": null,
+              "official": false
+            }
+          }
+        },
+        {
+          "surface": "skill-file-latest",
+          "path": "/api/v1/skills/visibility-contract/file?path=SKILL.md",
+          "status": 200,
+          "type": "application/octet-stream",
+          "bytes": 103,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "1a2a6f28a5e468c8a824618daf70a7bc9e3896d6ab04d6979fd5bbb13897d3e1",
+          "body": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 SKILL.md\n"
+        },
+        {
+          "surface": "package-file-latest",
+          "path": "/api/v1/packages/visibility-plugin-contract/file?path=index.js",
+          "status": 200,
+          "type": "application/octet-stream",
+          "bytes": 103,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "5c7a8f9ab01ba10da9d4698cf75f5fdeb68e31d0221f716092bba7af0553b806",
+          "body": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 index.js\n"
+        },
+        {
+          "surface": "skill-export",
+          "path": "/api/v1/skills/export?startDate=1789589383251&endDate=1789589384252&limit=5",
+          "status": 200,
+          "type": "application/zip",
+          "bytes": 1477,
+          "exported": "1",
+          "exportErrors": "0",
+          "sha256": "634df88424e7b14f862fd38ae9c7c7cff7e060fd1fdbb4b60aef4fdd51546988",
+          "files": [
+            "_manifest.json",
+            "visibility-contract/visibility-contract/SKILL.md",
+            "visibility-contract/visibility-contract/_export_skill_meta.json",
+            "visibility-contract/visibility-contract/index.js",
+            "visibility-contract/visibility-contract/skill-card.md"
+          ],
+          "fixtureKinds": [
+            "pending"
+          ],
+          "containsWithheld": true
+        },
+        {
+          "surface": "package-export",
+          "path": "/api/v1/plugins/export?startDate=1789589383251&endDate=1789589384252&limit=5",
+          "status": 200,
+          "type": "application/zip",
+          "bytes": 1598,
+          "exported": "1",
+          "exportErrors": "0",
+          "sha256": "537503c0dfc7b19beedebbf03c60ebdc3287b33dee4c1033f43b29c71b00a2ed",
+          "files": [
+            "__clawhub_export/code-plugin/visibility-plugin-contract/plugin_meta.json",
+            "_manifest.json",
+            "code-plugin/visibility-plugin-contract/SKILL.md",
+            "code-plugin/visibility-plugin-contract/index.js",
+            "code-plugin/visibility-plugin-contract/skill-card.md"
+          ],
+          "fixtureKinds": [
+            "pending"
+          ],
+          "containsWithheld": true
+        }
+      ]
+    },
+    {
+      "stage": "pending-stale-summary",
+      "requests": [
+        {
+          "surface": "skill-root",
+          "path": "/api/v1/skills/visibility-contract",
+          "status": 200,
+          "type": "application/json",
+          "bytes": 605,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "51f29dbd2322aba403402ea164a1902243517eb83765db45bc0e7d59dfbe31f5",
+          "body": "{\"skill\":{\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"summary\":null,\"icon\":null,\"description\":\"---\\nname: visibility-proof\\ndescription: contract pending content\\n---\\n# contract pending 2.0.0 SKILL.md\\n\",\"tags\":{\"canary\":\"2.0.0\",\"latest\":\"1.0.0\",\"stable\":\"1.0.0\"},\"stats\":{\"comments\":0,\"downloads\":0,\"installs\":0,\"stars\":0,\"versions\":9},\"createdAt\":1789589383252,\"updatedAt\":1789589383252},\"latestVersion\":null,\"metadata\":null,\"owner\":{\"handle\":\"visibility-contract\",\"userId\":\"sx77755vetqt3emrt4ky2rfe8x8eh7k4\",\"displayName\":\"Local visibility owner\",\"image\":null},\"moderation\":null}",
+          "json": {
+            "skill": {
+              "slug": "visibility-contract",
+              "displayName": "visibility-contract",
+              "summary": null,
+              "icon": null,
+              "description": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 SKILL.md\n",
+              "tags": {
+                "canary": "2.0.0",
+                "latest": "1.0.0",
+                "stable": "1.0.0"
+              },
+              "stats": {
+                "comments": 0,
+                "downloads": 0,
+                "installs": 0,
+                "stars": 0,
+                "versions": 9
+              },
+              "createdAt": 1789589383252,
+              "updatedAt": 1789589383252
+            },
+            "latestVersion": null,
+            "metadata": null,
+            "owner": {
+              "handle": "visibility-contract",
+              "userId": "sx77755vetqt3emrt4ky2rfe8x8eh7k4",
+              "displayName": "Local visibility owner",
+              "image": null
+            },
+            "moderation": null
+          }
+        },
+        {
+          "surface": "skill-list",
+          "path": "/api/v1/skills?limit=100",
+          "status": 200,
+          "type": "application/json",
+          "bytes": 400,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "608ec5ccd09d28825595dac5a335c353e22a9b25aa3cb9082ea0ebb5346aea51",
+          "body": "{\"items\":[{\"ownerHandle\":\"visibility-contract\",\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"summary\":null,\"description\":null,\"topics\":[],\"tags\":{\"canary\":\"2.0.0\",\"latest\":\"1.0.0\",\"stable\":\"1.0.0\"},\"stats\":{\"comments\":0,\"downloads\":0,\"installs\":0,\"stars\":0,\"versions\":9},\"createdAt\":1789589383252,\"updatedAt\":1789589383252,\"latestVersion\":null,\"metadata\":null}],\"nextCursor\":null}",
+          "json": {
+            "items": [
+              {
+                "ownerHandle": "visibility-contract",
+                "slug": "visibility-contract",
+                "displayName": "visibility-contract",
+                "summary": null,
+                "description": null,
+                "topics": [],
+                "tags": {
+                  "canary": "2.0.0",
+                  "latest": "1.0.0",
+                  "stable": "1.0.0"
+                },
+                "stats": {
+                  "comments": 0,
+                  "downloads": 0,
+                  "installs": 0,
+                  "stars": 0,
+                  "versions": 9
+                },
+                "createdAt": 1789589383252,
+                "updatedAt": 1789589383252,
+                "latestVersion": null,
+                "metadata": null
+              }
+            ],
+            "nextCursor": null
+          }
+        },
+        {
+          "surface": "package-root",
+          "path": "/api/v1/packages/visibility-plugin-contract",
+          "status": 404,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 17,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "8bca3b447af10f653095cc20bff97256ca365136074271f3edc55b9264999bed",
+          "body": "Package not found"
+        },
+        {
+          "surface": "skill-file-latest",
+          "path": "/api/v1/skills/visibility-contract/file?path=SKILL.md",
+          "status": 200,
+          "type": "application/octet-stream",
+          "bytes": 103,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "1a2a6f28a5e468c8a824618daf70a7bc9e3896d6ab04d6979fd5bbb13897d3e1",
+          "body": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 SKILL.md\n"
+        },
+        {
+          "surface": "package-file-latest",
+          "path": "/api/v1/packages/visibility-plugin-contract/file?path=index.js",
+          "status": 404,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 17,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "8bca3b447af10f653095cc20bff97256ca365136074271f3edc55b9264999bed",
+          "body": "Package not found"
+        },
+        {
+          "surface": "skill-export",
+          "path": "/api/v1/skills/export?startDate=1789589383251&endDate=1789589384252&limit=5",
+          "status": 200,
+          "type": "application/zip",
+          "bytes": 1477,
+          "exported": "1",
+          "exportErrors": "0",
+          "sha256": "634df88424e7b14f862fd38ae9c7c7cff7e060fd1fdbb4b60aef4fdd51546988",
+          "files": [
+            "_manifest.json",
+            "visibility-contract/visibility-contract/SKILL.md",
+            "visibility-contract/visibility-contract/_export_skill_meta.json",
+            "visibility-contract/visibility-contract/index.js",
+            "visibility-contract/visibility-contract/skill-card.md"
+          ],
+          "fixtureKinds": [
+            "pending"
+          ],
+          "containsWithheld": true
+        },
+        {
+          "surface": "package-export",
+          "path": "/api/v1/plugins/export?startDate=1789589383251&endDate=1789589384252&limit=5",
+          "status": 200,
+          "type": "application/zip",
+          "bytes": 1598,
+          "exported": "1",
+          "exportErrors": "0",
+          "sha256": "537503c0dfc7b19beedebbf03c60ebdc3287b33dee4c1033f43b29c71b00a2ed",
+          "files": [
+            "__clawhub_export/code-plugin/visibility-plugin-contract/plugin_meta.json",
+            "_manifest.json",
+            "code-plugin/visibility-plugin-contract/SKILL.md",
+            "code-plugin/visibility-plugin-contract/index.js",
+            "code-plugin/visibility-plugin-contract/skill-card.md"
+          ],
+          "fixtureKinds": [
+            "pending"
+          ],
+          "containsWithheld": true
+        }
+      ]
+    },
+    {
+      "stage": "blocked-stale-summary",
+      "requests": [
+        {
+          "surface": "skill-root",
+          "path": "/api/v1/skills/visibility-contract",
+          "status": 200,
+          "type": "application/json",
+          "bytes": 605,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "51f29dbd2322aba403402ea164a1902243517eb83765db45bc0e7d59dfbe31f5",
+          "body": "{\"skill\":{\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"summary\":null,\"icon\":null,\"description\":\"---\\nname: visibility-proof\\ndescription: contract pending content\\n---\\n# contract pending 2.0.0 SKILL.md\\n\",\"tags\":{\"canary\":\"2.0.0\",\"latest\":\"1.0.0\",\"stable\":\"1.0.0\"},\"stats\":{\"comments\":0,\"downloads\":0,\"installs\":0,\"stars\":0,\"versions\":9},\"createdAt\":1789589383252,\"updatedAt\":1789589383252},\"latestVersion\":null,\"metadata\":null,\"owner\":{\"handle\":\"visibility-contract\",\"userId\":\"sx77755vetqt3emrt4ky2rfe8x8eh7k4\",\"displayName\":\"Local visibility owner\",\"image\":null},\"moderation\":null}",
+          "json": {
+            "skill": {
+              "slug": "visibility-contract",
+              "displayName": "visibility-contract",
+              "summary": null,
+              "icon": null,
+              "description": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 SKILL.md\n",
+              "tags": {
+                "canary": "2.0.0",
+                "latest": "1.0.0",
+                "stable": "1.0.0"
+              },
+              "stats": {
+                "comments": 0,
+                "downloads": 0,
+                "installs": 0,
+                "stars": 0,
+                "versions": 9
+              },
+              "createdAt": 1789589383252,
+              "updatedAt": 1789589383252
+            },
+            "latestVersion": null,
+            "metadata": null,
+            "owner": {
+              "handle": "visibility-contract",
+              "userId": "sx77755vetqt3emrt4ky2rfe8x8eh7k4",
+              "displayName": "Local visibility owner",
+              "image": null
+            },
+            "moderation": null
+          }
+        },
+        {
+          "surface": "skill-list",
+          "path": "/api/v1/skills?limit=100",
+          "status": 200,
+          "type": "application/json",
+          "bytes": 400,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "608ec5ccd09d28825595dac5a335c353e22a9b25aa3cb9082ea0ebb5346aea51",
+          "body": "{\"items\":[{\"ownerHandle\":\"visibility-contract\",\"slug\":\"visibility-contract\",\"displayName\":\"visibility-contract\",\"summary\":null,\"description\":null,\"topics\":[],\"tags\":{\"canary\":\"2.0.0\",\"latest\":\"1.0.0\",\"stable\":\"1.0.0\"},\"stats\":{\"comments\":0,\"downloads\":0,\"installs\":0,\"stars\":0,\"versions\":9},\"createdAt\":1789589383252,\"updatedAt\":1789589383252,\"latestVersion\":null,\"metadata\":null}],\"nextCursor\":null}",
+          "json": {
+            "items": [
+              {
+                "ownerHandle": "visibility-contract",
+                "slug": "visibility-contract",
+                "displayName": "visibility-contract",
+                "summary": null,
+                "description": null,
+                "topics": [],
+                "tags": {
+                  "canary": "2.0.0",
+                  "latest": "1.0.0",
+                  "stable": "1.0.0"
+                },
+                "stats": {
+                  "comments": 0,
+                  "downloads": 0,
+                  "installs": 0,
+                  "stars": 0,
+                  "versions": 9
+                },
+                "createdAt": 1789589383252,
+                "updatedAt": 1789589383252,
+                "latestVersion": null,
+                "metadata": null
+              }
+            ],
+            "nextCursor": null
+          }
+        },
+        {
+          "surface": "package-root",
+          "path": "/api/v1/packages/visibility-plugin-contract",
+          "status": 404,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 17,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "8bca3b447af10f653095cc20bff97256ca365136074271f3edc55b9264999bed",
+          "body": "Package not found"
+        },
+        {
+          "surface": "skill-file-latest",
+          "path": "/api/v1/skills/visibility-contract/file?path=SKILL.md",
+          "status": 200,
+          "type": "application/octet-stream",
+          "bytes": 103,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "1a2a6f28a5e468c8a824618daf70a7bc9e3896d6ab04d6979fd5bbb13897d3e1",
+          "body": "---\nname: visibility-proof\ndescription: contract pending content\n---\n# contract pending 2.0.0 SKILL.md\n"
+        },
+        {
+          "surface": "package-file-latest",
+          "path": "/api/v1/packages/visibility-plugin-contract/file?path=index.js",
+          "status": 404,
+          "type": "text/plain; charset=utf-8",
+          "bytes": 17,
+          "exported": null,
+          "exportErrors": null,
+          "sha256": "8bca3b447af10f653095cc20bff97256ca365136074271f3edc55b9264999bed",
+          "body": "Package not found"
+        },
+        {
+          "surface": "skill-export",
+          "path": "/api/v1/skills/export?startDate=1789589383251&endDate=1789589384252&limit=5",
+          "status": 200,
+          "type": "application/zip",
+          "bytes": 1477,
+          "exported": "1",
+          "exportErrors": "0",
+          "sha256": "634df88424e7b14f862fd38ae9c7c7cff7e060fd1fdbb4b60aef4fdd51546988",
+          "files": [
+            "_manifest.json",
+            "visibility-contract/visibility-contract/SKILL.md",
+            "visibility-contract/visibility-contract/_export_skill_meta.json",
+            "visibility-contract/visibility-contract/index.js",
+            "visibility-contract/visibility-contract/skill-card.md"
+          ],
+          "fixtureKinds": [
+            "pending"
+          ],
+          "containsWithheld": true
+        },
+        {
+          "surface": "package-export",
+          "path": "/api/v1/plugins/export?startDate=1789589383251&endDate=1789589384252&limit=5",
+          "status": 200,
+          "type": "application/zip",
+          "bytes": 1598,
+          "exported": "1",
+          "exportErrors": "0",
+          "sha256": "537503c0dfc7b19beedebbf03c60ebdc3287b33dee4c1033f43b29c71b00a2ed",
+          "files": [
+            "__clawhub_export/code-plugin/visibility-plugin-contract/plugin_meta.json",
+            "_manifest.json",
+            "code-plugin/visibility-plugin-contract/SKILL.md",
+            "code-plugin/visibility-plugin-contract/index.js",
+            "code-plugin/visibility-plugin-contract/skill-card.md"
+          ],
+          "fixtureKinds": [
+            "pending"
+          ],
+          "containsWithheld": true
+        }
+      ]
+    }
+  ],
+  "assertions": [
+    {
+      "name": "skill-file 1.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-file 1.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-card 1.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-card 1.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-verify 1.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-metadata 1.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-metadata 1.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 1.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 1.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 1.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 1.0.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "package-file 1.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-file 1.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "package-zip 1.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-zip 1.0.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "package-metadata 1.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-file 1.1.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-file 1.1.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-card 1.1.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-card 1.1.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-verify 1.1.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-metadata 1.1.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-metadata 1.1.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 1.1.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 1.1.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 1.1.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 1.1.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "package-file 1.1.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-file 1.1.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "package-zip 1.1.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-zip 1.1.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "package-metadata 1.1.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-file 2.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-file 2.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-card 2.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-card 2.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-verify 2.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-metadata 2.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-metadata 2.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 2.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 2.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 2.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 2.0.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "package-file 2.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-file 2.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "package-zip 2.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-zip 2.0.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "package-metadata 2.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-file 3.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-file 3.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-card 3.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-card 3.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-verify 3.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-metadata 3.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-metadata 3.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 3.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 3.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 3.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 3.0.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "package-file 3.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-file 3.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "package-zip 3.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-zip 3.0.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "package-metadata 3.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-file 4.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-card 4.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-verify 4.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-metadata 4.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-metadata 4.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 4.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 4.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-file 4.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-zip 4.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-metadata 4.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-file 5.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-file 5.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-card 5.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-card 5.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-verify 5.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-metadata 5.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-metadata 5.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 5.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 5.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 5.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 5.0.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "package-file 5.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-file 5.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "package-zip 5.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-zip 5.0.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "package-metadata 5.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-file 6.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-file 6.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-card 6.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-card 6.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-verify 6.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-metadata 6.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-metadata 6.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 6.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 6.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 6.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 6.0.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "package-file 6.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-file 6.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "package-zip 6.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-zip 6.0.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "package-metadata 6.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-file 7.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-card 7.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-verify 7.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-metadata 7.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-metadata 7.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 7.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 7.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-file 7.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-zip 7.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-metadata 7.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-file 8.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-card 8.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-verify 8.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-metadata 8.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-metadata 8.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-alias-file 8.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "skill-zip 8.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-file 8.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-file 8.0.0 fixture bytes",
+      "passed": true
+    },
+    {
+      "name": "package-zip 8.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "package-zip 8.0.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "package-metadata 8.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "http-resolve 1.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "http-resolve 1.0.0 match",
+      "passed": true
+    },
+    {
+      "name": "http-resolve 1.1.0 status",
+      "passed": true
+    },
+    {
+      "name": "http-resolve 1.1.0 match",
+      "passed": true
+    },
+    {
+      "name": "http-resolve 2.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "http-resolve 2.0.0 match",
+      "passed": true
+    },
+    {
+      "name": "http-resolve 3.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "http-resolve 3.0.0 match",
+      "passed": true
+    },
+    {
+      "name": "skill-file-canary  status",
+      "passed": true
+    },
+    {
+      "name": "skill-file-missing-tag  status",
+      "passed": true
+    },
+    {
+      "name": "skill-tags  status",
+      "passed": true
+    },
+    {
+      "name": "skill-tags canary",
+      "passed": true
+    },
+    {
+      "name": "skill-tags stable",
+      "passed": true
+    },
+    {
+      "name": "package-tags  status",
+      "passed": true
+    },
+    {
+      "name": "package-tags canary",
+      "passed": true
+    },
+    {
+      "name": "package-tags stable",
+      "passed": true
+    },
+    {
+      "name": "package-file-canary  status",
+      "passed": true
+    },
+    {
+      "name": "hosted-skill-zip 1.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "hosted-skill-zip 1.0.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "hosted-skill-zip 1.1.0 status",
+      "passed": true
+    },
+    {
+      "name": "hosted-skill-zip 1.1.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "hosted-skill-zip 2.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "hosted-skill-zip 2.0.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "hosted-skill-zip 3.0.0 status",
+      "passed": true
+    },
+    {
+      "name": "hosted-skill-zip 3.0.0 fixture archive",
+      "passed": true
+    },
+    {
+      "name": "anonymous hash 1.0.0",
+      "passed": true
+    },
+    {
+      "name": "anonymous hash 1.1.0",
+      "passed": true
+    },
+    {
+      "name": "anonymous hash 2.0.0",
+      "passed": true
+    },
+    {
+      "name": "anonymous hash 3.0.0",
+      "passed": true
+    },
+    {
+      "name": "anonymous pending preview",
+      "passed": true
+    },
+    {
+      "name": "anonymous pending contents",
+      "passed": true
+    },
+    {
+      "name": "owner pending preview",
+      "passed": true
+    },
+    {
+      "name": "owner pending contents",
+      "passed": true
+    },
+    {
+      "name": "staff pending preview",
+      "passed": true
+    },
+    {
+      "name": "staff pending contents",
+      "passed": true
+    },
+    {
+      "name": "ordinary-user pending preview",
+      "passed": true
+    },
+    {
+      "name": "ordinary-user pending contents",
+      "passed": true
+    },
+    {
+      "name": "published-pointer skill description bytes",
+      "passed": true
+    },
+    {
+      "name": "published-pointer skill file status",
+      "passed": true
+    },
+    {
+      "name": "published-pointer package file status",
+      "passed": true
+    },
+    {
+      "name": "published-pointer skill-export positive archive",
+      "passed": true
+    },
+    {
+      "name": "published-pointer package-export positive archive",
+      "passed": true
+    },
+    {
+      "name": "pending-stale-summary skill root status",
+      "passed": true
+    },
+    {
+      "name": "pending-stale-summary skill description",
+      "passed": true
+    },
+    {
+      "name": "pending-stale-summary skill-export status",
+      "passed": true
+    },
+    {
+      "name": "pending-stale-summary skill-export withheld bytes",
+      "passed": true
+    },
+    {
+      "name": "pending-stale-summary skill-export returned",
+      "passed": true
+    },
+    {
+      "name": "pending-stale-summary package-export status",
+      "passed": true
+    },
+    {
+      "name": "pending-stale-summary package-export withheld bytes",
+      "passed": true
+    },
+    {
+      "name": "pending-stale-summary package-export returned",
+      "passed": true
+    },
+    {
+      "name": "pending-stale-summary skill latest file",
+      "passed": true
+    },
+    {
+      "name": "pending-stale-summary package latest file",
+      "passed": true
+    },
+    {
+      "name": "blocked-stale-summary skill root status",
+      "passed": true
+    },
+    {
+      "name": "blocked-stale-summary skill description",
+      "passed": true
+    },
+    {
+      "name": "blocked-stale-summary skill-export status",
+      "passed": true
+    },
+    {
+      "name": "blocked-stale-summary skill-export withheld bytes",
+      "passed": true
+    },
+    {
+      "name": "blocked-stale-summary skill-export returned",
+      "passed": true
+    },
+    {
+      "name": "blocked-stale-summary package-export status",
+      "passed": true
+    },
+    {
+      "name": "blocked-stale-summary package-export withheld bytes",
+      "passed": true
+    },
+    {
+      "name": "blocked-stale-summary package-export returned",
+      "passed": true
+    },
+    {
+      "name": "blocked-stale-summary skill latest file",
+      "passed": true
+    },
+    {
+      "name": "blocked-stale-summary package latest file",
+      "passed": true
+    }
+  ]
+}
