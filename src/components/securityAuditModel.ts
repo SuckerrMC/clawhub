@@ -1,7 +1,7 @@
+export { aggregateAuditVerdict } from "clawhub-schema";
 import type { EndorAnalysis } from "../../convex/lib/endorAnalysis";
 import {
   type AigAnalysis,
-  getClawScanDisplayStatus,
   type LlmAnalysis,
   type SkillSpectorAnalysis,
   type VtAnalysis,
@@ -36,26 +36,6 @@ const DEFAULT_AUDIT_SCANNER_ORDER: AuditScannerKind[] = ["skillspector", "static
 const SUPPORTING_AUDIT_SCANNER_ORDER: AuditScannerKind[] = DEFAULT_AUDIT_SCANNER_ORDER.filter(
   (kind) => kind !== "skillspector",
 );
-
-export function aggregateAuditVerdict(signals: SecurityAuditSignals) {
-  const clawScanStatus = getClawScanDisplayStatus(signals.llmAnalysis);
-  const staticStatus = signals.staticScan?.status?.trim().toLowerCase();
-  if (clawScanStatus === "malicious" || staticStatus === "malicious") return "malicious";
-  if (
-    clawScanStatus === "review" ||
-    clawScanStatus === "suspicious" ||
-    clawScanStatus === "warn" ||
-    clawScanStatus === "warning" ||
-    staticStatus === "suspicious" ||
-    staticStatus === "review" ||
-    staticStatus === "warn" ||
-    staticStatus === "warning"
-  ) {
-    return "review";
-  }
-  if (clawScanStatus !== "pending") return clawScanStatus;
-  return staticStatus || clawScanStatus;
-}
 
 export function getAuditScannerOrder(signals?: SecurityAuditSignals): AuditScannerKind[] {
   const hasStaticScanReview = Boolean(

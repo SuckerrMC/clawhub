@@ -168,6 +168,8 @@ Notes:
 - `recommended` uses engagement and recency signals.
 - `trending` ranks by installs in the last 7 days (telemetry-based).
 - `createdAt` is stable for new-skill crawls; `updated` changes when existing skills are republished.
+- Each item is identified by the owner-qualified pair `ownerHandle/slug`; slugs are not globally unique across publishers.
+- `latestVersion` is always present. It is `null` when the skill has no public version.
 - Prefix listing is complete across pages: keep following `nextCursor` until it is `null`.
 - When `nonSuspiciousOnly=true`, cursor-based sorts may return fewer than `limit` items on a page because suspicious skills are filtered after page retrieval.
 - Use `nextCursor` to continue pagination when present. A short page does not by itself mean end-of-results.
@@ -178,6 +180,7 @@ Response:
 {
   "items": [
     {
+      "ownerHandle": "steipete",
       "slug": "gifgrep",
       "displayName": "GifGrep",
       "summary": "…",
@@ -487,6 +490,8 @@ Admin-only canonical batch status route. It accepts `{ "jobIds": ["..."] }` and 
 Returns the Skill Card verification envelope used by `clawhub skill verify` and
 `openclaw skills verify`.
 
+If card regeneration fails, the previously attached card remains available. Existing bundle fingerprints continue to resolve after successful regeneration.
+
 Query params:
 
 - `ownerHandle` (optional): publisher handle for owner-qualified resolution. Use this when multiple publishers share the slug.
@@ -718,9 +723,10 @@ package, and documentation evidence using `gpt-5.6-luna` by default. Operators c
 override this with `OPENAI_PLUGIN_CATEGORY_MODEL`; the skill-summary model setting
 does not affect plugin classification.
 
-Already-published multi-category declarations remain readable and are preserved
-during metadata refresh. New generated assignments and bundled manifests use one
-category. A failed model request falls back to `other` during publication and is
+Historical declarations remain readable. The reviewed metadata refresh reclassifies
+retired or multiple categories from source evidence, preserving current single-purpose
+declarations and archived artifact bytes. New generated assignments and bundled
+manifests use one active category. A failed model request falls back to `other` during publication and is
 not accepted by the reviewed backfill.
 
 ### `GET /api/v1/skills/export`
@@ -829,12 +835,29 @@ Notes:
 
 ### `GET /api/v1/packages/{name}`
 
-Returns package detail metadata.
+Returns package detail metadata. The `owner.official` flag is the current publisher
+badge, independent of the package’s `isOfficial` flag. Response readers allow this
+field to be absent when querying registries that predate it.
 
 Notes:
 
 - Skills can also resolve through this route in the unified catalog.
 - Private packages return `404` unless the caller can read the owning publisher.
+
+### `GET /api/v1/packages/{name}/detail`
+
+Returns a plugin detail snapshot in one request: `package`, `owner`, `versions`
+(the first 10 published versions and `nextCursor`), the selected `version`,
+`readme`, and `security`. Existing package, version, and security field shapes are
+preserved. Code plugins and bundle plugins support this route.
+
+- `version` (optional query parameter) selects an exact release; otherwise the
+  current latest release is selected. A missing exact release returns `404`.
+- Package visibility and publisher permissions match the package metadata route.
+- Missing, moderation-blocked, or non-text README previews return `readme: null`.
+  The existing 200 KiB preview limit applies; oversized previews return `413`.
+- Security describes the selected release. Downloads still enforce their own
+  current moderation checks. Responses are not cached.
 
 ### `DELETE /api/v1/packages/{name}`
 
@@ -865,6 +888,12 @@ verification, artifact metadata, and scan data.
 
 Notes:
 
+- `version.pluginManifestSummary` exposes optional declared `contracts` (capability
+  family to name arrays), `providers`, and `channels`. For example, `contracts.tools`
+  names plugin tools; `contracts.videoGenerationProviders` names providers, not tools.
+  These declarations describe the published artifact, not current Gateway registrations.
+  Older summaries may omit these fields. A loose `SKILL.md` is not a bundled skill
+  unless the plugin manifest declares its skill root.
 - `version.artifact.kind` is `legacy-zip` for old-world package archives or
   `npm-pack` for ClawPack-backed releases.
 - ClawPack releases include npm-compatible `npmIntegrity`, `npmShasum`, and
@@ -894,6 +923,7 @@ Response:
 {
   "overview": "ClawScan found no material security concerns.\n\nUse least-privileged credentials when configuring this plugin.",
   "securityAuditUrl": "https://clawhub.ai/openclaw/plugins/example-plugin/security-audit?version=1.2.3",
+  "verdict": "malicious",
   "package": {
     "name": "@openclaw/example-plugin",
     "displayName": "Example Plugin",
@@ -925,6 +955,7 @@ Response fields:
 - `overview` is the canonical summary-and-guidance text shown by the package
   security-audit page. Install clients may present it without reconstructing
   audit text from scanner fields.
+- `verdict` is the combined display verdict used by the package security-audit page, including static analysis and visible agentic-risk findings. It can differ from the download-policy `trust.scanStatus`. Older registries may omit it; clients should treat that as unavailable display metadata.
 - `securityAuditUrl` links to the exact release's package security-audit page.
 - `package.name`, `package.displayName`, and `package.family` identify the
   resolved registry package.
@@ -1765,6 +1796,10 @@ publishes that stage a ClawPack tarball must send the resulting storage id as
 publishes use separate upload- and publish-scoped credentials; the server
 accepts the ticket only when both credentials belong to the same authorization
 transaction.
+
+## Agent Skills discovery
+
+`GET` and `HEAD /{owner}/skills/{slug}/.well-known/agent-skills/index.json` proxy the skill's Agent Skills index. Each upstream request has a ten-second deadline covering both response headers and the complete GET body. An upstream timeout fails discovery instead of returning a partial index. Completed responses preserve the upstream status, content type, and cache policy; HEAD returns no body.
 
 ## Registry discovery (`/.well-known/clawhub.json`)
 

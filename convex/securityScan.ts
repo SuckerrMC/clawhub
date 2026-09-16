@@ -595,6 +595,7 @@ async function getBulkSkillRescanBatchStatus(ctx: QueryCtx, jobIds: Id<"security
   let failed = 0;
   let missing = 0;
   const failedJobIds: Id<"securityScanJobs">[] = [];
+  const queuedJobIds: Id<"securityScanJobs">[] = [];
 
   for (const jobId of jobIds) {
     const job = await ctx.db.get(jobId);
@@ -602,8 +603,10 @@ async function getBulkSkillRescanBatchStatus(ctx: QueryCtx, jobIds: Id<"security
       missing += 1;
       continue;
     }
-    if (job.status === "queued") queued += 1;
-    else if (job.status === "running") running += 1;
+    if (job.status === "queued") {
+      queued += 1;
+      queuedJobIds.push(job._id);
+    } else if (job.status === "running") running += 1;
     else if (job.status === "succeeded") succeeded += 1;
     else if (job.status === "failed") {
       failed += 1;
@@ -623,6 +626,7 @@ async function getBulkSkillRescanBatchStatus(ctx: QueryCtx, jobIds: Id<"security
     terminal,
     done: queued + running === 0,
     failedJobIds,
+    queuedJobIds,
   };
 }
 
@@ -3133,6 +3137,7 @@ export const claimQueuedJobsInternal = internalMutation({
     limit: v.number(),
     leaseMs: v.optional(v.number()),
     targetedJobIds: v.optional(v.array(v.id("securityScanJobs"))),
+    assignedJobIds: v.optional(v.array(v.id("securityScanJobs"))),
   },
   handler: async (ctx, args) => {
     const now = Date.now();
@@ -3259,7 +3264,30 @@ export const claimQueuedJobsInternal = internalMutation({
     };
 
     const targetedJobIds = args.targetedJobIds;
-    if (targetedJobIds !== undefined) {
+    if (args.assignedJobIds !== undefined) {
+      if (args.lane !== "shared" || targetedJobIds !== undefined) {
+        throw new ConvexError("Bulk job assignments require the shared lane and no Test targets");
+      }
+      if (args.assignedJobIds.length > 512) {
+        throw new ConvexError("Too many assigned bulk jobs requested (maximum 512)");
+      }
+      // Local coordinators give workers disjoint IDs. Point reads avoid the shared
+      // queue-head read range, whose changes caused claims to conflict at high fanout.
+      // An empty or stale assignment must never fall back to the general queue.
+      for (const jobId of new Set(args.assignedJobIds)) {
+        if (remainingCapacity() === 0) break;
+        const job = await ctx.db.get(jobId);
+        if (
+          job?.status === "queued" &&
+          job.source === "bulk-rescan" &&
+          job.targetKind === "skillVersion" &&
+          !job.rolloutGate &&
+          job.nextRunAt <= now
+        ) {
+          addReadyJobs([job]);
+        }
+      }
+    } else if (targetedJobIds !== undefined) {
       const rollout = getRuntimeRolloutCapabilities();
       if (
         rollout.environment !== "test" ||
@@ -4095,6 +4123,7 @@ export const claimCodexScanJobLeases = action({
     limit: v.optional(v.number()),
     leaseMs: v.optional(v.number()),
     targetedJobIds: v.optional(v.array(v.id("securityScanJobs"))),
+    assignedJobIds: v.optional(v.array(v.id("securityScanJobs"))),
   },
   handler: async (ctx, args) => {
     assertWorkerToken(args.token);
@@ -4107,6 +4136,7 @@ export const claimCodexScanJobLeases = action({
         limit: normalizeLimit(args.limit),
         leaseMs: args.leaseMs,
         targetedJobIds: args.targetedJobIds,
+        assignedJobIds: args.assignedJobIds,
       },
     );
   },

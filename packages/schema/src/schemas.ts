@@ -346,6 +346,7 @@ export const ApiV1SearchResponseSchema = type({
 
 export const ApiV1SkillListResponseSchema = type({
   items: type({
+    ownerHandle: "string",
     slug: "string",
     displayName: "string",
     summary: "string|null?",
@@ -360,7 +361,7 @@ export const ApiV1SkillListResponseSchema = type({
       createdAt: "number",
       changelog: "string",
       license: SkillPlatformLicenseSchema.or("null").optional(),
-    }).optional(),
+    }).or("null"),
     metadata: type({
       setup: type({
         key: "string",
@@ -813,6 +814,8 @@ export const ApiV1SkillScanBatchStatusResponseSchema = type({
   terminal: "number",
   done: "boolean",
   failedJobIds: "string[]",
+  // Optional for clients talking to servers that predate local worker assignments.
+  queuedJobIds: "string[]?",
 });
 export type ApiV1SkillScanBatchStatusResponse =
   (typeof ApiV1SkillScanBatchStatusResponseSchema)[inferred];
