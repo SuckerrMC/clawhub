@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "phase": "final-main-integration",
+  "assertionCount": 187,
+  "allPassed": true,
+  "httpObservations": 103,
+  "hashQueries": 4,
+  "nativeIdentityPreviews": 4,
+  "lifecycleStages": 3,
+  "parentVisibilityStates": [
+    "hidden",
+    "malware"
+  ],
+  "runComplete": true,
+  "cleanupVerified": {
+    "portsFree": [
+      3910,
+      3911,
+      3912
+    ],
+    "worktreeClean": true,
+    "temporaryFixtureAndLocalEnvAndBackendStateRemoved": true
+  },
+  "artifactSha256": "e3d445cd96b451d4a44e94b712ff7d0bda3f0caaaa4cc591832f62fcfd619fcb",
+  "artifact": "final-main-integration.json",
+  "runReceipt": "run-final-main-integration.json",
+  "baselineReused": true,
+  "publicWrites": false,
+  "proofTarget": "locally validated expected merge result",
+  "expectedMergeResultCommit": "a1cb5b376d5c564dbf60345b2eddaaa5efd1ae60",
+  "integratedMain": "a5b31b2f3353fda19ee808ef71ffa3f5cbc7bc44",
+  "remotePullRequestHeadPrefix": "8fac",
+  "landingGuard": "Parent must verify current main remains a5b31b2f3353fda19ee808ef71ffa3f5cbc7bc44 and GitHub merged tree equals local expected merge result a1cb5b376d5c564dbf60345b2eddaaa5efd1ae60."
+}
